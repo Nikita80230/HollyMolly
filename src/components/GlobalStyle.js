@@ -12,7 +12,9 @@ import CroissantOneRegularWoff from "../fonts/CroissantOne-Regular.woff";
 export const GlobalStyle = createGlobalStyle`
 
 :root{
-
+--family-nunito:"Nunito"
+--family-roboto:"Roboto"
+--family-croissantOne:"CroissantOne"
 }
 
 @font-face {
