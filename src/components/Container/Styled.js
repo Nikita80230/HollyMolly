@@ -1,8 +1,7 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 
-export const Container = styled.div`
- 
- /* Гумова верстка від 320px */
+export const StyledContainer = styled.div`
+  /* Гумова верстка від 320px */
   width: 100%;
   max-width: 100%;
   padding: 0 20px;
@@ -27,6 +26,5 @@ export const Container = styled.div`
   /* Desktop: до 1440px */
   @media only screen and (min-width: 1025px) and (max-width: 1440px) {
     max-width: 1440px;
-    
   }
 `;
