@@ -2,6 +2,8 @@ import { createGlobalStyle } from "styled-components";
 import "modern-normalize";
 import RobotoRegularTtf from "../fonts/Roboto-Regular.ttf";
 import RobotoRegularWoff from "../fonts/Roboto-Regular.woff";
+import RobotoBoltTtf from "../fonts/Roboto-Bold.ttf";
+import RobotoBoltWoff from "../fonts/Roboto-Bold.woff";
 import NunitoRegularTtf from "../fonts/Nunito-Regular.ttf";
 import NunitoRegularWoff from "../fonts/Nunito-Regular.woff";
 import NunitoSemiBoldTtf from "../fonts/Nunito-SemiBold.ttf";
@@ -12,15 +14,24 @@ import CroissantOneRegularWoff from "../fonts/CroissantOne-Regular.woff";
 export const GlobalStyle = createGlobalStyle`
 
 :root{
---family-nunito:"Nunito"
---family-roboto:"Roboto"
---family-croissantOne:"CroissantOne"
+
+--familyNunito:"Nunito"
+--familyRoboto:"Roboto"
+--familyCroissantOne:"CroissantOne"
+
 }
 
 @font-face {
    font-family: 'Roboto', sans-serif;
  src: local('Roboto-Regular'), url(${RobotoRegularTtf}) format('ttf'), url(${RobotoRegularWoff}) format('woff');
   font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto", sans-serif;
+src: local('Roboto-Bolt'), url(${RobotoBoltTtf}) format('ttf'), url(${RobotoBoltWoff}) format('woff');
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -49,6 +60,7 @@ body {
  font-family: 'Roboto', sans-serif;
   margin: 0 auto;
   min-width: 100%;
+  background-color: ${({ theme }) => theme.colors.primaryBgColor};
   
 }
 
