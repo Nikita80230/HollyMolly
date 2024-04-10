@@ -12,7 +12,6 @@ const Header = () => {
             <button type="button">Category</button>
             <ArrowRight />
           </div>
-          <p className="title">header</p>
         </div>
       </Container>
     </StyledHeader>
