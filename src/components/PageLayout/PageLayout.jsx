@@ -6,6 +6,9 @@ import Header from "../Header/Header";
 import Container from "../Container/Container";
 
 import { StyledPageLayout } from "./Styled";
+import Footer from "../Footer/Footer";
+
+
 
 export const PageLayout = () => {
   return (
@@ -18,7 +21,7 @@ export const PageLayout = () => {
           </Suspense>
         </Container>
       </main>
-      <Footer/>
+    <Footer/>
     </StyledPageLayout>
   );
 };
