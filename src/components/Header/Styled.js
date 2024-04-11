@@ -18,4 +18,12 @@ export const StyledHeader = styled.header`
     font-size: 30px;
     color: ${({ theme }) => theme.colors.accentTxtColor};
   }
+
+  .headerLogo {
+    margin: 0 auto;
+  }
+
+  .headerLogoImg {
+    display: block;
+  }
 `;

@@ -101,4 +101,8 @@ button{
     cursor:pointer;
 }
 
+.icon {
+  display: block;
+}
+
 `;
