@@ -1,9 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 
-export const Footer = styled.footer``;
-
 export const FooterNavigation = styled.ul`
+  padding: 0 65px 0 87px;
   margin-bottom: 60px;
   display: flex;
   gap: 194px;
@@ -29,13 +28,26 @@ export const StyledLink = styled(NavLink)`
   font-size: 18px;
   white-space: nowrap;
   color: ${({ theme }) => theme.colors.primaryTxtColor};
+  transition: color ${({ theme }) => theme.animations.transition};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.colorLink};
+  }
 `;
 
 export const SocialLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--familyRoboto);
   font-weight: 400;
   font-size: 18px;
   color: ${({ theme }) => theme.colors.colorLink};
+  transition: color ${({ theme }) => theme.animations.transition};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.hoverButton};
+  }
 `;
 
 export const WrapperSocialLink = styled.div`

@@ -42,32 +42,36 @@ const Footer = () => {
           <li className="footer-items">
             <h3 className="footer-title">Follow us</h3>
             <WrapperSocialLink>
-              <Instagram />
+             
               <SocialLink
                 to="https://www.instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                
+                 <Instagram />
                 HollyMolly_Store
               </SocialLink>
             </WrapperSocialLink>
             <WrapperSocialLink>
-              <Facebook />
+              
               <SocialLink
                 to="https://facebook.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <Facebook />
                 Holly Molly Store
               </SocialLink>
             </WrapperSocialLink>
             <WrapperSocialLink>
-              <Twitter />
+              
               <SocialLink
                 to="https://twitter.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <Twitter />
                 Your Store_
               </SocialLink>
             </WrapperSocialLink>
