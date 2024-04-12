@@ -6,9 +6,9 @@ import viteSvgrPlugin from "vite-plugin-svgr";
 
 export default defineConfig({
   plugins: [react(), viteSvgrPlugin({ include: "**/*.svg?react" })],
+  resolve: { alias: { src: "/src" } },
   server: {
     open: true,
     port: 3000,
   },
-  
 });

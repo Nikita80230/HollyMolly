@@ -17,6 +17,12 @@ export const theme = {
     focusButton: "#8094e7",
   },
 
+  fonts: {
+    familyNunito: "Nunito",
+    familyRoboto: "Roboto",
+    // familyCroissantOne: "CroissantOne",
+  },
+
   animations: {
     transition: "300ms cubic-bezier(0.4, 0, 0.2, 1)",
   },

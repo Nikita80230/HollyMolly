@@ -5,7 +5,6 @@ export const StyledHeader = styled.header`
   align-items: center;
   flex-direction: row;
   min-height: 108px;
-  border-bottom: solid black;
 
   .header {
     display: flex;
@@ -14,7 +13,7 @@ export const StyledHeader = styled.header`
   }
 
   .title {
-    font-family: var(--family-croissantOne);
+    /* font-family: var(--family-croissantOne); */
     font-size: 30px;
     color: ${({ theme }) => theme.colors.accentTxtColor};
   }

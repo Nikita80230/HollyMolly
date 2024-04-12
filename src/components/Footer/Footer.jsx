@@ -42,19 +42,16 @@ const Footer = () => {
           <li className="footer-items">
             <h3 className="footer-title">Follow us</h3>
             <WrapperSocialLink>
-             
               <SocialLink
                 to="https://www.instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                
-                 <Instagram />
+                <Instagram />
                 HollyMolly_Store
               </SocialLink>
             </WrapperSocialLink>
             <WrapperSocialLink>
-              
               <SocialLink
                 to="https://facebook.com/"
                 target="_blank"
@@ -65,7 +62,6 @@ const Footer = () => {
               </SocialLink>
             </WrapperSocialLink>
             <WrapperSocialLink>
-              
               <SocialLink
                 to="https://twitter.com/"
                 target="_blank"
@@ -78,7 +74,6 @@ const Footer = () => {
           </li>
         </FooterNavigation>
       </Container>
-
       <LowerBlock>
         <p className="text">@ 2024 , All Rights Reserved</p>
         <ul className="lower-links">

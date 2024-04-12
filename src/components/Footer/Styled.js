@@ -9,7 +9,7 @@ export const FooterNavigation = styled.ul`
 
   .footer-title {
     margin-bottom: 33px;
-    font-family: var(--familyNunito);
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 400;
     font-size: 18px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
@@ -23,7 +23,7 @@ export const FooterNavigation = styled.ul`
 `;
 export const StyledLink = styled(NavLink)`
   display: block;
-  font-family: var(--familyRoboto);
+  font-family: ${({ theme }) => theme.fonts.familyRoboto};
   font-weight: 400;
   font-size: 18px;
   white-space: nowrap;
@@ -39,7 +39,7 @@ export const SocialLink = styled(NavLink)`
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--familyRoboto);
+  font-family: ${({ theme }) => theme.fonts.familyRoboto};
   font-weight: 400;
   font-size: 18px;
   color: ${({ theme }) => theme.colors.colorLink};
@@ -63,7 +63,7 @@ export const LowerBlock = styled.div`
   height: 50px;
   background-color: ${({ theme }) => theme.colors.secondaryBgColor};
   .text {
-    font-family: var(--familyRoboto);
+    font-family: ${({ theme }) => theme.fonts.familyRoboto};
     font-weight: 400;
     font-size: 14px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
@@ -76,7 +76,7 @@ export const LowerBlock = styled.div`
 `;
 
 export const StyledLowerLink = styled(Link)`
-  font-family: var(--familyRoboto);
+  font-family: ${({ theme }) => theme.fonts.familyRoboto};
   font-weight: 400;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.primaryTxtColor};
