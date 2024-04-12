@@ -2,6 +2,7 @@ export const theme = {
   colors: {
     primaryBgColor: "#FFFFFF",
     secondaryBgColor: "#f3f2f1",
+    heroBgColor:"#f3c59b ",
     primaryTxtColor: "#323234",
     secondaryTxtColor: " rgba(0, 3, 15, 0.6)",
     lightTxtColor: "#fcf2ea",
