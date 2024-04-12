@@ -10,11 +10,11 @@ export const Subscribe = () => {
       </p>
       <SubscribeEmailWrapper>
         <input
-          className="subscribe-input"
+          className="subscribeInput"
           type="email"
           placeholder="Your e-mail"
         />
-        <button className="subscribe-button">Send</button>
+        <button className="subscribeButton" type="submit">Send</button>
       </SubscribeEmailWrapper>
     </SubscribeWrapper>
   );

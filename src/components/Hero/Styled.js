@@ -10,7 +10,7 @@ export const StyledHero = styled.section`
   gap: 24px;
   width: 100%;
 
-  .wrapper-image {
+  .wrapperImage {
     padding-top: 84px;
     padding-left: 82px;
     padding-bottom: 160px;
@@ -36,21 +36,21 @@ only screen and (min-resolution: 2dppx) { /* Standard */
 }
   }
 
-  .hero-image-text {
+  .heroImageText {
     margin-bottom: 40px;
     font-family: var(--familyNunito);
     font-weight: 500;
     font-size: 22px;
     color: ${({ theme }) => theme.colors.lightTxtColor};
   }
-  .span-title {
+  .spanTitle {
     font-family: var(--familyNunito);
     font-weight: 700;
     font-size: 64px;
     text-transform: uppercase;
     color: ${({ theme }) => theme.colors.accentTxtColor};
   }
-  .hero-title {
+  .heroTitle {
     width: 331px;
     height: 234px;
     font-family: var(--familyNunito);
@@ -59,7 +59,7 @@ only screen and (min-resolution: 2dppx) { /* Standard */
     text-transform: uppercase;
     color: ${({ theme }) => theme.colors.lightTxtColor};
   }
-  .wrapper-second-image {
+  .wrapperSecondImage {
     padding-top: 41px;
     padding-right: 43px;
     padding-left: 44px;
@@ -81,14 +81,14 @@ only screen and (min-resolution: 2dppx) { /* Standard */
         linear-gradient(180deg, #ddc5b0 0%, #fff 100%);
 }
   }
-  .hero-subtitle {
+  .heroSubtitle {
     font-family: var(--familyNunito);
     font-weight: 600;
     font-size: 32px;
     color: ${({ theme }) => theme.colors.accentTxtColor};
     white-space: nowrap;
   }
-  .text-subtitle {
+  .textSubtitle {
     font-family: var(--familyNunito);
     font-weight: 500;
     font-size: 22px;
