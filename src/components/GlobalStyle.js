@@ -45,7 +45,7 @@ src: local('Roboto-Bolt'), url('/fonts/Roboto-Bold.ttf') format('ttf'), url('/fo
 
 @font-face{
   font-family: 'Nunito', sans-serif;
- src: local('Nunito-Regular'), url('/fonts/Nunito-SemiBold.ttf') format('ttf'), url('/fonts/Nunito-SemiBold.woff') format('woff');
+ src: local('Nunito-SemiBold'), url('/fonts/Nunito-SemiBold.ttf') format('ttf'), url('/fonts/Nunito-SemiBold.woff') format('woff');
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
