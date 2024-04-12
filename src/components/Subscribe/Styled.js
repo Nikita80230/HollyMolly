@@ -24,7 +24,7 @@ export const SubscribeWrapper = styled.div`
 export const SubscribeEmailWrapper = styled.div`
   display: flex;
   gap: 36px;
-  .subscribe-input {
+  .subscribeInput {
     padding: 12px 11px;
     outline: transparent;
     outline-offset: -1px;
@@ -34,13 +34,13 @@ export const SubscribeEmailWrapper = styled.div`
     height: 56px;
     transition: border-bottom ${({ theme }) => theme.animations.transition};
   }
-  .subscribe-input:hover {
+  .subscribeInput:hover {
     border-bottom: 1px solid ${({ theme }) => theme.colors.hoverInput};
   }
-  .subscribe-input:focus {
+  .subscribeInput:focus {
     border-bottom: 1px solid ${({ theme }) => theme.colors.inputFocus};
   }
-  .subscribe-button {
+  .subscribeButton {
     border: transparent;
     border-radius: 12px;
     padding: 16px 24px;
@@ -53,10 +53,10 @@ export const SubscribeEmailWrapper = styled.div`
     color: ${({ theme }) => theme.colors.lightColorButton};
     transition: background-color ${({ theme }) => theme.animations.transition};
   }
-  .subscribe-button:hover {
+  .subscribeButton:hover {
     background-color: ${({ theme }) => theme.colors.hoverButton};
   }
-  .subscribe-button:focus {
+  .subscribeButton:focus {
     background-color: ${({ theme }) => theme.colors.focusButton};
   }
 `;
