@@ -1,6 +1,6 @@
 import { SubscribeEmailWrapper, SubscribeWrapper } from "./Styled";
 
-export const Subscribe = () => {
+const Subscribe = () => {
   return (
     <SubscribeWrapper>
       <h2 className="title">Subscribe to our newsletters</h2>
@@ -14,8 +14,12 @@ export const Subscribe = () => {
           type="email"
           placeholder="Your e-mail"
         />
-        <button className="subscribeButton" type="submit">Send</button>
+        <button className="subscribeButton" type="submit">
+          Send
+        </button>
       </SubscribeEmailWrapper>
     </SubscribeWrapper>
   );
 };
+
+export default Subscribe;

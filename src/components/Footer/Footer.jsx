@@ -1,4 +1,4 @@
-import { Subscribe } from "../Subscribe/Subscribe";
+import Subscribe from "../Subscribe/Subscribe";
 import {
   FooterNavigation,
   LowerBlock,
