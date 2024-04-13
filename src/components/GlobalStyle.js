@@ -1,15 +1,15 @@
 import { createGlobalStyle } from "styled-components";
 import "modern-normalize";
-import RobotoRegularTtf from "../fonts/Roboto-Regular.ttf";
-import RobotoRegularWoff from "../fonts/Roboto-Regular.woff";
-import RobotoBoltTtf from "../fonts/Roboto-Bold.ttf";
-import RobotoBoltWoff from "../fonts/Roboto-Bold.woff";
-import NunitoRegularTtf from "../fonts/Nunito-Regular.ttf";
-import NunitoRegularWoff from "../fonts/Nunito-Regular.woff";
-import NunitoSemiBoldTtf from "../fonts/Nunito-SemiBold.ttf";
-import NunitoSemiBoldWoff from "../fonts/Nunito-SemiBold.woff";
-import CroissantOneRegularTtf from "../fonts/CroissantOne-Regular.ttf";
-import CroissantOneRegularWoff from "../fonts/CroissantOne-Regular.woff";
+// import RobotoRegularTtf from "../fonts/Roboto-Regular.ttf";
+// import RobotoRegularWoff from "../fonts/Roboto-Regular.woff";
+// import RobotoBoltTtf from "../fonts/Roboto-Bold.ttf";
+// import RobotoBoltWoff from "../fonts/Roboto-Bold.woff";
+// import NunitoRegularTtf from "../fonts/Nunito-Regular.ttf";
+// import NunitoRegularWoff from "../fonts/Nunito-Regular.woff";
+// import NunitoSemiBoldTtf from "../fonts/Nunito-SemiBold.ttf";
+// import NunitoSemiBoldWoff from "../fonts/Nunito-SemiBold.woff";
+// import CroissantOneRegularTtf from "../fonts/CroissantOne-Regular.ttf";
+// import CroissantOneRegularWoff from "../fonts/CroissantOne-Regular.woff";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -22,22 +22,22 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 @font-face {
-   font-family: 'Roboto', sans-serif;
- src: local('Roboto-Regular'), url(${RobotoRegularTtf}) format('ttf'), url(${RobotoRegularWoff}) format('woff');
+   font-family: 'Roboto';
+ src: local('Roboto-Regular'), url('/fonts/Roboto-Regular.ttf') format('ttf'), url('/fonts/Roboto-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Roboto", sans-serif;
-src: local('Roboto-Bolt'), url(${RobotoBoltTtf}) format('ttf'), url(${RobotoBoltWoff}) format('woff');
+src: local('Roboto-Bolt'), url('/fonts/Roboto-Bold.ttf') format('ttf'), url('/fonts/Roboto-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face{
   font-family: 'Nunito', sans-serif;
- src: local('Nunito-Regular'), url(${NunitoRegularTtf}) format('ttf'), url(${NunitoRegularWoff}) format('woff');
+ src: local('Nunito-Regular'), url('/fonts/Nunito-Regular.ttf') format('ttf'), url('/fonts/Nunito-Regular.woff') format('woff');
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -45,16 +45,12 @@ src: local('Roboto-Bolt'), url(${RobotoBoltTtf}) format('ttf'), url(${RobotoBolt
 
 @font-face{
   font-family: 'Nunito', sans-serif;
-   src: local('Nunito-SemiBold'), url(${NunitoSemiBoldTtf}) format('ttf'), url(${NunitoSemiBoldWoff}) format('woff');
+ src: local('Nunito-SemiBold'), url('/fonts/Nunito-SemiBold.ttf') format('ttf'), url('/fonts/Nunito-SemiBold.woff') format('woff');
   font-optical-sizing: auto;
-  font-weight: 600;
+  font-weight: 400;
   font-style: normal;
 }
 
-@font-face{
-  font-family: 'CroissantOne', sans-serif;
-  src: local('CroissantOne-Regular'), url(${CroissantOneRegularTtf}) format('ttf'), url(${CroissantOneRegularWoff}) format('woff');
-}
 
 body {
  font-family: 'Roboto', sans-serif;
@@ -106,3 +102,14 @@ button{
 }
 
 `;
+/* 
+
+
+
+
+
+
+@font-face{
+  font-family: 'CroissantOne', sans-serif;
+  src: local('CroissantOne-Regular'), url(${CroissantOneRegularTtf}) format('ttf'), url(${CroissantOneRegularWoff}) format('woff');
+} */

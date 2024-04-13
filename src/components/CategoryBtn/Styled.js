@@ -14,6 +14,8 @@ export const StyledCategoryBtn = styled.div`
   }
 
   .text {
+    font-family: ${({ theme }) => theme.fonts.familyRoboto};
+    font-weight: 400;
     font-size: 18px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
     margin-right: 15px;
