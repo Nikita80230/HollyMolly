@@ -7,7 +7,7 @@ export const SubscribeWrapper = styled.div`
   align-items: center;
   .title {
     margin-bottom: 22px;
-    font-family: var(--familyNunito);
+    font-family: ${({ theme }) => theme.fonts.fontNunito};
     font-weight: 700;
     font-size: 36px;
     text-transform: uppercase;
@@ -15,7 +15,7 @@ export const SubscribeWrapper = styled.div`
   }
   .description {
     margin-bottom: 41px;
-    font-family: var(--familyRoboto);
+    font-family: ${({ theme }) => theme.fonts.fontRoboto};
     font-weight: 400;
     font-size: 18px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
@@ -47,7 +47,7 @@ export const SubscribeEmailWrapper = styled.div`
     width: 94px;
     height: 56px;
     background-color: ${({ theme }) => theme.colors.buttonBgColor};
-    font-family: var(--familyRoboto);
+    font-family: ${({ theme }) => theme.fonts.fontRoboto};
     font-weight: 600;
     font-size: 20px;
     color: ${({ theme }) => theme.colors.lightColorButton};

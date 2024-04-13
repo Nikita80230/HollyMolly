@@ -38,13 +38,13 @@ only screen and (min-resolution: 2dppx) { /* Standard */
 
   .heroImageText {
     margin-bottom: 40px;
-    font-family: var(--familyNunito);
+    font-family: ${({theme})=>theme.fonts.fontNunito};
     font-weight: 500;
     font-size: 22px;
     color: ${({ theme }) => theme.colors.lightTxtColor};
   }
   .spanTitle {
-    font-family: var(--familyNunito);
+    font-family:  ${({theme})=>theme.fonts.fontNunito};
     font-weight: 700;
     font-size: 64px;
     text-transform: uppercase;
@@ -53,7 +53,7 @@ only screen and (min-resolution: 2dppx) { /* Standard */
   .heroTitle {
     width: 331px;
     height: 234px;
-    font-family: var(--familyNunito);
+    font-family:  ${({theme})=>theme.fonts.fontNunito};
     font-weight: 700;
     font-size: 36px;
     text-transform: uppercase;
@@ -82,14 +82,14 @@ only screen and (min-resolution: 2dppx) { /* Standard */
 }
   }
   .heroSubtitle {
-    font-family: var(--familyNunito);
+    font-family:  ${({theme})=>theme.fonts.fontNunito};
     font-weight: 600;
     font-size: 32px;
     color: ${({ theme }) => theme.colors.accentTxtColor};
     white-space: nowrap;
   }
   .textSubtitle {
-    font-family: var(--familyNunito);
+    font-family:  ${({theme})=>theme.fonts.fontNunito};
     font-weight: 500;
     font-size: 22px;
     text-align: center;
