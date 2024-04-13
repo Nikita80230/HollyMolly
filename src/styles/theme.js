@@ -16,6 +16,9 @@ export const theme = {
     buttonBgColor: "#3251ae",
     hoverButton: "#1d2f65",
     focusButton: "#8094e7",
+    backgroundCard: "#FFE959",
+    textCard: "#19191a",
+    borderButton:"#727273",
   },
 
   fonts: {
