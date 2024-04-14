@@ -10,7 +10,7 @@ import ArrowRight from "src/assets/images/arrowRight.svg?react";
 export const CategoriesSwiper = () => {
   return (
     <StyledCategoriesSection>
-      <h2 className="titleCategories">Categories</h2>
+      <h2 className="titleCategories">Категорії</h2>
       <Swiper
         modules={[Navigation, A11y]}
         spaceBetween={24}
