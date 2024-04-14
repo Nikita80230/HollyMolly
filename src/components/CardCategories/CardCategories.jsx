@@ -1,5 +1,6 @@
 import { StyledCardCategories } from "./Styled";
 
+
 const CardCategories = () => {
   return (
     <StyledCardCategories>
@@ -12,3 +13,5 @@ const CardCategories = () => {
 };
 
 export default CardCategories;
+
+

@@ -20,27 +20,27 @@ const Footer = () => {
 
         <FooterNavigation>
           <li className="footer-items">
-            <h3 className="footer-title">Help</h3>
-            <StyledLink>Delivery Tracking</StyledLink>
-            <StyledLink>Sizes guide</StyledLink>
-            <StyledLink>Sale FAQ</StyledLink>
+            <h3 className="footer-title">Допомога</h3>
+            <StyledLink>Відстеження товару</StyledLink>
+            <StyledLink>Довідник розмірів</StyledLink>
+            <StyledLink>FAQ</StyledLink>
           </li>
           <li className="footer-items">
             {" "}
-            <h3 className="footer-title">About Us</h3>
-            <StyledLink>About Us</StyledLink>
-            <StyledLink>Career</StyledLink>
-            <StyledLink>Blog</StyledLink>
+            <h3 className="footer-title">Про нас</h3>
+            <StyledLink>Про нас</StyledLink>
+            <StyledLink>Кар'єра</StyledLink>
+            <StyledLink>Блог</StyledLink>
           </li>
           <li className="footer-items">
-            <h3 className="footer-title">Catalog</h3>
-            <StyledLink>Bags</StyledLink>
-            <StyledLink>Jewelry</StyledLink>
-            <StyledLink>Headgear</StyledLink>
-            <StyledLink>Another</StyledLink>
+            <h3 className="footer-title">Каталог</h3>
+            <StyledLink>Головні убори</StyledLink>
+            <StyledLink>Біжутерія</StyledLink>
+            <StyledLink>Сумки</StyledLink>
+            <StyledLink>Інше</StyledLink>
           </li>
           <li className="footer-items">
-            <h3 className="footer-title">Follow us</h3>
+            <h3 className="footer-title">Соціальні мережі</h3>
             <WrapperSocialLink>
               <SocialLink
                 to="https://www.instagram.com/"

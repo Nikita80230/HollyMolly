@@ -3,20 +3,19 @@ import { SubscribeEmailWrapper, SubscribeWrapper } from "./Styled";
 const Subscribe = () => {
   return (
     <SubscribeWrapper>
-      <h2 className="title">Subscribe to our newsletters</h2>
+      <h2 className="title">Підпишись на наші оновлення</h2>
       <p className="description">
-        Subscribe to our updates and you will be able to receive all news about
-        discounts or new products
+        Підпишіться на наші оновлення щоб не пропусти знижки на ваші улюбленні товари
       </p>
       <SubscribeEmailWrapper>
         <input
           className="subscribeInput"
           type="email"
-          placeholder="Your e-mail"
+          placeholder="Ваша пошта"
         />
-        <button className="subscribeButton" type="submit">
-          Send
-        </button>
+
+        <button className="subscribeButton" type="submit">Відправити</button>
+
       </SubscribeEmailWrapper>
     </SubscribeWrapper>
   );
