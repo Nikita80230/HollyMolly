@@ -17,7 +17,7 @@ const SearchHeaderForm = () => {
         // disabled={disabled}
       />
       <span className="placeholder">
-        What are you looking for?
+        Що ви шукаєте?
         {/* {labelText} */}
         {/* {required && "*"} */}
       </span>

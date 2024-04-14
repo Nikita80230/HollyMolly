@@ -2,23 +2,26 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { StyledCategoriesSection } from "./Styled";
-// import { CardCategories } from "../CardCategories/CardCategories";
+
+import ProductCard from "../ProductCard/ProductCard";
+
 import ArrowLeft from "src/assets/images/arrowLeft.svg?react";
 import ArrowRight from "src/assets/images/arrowRight.svg?react";
-import CardCategories from "../CardCategories/CardCategories";
 
-const CategoriesSwiper = () => {
+import { StyledRecommendationSection } from "./Styled";
+
+const RecommendationSection = () => {
   return (
-    <StyledCategoriesSection>
-      <h2 className="titleCategories">Категорії</h2>
+    <StyledRecommendationSection>
+      <h2 className="titleRecommendation">Рекомендації</h2>
       <Swiper
+        className="swiper"
         modules={[Navigation, A11y]}
         spaceBetween={24}
         slidesPerView={4}
         navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          nextEl: ".nextProductBtn",
+          prevEl: ".prevProductBtn",
         }}
         breakpoints={{
           320: {
@@ -36,40 +39,40 @@ const CategoriesSwiper = () => {
         }}
       >
         <SwiperSlide>
-          <CardCategories />
+          <ProductCard />
         </SwiperSlide>
         <SwiperSlide>
-          <CardCategories />
+          <ProductCard />
         </SwiperSlide>
         <SwiperSlide>
-          <CardCategories />
+          <ProductCard />
         </SwiperSlide>
         <SwiperSlide>
-          <CardCategories />
+          <ProductCard />
         </SwiperSlide>
         <SwiperSlide>
-          <CardCategories />
+          <ProductCard />
         </SwiperSlide>
         <SwiperSlide>
-          <CardCategories />
+          <ProductCard />
         </SwiperSlide>
         <SwiperSlide>
-          <CardCategories />
+          <ProductCard />
         </SwiperSlide>
         <SwiperSlide>
-          <CardCategories />
+          <ProductCard />
         </SwiperSlide>
       </Swiper>
-      <div className="button-swiper">
-        <button className="swiper-button-next" type="button">
-          <ArrowRight />
-        </button>
-        <button className="swiper-button-prev" type="button">
+      <div className="buttonSwiper">
+        <button className="prevProductBtn" type="button">
           <ArrowLeft />
         </button>
+        <button className="nextProductBtn" type="button">
+          <ArrowRight />
+        </button>
       </div>
-    </StyledCategoriesSection>
+    </StyledRecommendationSection>
   );
 };
 
-export default CategoriesSwiper;
+export default RecommendationSection;

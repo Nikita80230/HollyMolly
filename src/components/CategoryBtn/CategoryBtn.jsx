@@ -5,7 +5,7 @@ const CategoryBtn = () => {
   return (
     <StyledCategoryBtn className="headerCategory">
       <button type="button" className="openCategoryBtn">
-        <span className="text">Category</span>
+        <span className="text">Категорія</span>
         <ArrowRight />
       </button>
     </StyledCategoryBtn>

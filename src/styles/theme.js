@@ -2,7 +2,7 @@ export const theme = {
   colors: {
     primaryBgColor: "#FFFFFF",
     secondaryBgColor: "#f3f2f1",
-    heroBgColor:"#f3c59b ",
+    heroBgColor: "#f3c59b ",
     primaryTxtColor: "#323234",
     secondaryTxtColor: " rgba(0, 3, 15, 0.6)",
     lightTxtColor: "#fcf2ea",
@@ -18,13 +18,12 @@ export const theme = {
     focusButton: "#8094e7",
     backgroundCard: "#FFE959",
     textCard: "#19191a",
-    borderButton:"#727273",
+    borderButton: "#727273",
   },
 
   fonts: {
     familyNunito: "Nunito",
     familyRoboto: "Roboto",
-    // familyCroissantOne: "CroissantOne",
   },
 
   animations: {

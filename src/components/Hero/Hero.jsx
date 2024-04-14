@@ -1,6 +1,6 @@
 import { StyledHero } from "./Styled";
 
-export const Hero = () => {
+const Hero = () => {
   return (
     <StyledHero>
       <div className="wrapperImage">
@@ -17,3 +17,5 @@ export const Hero = () => {
     </StyledHero>
   );
 };
+
+export default Hero;
