@@ -5,6 +5,6 @@ export const CardCategories = () => {
         <div className="wrapperPicture">
             <img/>
         </div>
-        <p className="textCard">Category</p>
+        <p className="textCard">Категорія</p>
     </StyledCardCategories>)
 }

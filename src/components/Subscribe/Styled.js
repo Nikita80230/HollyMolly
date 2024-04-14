@@ -44,7 +44,7 @@ export const SubscribeEmailWrapper = styled.div`
     border: transparent;
     border-radius: 12px;
     padding: 16px 24px;
-    width: 94px;
+    width: 157px;
     height: 56px;
     background-color: ${({ theme }) => theme.colors.buttonBgColor};
     font-family: ${({ theme }) => theme.fonts.fontRoboto};
