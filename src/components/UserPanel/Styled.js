@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const StyledUserPanel = styled.div`
   display: flex;
 
-  gap: 17px;
+  gap: 13px;
 
   max-width: 168px;
   width: 100%;

@@ -9,7 +9,7 @@ import { routes } from "../../routes";
 import DesktopLogo from "../../assets/images/logo.svg?react";
 
 import { StyledHeader } from "./Styled";
-import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+// import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import UserPanel from "../UserPanel/UserPanel";
 
 const Header = () => {
@@ -22,7 +22,7 @@ const Header = () => {
           <Link to={routes.HOME} className="headerLogo">
             <DesktopLogo className="headerLogoImg" />
           </Link>
-          <LanguageSwitcher />
+          {/* <LanguageSwitcher /> */}
           <UserPanel />
         </div>
       </Container>

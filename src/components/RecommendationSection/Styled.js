@@ -12,20 +12,18 @@ export const StyledRecommendationSection = styled.section`
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
-  .button-swiper {
+  .buttonSwiper {
     position: absolute;
     top: 0;
     right: 0;
-    width: 132px;
-    height: 44px;
+
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 24px;
   }
 
-  .swiper-button-next,
-  .swiper-button-prev {
+  .nextProductBtn,
+  .prevProductBtn {
     padding: 10px;
     width: 44px;
     height: 44px;
@@ -36,8 +34,14 @@ export const StyledRecommendationSection = styled.section`
     border: 1px solid ${({ theme }) => theme.colors.borderButton};
     border-radius: 8px;
   }
-  .swiper-button-next:after,
-  .swiper-button-prev:after {
+  .nextProductBtn:after,
+  .prevProductBtn:after {
     display: none;
+  }
+  .prevProductBtn.swiper-button-disabled,
+  .nextProductBtn.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: auto;
+    pointer-events: none;
   }
 `;

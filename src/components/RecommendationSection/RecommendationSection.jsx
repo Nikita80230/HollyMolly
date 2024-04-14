@@ -15,12 +15,13 @@ const RecommendationSection = () => {
     <StyledRecommendationSection>
       <h2 className="titleRecommendation">Рекомендації</h2>
       <Swiper
+        className="swiper"
         modules={[Navigation, A11y]}
         spaceBetween={24}
         slidesPerView={4}
         navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          nextEl: ".nextProductBtn",
+          prevEl: ".prevProductBtn",
         }}
         breakpoints={{
           320: {
@@ -62,12 +63,12 @@ const RecommendationSection = () => {
           <ProductCard />
         </SwiperSlide>
       </Swiper>
-      <div className="button-swiper">
-        <button className="swiper-button-next" type="button">
-          <ArrowRight />
-        </button>
-        <button className="swiper-button-prev" type="button">
+      <div className="buttonSwiper">
+        <button className="prevProductBtn" type="button">
           <ArrowLeft />
+        </button>
+        <button className="nextProductBtn" type="button">
+          <ArrowRight />
         </button>
       </div>
     </StyledRecommendationSection>
