@@ -5,6 +5,8 @@ export const StyledProductCard = styled.div`
   flex-direction: column;
   justify-content: center;
 
+  /* height: 264px; */
+
   .productImg {
     margin-bottom: 8px;
 

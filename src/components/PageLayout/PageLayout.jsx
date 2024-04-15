@@ -1,7 +1,3 @@
-import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
-
-import Loader from "src/components/Loader/Loader";
 import Header from "../Header/Header";
 import Container from "../Container/Container";
 
@@ -10,7 +6,7 @@ import Footer from "../Footer/Footer";
 import { useMediaQuery } from "react-responsive";
 import MobileHeader from "../MobileHeader/MobileHeader";
 
-const PageLayout = () => {
+const PageLayout = ({ children }) => {
   const isDesktop = useMediaQuery({
     query: "(min-width: 1024px)",
   });
@@ -25,11 +21,7 @@ const PageLayout = () => {
       {isMobile && <MobileHeader />}
       {isDesktop && <Header />}
       <main className="main">
-        <Container>
-          <Suspense fallback={<Loader />}>
-            <Outlet />
-          </Suspense>
-        </Container>
+        <Container>{children}</Container>
       </main>
       <Footer />
     </StyledPageLayout>

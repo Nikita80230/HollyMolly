@@ -44,4 +44,28 @@ export const StyledRecommendationSection = styled.section`
     cursor: auto;
     pointer-events: none;
   }
+
+  @media screen and (max-width: 564px) {
+    .swiperCustom {
+      width: 100%;
+      /* height: 100%; */
+      margin-left: auto;
+      margin-right: auto;
+      height: 750px;
+      border: 1px solid red;
+      /* height: 100%; */
+    }
+
+    .swiper-slideCustom {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      height: calc((100% - 10px) / 2) !important;
+
+      /* Center slide text vertically */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 `;
