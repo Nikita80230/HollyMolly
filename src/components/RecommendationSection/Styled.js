@@ -52,8 +52,6 @@ export const StyledRecommendationSection = styled.section`
       margin-left: auto;
       margin-right: auto;
       height: 750px;
-      border: 1px solid red;
-      /* height: 100%; */
     }
 
     .swiper-slideCustom {

@@ -36,6 +36,7 @@ export const StyledProductCard = styled.div`
 
   .productTitle {
     margin-bottom: 5px;
+    font-weight: 500;
 
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-size: 22px;
@@ -45,11 +46,24 @@ export const StyledProductCard = styled.div`
     margin-bottom: 8px;
 
     font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 400;
     font-size: 20px;
 
     color: ${({ theme }) => theme.colors.colorLogo};
   }
   .productColorSwitcher {
+  }
+
+  @media (max-width: 564px) {
+    .productTitle {
+      text-align: start;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .productPrice {
+      text-align: start;
+      font-size: 10px;
+      font-weight: 500;
+    }
   }
 `;
