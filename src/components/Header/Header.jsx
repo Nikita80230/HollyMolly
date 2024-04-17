@@ -23,9 +23,11 @@ const Header = () => {
   const handleOpenBurger = () => {
     setIsBurgerOpen(!isBurgerOpen);
   };
+
   const handleOpenUserPanel = () => {
     setIsUserPanelOpen(!isUserPanelOpen);
   };
+
   return (
     <StyledHeader>
       <Container>

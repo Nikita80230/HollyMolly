@@ -9,7 +9,11 @@ export const StyledColorSwitcher = styled.div`
     width: 24px;
     height: 24px;
 
-    border: none;
+    border: 1px solid #3a3a3a;
     border-radius: 3px;
+  }
+
+  .colorBtn.activeColorBtn {
+    outline: 2px solid #000;
   }
 `;

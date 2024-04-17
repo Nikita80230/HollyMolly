@@ -54,6 +54,13 @@ export const StyledProductCard = styled.div`
   }
 
   @media (max-width: 564px) {
+    .productImg {
+      margin-bottom: 8px;
+
+      max-width: 310px;
+      width: 100%;
+    }
+
     .productTitle {
       text-align: start;
       font-size: 12px;
