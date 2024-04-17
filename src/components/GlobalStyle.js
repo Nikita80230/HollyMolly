@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
 
 }
 
-@font-face {
+ @font-face {
 	font-family: 'Roboto';
 	/* font-display: swap; */
 	src: local("Roboto-Regular"), url("/src/assets/fonts/Roboto-Regular.ttf") format("ttf");
@@ -51,13 +51,13 @@ export const GlobalStyle = createGlobalStyle`
 	src: local("Nunito-SemiBold"), url("/src/assets/fonts/Nunito-SemiBold.ttf") format("ttf");
 	font-weight: 600;
 	font-style: normal;
-}
+} 
 
 
 
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: ${({theme})=>theme.fonts.familyRoboto};
   margin: 0 auto;
   min-width: 100%;
   background-color: ${({ theme }) => theme.colors.primaryBgColor};

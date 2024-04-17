@@ -1,8 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Grid, Navigation } from "swiper/modules";
+import { Navigation, Grid } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/grid";
 import "swiper/css/navigation";
+import "swiper/css/grid";
 
 import { StyledCategoriesSection } from "./Styled";
 import ArrowLeft from "src/assets/images/arrowLeft.svg?react";
@@ -13,32 +13,33 @@ const CategoriesSwiper = () => {
   return (
     <StyledCategoriesSection>
       <h2 className="titleCategories">Категорії</h2>
-      <div className="swiper-wrapper">
         <Swiper
-          modules={[Grid, Navigation]}
-          grid={{
-            rows: 2,
-            fill: "column",
-          }}
+          modules={[ Navigation, Grid]}
           breakpoints={{
             320: {
               slidesPerView: 2,
               spaceBetween: 20,
+              grid: {
+              rows: 2,
             },
-            // 678: {
-            //    slidesPerView: 2,
-            //   spaceBetween: 20,
-            // },
+            },
+            678: {
+               slidesPerView: 3,
+              spaceBetween: 20,
+            },
             1024: {
               slidesPerView: 4,
               spaceBetween: 24,
-              grid: 1,
+              grid: {
+              rows: 1,
+            },
             },
           }}
           navigation={{
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
-          }}
+        }}
+        className="mySwiper"
         >
           <SwiperSlide>
             <CardCategories />
@@ -65,7 +66,6 @@ const CategoriesSwiper = () => {
             <CardCategories />
           </SwiperSlide>
         </Swiper>
-      </div>
       <div className="button-swiper">
         <button className="swiper-button-next" type="button">
           <ArrowRight />

@@ -21,11 +21,12 @@ export const StyledCategoriesSection = styled.section`
     }
   }
 
-  .swiper-wrapper {
+  .mySwiper {
     width: 280px;
     height: 356px;
+
     @media only screen and (min-width: 768px) {
-      width: 1312px;
+      width: 100%;
       height: 294px;
     }
   }
