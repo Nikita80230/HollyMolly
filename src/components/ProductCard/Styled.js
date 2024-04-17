@@ -5,6 +5,8 @@ export const StyledProductCard = styled.div`
   flex-direction: column;
   justify-content: center;
 
+  /* height: 264px; */
+
   .productImg {
     margin-bottom: 8px;
 
@@ -34,6 +36,7 @@ export const StyledProductCard = styled.div`
 
   .productTitle {
     margin-bottom: 5px;
+    font-weight: 500;
 
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-size: 22px;
@@ -43,11 +46,31 @@ export const StyledProductCard = styled.div`
     margin-bottom: 8px;
 
     font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 400;
     font-size: 20px;
 
     color: ${({ theme }) => theme.colors.colorLogo};
   }
   .productColorSwitcher {
+  }
+
+  @media (max-width: 564px) {
+    .productImg {
+      margin-bottom: 8px;
+
+      max-width: 310px;
+      width: 100%;
+    }
+
+    .productTitle {
+      text-align: start;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .productPrice {
+      text-align: start;
+      font-size: 10px;
+      font-weight: 500;
+    }
   }
 `;

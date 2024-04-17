@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { StyledColorSwitcher } from "./Styled";
 
 const colors = [
@@ -8,18 +9,25 @@ const colors = [
 ];
 
 const ColorSwitcher = () => {
+  const [chosenColor, setChosenColor] = useState({
+    colorName: "",
+    colorRgb: "",
+  });
   return (
     <StyledColorSwitcher>
       {colors.map((color) => {
         return (
           <button
+            className={`colorBtn ${
+              chosenColor.colorName === color.colorName ? "activeColorBtn" : ""
+            }`}
+            onClick={() => setChosenColor(color)}
             key={color.colorName}
             type="button"
-            className="colorBtn"
             style={
               color.colorRgb !== "#fff"
                 ? { background: color.colorRgb }
-                : { background: color.colorRgb, border: "0.50px solid #3a3a3a" }
+                : { background: color.colorRgb }
             }
           ></button>
         );

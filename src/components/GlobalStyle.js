@@ -5,22 +5,21 @@ export const GlobalStyle = createGlobalStyle`
 
 :root{
 
+
 }
 
 @font-face {
 	font-family: 'Roboto';
-	font-display: swap;
-	src: local("Roboto-Regular"), url("/fonts/Roboto-Regular.woff2") format("woff2"), 
-			url("/fonts/Roboto-Regular.ttf") format("truetype");
+	/* font-display: swap; */
+	src: local("Roboto-Regular"), url("/src/assets/fonts/Roboto-Regular.ttf") format("ttf");
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Roboto';
-	font-display: swap;
-	src: local("Roboto-Bolt"), url("/fonts/Roboto-Bolt.woff2") format("woff2"), 
-			url("/fonts/Roboto-Bolt.ttf") format("truetype");
+	/* font-display: swap; */
+	src: local("Roboto-Bolt"), url("/src/assets/fonts/Roboto-Bolt.ttf") format("ttf");
 	font-weight: 700;
 	font-style: normal;
 }
@@ -28,9 +27,8 @@ export const GlobalStyle = createGlobalStyle`
 
 @font-face {
 	font-family: 'Nunito';
-	font-display: swap;
-	src: local("Nunito-Regular"), url("/fonts/Nunito-Regular.woff2") format("woff2"), 
-			url("/fonts/Nunito-Regular.ttf") format("truetype");
+	/* font-display: swap; */
+	src: local("Nunito-Regular"), url("/src/assets/fonts/Nunito-Regular.ttf") format("ttf");
 	font-weight: 400;
 	font-style: normal;
 }
@@ -39,9 +37,8 @@ export const GlobalStyle = createGlobalStyle`
 
 @font-face {
 	font-family: 'Nunito';
-	font-display: swap;
-	src: local("Nunito-Medium"), url("/fonts/Nunito-Medium.woff2") format("woff2"), 
-			url("/fonts/Nunito-Medium.ttf") format("truetype");
+	/* font-display: swap; */
+	src: local("Nunito-Medium"), url("/src/assets/fonts/Nunito-Medium.ttf") format("ttf");
 	font-weight: 500;
 	font-style: normal;
 }
@@ -50,9 +47,8 @@ export const GlobalStyle = createGlobalStyle`
 
 @font-face {
 	font-family: 'Nunito';
-	font-display: swap;
-	src: local("Nunito-SemiBold"), url("/fonts/Nunito-SemiBold.woff2") format("woff2"), 
-			url("/fonts/Nunito-SemiBold.ttf") format("truetype");
+	/* font-display: swap; */
+	src: local("Nunito-SemiBold"), url("/src/assets/fonts/Nunito-SemiBold.ttf") format("ttf");
 	font-weight: 600;
 	font-style: normal;
 }
