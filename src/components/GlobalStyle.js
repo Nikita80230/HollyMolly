@@ -4,9 +4,7 @@ import "modern-normalize";
 export const GlobalStyle = createGlobalStyle`
 
 :root{
-/* --familyNunito:"Nunito" */
-/* --familyRoboto:"Roboto" */
-/* --familyCroissantOne:"CroissantOne" */
+
 
 }
 
