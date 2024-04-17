@@ -1,6 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, A11y } from "swiper/modules";
+import { Navigation, A11y, Grid } from "swiper/modules";
+
 import "swiper/css";
+import "swiper/css/grid";
 import "swiper/css/navigation";
 
 import ProductCard from "../ProductCard/ProductCard";
@@ -15,53 +17,46 @@ const RecommendationSection = () => {
     <StyledRecommendationSection>
       <h2 className="titleRecommendation">Рекомендації</h2>
       <Swiper
-        className="swiper"
-        modules={[Navigation, A11y]}
-        spaceBetween={24}
-        slidesPerView={4}
+        className="swiperCustom"
+        modules={[Navigation, A11y, Grid]}
         navigation={{
           nextEl: ".nextProductBtn",
           prevEl: ".prevProductBtn",
         }}
+        spaceBetween={10}
+        slidesPerView={2}
+        grid={{
+          rows: 2,
+        }}
         breakpoints={{
-          320: {
-            slidesPerView: 2,
+          564: {
+            slidesPerView: 3,
             spaceBetween: 20,
+            grid: {
+              rows: 1,
+            },
           },
           768: {
             slidesPerView: 3,
             spaceBetween: 20,
+            grid: {
+              rows: 1,
+            },
           },
           1024: {
             slidesPerView: 4,
             spaceBetween: 20,
+            grid: {
+              rows: 1,
+            },
           },
         }}
       >
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
+        {Array.from({ length: 10 }).map((_, index) => (
+          <SwiperSlide key={index} className="swiper-slideCustom">
+            <ProductCard />
+          </SwiperSlide>
+        ))}
       </Swiper>
       <div className="buttonSwiper">
         <button className="prevProductBtn" type="button">

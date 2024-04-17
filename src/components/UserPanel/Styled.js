@@ -18,4 +18,10 @@ export const StyledUserPanel = styled.div`
     border: 1px solid ${({ theme }) => theme.colors.secondaryTxtColor};
     border-radius: 8px;
   }
+
+  /* ==================================@media (max-width: 564px)========================================= */
+
+  @media (max-width: 564px) {
+    display: none;
+  }
 `;

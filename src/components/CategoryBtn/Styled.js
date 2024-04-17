@@ -14,7 +14,7 @@ export const StyledCategoryBtn = styled.div`
   }
 
   .text {
-    font-family: ${({ theme }) => theme.fonts.familyRoboto};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 400;
     font-size: 18px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};

@@ -6,7 +6,7 @@ export const StyledRecommendationSection = styled.section`
 
   .titleRecommendation {
     margin-bottom: 40px;
-    font-family: ${({ theme }) => theme.fonts.fontNunito};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 600;
     font-size: 32px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
@@ -43,5 +43,77 @@ export const StyledRecommendationSection = styled.section`
     opacity: 0.35;
     cursor: auto;
     pointer-events: none;
+  }
+
+  @media (max-width: 565px) {
+    .titleRecommendation {
+      margin-bottom: 32px;
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    .nextProductBtn,
+    .prevProductBtn {
+      width: 31px;
+      height: 31px;
+
+      border-radius: 6px;
+      padding: 7px;
+    }
+
+    .swiperCustom {
+      width: 100%;
+      /* height: 100%; */
+      margin-left: auto;
+      margin-right: auto;
+      height: 750px;
+    }
+
+    .swiper-slideCustom {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      height: calc((100% - 10px) / 2) !important;
+
+      /* Center slide text vertically */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @media (min-width: 520px) and (max-width: 565px) {
+    .swiperCustom {
+      height: 750px;
+    }
+  }
+
+  @media (min-width: 480px) and (max-width: 519px) {
+    .swiperCustom {
+      height: 700px;
+    }
+  }
+
+  @media (min-width: 420px) and (max-width: 479px) {
+    .swiperCustom {
+      height: 650px;
+    }
+  }
+
+  @media (min-width: 395px) and (max-width: 419px) {
+    .swiperCustom {
+      height: 600px;
+    }
+  }
+
+  @media (min-width: 350px) and (max-width: 394px) {
+    .swiperCustom {
+      height: 550px;
+    }
+  }
+  @media (min-width: 320px) and (max-width: 349px) {
+    .swiperCustom {
+      height: 500px;
+    }
   }
 `;
