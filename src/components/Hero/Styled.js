@@ -74,7 +74,7 @@ export const StyledHero = styled.section`
 
   .heroImageText {
     margin-bottom: 10px;
-    font-family: ${({ theme }) => theme.fonts.fontNunito};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 600;
     font-size: 15px;
     color: ${({ theme }) => theme.colors.lightTxtColor};
@@ -87,7 +87,7 @@ export const StyledHero = styled.section`
   }
 
   .spanTitle {
-    font-family: ${({ theme }) => theme.fonts.fontNunito};
+    font-family: ${({ theme }) => theme.fonts.familyNunito}; 
     font-weight: 400;
     font-size: 28px;
     text-transform: uppercase;
@@ -102,7 +102,7 @@ export const StyledHero = styled.section`
   .heroTitle {
     width: 178px;
     height: 90px;
-    font-family: ${({ theme }) => theme.fonts.fontNunito};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     text-transform: uppercase;
     color: ${({ theme }) => theme.colors.lightTxtColor};
     font-weight: 400;
@@ -166,7 +166,7 @@ export const StyledHero = styled.section`
 
   .heroSubtitle {
     margin-bottom: 4px;
-    font-family: ${({ theme }) => theme.fonts.fontNunito};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 400;
     font-size: 20px;
     color: ${({ theme }) => theme.colors.accentTxtColor};
@@ -179,7 +179,7 @@ export const StyledHero = styled.section`
     }
   }
   .textSubtitle {
-    font-family: ${({ theme }) => theme.fonts.fontNunito};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 400;
     font-size: 15px;
     text-align: center;

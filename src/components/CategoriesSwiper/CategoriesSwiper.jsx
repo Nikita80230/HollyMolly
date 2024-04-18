@@ -1,9 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, A11y } from "swiper/modules";
+import { Navigation, Grid } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/grid";
+
 import { StyledCategoriesSection } from "./Styled";
-// import { CardCategories } from "../CardCategories/CardCategories";
 import ArrowLeft from "src/assets/images/arrowLeft.svg?react";
 import ArrowRight from "src/assets/images/arrowRight.svg?react";
 import CardCategories from "../CardCategories/CardCategories";
@@ -12,54 +13,59 @@ const CategoriesSwiper = () => {
   return (
     <StyledCategoriesSection>
       <h2 className="titleCategories">Категорії</h2>
-      <Swiper
-        modules={[Navigation, A11y]}
-        spaceBetween={24}
-        slidesPerView={4}
-        navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+        <Swiper
+          modules={[ Navigation, Grid]}
+          breakpoints={{
+            320: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+              grid: {
+              rows: 2,
+            },
+            },
+            678: {
+               slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 24,
+              grid: {
+              rows: 1,
+            },
+            },
+          }}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         }}
-        breakpoints={{
-          320: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-        }}
-      >
-        <SwiperSlide>
-          <CardCategories />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardCategories />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardCategories />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardCategories />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardCategories />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardCategories />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardCategories />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardCategories />
-        </SwiperSlide>
-      </Swiper>
+        className="mySwiper"
+        >
+          <SwiperSlide>
+            <CardCategories />
+          </SwiperSlide>
+          <SwiperSlide>
+            <CardCategories />
+          </SwiperSlide>
+          <SwiperSlide>
+            <CardCategories />
+          </SwiperSlide>
+          <SwiperSlide>
+            <CardCategories />
+          </SwiperSlide>
+          <SwiperSlide>
+            <CardCategories />
+          </SwiperSlide>
+          <SwiperSlide>
+            <CardCategories />
+          </SwiperSlide>
+          <SwiperSlide>
+            <CardCategories />
+          </SwiperSlide>
+          <SwiperSlide>
+            <CardCategories />
+          </SwiperSlide>
+        </Swiper>
       <div className="button-swiper">
         <button className="swiper-button-next" type="button">
           <ArrowRight />
