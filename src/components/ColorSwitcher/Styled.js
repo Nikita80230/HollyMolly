@@ -5,6 +5,8 @@ export const StyledColorSwitcher = styled.div`
   flex-direction: row;
   gap: 5px;
 
+  padding-left: 2px;
+
   .colorBtn {
     width: 24px;
     height: 24px;

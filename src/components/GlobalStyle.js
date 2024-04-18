@@ -1,25 +1,27 @@
 import { createGlobalStyle } from "styled-components";
 import "modern-normalize";
 
+// import fontRobotoRegular from "src/assets/fonts/Roboto-Regular.ttf";
+// import fontRobotoBold from "src/assets/fonts/Roboto-Bold.ttf";
+// import fontNunitoRegular from "src/assets/fonts/Nunito-Regular.ttf";
+// import fontNunitoMedium from "src/assets/fonts/Nunito-Medium.ttf";
+// import fontNunitoSemiBold from "src/assets/fonts/Nunito-SemiBold.ttf";
+
 export const GlobalStyle = createGlobalStyle`
 
-:root{
-
-
-}
 
  @font-face {
 	font-family: 'Roboto';
 	/* font-display: swap; */
-	src: local("Roboto-Regular"), url("/src/assets/fonts/Roboto-Regular.ttf") format("ttf");
-	font-weight: normal;
+	src: local("Roboto-Regular"), url('/public/fonts/Roboto-Regular.ttf') format("ttf");
+	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Roboto';
 	/* font-display: swap; */
-	src: local("Roboto-Bolt"), url("/src/assets/fonts/Roboto-Bolt.ttf") format("ttf");
+	src: local("Roboto-Bold"), url("/public/fonts/Roboto-Bold.ttf") format("ttf");
 	font-weight: 700;
 	font-style: normal;
 }
@@ -28,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
 @font-face {
 	font-family: 'Nunito';
 	/* font-display: swap; */
-	src: local("Nunito-Regular"), url("/src/assets/fonts/Nunito-Regular.ttf") format("ttf");
+	src: local("Nunito-Regular"), url("/public/fonts/Nunito-Regular.ttf") format("ttf");
 	font-weight: 400;
 	font-style: normal;
 }
@@ -38,7 +40,7 @@ export const GlobalStyle = createGlobalStyle`
 @font-face {
 	font-family: 'Nunito';
 	/* font-display: swap; */
-	src: local("Nunito-Medium"), url("/src/assets/fonts/Nunito-Medium.ttf") format("ttf");
+	src: local("Nunito-Medium"), url("/public/fonts/Nunito-Medium.ttf") format("ttf");
 	font-weight: 500;
 	font-style: normal;
 }
@@ -48,7 +50,7 @@ export const GlobalStyle = createGlobalStyle`
 @font-face {
 	font-family: 'Nunito';
 	/* font-display: swap; */
-	src: local("Nunito-SemiBold"), url("/src/assets/fonts/Nunito-SemiBold.ttf") format("ttf");
+	src: local("Nunito-SemiBold"), url("/public/fonts/Nunito-SemiBold.ttf") format("ttf");
 	font-weight: 600;
 	font-style: normal;
 } 
@@ -57,7 +59,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
 body {
-  font-family: ${({theme})=>theme.fonts.familyRoboto};
+  font-family: ${({ theme }) => theme.fonts.familyRoboto};
   margin: 0 auto;
   min-width: 100%;
   background-color: ${({ theme }) => theme.colors.primaryBgColor};
