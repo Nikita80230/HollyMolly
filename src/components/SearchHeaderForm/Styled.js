@@ -28,7 +28,7 @@ export const StyledSearchHeaderForm = styled.form`
     color: ${({ theme }) => theme.colors.secondaryTxtColor};
 
     pointer-events: none;
-
+    font-family: "Roboto";
     /* &:focus,
     &:hover {
       color: #fc842d;

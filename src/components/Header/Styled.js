@@ -4,12 +4,12 @@ export const StyledHeader = styled.header`
   display: flex;
   align-items: center;
   flex-direction: row;
-  min-height: 108px;
 
   .header {
     display: flex;
     align-items: center;
     flex-direction: row;
+    min-height: 108px;
   }
 
   .leftHeader {
