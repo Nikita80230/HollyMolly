@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { categoriesReducer } from "./categories/categoriesSlice";
 
 const persistConfig = {
   key: "",
@@ -18,7 +19,9 @@ const persistConfig = {
 };
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    categories: categoriesReducer,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
