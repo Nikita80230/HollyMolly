@@ -1,12 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import "modern-normalize";
 
-// import fontRobotoRegular from "src/assets/fonts/Roboto-Regular.ttf";
-// import fontRobotoBold from "src/assets/fonts/Roboto-Bold.ttf";
-// import fontNunitoRegular from "src/assets/fonts/Nunito-Regular.ttf";
-// import fontNunitoMedium from "src/assets/fonts/Nunito-Medium.ttf";
-// import fontNunitoSemiBold from "src/assets/fonts/Nunito-SemiBold.ttf";
-
 export const GlobalStyle = createGlobalStyle`
 
 
@@ -60,6 +54,7 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
   font-family: ${({ theme }) => theme.fonts.familyRoboto};
+
   margin: 0 auto;
   min-width: 100%;
   background-color: ${({ theme }) => theme.colors.primaryBgColor};
