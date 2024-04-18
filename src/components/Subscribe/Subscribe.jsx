@@ -14,7 +14,7 @@ const Subscribe = () => {
           placeholder="Ваша пошта"
         />
 
-        <button className="subscribeButton" type="submit">Відправити</button>
+        <button className="subscribeButton" type="submit">Надіслати</button>
 
       </SubscribeEmailWrapper>
     </SubscribeWrapper>

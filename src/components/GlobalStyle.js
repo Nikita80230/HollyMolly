@@ -57,7 +57,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
 body {
-  font-family: ${({theme})=>theme.fonts.familyRoboto};
+  font-family: "Nunito", "Roboto";
   margin: 0 auto;
   min-width: 100%;
   background-color: ${({ theme }) => theme.colors.primaryBgColor};
