@@ -40,11 +40,11 @@ export const StyledHero = styled.section`
       (min-resolution: 2dppx) {
       background: url(${backgroundFirstMobile2x}),
         linear-gradient(90deg, #f3c59b 0%, #98714a 100%);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-color: ${({ theme }) => theme.colors.heroBgColor};
-      }
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-color: ${({ theme }) => theme.colors.heroBgColor};
+    }
 
     @media only screen and (min-width: 768px) {
       padding-top: 84px;
@@ -55,20 +55,20 @@ export const StyledHero = styled.section`
       background: url(${backgroundFirst1x}),
         linear-gradient(90deg, #f3c59b 0%, #98714a 100%);
       background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-color: ${({ theme }) => theme.colors.heroBgColor};
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-color: ${({ theme }) => theme.colors.heroBgColor};
 
       @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
         background: url(${backgroundFirst2x}),
           linear-gradient(90deg, #f3c59b 0%, #98714a 100%);
-      background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-color: ${({ theme }) => theme.colors.heroBgColor};
-        }
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-color: ${({ theme }) => theme.colors.heroBgColor};
+      }
     }
   }
 
@@ -87,7 +87,7 @@ export const StyledHero = styled.section`
   }
 
   .spanTitle {
-    font-family: ${({ theme }) => theme.fonts.familyNunito}; 
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 400;
     font-size: 28px;
     text-transform: uppercase;
@@ -118,17 +118,17 @@ export const StyledHero = styled.section`
 
   .wrapperSecondImage {
     padding-top: 15px;
-    padding-bottom:14px;
+    padding-bottom: 14px;
     border-radius: 20px;
     width: 100%;
     height: 80px;
     background: url(${backgroundSecondMobile1x}),
       linear-gradient(180deg, #ddc5b0 0%, #fff 100%);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position:  center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: ${({ theme }) => theme.colors.heroBgColor};
-    
+
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
@@ -136,9 +136,9 @@ export const StyledHero = styled.section`
         linear-gradient(90deg, #f3c59b 0%, #98714a 100%);
       background-size: cover;
       background-repeat: no-repeat;
-      background-position:  center;
+      background-position: center;
       background-color: ${({ theme }) => theme.colors.heroBgColor};
-      }
+    }
 
     @media only screen and (min-width: 768px) {
       padding: 40px 42px;
@@ -146,9 +146,9 @@ export const StyledHero = styled.section`
       height: 548px;
       background: url(${backgroundSecond1x}),
         linear-gradient(90deg, #f3c59b 0%, #98714a 100%);
-     background-size: cover;
+      background-size: cover;
       background-repeat: no-repeat;
-      background-position:  center;
+      background-position: center;
       background-color: ${({ theme }) => theme.colors.heroBgColor};
 
       @media (min-device-pixel-ratio: 2),
@@ -156,10 +156,10 @@ export const StyledHero = styled.section`
         (min-resolution: 2dppx) {
         background: url(${backgroundSecond2x}),
           linear-gradient(90deg, #f3c59b 0%, #98714a 100%);
-         background-size: cover;
-      background-repeat: no-repeat;
-      background-position:  center;
-      background-color: ${({ theme }) => theme.colors.heroBgColor};
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: ${({ theme }) => theme.colors.heroBgColor};
       }
     }
   }

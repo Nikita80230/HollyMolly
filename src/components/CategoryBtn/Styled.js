@@ -20,4 +20,12 @@ export const StyledCategoryBtn = styled.div`
     color: ${({ theme }) => theme.colors.primaryTxtColor};
     margin-right: 15px;
   }
+
+  .openCategoryIcon {
+    transition: ${({ theme }) => theme.animations.transition};
+  }
+
+  .openCategoryIcon.openedCategoryIcon {
+    transform: rotate(90deg);
+  }
 `;
