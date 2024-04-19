@@ -18,11 +18,11 @@ export const App = () => {
     <PageLayout>
       <Suspense fallback={<Loader />}>
         <Routes>
-          {/* <Route path="/" element={<PageLayout />}> */}
+          
           {appRoutes.map((route) => (
             <Route path={route.path} element={route.element} key={route.path} />
           ))}
-          {/* </Route> */}
+          
         </Routes>
       </Suspense>
     </PageLayout>
