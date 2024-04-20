@@ -22,9 +22,12 @@ export const SubscribeWrapper = styled.div`
   }
 `;
 export const SubscribeEmailWrapper = styled.div`
+position:relative;
   display: flex;
   gap: 36px;
+
   .subscribeInput {
+    
     padding: 12px 11px;
     outline: transparent;
     outline-offset: -1px;
@@ -39,6 +42,17 @@ export const SubscribeEmailWrapper = styled.div`
   }
   .subscribeInput:focus {
     border-bottom: 1px solid ${({ theme }) => theme.colors.inputFocus};
+    background-color:${({theme})=>theme.colors.primaryBgColor};
+  }
+
+  .errorMessage{
+  position: absolute;
+  top: 20px;
+  right: 180px;
+color:red;
+font-size: 14px;
+font-style: italic;
+
   }
   .subscribeButton {
     border: transparent;
