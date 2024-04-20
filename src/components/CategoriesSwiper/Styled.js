@@ -10,7 +10,7 @@ export const StyledCategoriesSection = styled.section`
 
   .titleCategories {
     margin-bottom: 40px;
-    font-family: ${({ theme }) => theme.fonts.fontNunito};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 500;
     font-size: 20px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
