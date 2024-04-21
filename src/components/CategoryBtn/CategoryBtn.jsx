@@ -23,7 +23,11 @@ const CategoryBtn = () => {
       <button
         type="button"
         className="openCategoryBtn"
-        onClick={handleOpenCategoriesModal}
+        onClick={
+          isCategoriesModalOpened
+            ? handleCloseCategoriesModal
+            : handleOpenCategoriesModal
+        }
       >
         <span className="text">Категорія</span>
         <ArrowRight

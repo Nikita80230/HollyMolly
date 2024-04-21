@@ -2,6 +2,7 @@ import { createPortal } from "react-dom";
 import { StyledCategoriesModal } from "./Styled";
 import { Link } from "react-router-dom";
 import { routes } from "src/routes";
+import { useEffect } from "react";
 
 const CategoriesModal = ({ closeModal, categories }) => {
   const handleOverlayClick = (event) => {
@@ -10,9 +11,25 @@ const CategoriesModal = ({ closeModal, categories }) => {
     }
   };
 
+  useEffect(() => {
+    const handleEscClick = (event) => {
+      if (event.code === "Escape") {
+        closeModal();
+      }
+    };
+
+    window.addEventListener("keydown", handleEscClick);
+    window.addEventListener("scroll", closeModal);
+
+    return () => {
+      window.removeEventListener("keydown", handleEscClick);
+      window.removeEventListener("scroll", closeModal);
+    };
+  }, [closeModal]);
+
   console.log(categories);
 
-  return createPortal(
+  return (
     <StyledCategoriesModal onClick={handleOverlayClick}>
       <div className="categoriesModal">
         <h2 className="categoriesModalTitle">Усі категорії</h2>
@@ -43,8 +60,7 @@ const CategoriesModal = ({ closeModal, categories }) => {
           })}
         </div>
       </div>
-    </StyledCategoriesModal>,
-    document.getElementById("root")
+    </StyledCategoriesModal>
   );
 };
 

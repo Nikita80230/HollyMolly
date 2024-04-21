@@ -15,10 +15,20 @@ import { StyledHeader } from "./Styled";
 // import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import UserPanel from "../UserPanel/UserPanel";
 import { useState } from "react";
+import HeaderSearchMenu from "../HeaderSearchMenu/HeaderSearchMenu";
 
 const Header = () => {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const [isUserPanelOpen, setIsUserPanelOpen] = useState(false);
+  const [isSearchMenuOpened, setIsMenuOpened] = useState(false);
+
+  const handleOpenSearchMenu = () => {
+    setIsMenuOpened(true);
+  };
+
+  const handleCloseSearchMenu = () => {
+    setIsMenuOpened(false);
+  };
 
   const handleOpenBurger = () => {
     setIsBurgerOpen(!isBurgerOpen);
@@ -32,9 +42,12 @@ const Header = () => {
     <StyledHeader>
       <Container>
         <div className="header">
+          {isSearchMenuOpened && (
+            <HeaderSearchMenu handleCloseSearchMenu={handleCloseSearchMenu} />
+          )}
           <div className="leftHeader">
             <CategoryBtn />
-            <SearchHeaderForm />
+            <SearchHeaderForm handleOpenSearchMenu={handleOpenSearchMenu} />
           </div>
           <button
             type="button"

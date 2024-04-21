@@ -12,6 +12,7 @@ export const theme = {
     colorLink: "#4169e1",
     colorInput: " #727273",
     inputFocus: "#19191a",
+    inputBorder: "#4c4c4d",
     hoverInput: "#4c4c4d",
     buttonBgColor: "#3251ae",
     hoverButton: "#1d2f65",

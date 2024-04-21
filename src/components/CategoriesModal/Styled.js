@@ -1,24 +1,18 @@
 import styled from "styled-components";
 
 export const StyledCategoriesModal = styled.div`
-  position: fixed;
+  position: absolute;
 
-  top: 0;
+  top: 100%;
   left: 0;
-  right: 0;
-  bottom: 0;
 
-  background: rgba(33, 33, 33, 0.12);
+  max-width: 654px;
+  width: 100vw;
 
   z-index: 1;
 
   .categoriesModal {
-    position: absolute;
-    position: absolute;
-    top: 38%;
-    left: 35%;
-    transform: translate(-61%, -50%);
-
+    position: relative;
     z-index: 2;
 
     max-width: 654px;

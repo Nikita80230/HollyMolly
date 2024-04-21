@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const StyledCategoryBtn = styled.div`
+  position: relative;
+
   margin-right: 40px;
 
   .openCategoryBtn {
