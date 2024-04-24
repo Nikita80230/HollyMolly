@@ -10,7 +10,7 @@ export const fetchCategories = createAsyncThunk(
       const response = await axios.get("/api/Categories");
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(e.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

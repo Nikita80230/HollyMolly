@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const StyledCategoryBtn = styled.div`
+  position: relative;
+
   margin-right: 40px;
 
   .openCategoryBtn {
@@ -19,5 +21,13 @@ export const StyledCategoryBtn = styled.div`
     font-size: 18px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
     margin-right: 15px;
+  }
+
+  .openCategoryIcon {
+    transition: ${({ theme }) => theme.animations.transition};
+  }
+
+  .openCategoryIcon.openedCategoryIcon {
+    transform: rotate(90deg);
   }
 `;

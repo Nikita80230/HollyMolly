@@ -16,6 +16,9 @@ export const StyledHeader = styled.header`
     display: flex;
     align-items: center;
     flex-direction: row;
+
+    max-width: 350px;
+    width: 100%;
   }
 
   .title {

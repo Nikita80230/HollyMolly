@@ -12,15 +12,22 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { categoriesReducer } from "./categories/categoriesSlice";
+import { productsReducer } from "./products/productsSlice";
 
-const persistConfig = {
-  key: "",
-  storage,
-};
+// const productsPersistConfig = {
+//   key: "allProducts",
+//   storage,
+// };
+
+// const persistedProductsReducer = persistReducer(
+//   productsPersistConfig,
+//   productsReducer
+// );
 
 export const store = configureStore({
   reducer: {
     categories: categoriesReducer,
+    products: productsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -28,7 +35,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-  devTools: process.env.NODE_ENV === "development",
+  // devTools: process.env.NODE_ENV === "development",
 });
 
 export const persistor = persistStore(store);

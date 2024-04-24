@@ -1,15 +1,20 @@
 import { styled } from "styled-components";
 
-export const StyledSearchHeaderForm = styled.form`
-  position: relative;
+export const StyledSearchHeaderBtn = styled.button`
+  /* position: relative; */
 
   display: flex;
-  justify-content: space-evenly;
+  gap: 16px;
+  /* justify-content: space-between; */
   /* flex-direction: column; */
 
   max-width: 246px;
   width: 100%;
 
+  padding: 8px;
+
+  background: transparent;
+  border: none;
   border-bottom: 1px solid ${({ theme }) => theme.colors.secondaryTxtColor};
 
   .searchIcon {
@@ -17,17 +22,17 @@ export const StyledSearchHeaderForm = styled.form`
   }
 
   .placeholder {
-    position: absolute;
-    bottom: 8px;
-    left: 47px;
+    /* position: absolute; */
+    /* bottom: 8px; */
+    /* left: 47px; */
 
-    transition: all 0.3s;
+    /* transition: all 0.3s; */
 
     text-transform: capitalize;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.secondaryTxtColor};
 
-    pointer-events: none;
+    /* pointer-events: none; */
     font-family: "Roboto";
     /* &:focus,
     &:hover {
