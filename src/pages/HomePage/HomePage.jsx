@@ -5,12 +5,14 @@ import Hero from "src/components/Hero/Hero";
 
 import RecommendationSection from "src/components/RecommendationSection/RecommendationSection";
 import { fetchCategories } from "src/redux/categories/operations";
+import { getAllProducts } from "src/redux/products/operations";
 
 const HomePage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCategories());
+    dispatch(getAllProducts());
   }, [dispatch]);
 
   return (

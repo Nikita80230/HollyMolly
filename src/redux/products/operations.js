@@ -1,0 +1,20 @@
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import { toast } from "react-toastify";
+
+export const instance = axios.create({
+  baseURL: "https://teamchallenge-001-site1.ktempurl.com/api/",
+});
+
+export const getAllProducts = createAsyncThunk(
+  "products/getAllProducts",
+  async (_, thunkApi) => {
+    try {
+      const { data } = await instance.get("Products");
+      return data;
+    } catch (error) {
+      toast.error(error.message);
+      return thunkApi.rejectWithValue(error);
+    }
+  }
+);

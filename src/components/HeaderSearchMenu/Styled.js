@@ -10,37 +10,87 @@ export const StyledHeaderSearchMenu = styled.div`
 
   z-index: 1;
 
-  /* max-width: 1240px; */
   width: 100%;
 
   max-height: 485px;
   height: 100vh;
 
   background-color: #fff;
+
   .searchMenuTop {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
-    align-items: center;
+    align-items: flex-start;
 
     min-height: 120px;
 
-    /* padding: 33px 0; */
+    padding: 33px 0;
   }
   .searchMenuLogo {
+    padding: 15px;
+
     margin-right: 60px;
+  }
+
+  .searchMenuForm {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 866px;
+    width: 100%;
+
+    margin-right: auto;
   }
 
   .inputGroup {
     display: flex;
     align-items: center;
 
-    max-width: 866px;
-    width: 100%;
-
-    margin-right: auto;
+    margin-bottom: 30px;
 
     border-bottom: 1px solid ${({ theme }) => theme.colors.hoverInput};
+  }
+
+  .searchMenuList {
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: scroll;
+
+    height: 340px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      height: 30%;
+      border-radius: 2px;
+      background: #264061;
+    }
+  }
+
+  .searchMenuItem {
+    margin-bottom: 16px;
+  }
+
+  .searchMenuItemLink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    font-weight: 400;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.headerSearchMenuList};
+  }
+
+  .searchMenuItemText {
   }
 
   .searchIcon {
@@ -55,8 +105,9 @@ export const StyledHeaderSearchMenu = styled.div`
     font-size: 16px;
     color: ${({ theme }) => theme.colors.inputFocus};
   }
-  .searchMenuLogoIcon {
-  }
+  /* .searchMenuLogoIcon {
+  } */
+
   .closeSearchMenuBtn {
     border: none;
     background: transparent;

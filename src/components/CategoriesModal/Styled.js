@@ -3,17 +3,21 @@ import styled from "styled-components";
 export const StyledCategoriesModal = styled.div`
   position: absolute;
 
-  top: 100%;
+  top: 0;
   left: 0;
 
-  max-width: 654px;
+  /* max-width: 654px; */
   width: 100vw;
+  height: 100vh;
 
   z-index: 1;
 
   .categoriesModal {
     position: relative;
     z-index: 2;
+
+    top: 7%;
+    left: 0;
 
     max-width: 654px;
     width: 100%;

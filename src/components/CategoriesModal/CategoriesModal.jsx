@@ -1,4 +1,3 @@
-import { createPortal } from "react-dom";
 import { StyledCategoriesModal } from "./Styled";
 import { Link } from "react-router-dom";
 import { routes } from "src/routes";
@@ -26,8 +25,6 @@ const CategoriesModal = ({ closeModal, categories }) => {
       window.removeEventListener("scroll", closeModal);
     };
   }, [closeModal]);
-
-  console.log(categories);
 
   return (
     <StyledCategoriesModal onClick={handleOverlayClick}>

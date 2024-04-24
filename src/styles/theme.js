@@ -5,6 +5,7 @@ export const theme = {
     heroBgColor: "#f3c59b ",
     primaryTxtColor: "#323234",
     secondaryTxtColor: " rgba(0, 3, 15, 0.6)",
+    headerSearchMenuList: "#000105",
     lightTxtColor: "#fcf2ea",
     lightColorButton: "#f3f4fc",
     accentTxtColor: "#1d2f65",
