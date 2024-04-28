@@ -14,7 +14,21 @@ export const getAllProducts = createAsyncThunk(
       return data;
     } catch (error) {
       toast.error(error.message);
-      return thunkApi.rejectWithValue(error);
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getRecommendedProducts = createAsyncThunk(
+  "products/getRecommendedProducts",
+  async (_, thunkApi) => {
+    try {
+      const { data } = await instance.get("Products/recommended");
+
+      return data;
+    } catch (error) {
+      toast.error(error.message);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );

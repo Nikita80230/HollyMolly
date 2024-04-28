@@ -14,20 +14,22 @@ import storage from "redux-persist/lib/storage";
 import { categoriesReducer } from "./categories/categoriesSlice";
 import { productsReducer } from "./products/productsSlice";
 
-// const productsPersistConfig = {
-//   key: "allProducts",
-//   storage,
-// };
+const productsPersistConfig = {
+  key: "products",
+  storage,
 
-// const persistedProductsReducer = persistReducer(
-//   productsPersistConfig,
-//   productsReducer
-// );
+  whitelist: ["favoriteProducts"],
+};
+
+const persistedProductsReducer = persistReducer(
+  productsPersistConfig,
+  productsReducer
+);
 
 export const store = configureStore({
   reducer: {
     categories: categoriesReducer,
-    products: productsReducer,
+    products: persistedProductsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

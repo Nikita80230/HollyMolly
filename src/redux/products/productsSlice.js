@@ -1,30 +1,71 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllProducts } from "./operations";
+import { getAllProducts, getRecommendedProducts } from "./operations";
 
 const initialProductsState = {
-  isLoading: false,
+  isAllProductsLoading: false,
+  isRecommendedProductsLoading: false,
+  error: "",
   allProducts: [],
+  recommendedProducts: [],
+  favoriteProducts: [],
 };
 
 const productsSlice = createSlice({
   name: "productsSlice",
   initialState: initialProductsState,
-  reducers: {},
+  reducers: {
+    addProductToFavorite: (state, action) => {
+      if (state.favoriteProducts.length <= 0)
+        state.favoriteProducts.push(action.payload);
+
+      const isProductInFavorite = state.favoriteProducts.some(
+        (favoriteProduct) => favoriteProduct.id === action.payload.id
+      );
+
+      if (!isProductInFavorite) state.favoriteProducts.push(action.payload);
+    },
+    removeProductFromFavorite: (state, action) => {
+      state.favoriteProducts = state.favoriteProducts.filter(
+        (favoriteProduct) => favoriteProduct.id !== action.payload.id
+      );
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getAllProducts.pending, (state) => {
-        state.isLoading = true;
+        state.isAllProductsLoading = true;
       })
       .addCase(getAllProducts.fulfilled, (state, action) => {
         state.allProducts = action.payload;
-        state.isLoading = false;
+        state.isAllProductsLoading = false;
+        state.error = "";
       })
-      .addCase(getAllProducts.rejected, (state) => {
-        state.isLoading = false;
+      .addCase(getAllProducts.rejected, (state, action) => {
+        state.isAllProductsLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(getRecommendedProducts.pending, (state) => {
+        state.isRecommendedProductsLoading = true;
+      })
+      .addCase(getRecommendedProducts.fulfilled, (state, action) => {
+        state.isRecommendedProductsLoading = false;
+        state.recommendedProducts = action.payload;
+        state.error = "";
+      })
+      .addCase(getRecommendedProducts.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isAllProductsLoading = false;
       });
   },
 });
 
+export const { addProductToFavorite, removeProductFromFavorite } =
+  productsSlice.actions;
+
 export const selectAllProducts = (state) => state.products.allProducts;
+export const selectRecommendedProducts = (state) =>
+  state.products.recommendedProducts;
+export const selectFavoriteProducts = (state) =>
+  state.products.favoriteProducts;
 
 export const productsReducer = productsSlice.reducer;

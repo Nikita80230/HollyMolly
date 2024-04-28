@@ -1,17 +1,34 @@
 import { useState } from "react";
-import { StyledProductCard } from "./Styled";
+import { useDispatch, useSelector } from "react-redux";
 
+import {
+  addProductToFavorite,
+  removeProductFromFavorite,
+  selectFavoriteProducts,
+} from "src/redux/products/productsSlice";
+
+import cardImg from "src/assets/images/recommendation-section/Rectangle 324.png";
 import NotAddToFavoriteIcon from "src/assets/images/heart.svg?react";
 import AddedToFavoriteIcon from "src/assets/images/heartFull.svg?react";
 
-import cardImg from "src/assets/images/recommendation-section/Rectangle 324.png";
 import ColorSwitcher from "../ColorSwitcher/ColorSwitcher";
 
-const ProductCard = () => {
-  const [isAddedToFavorite, setIdAddedToFavorite] = useState(false);
+import { StyledProductCard } from "./Styled";
+
+const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
+  const favoriteProducts = useSelector(selectFavoriteProducts);
+  // const [isAddedToFavorite, setIdAddedToFavorite] = useState(false);
+
+  const isProductInFavorite = favoriteProducts.some(
+    ({ id }) => id === product.id
+  );
 
   const handleAddToFavorite = () => {
-    setIdAddedToFavorite(!isAddedToFavorite);
+    // setIdAddedToFavorite(!isAddedToFavorite);
+    if (!isProductInFavorite) dispatch(addProductToFavorite(product));
+    if (isProductInFavorite) dispatch(removeProductFromFavorite(product));
+    // dispatch(addProductToFavorite(product));
   };
 
   return (
@@ -21,17 +38,19 @@ const ProductCard = () => {
         <button
           className="addToFavoriteButton"
           type="button"
-          onClick={handleAddToFavorite}
+          onClick={() => handleAddToFavorite()}
         >
-          {isAddedToFavorite ? (
+          {isProductInFavorite ? (
             <AddedToFavoriteIcon className="addToFavoriteIcon" />
           ) : (
             <NotAddToFavoriteIcon className="addToFavoriteIcon" />
           )}
         </button>
 
-        <h4 className="productTitle">Назва товару</h4>
-        <span className="productPrice">100₴</span>
+        <h4 className="productTitle">{product.name}</h4>
+        <span className="productPrice">
+          {product.productsInstances[0].price}₴
+        </span>
         <ColorSwitcher />
       </div>
     </StyledProductCard>

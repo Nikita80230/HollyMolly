@@ -96,7 +96,7 @@ export const StyledRecommendationSection = styled.section`
 
   @media (min-width: 420px) and (max-width: 479px) {
     .swiperCustom {
-      height: 650px;
+      height: 660px;
     }
   }
 
