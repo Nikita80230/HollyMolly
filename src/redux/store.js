@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { authReducer } from "./auth/authSlice";
 import { categoriesReducer } from "./categories/categoriesSlice";
 import { productsReducer } from "./products/productsSlice";
 
@@ -21,13 +22,22 @@ const productsPersistConfig = {
   whitelist: ["favoriteProducts"],
 };
 
+const authPersistConfig = {
+  key: "auth",
+  storage,
+  whitelist: ["token"],
+};
+
 const persistedProductsReducer = persistReducer(
   productsPersistConfig,
   productsReducer
 );
 
+const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
+
 export const store = configureStore({
   reducer: {
+    auth: persistedAuthReducer,
     categories: categoriesReducer,
     products: persistedProductsReducer,
   },

@@ -17,7 +17,7 @@ const UserPanel = () => {
       <NavLink className="userPanelLink" to={routes.HOME}>
         <BasketIcon className="icon" />
       </NavLink>
-      <NavLink className="userPanelLink" to={routes.HOME}>
+      <NavLink className="userPanelLink" to={routes.REGISTER}>
         <UserIcon className="icon" />
       </NavLink>
     </StyledUserPanel>
