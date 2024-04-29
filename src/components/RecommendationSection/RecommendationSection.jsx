@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Grid } from "swiper/modules";
 
@@ -7,12 +9,22 @@ import "swiper/css/navigation";
 
 import ProductCard from "../ProductCard/ProductCard";
 
+import { getRecommendedProducts } from "src/redux/products/operations";
+
 import ArrowLeft from "src/assets/images/arrowLeft.svg?react";
 import ArrowRight from "src/assets/images/arrowRight.svg?react";
 
 import { StyledRecommendationSection } from "./Styled";
+import { selectRecommendedProducts } from "src/redux/products/productsSlice";
 
 const RecommendationSection = () => {
+  const dispatch = useDispatch();
+  const recommendedProducts = useSelector(selectRecommendedProducts);
+
+  useEffect(() => {
+    dispatch(getRecommendedProducts());
+  }, [dispatch]);
+
   return (
     <StyledRecommendationSection>
       <h2 className="titleRecommendation">Рекомендації</h2>
@@ -52,9 +64,9 @@ const RecommendationSection = () => {
           },
         }}
       >
-        {Array.from({ length: 10 }).map((_, index) => (
-          <SwiperSlide key={index} className="swiper-slideCustom">
-            <ProductCard />
+        {recommendedProducts.map((product) => (
+          <SwiperSlide key={product.id} className="swiper-slideCustom">
+            <ProductCard product={product} />
           </SwiperSlide>
         ))}
       </Swiper>
