@@ -21,6 +21,8 @@ export const theme = {
     backgroundCard: "#FFE959",
     textCard: "#19191a",
     borderButton: "#727273",
+    placeholderColor: "rgba(0, 1, 5, 0.6)",
+    footerLinks: "#000105",
   },
 
   fonts: {

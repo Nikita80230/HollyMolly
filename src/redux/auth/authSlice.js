@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut } from './operations';
+import { register, logIn, logOut, refreshUser } from './operations';
 
 const handelRegisterFulfilled = (state, action) => {
        state.user = action.payload.userEmail;
@@ -14,29 +14,29 @@ const handelLoginFulfilled = (state, action) => {
 };
 
 const handelLogOutFulfilled = state => {
-    state.user = { name: null, email: null };
+    state.user = { email: null };
       state.token = null;
       state.isLoggedIn = false;
 };
 
-// const handelRefreshUserPending = state => {
-//     state.isRefreshing = true;
-// };
+const handelRefreshUserPending = state => {
+    state.isRefreshing = true;
+};
 
-// const handelRefreshUserFulfilled = (state, action) => {
-//     state.user = action.payload;
-//       state.isLoggedIn = true;
-//       state.isRefreshing = false;
-// };
+const handelRefreshUserFulfilled = (state, action) => {
+    state.user = action.payload;
+      state.isLoggedIn = true;
+      state.isRefreshing = false;
+};
 
-// const handelRefreshUserRejected = state => {
-//     state.isRefreshing = false;
-// };
+const handelRefreshUserRejected = state => {
+    state.isRefreshing = false;
+};
  const initialState = {
   user: { email: null },
   token: null,
   isLoggedIn: false,
-//   isRefreshing: false,
+   isRefreshing: false,
 };   
 
 const authSlice = createSlice({
@@ -46,9 +46,9 @@ const authSlice = createSlice({
         builder.addCase(register.fulfilled, handelRegisterFulfilled)
             .addCase(logIn.fulfilled, handelLoginFulfilled)
             .addCase(logOut.fulfilled, handelLogOutFulfilled)
-            // .addCase(refreshUser.pending, handelRefreshUserPending)
-            // .addCase(refreshUser.fulfilled, handelRefreshUserFulfilled)
-            // .addCase(refreshUser.rejected, handelRefreshUserRejected)
+            .addCase(refreshUser.pending, handelRefreshUserPending)
+            .addCase(refreshUser.fulfilled, handelRefreshUserFulfilled)
+            .addCase(refreshUser.rejected, handelRefreshUserRejected)
     },
 });
 

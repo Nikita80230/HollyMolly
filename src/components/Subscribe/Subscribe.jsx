@@ -17,7 +17,7 @@ const Subscribe = () => {
     <SubscribeWrapper>
       <h2 className="title">Підпишись на наші оновлення</h2>
       <p className="description">
-        Підпишіться на наші оновлення щоб не пропусти знижки на ваші улюбленні
+        Підпишіться на наші оновлення щоб не пропусти знижки на улюблені
         товари
       </p>
       <SubscribeEmailWrapper>
@@ -32,7 +32,7 @@ const Subscribe = () => {
             <Field
               className="subscribeInput"
               name="email"
-              placeholder="Ваша пошта"
+              placeholder="Your email"
               type="email"
               autoComplete="username"
             />

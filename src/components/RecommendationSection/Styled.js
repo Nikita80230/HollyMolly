@@ -7,7 +7,6 @@ export const StyledRecommendationSection = styled.section`
   .titleRecommendation {
     margin-bottom: 40px;
     font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 600;
     font-size: 32px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }

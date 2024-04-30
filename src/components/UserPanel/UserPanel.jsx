@@ -1,11 +1,8 @@
 import { NavLink } from "react-router-dom";
-
 import FavoriteIcon from "../../assets/images/heart.svg?react";
 import BasketIcon from "../../assets/images/basket.svg?react";
 import UserIcon from "../../assets/images/userHeaderIcon.svg?react";
-
 import { routes } from "../../routes";
-
 import { StyledUserPanel } from "./Styled";
 
 const UserPanel = () => {
