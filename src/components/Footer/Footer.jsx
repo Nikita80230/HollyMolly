@@ -30,7 +30,7 @@ const Footer = () => {
             <h3 className="footer-title">Про нас</h3>
             <StyledLink>Про нас</StyledLink>
             <StyledLink>Кар'єра</StyledLink>
-            <StyledLink>Блог</StyledLink>
+            <StyledLink>Допомога та підтримка</StyledLink>
           </li>
           <li className="footer-items">
             <h3 className="footer-title">Каталог</h3>

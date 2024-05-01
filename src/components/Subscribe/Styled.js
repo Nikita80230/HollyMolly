@@ -7,15 +7,16 @@ export const SubscribeWrapper = styled.div`
   align-items: center;
   .title {
     margin-bottom: 22px;
-    font-family: ${({ theme }) => theme.fonts.fontNunito};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 700;
     font-size: 36px;
+    line-height: 1.38535;
     text-transform: uppercase;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
   .description {
     margin-bottom: 41px;
-    font-family: ${({ theme }) => theme.fonts.fontRoboto};
+    font-family: ${({ theme }) => theme.fonts.familyRoboto};
     font-weight: 400;
     font-size: 18px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
@@ -27,7 +28,6 @@ position:relative;
   gap: 36px;
 
   .subscribeInput {
-    
     padding: 12px 11px;
     outline: transparent;
     outline-offset: -1px;
@@ -36,14 +36,26 @@ position:relative;
     width: 531px;
     height: 56px;
     transition: border-bottom ${({ theme }) => theme.animations.transition};
+    /* font-family: ${({ theme }) => theme.fonts.familyNunito}; ;
+    font-weight: 400; 
+    font-size: 20px; */
   }
   .subscribeInput:hover {
     border-bottom: 1px solid ${({ theme }) => theme.colors.hoverInput};
   }
   .subscribeInput:focus {
     border-bottom: 1px solid ${({ theme }) => theme.colors.inputFocus};
-    background-color:${({theme})=>theme.colors.primaryBgColor};
+    background-color:${({ theme }) => theme.colors.primaryBgColor};
   }
+  .subscribeInput::placeholder{
+    /* font-family: ${({ theme }) => theme.fonts.familyNunito}; ;
+    font-weight: 400; 
+    font-size: 20px; */
+    color: ${({ theme }) => theme.colors.placeholderColor};
+
+
+  }
+
 
   .errorMessage{
   position: absolute;
@@ -61,7 +73,7 @@ font-style: italic;
     width: 157px;
     height: 56px;
     background-color: ${({ theme }) => theme.colors.buttonBgColor};
-    font-family: ${({ theme }) => theme.fonts.fontRoboto};
+    font-family: ${({ theme }) => theme.fonts.familyRoboto};
     font-weight: 600;
     font-size: 20px;
     color: ${({ theme }) => theme.colors.lightColorButton};

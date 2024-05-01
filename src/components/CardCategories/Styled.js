@@ -21,8 +21,7 @@ export const StyledCardCategories = styled.div`
   }
 
   .textCard {
-    font-family: ${({ theme }) => theme.fonts.fontNunito};
-    font-weight: 400;
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-size: 12px;
     color: ${({ theme }) => theme.colors.textCard};
 

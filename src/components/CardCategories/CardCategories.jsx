@@ -12,7 +12,7 @@ const CardCategories = ({ category }) => {
           src={category.link || defaultPhoto}
           alt={category.name}
         />
-        <p className="textCard">{category.name}</p>
+        <h4 className="textCard">{category.name}</h4>
       </Link>
     </StyledCardCategories>
   );

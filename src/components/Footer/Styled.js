@@ -8,9 +8,9 @@ export const FooterNavigation = styled.ul`
   gap: 194px;
 
   .footer-title {
+    font-family:${({theme})=>theme.fonts.familyNunito};
     margin-bottom: 33px;
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 400;
+    font-weight: 300;
     font-size: 18px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
@@ -25,9 +25,9 @@ export const StyledLink = styled(NavLink)`
   display: block;
   font-family: ${({ theme }) => theme.fonts.familyRoboto};
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   white-space: nowrap;
-  color: ${({ theme }) => theme.colors.primaryTxtColor};
+  color: ${({ theme }) => theme.colors.footerLinks};
   transition: color ${({ theme }) => theme.animations.transition};
 
   &:hover {

@@ -10,13 +10,11 @@ export const StyledCategoriesSection = styled.section`
 
   .titleCategories {
     margin-bottom: 40px;
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 500;
+     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-size: 20px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
 
     @media only screen and (min-width: 768px) {
-      font-weight: 600;
       font-size: 32px;
     }
   }

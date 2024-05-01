@@ -166,15 +166,13 @@ export const StyledHero = styled.section`
 
   .heroSubtitle {
     margin-bottom: 4px;
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 400;
+    font-family:${({theme})=>theme.fonts.familyNunito};
     font-size: 20px;
     color: ${({ theme }) => theme.colors.accentTxtColor};
     white-space: nowrap;
     text-align: center;
 
     @media only screen and (min-width: 768px) {
-      font-weight: 600;
       font-size: 32px;
     }
   }
