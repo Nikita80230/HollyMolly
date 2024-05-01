@@ -21,17 +21,17 @@ const appRoutes = [
   {
     path: routes.REGISTER,
     element: (
-      //  <RestrictedRoute>
-      <RegisterPage />
-      //  </RestrictedRoute>
+      <RestrictedRoute>
+        <RegisterPage />
+      </RestrictedRoute>
     ),
   },
   {
     path: routes.LOGIN,
     element: (
-      // <RestrictedRoute>
+      <RestrictedRoute>
         <LoginPage />
-      // </RestrictedRoute>
+      </RestrictedRoute>
     ),
   },
   {
