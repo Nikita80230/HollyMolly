@@ -11,7 +11,6 @@ export const SubscribeWrapper = styled.div`
     font-weight: 700;
     font-size: 36px;
     line-height: 1.38535;
-    text-transform: uppercase;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
   .description {

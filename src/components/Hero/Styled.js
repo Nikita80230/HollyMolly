@@ -88,7 +88,6 @@ export const StyledHero = styled.section`
 
   .spanTitle {
     font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 400;
     font-size: 28px;
     text-transform: uppercase;
     color: ${({ theme }) => theme.colors.accentTxtColor};
@@ -105,7 +104,6 @@ export const StyledHero = styled.section`
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     text-transform: uppercase;
     color: ${({ theme }) => theme.colors.lightTxtColor};
-    font-weight: 400;
     font-size: 22px;
 
     @media only screen and (min-width: 768px) {
@@ -178,7 +176,6 @@ export const StyledHero = styled.section`
   }
   .textSubtitle {
     font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 400;
     font-size: 15px;
     text-align: center;
     color: ${({ theme }) => theme.colors.accentTxtColor};
