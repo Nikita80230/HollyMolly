@@ -17,7 +17,7 @@ const Subscribe = () => {
     <SubscribeWrapper>
       <h2 className="title">Підпишись на наші оновлення</h2>
       <p className="description">
-        Підпишіться на наші оновлення щоб не пропусти знижки на улюблені
+        Підпишись на наші оновлення щоб не пропустити знижки на улюблені
         товари
       </p>
       <SubscribeEmailWrapper>

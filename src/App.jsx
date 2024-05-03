@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import PageLayout from "./components/PageLayout/PageLayout";
 import { routes } from "./routes";
@@ -10,6 +10,10 @@ import RestrictedRoute from "./components/RestrictedRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import { useDispatch } from "react-redux";
 import { refreshUser } from "./redux/auth/operations";
+import SupportPage from "./pages/SupportPage/SupportPage";
+import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
+import ForgotPasswordPage from "./pages/FogotPasswortPage/FogotPasswordPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage/ResetPasswordPage";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -18,6 +22,7 @@ const appRoutes = [
     path: routes.HOME,
     element: <HomePage />,
   },
+
   {
     path: routes.REGISTER,
     element: (
@@ -41,6 +46,22 @@ const appRoutes = [
         <ProfilePage />
       </PrivateRoute>
     ),
+  },
+  {
+    path: routes.SUPPORT,
+    element: <SupportPage />,
+  },
+  {
+    path: routes.ABOUT,
+    element: <AboutUsPage />,
+  },
+  {
+    path: routes.FORGOTPASSWORD,
+    element: <ForgotPasswordPage />,
+  },
+  {
+    path: routes.RESETPASSWORD,
+    element: <ResetPasswordPage />,
   },
 ];
 
