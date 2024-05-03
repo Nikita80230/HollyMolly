@@ -5,5 +5,6 @@ export const routes = {
   PROFILE: "/profile",
   SUPPORT: "/support",
   ABOUT: "/about",
-  FORGOTPASSWORD:"/forgot-password",
+  FORGOTPASSWORD: "/forgot-password",
+  RESETPASSWORD:"/reset-password",
 };

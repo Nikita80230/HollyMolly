@@ -1,12 +1,12 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export const resetPassword = async (values) => {
-  
+export const resetPassword = async ({ credentials }) => {
   try {
-    await axios.put(`/forgetPassword?email=${values.email}&sendEmail=true`);
-    toast.success("Пароль скинуто!");
+    const { userId } = credentials;
+    await axios.put(`/api/Account/${userId}/password/reset`, credentials);
+    toast.success("Пароль оновлено");
   } catch (error) {
-    toast.error("Уууупс, щось пішло не так.");
+    toast.error("");
   }
 };

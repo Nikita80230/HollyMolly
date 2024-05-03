@@ -1,6 +1,7 @@
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { resetPassword } from "src/services/resetPassword";
+import { forgotPassword} from "src/services/forgotPassword";
+
 
 const ForgotPasswordSchema = Yup.object().shape({
   email: Yup.string().email().required("This field is required"),
@@ -8,7 +9,7 @@ const ForgotPasswordSchema = Yup.object().shape({
 
 const ForgotPasswordForm = () => {
   const onSubmit = (values, form) => {
-    resetPassword(values);
+    forgotPassword(values);
     form.resetForm();
   };
 
@@ -29,7 +30,7 @@ const ForgotPasswordForm = () => {
            
           />
           <ErrorMessage component="p" name="email" />
-          <button type="submit">Надіслати</button>
+<button type="submit">Надіслати</button>
         </Form>
       </Formik>
     </>
