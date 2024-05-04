@@ -4,15 +4,18 @@ const Hero = () => {
   return (
     <StyledHero>
       <div className="wrapperImage">
-        <p className="heroImageText">Сяй яскраво наче діамант</p>
+
         <h1 className="heroTitle">
-          <span className="spanTitle">40% </span>
-          <br></br>знижка на сережки та браслети
+          <span className="spanTitle">До -40% </span>
+          <br></br>Знижка на сережки <br></br> та Браслети
         </h1>
+      <p className="heroImageText">Сяй яскраво наче діамант</p> 
       </div>
       <div className="wrapperSecondImage">
+        <div className="wrapperHeroSubtitle">
         <h2 className="heroSubtitle">Нова Колекція</h2>
-        <p className="textSubtitle">незабаром...</p>
+          <p className="textSubtitle">незабаром...</p>
+          </div>
       </div>
     </StyledHero>
   );
