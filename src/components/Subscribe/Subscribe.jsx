@@ -1,31 +1,27 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import { useEffect, useState } from "react";
+import { SubscribeSchema } from "src/schemas/SubscribeSchema";
 import { subscribeSentEmail } from "src/services/subscribeSentEmail";
-import * as Yup from "yup";
 import { SubscribeEmailWrapper, SubscribeWrapper } from "./Styled";
 
-const subscribeSchema = Yup.object().shape({
-  email: Yup.string().email().required("This field is required"),
-});
-
 const Subscribe = () => {
-  const onSubmit = (values, form) => {
+  const onSubmit = (values, actions) => {
     subscribeSentEmail(values);
-    form.resetForm();
+    actions.resetForm();
   };
 
   return (
     <SubscribeWrapper>
       <h2 className="title">Підпишись на наші оновлення</h2>
       <p className="description">
-        Підпишись на наші оновлення щоб не пропустити знижки на улюблені
-        товари
+        Підпишись на наші оновлення щоб не пропустити знижки на улюблені товари
       </p>
       <SubscribeEmailWrapper>
         <Formik
           initialValues={{
             email: "",
           }}
-          validationSchema={subscribeSchema}
+          validationSchema={SubscribeSchema}
           onSubmit={onSubmit}
         >
           <Form>
