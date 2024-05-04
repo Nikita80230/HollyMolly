@@ -71,7 +71,7 @@ font-style: italic;
     padding: 16px 24px;
     width: 157px;
     height: 56px;
-    background-color: ${({ theme }) => theme.colors.buttonBgColor};
+    background-color: ${({ theme }) => theme.colors.buttonBgColor}; 
     font-family: ${({ theme }) => theme.fonts.familyRoboto};
     font-weight: 600;
     font-size: 20px;
@@ -84,4 +84,5 @@ font-style: italic;
   .subscribeButton:focus {
     background-color: ${({ theme }) => theme.colors.focusButton};
   }
+
 `;
