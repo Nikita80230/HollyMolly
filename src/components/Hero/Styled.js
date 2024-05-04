@@ -47,9 +47,9 @@ export const StyledHero = styled.section`
     }
 
     @media only screen and (min-width: 768px) {
-      padding-top: 84px;
-      padding-left: 82px;
-      padding-bottom: 160px;
+      padding-top: 50px;
+      padding-left: 87px;
+      padding-bottom: 86px;
       width: 978px;
       height: 548px;
       background: url(${backgroundFirst1x}),
@@ -72,45 +72,44 @@ export const StyledHero = styled.section`
     }
   }
 
-  .heroImageText {
-    margin-bottom: 10px;
+  .heroTitle {
+    width: 178px;
+    height: 90px;
+    text-transform: uppercase;
     font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 600;
-    font-size: 15px;
     color: ${({ theme }) => theme.colors.lightTxtColor};
+    font-size: 22px;
 
     @media only screen and (min-width: 768px) {
-      margin-bottom: 40px;
-      font-weight: 500;
-      font-size: 22px;
+      margin-bottom: 24px;
+      width: 423px;
+      height: 344px;
+      text-transform: none;
+      font-size: 72px;
+      line-height: 1.2;
     }
   }
 
   .spanTitle {
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-size: 28px;
-    text-transform: uppercase;
     color: ${({ theme }) => theme.colors.accentTxtColor};
 
     @media only screen and (min-width: 768px) {
-      font-weight: 700;
-      font-size: 64px;
+      font-size: 72px;
+      line-height: 1.2;
     }
   }
 
-  .heroTitle {
-    width: 178px;
-    height: 90px;
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    text-transform: uppercase;
-    color: ${({ theme }) => theme.colors.lightTxtColor};
-    font-size: 22px;
+  .heroImageText {
+    display: none;
 
     @media only screen and (min-width: 768px) {
-      width: 331px;
-      height: 234px;
-      font-weight: 700;
-      font-size: 36px;
+      display: block;
+      font-family: ${({ theme }) => theme.fonts.familyNunito};
+      font-weight: 500;
+      font-size: 32px;
+      color: ${({ theme }) => theme.colors.lightTxtColor};
     }
   }
 
@@ -120,8 +119,8 @@ export const StyledHero = styled.section`
     border-radius: 20px;
     width: 100%;
     height: 80px;
-    background: url(${backgroundSecondMobile1x}),
-      linear-gradient(180deg, #ddc5b0 0%, #fff 100%);
+    background: url(${backgroundSecondMobile1x});
+
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -130,8 +129,8 @@ export const StyledHero = styled.section`
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background: url(${backgroundSecondMobile2x}),
-        linear-gradient(90deg, #f3c59b 0%, #98714a 100%);
+      background: url(${backgroundSecondMobile2x});
+
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -139,11 +138,11 @@ export const StyledHero = styled.section`
     }
 
     @media only screen and (min-width: 768px) {
-      padding: 40px 42px;
+      padding: 64px 34px;
       width: 310px;
       height: 548px;
-      background: url(${backgroundSecond1x}),
-        linear-gradient(90deg, #f3c59b 0%, #98714a 100%);
+      background: url(${backgroundSecond1x});
+
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -162,9 +161,20 @@ export const StyledHero = styled.section`
     }
   }
 
+  .wrapperHeroSubtitle {
+    @media only screen and (min-width: 768px) {
+      border-radius: 16px;
+      padding: 12px 8px 8px 8px;
+      width: 244px;
+      height: 90px;
+      backdrop-filter: blur(8px);
+      background-color: ${({ theme }) => theme.colors.backgroundHeroSubtitle};
+    }
+  }
+
   .heroSubtitle {
     margin-bottom: 4px;
-    font-family:${({theme})=>theme.fonts.familyNunito};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-size: 20px;
     color: ${({ theme }) => theme.colors.accentTxtColor};
     white-space: nowrap;
