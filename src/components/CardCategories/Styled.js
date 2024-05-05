@@ -15,8 +15,9 @@ export const StyledCardCategories = styled.div`
     border-radius: 20px;
 
     @media only screen and (min-width: 768px) {
-      width: 290px;
-      height: 253px;
+      width: 310px;
+      height: 216px;
+      margin-bottom:53px;
     }
   }
 

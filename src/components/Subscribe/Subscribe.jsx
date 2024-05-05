@@ -1,5 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SubscribeSchema } from "src/schemas/SubscribeSchema";
 import { subscribeSentEmail } from "src/services/subscribeSentEmail";
 import { SubscribeEmailWrapper, SubscribeWrapper } from "./Styled";
@@ -24,20 +24,35 @@ const Subscribe = () => {
           validationSchema={SubscribeSchema}
           onSubmit={onSubmit}
         >
-          <Form>
-            <Field
-              className="subscribeInput"
-              name="email"
-              placeholder="Your email"
-              type="email"
-              autoComplete="username"
-            />
-            <ErrorMessage className="errorMessage" component="p" name="email" />
-
-            <button className="subscribeButton" type="submit">
-              Надіслати
-            </button>
-          </Form>
+          {({ values }) => (
+            <Form>
+              <Field
+                className="subscribeInput"
+                name="email"
+                placeholder="Your email"
+                type="email"
+                autoComplete="username"
+              />
+              <ErrorMessage
+                className="errorMessage"
+                component="p"
+                name="email"
+              />
+              {values.email === "" ? (
+                <button
+                  className="subscribeButtonDisabled"
+                  type="submit"
+                  disabled
+                >
+                  Надіслати
+                </button>
+              ) : (
+                <button className="subscribeButton" type="submit">
+                  Надіслати
+                </button>
+              )}
+            </Form>
+          )}
         </Formik>
       </SubscribeEmailWrapper>
     </SubscribeWrapper>
