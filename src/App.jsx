@@ -14,6 +14,7 @@ import SupportPage from "./pages/SupportPage/SupportPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import ForgotPasswordPage from "./pages/FogotPasswortPage/FogotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage/ResetPasswordPage";
+import ConfirmEmail from "./pages/ConfirmEmailPage/ConfirmEmailPage";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -25,11 +26,11 @@ const appRoutes = [
 
   {
     path: routes.REGISTER,
-    element: (
-      <RestrictedRoute>
-        <RegisterPage />
-      </RestrictedRoute>
-    ),
+    element: <RegisterPage />,
+  },
+  {
+    path: routes.CONFIRMEMAIL,
+    element:<ConfirmEmail/>,
   },
   {
     path: routes.LOGIN,
