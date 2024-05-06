@@ -17,6 +17,7 @@ export const register = createAsyncThunk(
     try {
       const res = await axios.post("/api/Account/registration?sendEmail=true", credentials);
       setAuthHeader(res.data.token);
+      toast.success("Щоб підтвердити реєстрацію, перейдіть за посиланням з поштової скриньки");
       return res.data;
     } catch (error) {
       toast.error("Такий користувач вже існує");
