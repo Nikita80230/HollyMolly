@@ -47,7 +47,7 @@ const CategoriesModal = ({ closeModal, categories }) => {
                 <div className="categoryGroup" key={category.id}>
                   <Link
                     className="categoryGroupTitle"
-                    to={`${routes.CATALOG_PAGE}/${category.name}`}
+                    to={`${routes.CATALOG_PAGE}/${category.name}/${category.id}`}
                   >
                     {category.name}
                   </Link>
@@ -56,7 +56,7 @@ const CategoriesModal = ({ closeModal, categories }) => {
                       return (
                         <Link
                           className="subCategoryLink"
-                          to={`${routes.CATALOG_PAGE}/${subCategory.name}`}
+                          to={`${routes.CATALOG_PAGE}/${subCategory.name}/${subCategory.categoryGroupId}`}
                           key={subCategory.id}
                         >
                           {subCategory.name}

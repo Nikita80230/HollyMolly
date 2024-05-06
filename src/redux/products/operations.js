@@ -32,3 +32,19 @@ export const getRecommendedProducts = createAsyncThunk(
     }
   }
 );
+
+export const getProductsByCurrentCategory = createAsyncThunk(
+  "products/getRecommendedProducts",
+  async (categoryGroupId, thunkApi) => {
+    try {
+      const { data } = await instance.get(
+        `Categories/${categoryGroupId}/products`
+      );
+      console.log("getProductsByCurrentCategory-->", data);
+      return data;
+    } catch (error) {
+      toast.error(error.message);
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);

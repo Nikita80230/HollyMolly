@@ -50,7 +50,7 @@ const appRoutes = [
     ),
   },
   {
-    path: `${routes.CATALOG_PAGE}/:category`,
+    path: `${routes.CATALOG_PAGE}/:category/:categoryGroupId`,
     element: (
       // <PrivateRoute>
       <CatalogPage />
