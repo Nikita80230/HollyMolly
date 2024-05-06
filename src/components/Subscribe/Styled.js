@@ -71,7 +71,8 @@ font-style: italic;
     padding: 16px 24px;
     width: 157px;
     height: 56px;
-    background-color: ${({ theme }) => theme.colors.buttonBgColor}; 
+    
+    background-color: ${({ theme}) => theme.colors.buttonBgColor};
     font-family: ${({ theme }) => theme.fonts.familyRoboto};
     font-weight: 600;
     font-size: 20px;
@@ -82,6 +83,27 @@ font-style: italic;
     background-color: ${({ theme }) => theme.colors.hoverButton};
   }
   .subscribeButton:focus {
+    background-color: ${({ theme }) => theme.colors.focusButton};
+  }
+
+  .subscribeButtonDisabled {
+    border: transparent;
+    border-radius: 12px;
+    padding: 16px 24px;
+    width: 157px;
+    height: 56px;
+    
+    background-color: ${({ theme}) => theme.colors.disabledButtonBg};
+    font-family: ${({ theme }) => theme.fonts.familyRoboto};
+    font-weight: 600;
+    font-size: 20px;
+    color: ${({ theme }) => theme.colors.lightColorButton};
+    transition: background-color ${({ theme }) => theme.animations.transition};
+  }
+  .subscribeButtonDisabled:hover {
+    background-color: ${({ theme }) => theme.colors.hoverButton};
+  }
+  .subscribeButtonDisabled:focus {
     background-color: ${({ theme }) => theme.colors.focusButton};
   }
 
