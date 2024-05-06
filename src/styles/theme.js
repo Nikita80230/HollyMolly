@@ -23,6 +23,7 @@ export const theme = {
     borderButton: "#727273",
     placeholderColor: "rgba(0, 1, 5, 0.6)",
     footerLinks: "#000105",
+    subCategoryHover: "rgba(0, 0, 0, 0.37)",
   },
 
   fonts: {

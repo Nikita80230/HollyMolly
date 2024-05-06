@@ -1,10 +1,11 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
-  addProductToFavorite,
-  removeProductFromFavorite,
+  // addProductToFavorite,
+  // removeProductFromFavorite,
   selectFavoriteProducts,
+  toggleFavoriteProducts,
 } from "src/redux/products/productsSlice";
 
 import cardImg from "src/assets/images/recommendation-section/Rectangle 324.png";
@@ -25,10 +26,7 @@ const ProductCard = ({ product }) => {
   );
 
   const handleAddToFavorite = () => {
-    // setIdAddedToFavorite(!isAddedToFavorite);
-    if (!isProductInFavorite) dispatch(addProductToFavorite(product));
-    if (isProductInFavorite) dispatch(removeProductFromFavorite(product));
-    // dispatch(addProductToFavorite(product));
+    dispatch(toggleFavoriteProducts(product));
   };
 
   return (
@@ -38,7 +36,7 @@ const ProductCard = ({ product }) => {
         <button
           className="addToFavoriteButton"
           type="button"
-          onClick={() => handleAddToFavorite()}
+          onClick={handleAddToFavorite}
         >
           {isProductInFavorite ? (
             <AddedToFavoriteIcon className="addToFavoriteIcon" />

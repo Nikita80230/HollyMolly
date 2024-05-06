@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Subscribe from "../Subscribe/Subscribe";
 import {
   FooterNavigation,

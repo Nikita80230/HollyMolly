@@ -14,20 +14,17 @@ const productsSlice = createSlice({
   name: "productsSlice",
   initialState: initialProductsState,
   reducers: {
-    addProductToFavorite: (state, action) => {
-      if (state.favoriteProducts.length <= 0)
-        state.favoriteProducts.push(action.payload);
-
+    toggleFavoriteProducts: (state, action) => {
       const isProductInFavorite = state.favoriteProducts.some(
         (favoriteProduct) => favoriteProduct.id === action.payload.id
       );
 
       if (!isProductInFavorite) state.favoriteProducts.push(action.payload);
-    },
-    removeProductFromFavorite: (state, action) => {
-      state.favoriteProducts = state.favoriteProducts.filter(
-        (favoriteProduct) => favoriteProduct.id !== action.payload.id
-      );
+      else {
+        state.favoriteProducts = state.favoriteProducts.filter(
+          (favoriteProduct) => favoriteProduct.id !== action.payload.id
+        );
+      }
     },
   },
   extraReducers: (builder) => {
@@ -59,8 +56,7 @@ const productsSlice = createSlice({
   },
 });
 
-export const { addProductToFavorite, removeProductFromFavorite } =
-  productsSlice.actions;
+export const { toggleFavoriteProducts } = productsSlice.actions;
 
 export const selectAllProducts = (state) => state.products.allProducts;
 export const selectRecommendedProducts = (state) =>

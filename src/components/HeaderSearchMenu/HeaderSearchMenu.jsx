@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 import DesktopLogo from "src/assets/images/logo.svg?react";
@@ -28,7 +28,10 @@ const HeaderSearchMenu = ({ handleCloseSearchMenu }) => {
     setSearchValue(value);
   };
 
-  const filteredProducts = productsFilter(searchValue, allProducts);
+  const filteredProducts = useMemo(
+    () => productsFilter(searchValue, allProducts),
+    [searchValue, allProducts]
+  );
 
   return (
     <StyledHeaderSearchMenu>

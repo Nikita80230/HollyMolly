@@ -2,13 +2,16 @@ import { Link, NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const FooterNavigation = styled.ul`
-  padding: 0 65px 0 87px;
+  /* padding: 0 65px 0 87px; */
+  margin: 0 auto;
+  max-width: 1154px;
   margin-bottom: 60px;
   display: flex;
-  gap: 194px;
+  justify-content: space-between;
+  /* gap: 194px; */
 
   .footer-title {
-    font-family:${({theme})=>theme.fonts.familyNunito};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     margin-bottom: 33px;
     font-weight: 300;
     font-size: 18px;

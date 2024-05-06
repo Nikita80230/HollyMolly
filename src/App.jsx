@@ -1,15 +1,22 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
-import PageLayout from "./components/PageLayout/PageLayout";
+import { useDispatch } from "react-redux";
+
 import { routes } from "./routes";
+
+import PageLayout from "./components/PageLayout/PageLayout";
 import Loader from "./components/Loader/Loader";
+import RestrictedRoute from "./components/RestrictedRoute";
+import PrivateRoute from "./components/PrivateRoute";
+
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import RestrictedRoute from "./components/RestrictedRoute";
-import PrivateRoute from "./components/PrivateRoute";
-import { useDispatch } from "react-redux";
+import CatalogPage from "./pages/CatalogPage/CatalogPage";
+
 import { refreshUser } from "./redux/auth/operations";
+import { fetchCategories } from "./redux/categories/operations";
+import { getAllProducts } from "./redux/products/operations";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -42,6 +49,14 @@ const appRoutes = [
       </PrivateRoute>
     ),
   },
+  {
+    path: `${routes.CATALOG_PAGE}/:category`,
+    element: (
+      // <PrivateRoute>
+      <CatalogPage />
+      // </PrivateRoute>
+    ),
+  },
 ];
 
 export const App = () => {
@@ -49,6 +64,9 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(refreshUser());
+
+    dispatch(fetchCategories());
+    dispatch(getAllProducts());
   }, [dispatch]);
 
   return (

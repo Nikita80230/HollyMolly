@@ -1,14 +1,24 @@
 import { StyledCategoriesModal } from "./Styled";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { routes } from "src/routes";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const CategoriesModal = ({ closeModal, categories }) => {
+  const location = useLocation();
+  const isFirstRenderRef = useRef(true);
+
   const handleOverlayClick = (event) => {
     if (event.currentTarget === event.target) {
       closeModal();
     }
   };
+
+  useEffect(() => {
+    console.log("isFirstRenderRef.current: ", isFirstRenderRef.current);
+    if (isFirstRenderRef.current === false) closeModal();
+
+    return () => (isFirstRenderRef.current = false);
+  }, [closeModal, location]);
 
   useEffect(() => {
     const handleEscClick = (event) => {
@@ -35,7 +45,10 @@ const CategoriesModal = ({ closeModal, categories }) => {
             if (category.id <= 4) {
               return (
                 <div className="categoryGroup" key={category.id}>
-                  <Link className="categoryGroupTitle" to={routes.HOME}>
+                  <Link
+                    className="categoryGroupTitle"
+                    to={`${routes.CATALOG_PAGE}/${category.name}`}
+                  >
                     {category.name}
                   </Link>
                   <ul className="categoryGroupList">
@@ -43,7 +56,7 @@ const CategoriesModal = ({ closeModal, categories }) => {
                       return (
                         <Link
                           className="subCategoryLink"
-                          to={routes.HOME}
+                          to={`${routes.CATALOG_PAGE}/${subCategory.name}`}
                           key={subCategory.id}
                         >
                           {subCategory.name}
