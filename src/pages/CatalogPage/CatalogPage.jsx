@@ -15,20 +15,33 @@ import { getProductsByCurrentCategory } from "src/redux/products/operations";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
-  const { category, categoryGroupId } = useParams();
+  const { categoryGroupId, categoryId } = useParams();
 
   const allCategories = useSelector(selectCategories);
 
-  // let productsByCurrentCategory = [];
+  const mainCategory = allCategories?.find(
+    (mainCategory) => mainCategory.id === Number(categoryGroupId)
+  );
+
+  const categoryName = mainCategory?.name ?? "Завантаження...";
+
+  const subCategoryName =
+    mainCategory?.categories?.find((subCat) => subCat.id === Number(categoryId))
+      ?.name ?? "Завантаження...";
 
   const structure = [
     { url: routes.HOME, text: "Головна" },
-    { url: `${routes.CATALOG_PAGE}/${category}`, text: category },
+    {
+      url: categoryId
+        ? `${routes.CATALOG_PAGE}/${categoryGroupId}/${categoryId}`
+        : `${routes.CATALOG_PAGE}/${categoryGroupId}`,
+      text: categoryId ? subCategoryName : categoryName,
+    },
   ];
 
   useEffect(() => {
-    dispatch(getProductsByCurrentCategory(categoryGroupId));
-  }, [categoryGroupId, dispatch]);
+    dispatch(getProductsByCurrentCategory({ categoryGroupId, categoryId }));
+  }, [categoryGroupId, categoryId, dispatch]);
 
   return (
     <StyledCatalogPage>
@@ -36,7 +49,6 @@ const CatalogPage = () => {
         <Breadcrumb structure={structure} />
         <SubcategoriesList
           allCategories={allCategories}
-          currentCategory={category}
           categoryGroupId={categoryGroupId}
         />
       </div>

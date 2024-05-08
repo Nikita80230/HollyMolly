@@ -2,26 +2,15 @@ import { Link } from "react-router-dom";
 import { StyledSubcategoriesList } from "./Styled";
 import { routes } from "src/routes";
 
-const SubcategoriesList = ({ allCategories, currentCategory }) => {
+const SubcategoriesList = ({ allCategories, categoryGroupId }) => {
   if (allCategories.length === 0) return;
 
   let subCategoriesToRender = [];
 
   allCategories.find((category) => {
-    if (category.name === currentCategory) {
+    if (category.id === Number(categoryGroupId))
       subCategoriesToRender = [...category.categories];
-    } else {
-      allCategories.forEach((category) => {
-        category.categories.find((subCategory) => {
-          if (subCategory.name === currentCategory) {
-            subCategoriesToRender = [...category.categories];
-          }
-        });
-      });
-    }
   });
-
-  // console.log("subCategoriesByMainCategory: ", subCategoriesToRender);
 
   return (
     <StyledSubcategoriesList>
@@ -32,7 +21,7 @@ const SubcategoriesList = ({ allCategories, currentCategory }) => {
             <li className="subCategoryItem" key={subCategory.id}>
               <Link
                 className="subCategoryLink"
-                to={`${routes.CATALOG_PAGE}/${subCategory.name}`}
+                to={`${routes.CATALOG_PAGE}/${subCategory.categoryGroupId}/${subCategory.id}`}
               >
                 <div className="subCategoryContent">
                   <img

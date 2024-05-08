@@ -34,13 +34,14 @@ export const getRecommendedProducts = createAsyncThunk(
 );
 
 export const getProductsByCurrentCategory = createAsyncThunk(
-  "products/getRecommendedProducts",
-  async (categoryGroupId, thunkApi) => {
+  "products/getProductsByCurrentCategory",
+  async ({ categoryGroupId, categoryId }, thunkApi) => {
     try {
       const { data } = await instance.get(
-        `Categories/${categoryGroupId}/products`
+        categoryId
+          ? `Categories/${categoryGroupId}/${categoryId}/products`
+          : `Categories/${categoryGroupId}/products`
       );
-      console.log("getProductsByCurrentCategory-->", data);
       return data;
     } catch (error) {
       toast.error(error.message);

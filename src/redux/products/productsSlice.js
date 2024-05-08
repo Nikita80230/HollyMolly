@@ -1,13 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllProducts, getRecommendedProducts } from "./operations";
+import {
+  getAllProducts,
+  getProductsByCurrentCategory,
+  getRecommendedProducts,
+} from "./operations";
 
 const initialProductsState = {
+  isLoading: false,
   isAllProductsLoading: false,
   isRecommendedProductsLoading: false,
+  // productsByCurrentCategory: false,
   error: "",
   allProducts: [],
   recommendedProducts: [],
   favoriteProducts: [],
+  productsByCurrentCategory: [],
 };
 
 const productsSlice = createSlice({
@@ -52,6 +59,16 @@ const productsSlice = createSlice({
       .addCase(getRecommendedProducts.rejected, (state, action) => {
         state.error = action.payload;
         state.isAllProductsLoading = false;
+      })
+      .addCase(getProductsByCurrentCategory.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getProductsByCurrentCategory.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.productsByCurrentCategory = action.payload;
+      })
+      .addCase(getProductsByCurrentCategory.rejected, (state, action) => {
+        state.error = action.payload;
       });
   },
 });
@@ -63,5 +80,7 @@ export const selectRecommendedProducts = (state) =>
   state.products.recommendedProducts;
 export const selectFavoriteProducts = (state) =>
   state.products.favoriteProducts;
+export const selectProductsByCurrentCategory = (state) =>
+  state.products.productsByCurrentCategory;
 
 export const productsReducer = productsSlice.reducer;

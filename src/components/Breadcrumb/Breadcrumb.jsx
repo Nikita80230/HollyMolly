@@ -1,28 +1,28 @@
 import { NavLink } from "react-router-dom";
 import { StyledBreadcrumb } from "./Styled";
+import { Fragment } from "react";
 
 const Breadcrumb = ({ structure }) => {
-  const markupArray = [];
-
-  structure.forEach((element, index) => {
-    if (structure.length - 1 === index) {
-      markupArray.push(<span className="currentLink">{element.text}</span>);
-      return;
-    }
-
-    markupArray.push(
-      <>
-        <NavLink className="mainLink" to={element.url}>
-          {element.text}
-        </NavLink>
-        <div className="linksDivider">/</div>
-      </>
-    );
-  });
-
   return (
     <StyledBreadcrumb>
-      {markupArray.map((markupEl) => markupEl)}
+      {structure.map((element, index) => {
+        if (structure.length - 1 === index) {
+          return (
+            <span key={element.text} className="currentLink">
+              {element.text}
+            </span>
+          );
+        }
+
+        return (
+          <Fragment key={element.text}>
+            <NavLink className="mainLink" to={element.url}>
+              {element.text}
+            </NavLink>
+            <div className="linksDivider">/</div>
+          </Fragment>
+        );
+      })}
     </StyledBreadcrumb>
   );
 };
