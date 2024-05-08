@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom"
 import LoginForm from "src/components/AuthForms/LoginForm";
+import GoogleAuth from "src/components/GoogleAuth/GoogleAuth";
 
 import ButtonLogOut from "src/components/LogOut/ButtonLogOut";
 import { routes } from "src/routes"
@@ -12,8 +13,8 @@ const LoginPage = () => {
     <Wrapper>
      <LoginForm />
             <Link to={routes.REGISTER}>Перейти на Register</Link>
-            {/* <button>Ввійти через Google</button>
-            <button>Забули пароль?</button> */}
+            <GoogleAuth/>
+             <Link to={routes.FORGOTPASSWORD}>Забули пароль?</Link>
             <ButtonLogOut />
             
     </Wrapper>

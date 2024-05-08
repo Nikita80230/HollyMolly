@@ -1,4 +1,4 @@
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route, useParams, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import PageLayout from "./components/PageLayout/PageLayout";
 import { routes } from "./routes";
@@ -9,7 +9,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import RestrictedRoute from "./components/RestrictedRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import { useDispatch } from "react-redux";
-import { refreshUser } from "./redux/auth/operations";
+import { authGoogle, refreshUser } from "./redux/auth/operations";
 import SupportPage from "./pages/SupportPage/SupportPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import ForgotPasswordPage from "./pages/FogotPasswortPage/FogotPasswordPage";
@@ -30,7 +30,7 @@ const appRoutes = [
   },
   {
     path: routes.CONFIRMEMAIL,
-    element:<ConfirmEmail/>,
+    element: <ConfirmEmail />,
   },
   {
     path: routes.LOGIN,
@@ -68,9 +68,17 @@ const appRoutes = [
 
 export const App = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const urlParams = new URLSearchParams(location.search);
+  const token = urlParams.get("token");
 
   useEffect(() => {
-    dispatch(refreshUser());
+    if (token) {
+      dispatch(authGoogle({ token }));
+    }
+    // else {
+    //   dispatch(refreshUser());
+    // }
   }, [dispatch]);
 
   return (
