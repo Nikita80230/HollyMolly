@@ -12,9 +12,9 @@ import { theme } from "./styles/theme.js";
 import "react-toastify/dist/ReactToastify.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+  // <React.StrictMode>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter basename="/">
         <ThemeProvider theme={theme}>
           <App />
@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <ToastContainer />
         </ThemeProvider>
       </BrowserRouter>
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>
+    </PersistGate>
+  </Provider>
+  // </React.StrictMode>
 );

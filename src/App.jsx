@@ -1,11 +1,22 @@
 import { Routes, Route, useParams, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
-import PageLayout from "./components/PageLayout/PageLayout";
+import { useDispatch } from "react-redux";
+
 import { routes } from "./routes";
+
+import PageLayout from "./components/PageLayout/PageLayout";
 import Loader from "./components/Loader/Loader";
+import RestrictedRoute from "./components/RestrictedRoute";
+import PrivateRoute from "./components/PrivateRoute";
+
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import CatalogPage from "./pages/CatalogPage/CatalogPage";
+
+import { refreshUser } from "./redux/auth/operations";
+import { fetchCategories } from "./redux/categories/operations";
+import { getAllProducts } from "./redux/products/operations";
 import RestrictedRoute from "./components/RestrictedRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import { useDispatch } from "react-redux";
@@ -49,6 +60,14 @@ const appRoutes = [
     ),
   },
   {
+
+    path: `${routes.CATALOG_PAGE}/:categoryGroupId/:categoryId?`,
+    element: (
+      // <PrivateRoute>
+      <CatalogPage />
+      // </PrivateRoute>
+    ),
+      
     path: routes.SUPPORT,
     element: <SupportPage />,
   },
@@ -73,6 +92,10 @@ export const App = () => {
   const token = urlParams.get("token");
 
   useEffect(() => {
+    dispatch(refreshUser());
+
+    dispatch(fetchCategories());
+    dispatch(getAllProducts());
     if (token) {
       dispatch(authGoogle({ token }));
     }
