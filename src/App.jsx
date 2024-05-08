@@ -1,4 +1,4 @@
-import { Routes, Route, useParams, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
@@ -14,12 +14,9 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
 
-import { refreshUser } from "./redux/auth/operations";
 import { fetchCategories } from "./redux/categories/operations";
 import { getAllProducts } from "./redux/products/operations";
-import RestrictedRoute from "./components/RestrictedRoute";
-import PrivateRoute from "./components/PrivateRoute";
-import { useDispatch } from "react-redux";
+
 import { authGoogle, refreshUser } from "./redux/auth/operations";
 import SupportPage from "./pages/SupportPage/SupportPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
@@ -60,14 +57,14 @@ const appRoutes = [
     ),
   },
   {
-
     path: `${routes.CATALOG_PAGE}/:categoryGroupId/:categoryId?`,
     element: (
       // <PrivateRoute>
       <CatalogPage />
       // </PrivateRoute>
     ),
-      
+  },
+  {
     path: routes.SUPPORT,
     element: <SupportPage />,
   },
@@ -102,7 +99,7 @@ export const App = () => {
     // else {
     //   dispatch(refreshUser());
     // }
-  }, [dispatch]);
+  }, [dispatch, token]);
 
   return (
     <PageLayout>
