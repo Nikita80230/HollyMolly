@@ -15,8 +15,14 @@ export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post("/api/Account/registration", credentials);
+      const res = await axios.post(
+        "/api/Account/registration?sendEmail=true",
+        credentials
+      );
       setAuthHeader(res.data.token);
+      toast.success(
+        "Щоб підтвердити реєстрацію, перейдіть за посиланням з поштової скриньки"
+      );
       return res.data;
     } catch (error) {
       toast.error("Такий користувач вже існує");
@@ -63,9 +69,27 @@ export const refreshUser = createAsyncThunk(
     try {
       setAuthHeader(persistedToken);
       const res = await axios.get("/api/Account/profile");
+      if (!res) {
+        return;
+      } else {
+        return res.data;
+      }
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
+export const authGoogle = createAsyncThunk(
+  "auth/loginGoogle",
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.post("/api/Account/login/google", credentials);
+
+      setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      toast.error("Потрібно авторизуватись");
       return thunkAPI.rejectWithValue(error.message);
     }
   }

@@ -1,7 +1,7 @@
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { register } from "src/redux/auth/operations";
-import { FormSchema } from "src/schemas/FormSchema";
+import { RegisterSchema } from "src/schemas/RegisterSchema";
 import { StyledForm } from "./Styled";
 
 const RegisterForm = () => {
@@ -18,13 +18,18 @@ const RegisterForm = () => {
         initialValues={{
           email: "",
           password: "",
+          confirmPassword:"",
         }}
         onSubmit={handleSubmit}
-        validationSchema={FormSchema}
+        validationSchema={RegisterSchema}
       >
         <StyledForm>
           <Field name="email" type="email" />
+          <ErrorMessage name="email" component="p"/>
           <Field name="password" type="text" />
+          <ErrorMessage name="password" component="p"/>
+          <Field name="confirmPassword" type="text" placeholder="Підтвердіть пароль" />
+          <ErrorMessage name="confirmPassword" component="p"/>
           <button type="submit">Register</button>
         </StyledForm>
       </Formik>

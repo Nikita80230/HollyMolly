@@ -24,6 +24,8 @@ export const theme = {
     placeholderColor: "rgba(0, 1, 5, 0.6)",
     footerLinks: "#000105",
     subCategoryHover: "rgba(0, 0, 0, 0.37)",
+    backgroundHeroSubtitle: "rgba(243, 244, 252, 0.4)",
+    disabledButtonBg:"#a9b5ed",
   },
 
   fonts: {

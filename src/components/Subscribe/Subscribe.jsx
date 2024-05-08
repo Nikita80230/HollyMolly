@@ -1,47 +1,58 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import { useState } from "react";
+import { SubscribeSchema } from "src/schemas/SubscribeSchema";
 import { subscribeSentEmail } from "src/services/subscribeSentEmail";
-import * as Yup from "yup";
 import { SubscribeEmailWrapper, SubscribeWrapper } from "./Styled";
 
-const subscribeSchema = Yup.object().shape({
-  email: Yup.string().email().required("This field is required"),
-});
-
 const Subscribe = () => {
-  const onSubmit = (values, form) => {
+  const onSubmit = (values, actions) => {
     subscribeSentEmail(values);
-    form.resetForm();
+    actions.resetForm();
   };
 
   return (
     <SubscribeWrapper>
       <h2 className="title">Підпишись на наші оновлення</h2>
       <p className="description">
-        Підпишіться на наші оновлення щоб не пропусти знижки на улюблені
-        товари
+        Підпишись на наші оновлення щоб не пропустити знижки на улюблені товари
       </p>
       <SubscribeEmailWrapper>
         <Formik
           initialValues={{
             email: "",
           }}
-          validationSchema={subscribeSchema}
+          validationSchema={SubscribeSchema}
           onSubmit={onSubmit}
         >
-          <Form>
-            <Field
-              className="subscribeInput"
-              name="email"
-              placeholder="Your email"
-              type="email"
-              autoComplete="username"
-            />
-            <ErrorMessage className="errorMessage" component="p" name="email" />
-
-            <button className="subscribeButton" type="submit">
-              Надіслати
-            </button>
-          </Form>
+          {({ values }) => (
+            <Form>
+              <Field
+                className="subscribeInput"
+                name="email"
+                placeholder="Your email"
+                type="email"
+                autoComplete="username"
+              />
+              <ErrorMessage
+                className="errorMessage"
+                component="p"
+                name="email"
+              />
+              {values.email === "" ? (
+                <button
+                  className="subscribeButtonDisabled"
+                  type="submit"
+                  disabled
+                >
+                  Надіслати
+                </button>
+              ) : (
+                <button className="subscribeButton" type="submit">
+                  Надіслати
+                </button>
+              )}
+            </Form>
+          )}
         </Formik>
       </SubscribeEmailWrapper>
     </SubscribeWrapper>

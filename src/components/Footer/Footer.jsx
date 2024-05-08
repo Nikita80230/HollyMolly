@@ -12,6 +12,7 @@ import Instagram from "../../assets/images/instagram.svg?react";
 import Facebook from "../../assets/images/facebook.svg?react";
 import Twitter from "../../assets/images/twitter.svg?react";
 import Container from "../Container/Container";
+import { routes } from "src/routes";
 
 const Footer = () => {
   return (
@@ -29,9 +30,9 @@ const Footer = () => {
           <li className="footer-items">
             {" "}
             <h3 className="footer-title">Про нас</h3>
-            <StyledLink>Про нас</StyledLink>
+            <StyledLink to={routes.ABOUT}>Про нас</StyledLink>
             <StyledLink>Кар'єра</StyledLink>
-            <StyledLink>Допомога та підтримка</StyledLink>
+            <StyledLink to= {routes.SUPPORT}>Допомога та підтримка</StyledLink>
           </li>
           <li className="footer-items">
             <h3 className="footer-title">Каталог</h3>

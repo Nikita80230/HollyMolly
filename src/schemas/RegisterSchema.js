@@ -1,9 +1,7 @@
 import * as yup from "yup";
 
-export const FormSchema = yup.object().shape({
-  email: yup
-    .string()
-    .matches(
+export const RegisterSchema = yup.object().shape({
+  email: yup.string().matches(
       /^[A-Za-z0-9-_.+]{1,50}@(?=.{4,50}$)[A-Za-z0-9][A-Za-z0-9-.]*\.[A-Za-z0-9]{2,}$/,
       "Введіть вірний email"
     )
@@ -20,4 +18,9 @@ export const FormSchema = yup.object().shape({
         return !/^\d+$/.test(value);
     })
     .required("Це обов'язкове поле"),
+  confirmPassword: yup
+    .string()
+    .test("passwords-match", "Паролі мають співпадати", function (value) {
+      return this.parent.password === value;
+    }),
 });
