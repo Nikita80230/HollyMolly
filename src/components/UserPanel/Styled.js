@@ -22,6 +22,7 @@ export const StyledUserPanel = styled.div`
   /* ==================================@media (max-width: 564px)========================================= */
 
   @media (max-width: 564px) {
-    display: none;
+    gap: 0;
+    width: auto;
   }
 `;

@@ -8,18 +8,19 @@ import { routes } from "../../routes";
 
 import DesktopLogo from "../../assets/images/logo.svg?react";
 import MobileLogo from "src/assets/images/mobileLogo.svg?react";
-import OpenUserPanelIcon from "src/assets/images/openUserPanelIcon.svg?react";
+import CloseBurgerMenuIcon from "src/assets/images/closeCrossIcon.svg?react";
 import OpenBurgerIcon from "src/assets/images/openBurgerIcon.svg?react";
 
 import { StyledHeader } from "./Styled";
 // import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import UserPanel from "../UserPanel/UserPanel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HeaderSearchMenu from "../HeaderSearchMenu/HeaderSearchMenu";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 const Header = () => {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
-  const [isUserPanelOpen, setIsUserPanelOpen] = useState(false);
+
   const [isSearchMenuOpened, setIsMenuOpened] = useState(false);
 
   const handleOpenSearchMenu = () => {
@@ -30,13 +31,17 @@ const Header = () => {
     setIsMenuOpened(false);
   };
 
-  const handleOpenBurger = () => {
+  const toggleBurgerMenu = () => {
     setIsBurgerOpen(!isBurgerOpen);
   };
 
-  const handleOpenUserPanel = () => {
-    setIsUserPanelOpen(!isUserPanelOpen);
-  };
+  useEffect(() => {
+    if (isBurgerOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isBurgerOpen]);
 
   return (
     <StyledHeader>
@@ -51,20 +56,38 @@ const Header = () => {
           </div>
           <button
             type="button"
-            className="openBurgerBtn mobileButton"
-            onClick={handleOpenBurger}
+            className={`openBurgerBtn mobileButton ${
+              isBurgerOpen ? "openedBurger" : ""
+            }`}
+            onClick={toggleBurgerMenu}
           >
-            <OpenBurgerIcon
-              className="openBurgerIcon"
-              style={{ display: "block" }}
-            />
+            {isBurgerOpen ? (
+              <CloseBurgerMenuIcon
+                className="closeBurgerIcon"
+                style={{ display: "block" }}
+              />
+            ) : (
+              <OpenBurgerIcon
+                className="openBurgerIcon"
+                style={{ display: "block" }}
+              />
+            )}
           </button>
           <Link to={routes.HOME} className="headerLogo">
             <DesktopLogo className="headerDesktopLogoImg" />
             <MobileLogo className="headerMobileLogoImg" />
           </Link>
           <UserPanel />
-          <button
+        </div>
+      </Container>
+      {isBurgerOpen && <BurgerMenu toggleBurgerMenu={toggleBurgerMenu} />}
+    </StyledHeader>
+  );
+};
+
+export default Header;
+{
+  /* <button
             type="button"
             className="openUserPanelBtn mobileButton"
             onClick={handleOpenUserPanel}
@@ -73,11 +96,10 @@ const Header = () => {
               className="openUserPanelIcon"
               style={{ display: "block" }}
             />
-          </button>
-        </div>
-      </Container>
-    </StyledHeader>
-  );
-};
+          </button> */
+}
 
-export default Header;
+// const handleOpenUserPanel = () => {
+//   setIsUserPanelOpen(!isUserPanelOpen);
+// };
+// const [isUserPanelOpen, setIsUserPanelOpen] = useState(false);

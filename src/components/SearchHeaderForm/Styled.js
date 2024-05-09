@@ -1,12 +1,8 @@
 import { styled } from "styled-components";
 
 export const StyledSearchHeaderBtn = styled.button`
-  /* position: relative; */
-
   display: flex;
   gap: 16px;
-  /* justify-content: space-between; */
-  /* flex-direction: column; */
 
   max-width: 246px;
   width: 100%;
@@ -22,22 +18,11 @@ export const StyledSearchHeaderBtn = styled.button`
   }
 
   .placeholder {
-    /* position: absolute; */
-    /* bottom: 8px; */
-    /* left: 47px; */
-
-    /* transition: all 0.3s; */
-
     text-transform: capitalize;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.secondaryTxtColor};
 
-    /* pointer-events: none; */
     font-family: "Roboto";
-    /* &:focus,
-    &:hover {
-      color: #fc842d;
-    } */
   }
 
   .input {
@@ -55,16 +40,9 @@ export const StyledSearchHeaderBtn = styled.button`
     letter-spacing: 0.04em;
     color: ${({ theme }) => theme.colors.secondaryTxtColor};
     background-color: transparent;
-    /* text-transform: capitalize; */
-
-    /* &:focus,
-    &:hover {
-      border-bottom: 1px solid #fc842d;
-    } */
 
     &:not(:placeholder-shown) + .placeholder {
       transform: translateY(-28px);
-      /* color: #fc842d; */
       font-weight: 500;
       font-size: 12px;
     }
@@ -78,5 +56,13 @@ export const StyledSearchHeaderBtn = styled.button`
     font-size: 12px;
     letter-spacing: 0.04em;
     color: #fc842d;
+  }
+
+  @media (max-width: 564px) {
+    max-width: max-content;
+    width: 100%;
+    max-width: 532px;
+
+    margin-bottom: 32px;
   }
 `;
