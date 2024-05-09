@@ -13,6 +13,7 @@ export const StyledCategoryBtn = styled.div`
 
     background-color: transparent;
     border: none;
+    
   }
 
   .text {

@@ -7,7 +7,7 @@ const Hero = () => {
 
         <h1 className="heroTitle">
           <span className="spanTitle">До -40% </span>
-          <br></br>Знижка на сережки <br></br> та Браслети
+         Знижка на сережки <br></br> та Браслети
         </h1>
       <p className="heroImageText">Сяй яскраво наче діамант</p> 
       </div>

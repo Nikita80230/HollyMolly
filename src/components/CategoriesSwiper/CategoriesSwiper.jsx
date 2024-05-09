@@ -21,17 +21,18 @@ const CategoriesSwiper = () => {
       <h2 className="titleCategories">Категорії</h2>
       <Swiper
         modules={[Navigation, Grid]}
+        spaceBetween={10}
+        slidesPerView={2}
+        grid={{
+          rows: 2,
+        }}
         breakpoints={{
-          320: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            grid: {
-              rows: 2,
-            },
-          },
-          678: {
+          768: {
             slidesPerView: 3,
             spaceBetween: 20,
+            grid: {
+              rows: 1,
+            },
           },
           1024: {
             slidesPerView: 4,
@@ -48,7 +49,7 @@ const CategoriesSwiper = () => {
         className="mySwiper"
       >
         {categories.map((category) => (
-          <SwiperSlide key={category.id}>
+          <SwiperSlide className="swiperSlide" key={category.id}>
             <CardCategories category={category} />
           </SwiperSlide>
         ))}

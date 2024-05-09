@@ -23,6 +23,8 @@ import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import ForgotPasswordPage from "./pages/FogotPasswortPage/FogotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage/ResetPasswordPage";
 import ConfirmEmail from "./pages/ConfirmEmailPage/ConfirmEmailPage";
+import TrackingPage from "./pages/TrackingPage/TrackingPage";
+import SizeGuidePage from "./pages/SizeGuidePage/SizeGuidePage";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -37,7 +39,7 @@ const appRoutes = [
     element: <RegisterPage />,
   },
   {
-    path: routes.CONFIRMEMAIL,
+    path: routes.CONFIRM_EMAIL,
     element: <ConfirmEmail />,
   },
   {
@@ -69,17 +71,26 @@ const appRoutes = [
     element: <SupportPage />,
   },
   {
-    path: routes.ABOUT,
+    path: routes.ABOUT_US,
     element: <AboutUsPage />,
   },
   {
-    path: routes.FORGOTPASSWORD,
+    path: routes.FORGOT_PASSWORD,
     element: <ForgotPasswordPage />,
   },
   {
-    path: routes.RESETPASSWORD,
+    path: routes.RESET_PASSWORD,
     element: <ResetPasswordPage />,
   },
+  {
+    path: routes.TRACKING,
+    element:<TrackingPage/>,
+  },
+  {
+    path: routes.SIZE_GUIDE,
+    element:<SizeGuidePage/>,
+  },
+
 ];
 
 export const App = () => {
@@ -89,16 +100,14 @@ export const App = () => {
   const token = urlParams.get("token");
 
   useEffect(() => {
-    dispatch(refreshUser());
+    // dispatch(refreshUser());
 
     dispatch(fetchCategories());
     dispatch(getAllProducts());
     if (token) {
       dispatch(authGoogle({ token }));
     }
-    // else {
-    //   dispatch(refreshUser());
-    // }
+   
   }, [dispatch, token]);
 
   return (

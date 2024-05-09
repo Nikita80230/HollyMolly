@@ -13,9 +13,9 @@ const RegisterPage = () => {
       <RegisterForm />
       <Link to={routes.LOGIN}>Якщо ви вже реєструвались</Link>
      < GoogleAuth/>
-      <Link to={routes.FORGOTPASSWORD}>Забули пароль?</Link>
+      <Link to={routes.FORGOT_PASSWORD}>Забули пароль?</Link>
       
-      <button>Запам'ятати мене</button>
+      {/* <button>Запам'ятати мене</button> */}
     </Wrapper>
   );
 };
