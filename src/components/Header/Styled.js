@@ -1,15 +1,27 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
+  position: fixed;
+  top: -1px;
+  left: 0;
+
+  z-index: 10;
+
+  width: 100%;
+
   display: flex;
   align-items: center;
   flex-direction: row;
+
+  background: #fffbfe;
 
   .header {
     display: flex;
     align-items: center;
     flex-direction: row;
     min-height: 108px;
+
+    background: #fffbfe;
   }
 
   .leftHeader {
@@ -54,7 +66,6 @@ export const StyledHeader = styled.header`
 
     box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15),
       0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    background: #fffbfe, rgba(103, 80, 164, 0.08);
 
     .leftHeader {
       display: none;
@@ -62,6 +73,12 @@ export const StyledHeader = styled.header`
 
     .header {
       min-height: 64px;
+    }
+
+    .headerLogo {
+      display: flex;
+      margin-left: 8px;
+      margin-right: auto;
     }
 
     .headerDesktopLogoImg {
@@ -74,7 +91,7 @@ export const StyledHeader = styled.header`
 
     .mobileButton {
       display: block;
-      padding: 0;
+      padding: 13px;
       border: none;
       background: transparent;
     }
