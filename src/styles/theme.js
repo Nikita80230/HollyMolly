@@ -14,7 +14,8 @@ export const theme = {
     colorInput: " #727273",
     inputFocus: "#19191a",
     inputBorder: "#4c4c4d",
-    hoverInput: "#4c4c4d",
+    hoverInput: "#323234",
+    footerSubtitle:"#4c4c4d",
     buttonBgColor: "#3251ae",
     hoverButton: "#1d2f65",
     focusButton: "#8094e7",
@@ -25,7 +26,9 @@ export const theme = {
     footerLinks: "#000105",
     subCategoryHover: "rgba(0, 0, 0, 0.37)",
     backgroundHeroSubtitle: "rgba(243, 244, 252, 0.4)",
-    disabledButtonBg:"#a9b5ed",
+    disabledButtonBg: "#a9b5ed",
+    footerTitleMobileColor: "#0c0d0d",
+    backgroundLowerBlockMobile:"rgba(243, 244, 252, 0.2)"
   },
 
   fonts: {
