@@ -45,7 +45,7 @@ export const SubscribeWrapper = styled.div`
     position: relative;
     display: flex;
     gap: 18px;
-    width:100%;
+    width: 100%;
 
     @media only screen and (min-width: 768px) {
       display: block;
@@ -66,16 +66,16 @@ export const SubscribeWrapper = styled.div`
     font-size: 17px;
     /* color:${({ theme }) => theme.colors.placeholderColor}; */
 
-     @media only screen and (min-width: 375px) {
+    @media only screen and (min-width: 375px) {
       width: 255px;
-     };
+    }
 
     @media only screen and (min-width: 768px) {
       position: relative;
       width: 755px;
       height: 56px;
       font-size: 20px;
-    };
+    }
   }
   .subscribeInput:hover {
     border-bottom: 1px solid ${({ theme }) => theme.colors.hoverInput};
@@ -87,9 +87,9 @@ export const SubscribeWrapper = styled.div`
   .subscribeInput::placeholder {
     font-size: 17px;
     color: ${({ theme }) => theme.colors.placeholderColor};
-     @media only screen and (min-width: 768px) {
-       font-size: 20px;
-     }
+    @media only screen and (min-width: 768px) {
+      font-size: 20px;
+    }
   }
 
   .errorMessage {
@@ -101,13 +101,44 @@ export const SubscribeWrapper = styled.div`
     font-style: italic;
   }
 
+  .subscribeInputError {
+    padding: 12px 11px;
+    border: transparent;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.colorError};
+    outline: transparent;
+    outline-offset: -1px;
+
+    width: 531px;
+    height: 56px;
+    transition: border-bottom ${({ theme }) => theme.animations.transition};
+  }
+
+  .subscribeInputSuccess {
+    padding: 12px 11px;
+    border: transparent;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.colorSuccess};
+    outline: transparent;
+    outline-offset: -1px;
+
+    width: 531px;
+    height: 56px;
+    transition: border-bottom ${({ theme }) => theme.animations.transition};
+  }
+
+  .errorMessage {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    color: red;
+    font-size: 14px;
+  }
+
   .subscribeButton {
     border: transparent;
     border-radius: 12px;
     padding: 14px 7px;
     width: 79px;
     height: 42px;
-
     background-color: ${({ theme }) => theme.colors.buttonBgColor};
     font-family: ${({ theme }) => theme.fonts.familyRoboto};
     font-weight: 400;
@@ -139,7 +170,6 @@ export const SubscribeWrapper = styled.div`
     padding: 14px 7px;
     width: 79px;
     height: 42px;
-
     background-color: ${({ theme }) => theme.colors.disabledButtonBg};
     font-family: ${({ theme }) => theme.fonts.familyRoboto};
     font-weight: 400;
@@ -164,5 +194,4 @@ export const SubscribeWrapper = styled.div`
   .subscribeButtonDisabled:focus {
     background-color: ${({ theme }) => theme.colors.focusButton};
   }
-}
 `;

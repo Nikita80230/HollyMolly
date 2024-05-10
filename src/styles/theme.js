@@ -28,7 +28,10 @@ export const theme = {
     backgroundHeroSubtitle: "rgba(243, 244, 252, 0.4)",
     disabledButtonBg: "#a9b5ed",
     footerTitleMobileColor: "#0c0d0d",
-    backgroundLowerBlockMobile:"rgba(243, 244, 252, 0.2)"
+    backgroundLowerBlockMobile:"rgba(243, 244, 252, 0.2)",
+    colorError: " #ff0000 ",
+    colorSuccess:"#228B22",
+
   },
 
   fonts: {

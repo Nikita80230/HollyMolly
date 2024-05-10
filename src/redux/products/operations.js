@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 export const instance = axios.create({
   baseURL: "https://teamchallenge-001-site1.ktempurl.com/api/",
