@@ -4,9 +4,8 @@ export const routes = {
   LOGIN: "/login",
   PROFILE: "/profile",
   CATALOG_PAGE: "/catalog",
-  CONFIRM_EMAIL:"/confirm-email",
-  LOGIN:"/login",
-  PROFILE: "/profile",
+
+  CONFIRMEMAIL: "/confirm-email",
   SUPPORT: "/support",
   ABOUT_US: "/about",
   FORGOT_PASSWORD: "/forgot-password",

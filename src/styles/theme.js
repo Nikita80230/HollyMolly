@@ -27,10 +27,13 @@ export const theme = {
     subCategoryHover: "rgba(0, 0, 0, 0.37)",
     backgroundHeroSubtitle: "rgba(243, 244, 252, 0.4)",
     disabledButtonBg: "#a9b5ed",
+    dividerBurgerMenu: "#e4e4e4",
     footerTitleMobileColor: "#0c0d0d",
     backgroundLowerBlockMobile:"rgba(243, 244, 252, 0.2)",
     colorError: " #ff0000 ",
     colorSuccess:"#228B22",
+    backgroundLowerBlockMobile:"rgba(243, 244, 252, 0.2)"
+
 
   },
 
