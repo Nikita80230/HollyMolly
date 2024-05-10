@@ -71,18 +71,21 @@ export const SubscribeWrapper = styled.div`
     }
 
     @media only screen and (min-width: 768px) {
-      position: relative;
       width: 755px;
       height: 56px;
       font-size: 20px;
     }
   }
+
   .subscribeInput:hover {
     border-bottom: 1px solid ${({ theme }) => theme.colors.hoverInput};
   }
   .subscribeInput:focus {
     border-bottom: 1px solid ${({ theme }) => theme.colors.inputFocus};
     background-color: ${({ theme }) => theme.colors.primaryBgColor};
+    @media only screen and (min-width: 768px) {
+      width: 755px;
+    }
   }
   .subscribeInput::placeholder {
     font-size: 17px;
@@ -92,25 +95,24 @@ export const SubscribeWrapper = styled.div`
     }
   }
 
-  .errorMessage {
-    position: absolute;
-    top: 20px;
-    right: 180px;
-    color: red;
-    font-size: 14px;
-    font-style: italic;
-  }
-
   .subscribeInputError {
     padding: 12px 11px;
     border: transparent;
     border-bottom: 1px solid ${({ theme }) => theme.colors.colorError};
     outline: transparent;
     outline-offset: -1px;
-
-    width: 531px;
-    height: 56px;
+    width: 60%;
+    height: 42px;
     transition: border-bottom ${({ theme }) => theme.animations.transition};
+
+    @media only screen and (min-width: 375px) {
+      width: 255px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      width: 755px;
+      height: 56px;
+    }
   }
 
   .subscribeInputSuccess {
@@ -120,17 +122,30 @@ export const SubscribeWrapper = styled.div`
     outline: transparent;
     outline-offset: -1px;
 
-    width: 531px;
-    height: 56px;
+    width: 60%;
+    height: 42px;
     transition: border-bottom ${({ theme }) => theme.animations.transition};
+
+    @media only screen and (min-width: 375px) {
+      width: 255px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      width: 755px;
+      height: 56px;
+    }
   }
 
   .errorMessage {
     position: absolute;
     bottom: -20px;
     left: 0;
-    color: red;
-    font-size: 14px;
+    color: ${({ theme }) => theme.colors.colorError};
+    font-size: 10px;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
   }
 
   .subscribeButton {
@@ -139,6 +154,7 @@ export const SubscribeWrapper = styled.div`
     padding: 14px 7px;
     width: 79px;
     height: 42px;
+
     background-color: ${({ theme }) => theme.colors.buttonBgColor};
     font-family: ${({ theme }) => theme.fonts.familyRoboto};
     font-weight: 400;
@@ -170,6 +186,7 @@ export const SubscribeWrapper = styled.div`
     padding: 14px 7px;
     width: 79px;
     height: 42px;
+
     background-color: ${({ theme }) => theme.colors.disabledButtonBg};
     font-family: ${({ theme }) => theme.fonts.familyRoboto};
     font-weight: 400;

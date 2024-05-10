@@ -15,51 +15,47 @@ const Subscribe = () => {
       <p className="description">
         Підпишись на наші оновлення щоб не пропустити знижки на улюблені товари
       </p>
- 
-        <Formik
-          initialValues={{
-            email: "",
-          }}
-          validationSchema={SubscribeSchema}
-          onSubmit={onSubmit}
-        >
-          {({ values, errors }) => (
-            <Form>
-              <Field
-                className={
-                  (errors.email ? " subscribeInputError " : "") +
-                  (values.email && !errors.email
-                    ? "subscribeInputSuccess"
-                    : "subscribeInput")
-                }
-                name="email"
-                placeholder="Your email"
-                type="email"
-                autoComplete="username"
-              />
-              <ErrorMessage
-                className="errorMessage"
-                component="p"
-                name="email"
-              />
-              {values.email === "" ? (
-                <button
-                  className="subscribeButtonDisabled"
-                  type="submit"
-                  disabled
-                >
-                  Надіслати
-                </button>
-              ) : (
-                <button className="subscribeButton" type="submit">
-                  Надіслати
-                </button>
-              )}
-            </Form>
-          )}
-        </Formik>
-      </SubscribeWrapper>
-    
+
+      <Formik
+        initialValues={{
+          email: "",
+        }}
+        validationSchema={SubscribeSchema}
+        onSubmit={onSubmit}
+      >
+        {({ values, errors }) => (
+          <Form className="subscribeEmailForm">
+            <Field
+              className={
+                (errors.email ? " subscribeInputError " : "") +
+                (values.email && !errors.email
+                  ? "subscribeInputSuccess"
+                  : "subscribeInput")
+              }
+              name="email"
+              placeholder="Your email"
+              type="email"
+              autoComplete="username"
+            />
+            <ErrorMessage className="errorMessage" component="p" name="email" />
+
+            {values.email === "" ? (
+              <button
+                className="subscribeButtonDisabled"
+                type="submit"
+                disabled
+              >
+                Надіслати
+              </button>
+            ) : (
+              <button className="subscribeButton" type="submit">
+                Надіслати
+              </button>
+            )}
+          </Form>
+        )}
+      </Formik>
+    </SubscribeWrapper>
   );
 };
 
