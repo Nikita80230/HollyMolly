@@ -14,7 +14,7 @@ const LoginPage = () => {
      <LoginForm />
             <Link to={routes.REGISTER}>Перейти на Register</Link>
             <GoogleAuth/>
-             <Link to={routes.FORGOTPASSWORD}>Забули пароль?</Link>
+             <Link to={routes.FORGOT_PASSWORD}>Забули пароль?</Link>
             <ButtonLogOut />
             
     </Wrapper>

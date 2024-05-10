@@ -1,76 +1,32 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
-export const FooterNavigation = styled.ul`
-  /* padding: 0 65px 0 87px; */
-  margin: 0 auto;
-  max-width: 1154px;
-  margin-bottom: 60px;
-  display: flex;
-  justify-content: space-between;
-  /* gap: 194px; */
-
-  .footer-title {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    margin-bottom: 33px;
-    font-weight: 300;
-    font-size: 18px;
-    color: ${({ theme }) => theme.colors.primaryTxtColor};
-  }
-
-  .footer-items {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-`;
-export const StyledLink = styled(NavLink)`
-  display: block;
-  font-family: ${({ theme }) => theme.fonts.familyRoboto};
-  font-weight: 400;
-  font-size: 16px;
-  white-space: nowrap;
-  color: ${({ theme }) => theme.colors.footerLinks};
-  transition: color ${({ theme }) => theme.animations.transition};
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.colorLink};
-  }
-`;
-
-export const SocialLink = styled(NavLink)`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: ${({ theme }) => theme.fonts.familyRoboto};
-  font-weight: 400;
-  font-size: 18px;
-  color: ${({ theme }) => theme.colors.colorLink};
-  transition: color ${({ theme }) => theme.animations.transition};
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.hoverButton};
-  }
-`;
-
-export const WrapperSocialLink = styled.div`
-  display: flex;
-  gap: 4px;
-`;
-
 export const LowerBlock = styled.div`
-  padding: 19px 64px 15px 64px;
+  margin-bottom: 53px;
+  padding: 10px 22px;
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 50px;
-  background-color: ${({ theme }) => theme.colors.secondaryBgColor};
+  height: 33px;
+  background-color: ${({ theme }) => theme.colors.backgroundLowerBlockMobile};
+
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 0;
+    padding: 19px 64px 15px 64px;
+    height: 50px;
+    background-color: ${({ theme }) => theme.colors.secondaryBgColor};
+  }
+
   .text {
     font-family: ${({ theme }) => theme.fonts.familyRoboto};
     font-weight: 400;
-    font-size: 14px;
+    font-size: 11px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
     white-space: nowrap;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
   }
   .lower-links {
     display: flex;
