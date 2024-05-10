@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCategories } from "src/redux/categories/selectors";
-import { StyledMobileCategoriesList } from "./Styled";
 import { routes } from "src/routes";
-import { useState } from "react";
+
+import ArrowRight from "../../assets/images/halfRightArrow.svg?react";
+
+import { StyledMobileCategoriesList } from "./Styled";
 
 const MobileCategoriesList = ({ toggleBurgerMenu }) => {
   const [idOpenedCategory, setIdOpenedCategory] = useState(null);
@@ -31,7 +34,7 @@ const MobileCategoriesList = ({ toggleBurgerMenu }) => {
               onClick={() => handleOpenSubcategories(id)}
             >
               <span className="categoryBtnLabel">{name}</span>
-              <span className="categoryBtnIcon">Icon</span>
+              <ArrowRight className="categoryBtnIcon" />
             </button>
 
             <div

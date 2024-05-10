@@ -2,7 +2,7 @@ import Header from "../Header/Header";
 import Container from "../Container/Container";
 
 import { StyledPageLayout } from "./Styled";
-// import Footer from "../Footer/Footer";
+import Footer from "../Footer/Footer";
 
 const PageLayout = ({ children }) => {
   return (
@@ -11,7 +11,7 @@ const PageLayout = ({ children }) => {
       <main className="main">
         <Container>{children}</Container>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </StyledPageLayout>
   );
 };

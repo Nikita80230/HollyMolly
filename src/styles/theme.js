@@ -25,7 +25,8 @@ export const theme = {
     footerLinks: "#000105",
     subCategoryHover: "rgba(0, 0, 0, 0.37)",
     backgroundHeroSubtitle: "rgba(243, 244, 252, 0.4)",
-    disabledButtonBg:"#a9b5ed",
+    disabledButtonBg: "#a9b5ed",
+    dividerBurgerMenu: "#e4e4e4",
   },
 
   fonts: {
