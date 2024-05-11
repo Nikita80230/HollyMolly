@@ -10,7 +10,7 @@ export const StyledProductCard = styled.div`
   .productImg {
     margin-bottom: 8px;
 
-    max-width: 310px;
+    /* max-width: 310px; */
     width: 100%;
   }
 

@@ -41,7 +41,7 @@ const RecommendationSection = () => {
           rows: 2,
         }}
         breakpoints={{
-          564: {
+          565: {
             slidesPerView: 3,
             spaceBetween: 20,
             grid: {
@@ -57,7 +57,7 @@ const RecommendationSection = () => {
           },
           1024: {
             slidesPerView: 4,
-            spaceBetween: 20,
+            spaceBetween: 24,
             grid: {
               rows: 1,
             },

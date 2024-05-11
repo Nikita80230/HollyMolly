@@ -24,8 +24,8 @@ export const StyledRecommendationSection = styled.section`
   .nextProductBtn,
   .prevProductBtn {
     padding: 10px;
-    width: 44px;
-    height: 44px;
+    width: 56px;
+    height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;

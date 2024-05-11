@@ -29,7 +29,7 @@ const CategoryBtn = () => {
             : handleOpenCategoriesModal
         }
       >
-        <span className="text">Категорія</span>
+        <span className="text">Каталог</span>
         <ArrowRight
           className={`openCategoryIcon ${
             isCategoriesModalOpened ? "openedCategoryIcon" : ""
