@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
+
 
 axios.defaults.baseURL = "https://teamchallenge-001-site1.ktempurl.com";
 
@@ -20,7 +21,7 @@ export const register = createAsyncThunk(
         credentials
       );
       setAuthHeader(res.data.token);
-      toast.success(
+      toast(
         "Щоб підтвердити реєстрацію, перейдіть за посиланням з поштової скриньки"
       );
       return res.data;

@@ -45,7 +45,7 @@ export const SubscribeWrapper = styled.div`
     position: relative;
     display: flex;
     gap: 18px;
-    width:100%;
+    width: 100%;
 
     @media only screen and (min-width: 768px) {
       display: block;
@@ -66,39 +66,86 @@ export const SubscribeWrapper = styled.div`
     font-size: 17px;
     /* color:${({ theme }) => theme.colors.placeholderColor}; */
 
-     @media only screen and (min-width: 375px) {
+    @media only screen and (min-width: 375px) {
       width: 255px;
-     };
+    }
 
     @media only screen and (min-width: 768px) {
-      position: relative;
       width: 755px;
       height: 56px;
       font-size: 20px;
-    };
+    }
   }
+
   .subscribeInput:hover {
     border-bottom: 1px solid ${({ theme }) => theme.colors.hoverInput};
   }
   .subscribeInput:focus {
     border-bottom: 1px solid ${({ theme }) => theme.colors.inputFocus};
     background-color: ${({ theme }) => theme.colors.primaryBgColor};
+    @media only screen and (min-width: 768px) {
+      width: 755px;
+    }
   }
   .subscribeInput::placeholder {
     font-size: 17px;
     color: ${({ theme }) => theme.colors.placeholderColor};
-     @media only screen and (min-width: 768px) {
-       font-size: 20px;
-     }
+    @media only screen and (min-width: 768px) {
+      font-size: 20px;
+    }
+  }
+
+  .subscribeInputError {
+    padding: 12px 11px;
+    border: transparent;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.colorError};
+    outline: transparent;
+    outline-offset: -1px;
+    width: 60%;
+    height: 42px;
+    transition: border-bottom ${({ theme }) => theme.animations.transition};
+
+    @media only screen and (min-width: 375px) {
+      width: 255px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      width: 755px;
+      height: 56px;
+    }
+  }
+
+  .subscribeInputSuccess {
+    padding: 12px 11px;
+    border: transparent;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.colorSuccess};
+    outline: transparent;
+    outline-offset: -1px;
+
+    width: 60%;
+    height: 42px;
+    transition: border-bottom ${({ theme }) => theme.animations.transition};
+
+    @media only screen and (min-width: 375px) {
+      width: 255px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      width: 755px;
+      height: 56px;
+    }
   }
 
   .errorMessage {
     position: absolute;
-    top: 20px;
-    right: 180px;
-    color: red;
-    font-size: 14px;
-    font-style: italic;
+    bottom: -20px;
+    left: 0;
+    color: ${({ theme }) => theme.colors.colorError};
+    font-size: 10px;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
   }
 
   .subscribeButton {
@@ -164,5 +211,4 @@ export const SubscribeWrapper = styled.div`
   .subscribeButtonDisabled:focus {
     background-color: ${({ theme }) => theme.colors.focusButton};
   }
-}
 `;

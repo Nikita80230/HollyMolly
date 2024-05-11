@@ -23,16 +23,22 @@ const Subscribe = () => {
         validationSchema={SubscribeSchema}
         onSubmit={onSubmit}
       >
-        {({ values }) => (
-          <Form className=" subscribeEmailForm">
+        {({ values, errors }) => (
+          <Form className="subscribeEmailForm">
             <Field
-              className="subscribeInput"
+              className={
+                (errors.email ? " subscribeInputError " : "") +
+                (values.email && !errors.email
+                  ? "subscribeInputSuccess"
+                  : "subscribeInput")
+              }
               name="email"
               placeholder="Your email"
               type="email"
               autoComplete="username"
             />
             <ErrorMessage className="errorMessage" component="p" name="email" />
+
             {values.email === "" ? (
               <button
                 className="subscribeButtonDisabled"

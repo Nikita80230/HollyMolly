@@ -12,7 +12,7 @@ export const StyledHero = styled.section`
   position: absolute;
   top: 81px;
   left: 0;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -20,6 +20,7 @@ export const StyledHero = styled.section`
 
   @media only screen and (min-width: 768px) {
     position: static;
+    margin-top: 159px;
     margin-bottom: 80px;
     flex-direction: row;
     gap: 24px;
