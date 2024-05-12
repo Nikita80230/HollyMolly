@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 export const StyledCategoriesSection = styled.section`
   position: relative;
   margin-bottom: 36px;
-  /* margin-top: 364px; */
   margin-top:428px;
 
   @media only screen and (min-width: 768px) {
@@ -60,8 +59,10 @@ export const StyledCategoriesSection = styled.section`
     justify-content: center;
     align-items: center;
     background-color: transparent;
-    border: 1px solid ${({ theme }) => theme.colors.borderButton};
+    border: 1px solid ${({ theme }) => theme.colors.borderButtonSwiper};
     border-radius: 8px;
+    transition: background-color ${({ theme }) => theme.animations.transition}
+    border  ${({ theme }) => theme.animations.transition};
 
     @media only screen and (min-width: 768px) {
       padding: 10px;
@@ -69,11 +70,35 @@ export const StyledCategoriesSection = styled.section`
       height: 48px;
     }
   }
+
+  .swiper-button-next:focus {
+    background-color: ${({ theme }) => theme.colors.hoverButtonBgSwiper};
+    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+  }
+
+   .swiper-button-prev:focus {
+    background-color: ${({ theme }) => theme.colors.hoverButtonBgSwiper};
+    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper}
+  }
+
+   .swiper-button-next:hover {
+    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+  }
+
+   .swiper-button-prev:hover {
+    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+  }
+
   .swiper-button-next:after,
   .swiper-button-prev:after {
     display: none;
   }
 
+  .swiper-button-prev.swiper-button-disabled,
+  .swiper-button-next.swiper-button-disabled {
+   border: 1px solid ${({ theme }) => theme.colors.borderButton};
+   
+  }
   .swiperSlide {
     width: 164px;
     height: 158px;

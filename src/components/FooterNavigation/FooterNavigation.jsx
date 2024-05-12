@@ -45,7 +45,7 @@ const FooterNavigation = () => {
       </li>
 
       <li className="footer-items">
-        <h3 className="footer-title">Контакти</h3>
+        <h3 className="contacts-title">Контакти</h3>
         <WrapperSocialLink>
           <SocialLink
             to="https://www.instagram.com/"

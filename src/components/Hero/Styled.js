@@ -12,7 +12,6 @@ export const StyledHero = styled.section`
   position: absolute;
   top: 81px;
   left: 0;
-  /* margin-bottom: 50px; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -20,7 +19,6 @@ export const StyledHero = styled.section`
 
   @media only screen and (min-width: 768px) {
     position: static;
-    margin-top: 159px;
     margin-bottom: 80px;
     flex-direction: row;
     gap: 24px;
@@ -35,7 +33,7 @@ export const StyledHero = styled.section`
     width: 100%;
     height: 226px;
     background: url(${backgroundFirstMobile1x}),
-      linear-gradient(90deg, #f3c59b 0%, #98714a 100%);
+      linear-gradient(90deg, #d69f69 0%,  #8c6844 100%);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right center;
@@ -45,7 +43,7 @@ export const StyledHero = styled.section`
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       background: url(${backgroundFirstMobile2x}),
-        linear-gradient(90deg, #f3c59b 0%, #98714a 100%);
+        linear-gradient(90deg, #d69f69 0%, #8c6844 100%);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: right center;
@@ -59,7 +57,7 @@ export const StyledHero = styled.section`
       width: 978px;
       height: 548px;
       background: url(${backgroundFirst1x}),
-        linear-gradient(90deg, #f3c59b 0%, #98714a 100%);
+        linear-gradient(90deg, #d69f69 0%, #8c6844 100%);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: right center;
@@ -69,7 +67,7 @@ export const StyledHero = styled.section`
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
         background: url(${backgroundFirst2x}),
-          linear-gradient(90deg, #f3c59b 0%, #98714a 100%);
+          linear-gradient(90deg, #d69f69 0%, #8c6844 100%);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right center;

@@ -1,12 +1,42 @@
+import Modal from "react-modal";
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import { useState } from "react";
 import { SubscribeSchema } from "src/schemas/SubscribeSchema";
 import { subscribeSentEmail } from "src/services/subscribeSentEmail";
 import { SubscribeWrapper } from "./Styled";
+import ModalSubscribe from "../ModalSubscribe/ModalSubscribe";
+
+Modal.setAppElement("#root");
 
 const Subscribe = () => {
-  const onSubmit = (values, actions) => {
-    subscribeSentEmail(values);
-    actions.resetForm();
+  const [message, setMessage] = useState("");
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+    document.body.style.overflow = "";
+  }
+
+  const onSubmit = async (values, actions) => {
+    try {
+      const resMessage = await subscribeSentEmail(values);
+
+      if (resMessage === "✔  Ваша підписка вже активована") {
+        setMessage(resMessage);
+      } else {
+        openModal();
+      }
+
+      actions.resetForm();
+    } catch (error) {
+      console.error(error);
+      setMessage("Упс! Щось пішло не так.");
+    }
   };
 
   return (
@@ -38,7 +68,9 @@ const Subscribe = () => {
               autoComplete="username"
             />
             <ErrorMessage className="errorMessage" component="p" name="email" />
-
+            { !errors.email ? (
+              <p className="successMessage">{message}</p>
+            ):( <p className="errorMessage">{message}</p>)}
             {values.email === "" ? (
               <button
                 className="subscribeButtonDisabled"
@@ -55,6 +87,15 @@ const Subscribe = () => {
           </Form>
         )}
       </Formik>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className="modal-content"
+        overlayClassName="modal-overlay"
+        contentLabel=" Modal"
+      >
+        <ModalSubscribe onClose={closeModal} />
+      </Modal>
     </SubscribeWrapper>
   );
 };

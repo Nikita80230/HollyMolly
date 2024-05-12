@@ -30,15 +30,37 @@ export const StyledRecommendationSection = styled.section`
     justify-content: center;
     align-items: center;
     background-color: transparent;
-    border: 1px solid ${({ theme }) => theme.colors.borderButton};
+    border: 1px solid ${({ theme }) => theme.colors.borderButtonSwiper};
     border-radius: 8px;
+    transition: background-color ${({ theme }) => theme.animations.transition}
+    border  ${({ theme }) => theme.animations.transition};
+
   }
+  .nextProductBtn:focus {
+    background-color: ${({ theme }) => theme.colors.hoverButtonBgSwiper};
+    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+  }
+
+  .prevProductBtn:focus {
+    background-color: ${({ theme }) => theme.colors.hoverButtonBgSwiper};
+    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+  }
+
+   .nextProductBtn:hover {
+    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+  }
+
+  .prevProductBtn:hover {
+    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+  }
+
   .nextProductBtn:after,
   .prevProductBtn:after {
     display: none;
   }
   .prevProductBtn.swiper-button-disabled,
   .nextProductBtn.swiper-button-disabled {
+     border: 1px solid ${({ theme }) => theme.colors.borderButton};
     opacity: 0.35;
     cursor: auto;
     pointer-events: none;

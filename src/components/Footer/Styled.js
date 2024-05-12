@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const LowerBlock = styled.div`
   margin-bottom: 53px;
-  padding: 10px 22px;
   display: flex;
-  justify-content: space-between;
+  gap:24px;
   width: 100%;
   height: 33px;
   background-color: ${({ theme }) => theme.colors.backgroundLowerBlockMobile};
@@ -13,6 +11,7 @@ export const LowerBlock = styled.div`
   @media only screen and (min-width: 768px) {
     margin-bottom: 0;
     padding: 19px 64px 15px 64px;
+     justify-content: space-between;
     height: 50px;
     background-color: ${({ theme }) => theme.colors.secondaryBgColor};
   }
@@ -28,15 +27,16 @@ export const LowerBlock = styled.div`
       font-size: 14px;
     }
   }
+
   .lower-links {
     display: flex;
-    gap: 45px;
+   gap:24px;
+     @media only screen and (min-width: 768px) {
+ gap: 45px;
+
+     }
   }
+ 
 `;
 
-export const StyledLowerLink = styled(Link)`
-  font-family: ${({ theme }) => theme.fonts.familyRoboto};
-  font-weight: 400;
-  font-size: 14px;
-  color: ${({ theme }) => theme.colors.primaryTxtColor};
-`;
+

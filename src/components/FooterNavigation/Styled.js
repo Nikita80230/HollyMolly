@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const FooterNavigationList = styled.ul`
-  margin-bottom: 88px;
+  margin-bottom: 98px;
   width: 100%;
   height: 19px;
   display: flex;
@@ -13,18 +13,17 @@ export const FooterNavigationList = styled.ul`
   @media only screen and (min-width: 768px) {
     width: 100%;
     height: 155px;
-    margin-bottom: 60px;
-    gap: 25px;
+    gap: 24px;
   }
 
   .footer-items {
     width: 100%;
+
     @media only screen and (min-width: 768px) {
       width: 198px;
       height: 155px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
     }
   }
 
@@ -35,7 +34,21 @@ export const FooterNavigationList = styled.ul`
     white-space: nowrap;
 
     @media only screen and (min-width: 768px) {
-      margin-bottom: 33px;
+      margin-bottom: 16px;
+      font-weight: 300;
+      font-size: 18px;
+      color: ${({ theme }) => theme.colors.primaryTxtColor};
+    }
+  }
+
+  .contacts-title {
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.textCard};
+    white-space: nowrap;
+
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 10px;
       font-weight: 300;
       font-size: 18px;
       color: ${({ theme }) => theme.colors.primaryTxtColor};
@@ -46,6 +59,7 @@ export const StyledLink = styled(NavLink)`
   display: none;
 
   @media only screen and (min-width: 768px) {
+    margin-bottom:8px;
     display: block;
     font-family: ${({ theme }) => theme.fonts.familyRoboto};
     font-weight: 400;
@@ -83,7 +97,8 @@ export const WrapperSocialLink = styled.div`
   display: none;
 
   @media only screen and (min-width: 768px) {
+     margin-bottom:4px;
     display: flex;
-    gap: 4px;
+    
   }
 `;
