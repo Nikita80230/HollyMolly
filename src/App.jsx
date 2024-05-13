@@ -25,6 +25,8 @@ import ResetPasswordPage from "./pages/ResetPasswordPage/ResetPasswordPage";
 import ConfirmEmail from "./pages/ConfirmEmailPage/ConfirmEmailPage";
 import TrackingPage from "./pages/TrackingPage/TrackingPage";
 import SizeGuidePage from "./pages/SizeGuidePage/SizeGuidePage";
+import { useAuth } from "./hooks";
+// import ComponentStyle from "styled-components/dist/models/ComponentStyle";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -84,13 +86,12 @@ const appRoutes = [
   },
   {
     path: routes.TRACKING,
-    element:<TrackingPage/>,
+    element: <TrackingPage />,
   },
   {
     path: routes.SIZE_GUIDE,
-    element:<SizeGuidePage/>,
+    element: <SizeGuidePage />,
   },
-
 ];
 
 export const App = () => {
@@ -98,27 +99,43 @@ export const App = () => {
   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
   const token = urlParams.get("token");
+  const { isLoggedIn, isRefreshing } = useAuth();
+
+  
 
   useEffect(() => {
-    // dispatch(refreshUser());
+    if (!isLoggedIn) {
+      // dispatch(refreshUser());
+      console.log(isLoggedIn)
+    }
 
     dispatch(fetchCategories());
     dispatch(getAllProducts());
+
     if (token) {
       dispatch(authGoogle({ token }));
     }
-   
-  }, [dispatch, token]);
+  }, [dispatch, token, isLoggedIn]);
 
   return (
-    <PageLayout>
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          {appRoutes.map((route) => (
-            <Route path={route.path} element={route.element} key={route.path} />
-          ))}
-        </Routes>
-      </Suspense>
-    </PageLayout>
+    <>
+      {isRefreshing ? (
+        <Loader />
+      ) : (
+        <PageLayout>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              {appRoutes.map((route) => (
+                <Route
+                  path={route.path}
+                  element={route.element}
+                  key={route.path}
+                />
+              ))}
+            </Routes>
+          </Suspense>
+        </PageLayout>
+      )}
+    </>
   );
 };

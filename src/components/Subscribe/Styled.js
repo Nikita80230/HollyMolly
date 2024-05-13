@@ -5,6 +5,7 @@ export const SubscribeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   @media only screen and (min-width: 768px) {
     margin-bottom: 80px;
@@ -48,9 +49,8 @@ export const SubscribeWrapper = styled.div`
     width: 100%;
 
     @media only screen and (min-width: 768px) {
-      display: block;
-      gap: 0;
-      width: 755px;
+      gap: 8px;
+      width: 692px;
     }
   }
 
@@ -71,7 +71,7 @@ export const SubscribeWrapper = styled.div`
     }
 
     @media only screen and (min-width: 768px) {
-      width: 755px;
+      width: 528px;
       height: 56px;
       font-size: 20px;
     }
@@ -84,7 +84,7 @@ export const SubscribeWrapper = styled.div`
     border-bottom: 1px solid ${({ theme }) => theme.colors.inputFocus};
     background-color: ${({ theme }) => theme.colors.primaryBgColor};
     @media only screen and (min-width: 768px) {
-      width: 755px;
+      width: 528px;
     }
   }
   .subscribeInput::placeholder {
@@ -98,7 +98,7 @@ export const SubscribeWrapper = styled.div`
   .subscribeInputError {
     padding: 12px 11px;
     border: transparent;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.colorError};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.colorError};
     outline: transparent;
     outline-offset: -1px;
     width: 60%;
@@ -110,7 +110,7 @@ export const SubscribeWrapper = styled.div`
     }
 
     @media only screen and (min-width: 768px) {
-      width: 755px;
+      width: 528px;
       height: 56px;
     }
   }
@@ -118,7 +118,7 @@ export const SubscribeWrapper = styled.div`
   .subscribeInputSuccess {
     padding: 12px 11px;
     border: transparent;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.colorSuccess};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.colorSuccess};
     outline: transparent;
     outline-offset: -1px;
 
@@ -131,20 +131,36 @@ export const SubscribeWrapper = styled.div`
     }
 
     @media only screen and (min-width: 768px) {
-      width: 755px;
+      width: 528px;
       height: 56px;
     }
   }
 
   .errorMessage {
     position: absolute;
-    bottom: -20px;
+    bottom: -28px;
     left: 0;
     color: ${({ theme }) => theme.colors.colorError};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-size: 10px;
 
     @media only screen and (min-width: 768px) {
-      font-size: 14px;
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+
+  .successMessage {
+    position: absolute;
+    bottom: -28px;
+    left: 0;
+    color: ${({ theme }) => theme.colors.colorSuccess};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    font-size: 10px;
+
+    @media only screen and (min-width: 768px) {
+      font-weight: 500;
+      font-size: 16px;
     }
   }
 
@@ -163,9 +179,6 @@ export const SubscribeWrapper = styled.div`
     transition: background-color ${({ theme }) => theme.animations.transition};
 
     @media only screen and (min-width: 768px) {
-      position: absolute;
-      top: 0;
-      right: 0;
       padding: 16px 24px;
       width: 157px;
       height: 56px;
@@ -195,9 +208,6 @@ export const SubscribeWrapper = styled.div`
     transition: background-color ${({ theme }) => theme.animations.transition};
 
     @media only screen and (min-width: 768px) {
-      position: absolute;
-      top: 0;
-      right: 0;
       padding: 16px 24px;
       width: 157px;
       height: 56px;

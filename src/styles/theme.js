@@ -30,9 +30,14 @@ export const theme = {
     dividerBurgerMenu: "#e4e4e4",
     footerTitleMobileColor: "#0c0d0d",
     backgroundLowerBlockMobile:"rgba(243, 244, 252, 0.2)",
-    colorError: " #ff0000 ",
-    colorSuccess:"#228B22",
-    backgroundLowerBlockMobile:"rgba(243, 244, 252, 0.2)"
+    colorError: "#c61a0e",
+    colorSuccess:"#40bb27",
+    backgroundLowerBlockMobile: "rgba(243, 244, 252, 0.2)",
+    accentFocusColor: "rgba(169, 181, 237, 0.8)",
+    descriptionModal: "#000105",
+    borderButtonSwiper: "#4c4c4d",
+    hoverBorderSwiper: "#19191a",
+    hoverButtonBgSwiper:"rgba(169, 181, 237, 0.8)"
 
 
   },
