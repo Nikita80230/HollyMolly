@@ -2,9 +2,12 @@ import { styled } from "styled-components";
 
 export const StyledCardCategories = styled.div`
   text-align: center;
+  width: 164px;
   height: 158px;
+  border-radius: 8px;
 
   @media only screen and (min-width: 768px) {
+    width: 310px;
     height: 294px;
   }
 
