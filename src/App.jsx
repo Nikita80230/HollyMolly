@@ -26,6 +26,7 @@ import ConfirmEmail from "./pages/ConfirmEmailPage/ConfirmEmailPage";
 import TrackingPage from "./pages/TrackingPage/TrackingPage";
 import SizeGuidePage from "./pages/SizeGuidePage/SizeGuidePage";
 import { useAuth } from "./hooks";
+
 // import ComponentStyle from "styled-components/dist/models/ComponentStyle";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -101,12 +102,9 @@ export const App = () => {
   const token = urlParams.get("token");
   const { isLoggedIn, isRefreshing } = useAuth();
 
-  
-
   useEffect(() => {
     if (!isLoggedIn) {
-      // dispatch(refreshUser());
-      console.log(isLoggedIn)
+      dispatch(refreshUser());
     }
 
     dispatch(fetchCategories());

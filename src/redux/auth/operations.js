@@ -2,7 +2,6 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-hot-toast";
 
-
 axios.defaults.baseURL = "https://teamchallenge-001-site1.ktempurl.com";
 
 const setAuthHeader = (token) => {
@@ -61,7 +60,7 @@ export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue("Unable to fetch user");
@@ -69,12 +68,16 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.get("/api/Account/profile");
-      if (!res) {
-        return;
-      } else {
-        return res.data;
-      }
+      const res = await axios.post(
+        "/api/Account/refresh",
+        {
+          accessToken: state.auth.token,
+          refreshToken: state.auth.refreshToken,
+        }
+      );
+return res.data;
+      console.log( res.data);
+
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

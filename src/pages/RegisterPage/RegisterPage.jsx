@@ -5,16 +5,13 @@ import { routes } from "src/routes";
 import { Wrapper } from "./Styled";
 
 const RegisterPage = () => {
-  
- 
-  
   return (
     <Wrapper>
       <RegisterForm />
       <Link to={routes.LOGIN}>Якщо ви вже реєструвались</Link>
-     < GoogleAuth/>
+      <GoogleAuth />
       <Link to={routes.FORGOT_PASSWORD}>Забули пароль?</Link>
-      
+
       {/* <button>Запам'ятати мене</button> */}
     </Wrapper>
   );

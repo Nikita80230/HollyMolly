@@ -3,19 +3,21 @@ import { register, logIn, logOut, refreshUser, authGoogle } from "./operations";
 
 const handelRegisterFulfilled = (state, action) => {
   state.user = action.payload.userEmail;
-  state.token = action.payload.accessToken;
+  // state.token = action.payload.accessToken;
   state.isLoggedIn = true;
 };
 
 const handelLoginFulfilled = (state, action) => {
   state.user = action.payload.userEmail;
   state.token = action.payload.accessToken;
+  state.refreshToken = action.payload.refreshToken;
   state.isLoggedIn = true;
 };
 
 const handelLogOutFulfilled = (state) => {
   state.user = { email: null };
   state.token = null;
+  state.refreshToken = null;
   state.isLoggedIn = false;
 };
 
@@ -24,7 +26,8 @@ const handelRefreshUserPending = (state) => {
 };
 
 const handelRefreshUserFulfilled = (state, action) => {
-  state.user = action.payload;
+  state.token = action.payload.accessToken;
+  state.refreshToken = action.payload.refreshToken;
   state.isLoggedIn = true;
   state.isRefreshing = false;
 };
@@ -36,12 +39,14 @@ const handelRefreshUserRejected = (state) => {
 const handleAuthGoogleFulfilled = (state, action) => {
   state.user = action.payload.userEmail;
   state.token = action.payload.accessToken;
+  state.refreshToken = action.payload.refreshToken;
   state.isLoggedIn = true;
 };
 
 const initialState = {
   user: { email: null },
   token: null,
+  refreshToken: null,
   isLoggedIn: false,
   isRefreshing: false,
 };

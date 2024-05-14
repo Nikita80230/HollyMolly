@@ -37,12 +37,12 @@ export const StyledRecommendationSection = styled.section`
 
   }
   .nextProductBtn:focus {
-    background-color: ${({ theme }) => theme.colors.hoverButtonBgSwiper};
+    background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper};
     border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
   }
 
   .prevProductBtn:focus {
-    background-color: ${({ theme }) => theme.colors.hoverButtonBgSwiper};
+    background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper};
     border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
   }
 

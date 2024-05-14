@@ -61,7 +61,7 @@ export const StyledCategoriesSection = styled.section`
     background-color: transparent;
     border: 1px solid ${({ theme }) => theme.colors.borderButtonSwiper};
     border-radius: 8px;
-    transition: background-color ${({ theme }) => theme.animations.transition}
+    transition: background-color ${({ theme }) => theme.animations.transition};
     border  ${({ theme }) => theme.animations.transition};
 
     @media only screen and (min-width: 768px) {
@@ -72,12 +72,12 @@ export const StyledCategoriesSection = styled.section`
   }
 
   .swiper-button-next:focus {
-    background-color: ${({ theme }) => theme.colors.hoverButtonBgSwiper};
+    background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper};
     border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
   }
 
    .swiper-button-prev:focus {
-    background-color: ${({ theme }) => theme.colors.hoverButtonBgSwiper};
+    background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper};
     border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper}
   }
 
