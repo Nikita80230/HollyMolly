@@ -3,26 +3,34 @@ import { StyledBurgerMenu } from "./Styled";
 import SearchHeaderForm from "../SearchHeaderForm/SearchHeaderForm";
 import Container from "../Container/Container";
 import MobileCategoriesList from "../MobileCategoriesList/MobileCategoriesList";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { routes } from "src/routes";
 
 import UserAccountIcon from "../../assets/images/openUserPanelIcon.svg?react";
+import { useEffect, useRef } from "react";
 
 const BurgerMenu = ({ toggleBurgerMenu }) => {
+  const isFirstRenderRef = useRef(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (isFirstRenderRef.current)
+      return () => {
+        isFirstRenderRef.current = false;
+      };
+    toggleBurgerMenu();
+  }, [location, toggleBurgerMenu]);
+
   return createPortal(
     <StyledBurgerMenu>
       <Container>
         <SearchHeaderForm />
-        <MobileCategoriesList toggleBurgerMenu={toggleBurgerMenu} />
-        <NavLink
-          className="accountLink"
-          to={routes.PROFILE}
-          onClick={toggleBurgerMenu}
-        >
+        <MobileCategoriesList />
+        <NavLink className="accountLink" to={routes.PROFILE}>
           <UserAccountIcon className="userAccountIcon icon" />
           <span className="userName">Аккаунт</span>
         </NavLink>
-        <div className="burgerMenuBottom" onClick={toggleBurgerMenu}>
+        <div className="burgerMenuBottom">
           <div className="leftColumn column">
             <NavLink className="link" to={routes.HOME}>
               Розсилка
