@@ -25,7 +25,7 @@ const productsPersistConfig = {
 const authPersistConfig = {
   key: "auth",
   storage,
-  whitelist: ["token"],
+  whitelist: ["token", "refreshToken"],
 };
 
 const persistedProductsReducer = persistReducer(

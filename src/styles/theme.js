@@ -37,8 +37,8 @@ export const theme = {
     descriptionModal: "#000105",
     borderButtonSwiper: "#4c4c4d",
     hoverBorderSwiper: "#19191a",
-    hoverButtonBgSwiper: "rgba(169, 181, 237, 0.8)",
-    cardSwiperBg:" rgba(243, 244, 252, 0.4)",
+    focusButtonBgSwiper: "rgba(169, 181, 237, 0.4)",
+    cardSwiperBg:" rgba(169, 181, 237, 0.4)",
 
 
   },

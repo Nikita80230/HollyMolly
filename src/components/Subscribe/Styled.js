@@ -180,7 +180,7 @@ export const SubscribeWrapper = styled.div`
 
     @media only screen and (min-width: 768px) {
       padding: 16px 24px;
-      width: 157px;
+      width: 156px;
       height: 56px;
       font-weight: 600;
       font-size: 20px;
@@ -209,7 +209,7 @@ export const SubscribeWrapper = styled.div`
 
     @media only screen and (min-width: 768px) {
       padding: 16px 24px;
-      width: 157px;
+      width: 156px;
       height: 56px;
       font-weight: 600;
       font-size: 20px;

@@ -2,13 +2,28 @@ import { styled } from "styled-components";
 
 export const StyledCardCategories = styled.div`
   text-align: center;
-  width: 164px;
+  width: 135px;
   height: 158px;
   border-radius: 8px;
+  transition: background-color ${({ theme }) => theme.animations.transition};
+  &:hover,
+  &:focus {
+    padding: 10px;
+    width: 171px;
+    background-color: ${({ theme }) => theme.colors.cardSwiperBg};
+  }
+
+  @media only screen and (min-width: 375px) {
+    width: 164px;
+  }
 
   @media only screen and (min-width: 768px) {
     width: 310px;
     height: 294px;
+    &:hover,
+    &:focus {
+      width: 330px;
+    }
   }
 
   .swiper-picture {
