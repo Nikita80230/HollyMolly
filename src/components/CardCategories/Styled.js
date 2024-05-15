@@ -23,6 +23,7 @@ export const StyledCardCategories = styled.div`
     &:hover,
     &:focus {
       width: 330px;
+       height: 314px;
     }
   }
 

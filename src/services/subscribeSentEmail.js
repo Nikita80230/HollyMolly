@@ -1,5 +1,4 @@
 import axios from "axios";
-import { toast } from "react-hot-toast";
 
 export const subscribeSentEmail = async (values) => {
   try {
@@ -10,6 +9,6 @@ export const subscribeSentEmail = async (values) => {
       return 1;
     }
   } catch (error) {
-    toast.error("Уууупс, щось пішло не так.");
+    console.error(error);
   }
 };
