@@ -1,7 +1,16 @@
 import styled from "styled-components";
 
 export const StyledPriceRangeSlider = styled.div`
-  .css-ltlhnc-MuiSlider-root {
-    margin-bottom: 0;
+  .range-slider-yellow .range-slider__range {
+    background: #939fdf;
+    transition: height 0.3s;
+  }
+  .range-slider-yellow .range-slider__thumb {
+    background: #939fdf;
+    transition: transform 0.3s;
+  }
+
+  .rangeSlider {
+    margin-bottom: 17px;
   }
 `;

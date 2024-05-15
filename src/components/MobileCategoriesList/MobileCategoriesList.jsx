@@ -9,7 +9,8 @@ import ArrowRight from "../../assets/images/halfRightArrow.svg?react";
 import { StyledMobileCategoriesList } from "./Styled";
 
 const MobileCategoriesList = ({ toggleBurgerMenu }) => {
-  const [idOpenedCategory, setIdOpenedCategory] = useState(null);
+  const [selectedOpenedCategoryId, setSelectedOpenedCategoryId] =
+    useState(null);
 
   const allCategories = useSelector(selectCategories).filter(
     (category) => category.id <= 4
@@ -17,10 +18,10 @@ const MobileCategoriesList = ({ toggleBurgerMenu }) => {
 
   const handleOpenSubcategories = (id) => {
     console.log(id);
-    if (id === idOpenedCategory) {
-      setIdOpenedCategory(null);
+    if (id === selectedOpenedCategoryId) {
+      setSelectedOpenedCategoryId(null);
     } else {
-      setIdOpenedCategory(id);
+      setSelectedOpenedCategoryId(id);
     }
   };
 
@@ -39,7 +40,7 @@ const MobileCategoriesList = ({ toggleBurgerMenu }) => {
 
             <div
               className={`subCategoriesWrapper ${
-                id === idOpenedCategory ? "openedCategory" : ""
+                id === selectedOpenedCategoryId ? "openedCategory" : ""
               }`}
             >
               {categories.map((subCategory) => {

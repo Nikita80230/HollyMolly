@@ -33,8 +33,7 @@ export const StyledRecommendationSection = styled.section`
     border: 1px solid ${({ theme }) => theme.colors.borderButtonSwiper};
     border-radius: 8px;
     transition: background-color ${({ theme }) => theme.animations.transition}
-    border  ${({ theme }) => theme.animations.transition};
-
+      border ${({ theme }) => theme.animations.transition};
   }
   .nextProductBtn:focus {
     background-color: ${({ theme }) => theme.colors.hoverButtonBgSwiper};
@@ -46,7 +45,7 @@ export const StyledRecommendationSection = styled.section`
     border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
   }
 
-   .nextProductBtn:hover {
+  .nextProductBtn:hover {
     border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
   }
 
@@ -60,7 +59,7 @@ export const StyledRecommendationSection = styled.section`
   }
   .prevProductBtn.swiper-button-disabled,
   .nextProductBtn.swiper-button-disabled {
-     border: 1px solid ${({ theme }) => theme.colors.borderButton};
+    border: 1px solid ${({ theme }) => theme.colors.borderButton};
     opacity: 0.35;
     cursor: auto;
     pointer-events: none;
@@ -129,7 +128,7 @@ export const StyledRecommendationSection = styled.section`
 
   @media (min-width: 350px) and (max-width: 394px) {
     .swiperCustom {
-      height: 550px;
+      height: 567px;
     }
   }
   @media (min-width: 320px) and (max-width: 349px) {

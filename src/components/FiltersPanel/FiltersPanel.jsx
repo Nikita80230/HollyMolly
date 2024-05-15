@@ -1,14 +1,34 @@
-import { useState } from "react";
-import { StyledFiltersPanel } from "./Styled";
-import PriceRangeSlider from "../PriceRangeSlider/PriceRangeSlider";
+import { useEffect, useState } from "react";
 import { debounce } from "lodash";
+import PriceRangeSlider from "../PriceRangeSlider/PriceRangeSlider";
+import { StyledFiltersPanel } from "./Styled";
+import FilterBlock from "../FilterBlock/FilterBlock";
+import { useSelector } from "react-redux";
+import { selectProductsByCurrentCategory } from "src/redux/products/productsSlice";
 
 const FiltersPanel = ({ className }) => {
   const [priceRange, setPriceRange] = useState([]);
+  const [colors, setColors] = useState([]);
+  const [fabricType, setFabricType] = useState([]);
+  const [sizes, setSizes] = useState([]);
+
+  const itemsByCategory = useSelector(selectProductsByCurrentCategory);
+
+  useEffect(() => {
+    // first
+
+    itemsByCategory?.forEach((item) => {
+      console.log("item-->", item);
+      item.productsInstances?.forEach((instance) => {
+        console.log("instance-->", instance);
+        setColors((prevState) => [...prevState, instance.color]);
+      });
+    });
+  }, [itemsByCategory]);
 
   const handleChangePrice = debounce((price) => {
     setPriceRange(price);
-    console.log(priceRange);
+    console.log(price);
   }, 500);
 
   return (
@@ -17,21 +37,9 @@ const FiltersPanel = ({ className }) => {
         <h3 className="priceFilterTitle title">Ціна</h3>
         <PriceRangeSlider handleChangePrice={handleChangePrice} />
       </div>
-      <div className="colorFilter">
-        <h3 className="colorFilterTitle title">Колір</h3>
-        <div>
-          <label>
-            <input type="checkbox" name="" id="" />
-            <span>color</span>
-          </label>
-        </div>
-      </div>
-      <div className="fabricFilter">
-        <h3 className="fabricFilterTitle title">Матеріал</h3>
-      </div>
-      <div className="sizeFilter">
-        <h3 className="sizeFilterTitle title">Розмір</h3>
-      </div>
+      <FilterBlock title="Колір" options={colors} />
+      <FilterBlock title="Матеріал" options={fabricType} />
+      <FilterBlock title="Розмір" options={sizes} />
     </StyledFiltersPanel>
   );
 };

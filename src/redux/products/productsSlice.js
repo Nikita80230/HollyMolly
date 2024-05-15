@@ -65,7 +65,10 @@ const productsSlice = createSlice({
       })
       .addCase(getProductsByCurrentCategory.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.productsByCurrentCategory = action.payload;
+        state.productsByCurrentCategory = action.payload.filter((item) => {
+          return !item.name.toLowerCase().includes("Test".toLowerCase());
+        });
+        // state.productsByCurrentCategory = action.payload;
       })
       .addCase(getProductsByCurrentCategory.rejected, (state, action) => {
         state.error = action.payload;
