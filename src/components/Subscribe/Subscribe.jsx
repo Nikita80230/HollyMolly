@@ -33,6 +33,9 @@ const Subscribe = () => {
       }
 
       actions.resetForm();
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
     } catch (error) {
       console.error(error);
       setMessage("Упс! Щось пішло не так.");
@@ -53,11 +56,11 @@ const Subscribe = () => {
         validationSchema={SubscribeSchema}
         onSubmit={onSubmit}
       >
-        {({ values, errors }) => (
+        {({ values, touched, errors }) => (
           <Form className="subscribeEmailForm">
             <Field
               className={
-                (errors.email ? " subscribeInputError " : "") +
+                (errors.email && touched.email ? " subscribeInputError " : "") +
                 (values.email && !errors.email
                   ? "subscribeInputSuccess"
                   : "subscribeInput")
@@ -68,9 +71,11 @@ const Subscribe = () => {
               autoComplete="username"
             />
             <ErrorMessage className="errorMessage" component="p" name="email" />
-            { !errors.email ? (
+            {!errors.email ? (
               <p className="successMessage">{message}</p>
-            ):( <p className="errorMessage">{message}</p>)}
+            ) : (
+              <p className="errorMessage">{message}</p>
+            )}
             {values.email === "" ? (
               <button
                 className="subscribeButtonDisabled"

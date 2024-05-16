@@ -28,7 +28,7 @@ export const StyledCategoriesSection = styled.section`
 
     @media only screen and (min-width: 768px) {
       width: 100%;
-      height: 294px;
+      height: 324px;
     }
   }
 

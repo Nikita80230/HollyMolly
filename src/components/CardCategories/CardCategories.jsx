@@ -4,8 +4,12 @@ import defaultPhoto from "src/assets/images/defaultImg.webp";
 import { routes } from "src/routes";
 
 const CardCategories = ({ category }) => {
+
   return (
-    <Link to={`${routes.CATALOG_PAGE}/${category.id}`} key={category.id}>
+    <Link
+      to={`${routes.CATALOG_PAGE}/${category.categoryGroupId}/${category.id}`}
+      key={category.id}
+    >
       <StyledCardCategories>
         <img
           className="swiper-picture"
