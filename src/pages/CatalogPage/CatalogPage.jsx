@@ -43,6 +43,8 @@ const CatalogPage = () => {
     dispatch(getProductsByCurrentCategory({ categoryGroupId, categoryId }));
   }, [categoryGroupId, categoryId, dispatch]);
 
+  useEffect(() => {}, []);
+
   return (
     <StyledCatalogPage>
       <div className="navigation">

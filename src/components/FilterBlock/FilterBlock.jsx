@@ -9,6 +9,7 @@ const FilterBlock = ({ title, options }) => {
         <h3 className="filterTitle title">{title}</h3>
         <div className="checkboxSection">
           {options.map((option) => {
+            console.log(option);
             return (
               <label className="checkboxLabel" key={option}>
                 <input

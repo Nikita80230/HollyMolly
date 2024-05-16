@@ -15,21 +15,35 @@ const FiltersPanel = ({ className }) => {
   const itemsByCategory = useSelector(selectProductsByCurrentCategory);
 
   useEffect(() => {
-    // first
-
     itemsByCategory?.forEach((item) => {
-      console.log("item-->", item);
       item.productsInstances?.forEach((instance) => {
-        console.log("instance-->", instance);
-        setColors((prevState) => [...prevState, instance.color]);
+        setColors((prevState) =>
+          !prevState.includes(instance.color)
+            ? [...prevState, instance.color]
+            : [...prevState]
+        );
+        setFabricType((prevState) =>
+          !prevState.includes(instance.material) && instance.material !== null
+            ? [...prevState, instance.material]
+            : [...prevState]
+        );
+        setSizes((prevState) =>
+          !prevState.includes(instance.size) && instance.size !== null
+            ? [...prevState, instance.size]
+            : [...prevState]
+        );
       });
     });
   }, [itemsByCategory]);
 
   const handleChangePrice = debounce((price) => {
     setPriceRange(price);
-    console.log(price);
   }, 500);
+
+  // console.log("priceRange-->", priceRange);
+  // console.log("colors-->", colors);
+  // console.log("fabricType-->", fabricType);
+  // console.log("sizes-->", sizes);
 
   return (
     <StyledFiltersPanel className={className}>
