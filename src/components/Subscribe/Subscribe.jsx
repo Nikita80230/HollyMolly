@@ -43,7 +43,7 @@ const Subscribe = () => {
     <SubscribeWrapper>
       <h2 className="title">Підпишись на наші оновлення</h2>
       <p className="description">
-        Підпишись на наші оновлення щоб не пропустити знижки на улюблені товари
+        Підпишись на наші оновлення, щоб не пропустити знижки на улюблені товари
       </p>
 
       <Formik
@@ -64,7 +64,7 @@ const Subscribe = () => {
               }
               name="email"
               placeholder="Your email"
-              type="email"
+              type="text"
               autoComplete="username"
             />
             <ErrorMessage className="errorMessage" component="p" name="email" />
