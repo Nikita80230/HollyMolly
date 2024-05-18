@@ -36,11 +36,10 @@ export const StyledCategoriesSection = styled.section`
     position: absolute;
     top: 5px;
     right: 0;
-    width: 100px;
+    width: 105px;
     height: 38px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 15px;
 
     @media only screen and (min-width: 768px) {

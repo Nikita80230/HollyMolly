@@ -82,5 +82,4 @@ export const selectFavoriteProducts = (state) =>
   state.products.favoriteProducts;
 export const selectProductsByCurrentCategory = (state) =>
   state.products.productsByCurrentCategory;
-
 export const productsReducer = productsSlice.reducer;

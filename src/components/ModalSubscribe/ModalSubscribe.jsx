@@ -6,10 +6,10 @@ const ModalSubscribe = ({onClose}) => {
       < Wrapper>
           <button className="buttonModal" type="button"onClick={onClose}><Close/></button>
       <h3 className="title">Дякуємо за підписку!</h3>
-      <p className="discription">
+      <p className="description">
         Ви успішно підписалися на нашу щотижневу розсилку.
       </p>
-      <p className="discription">
+      <p className="description">
         Тепер Ви завжди будете в курсі всіх останніх новинок нашого магазину.
       </p>
     </ Wrapper>

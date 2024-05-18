@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { StyledProductsGrid } from "./Styled";
 import { selectProductsByCurrentCategory } from "src/redux/products/productsSlice";
+import CardProductCatalog from "../CardProductCatalog/CardProductCatalog";
 
 const ProductsGrid = ({ className }) => {
   const productsByCurrentCategory = useSelector(
@@ -10,7 +11,9 @@ const ProductsGrid = ({ className }) => {
   console.log("ProductsGrid", productsByCurrentCategory);
 
   return (
-    <StyledProductsGrid className={className}>ProductsGrid</StyledProductsGrid>
+    <StyledProductsGrid className={className}>
+      <CardProductCatalog/>
+    </StyledProductsGrid>
   );
 };
 
