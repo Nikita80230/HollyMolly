@@ -29,4 +29,6 @@ export const StyledFiltersPanel = styled.div`
     display: flex;
     justify-content: space-between;
   }
+
+  /* ----------colors---------- */
 `;

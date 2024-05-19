@@ -15,7 +15,7 @@ export const theme = {
     inputFocus: "#19191a",
     inputBorder: "#4c4c4d",
     hoverInput: "#323234",
-    footerSubtitle:"#4c4c4d",
+    footerSubtitle: "#4c4c4d",
     buttonBgColor: "#3251ae",
     hoverButton: "#1d2f65",
     focusButton: "#8094e7",
@@ -29,14 +29,16 @@ export const theme = {
     disabledButtonBg: "#a9b5ed",
     dividerBurgerMenu: "#e4e4e4",
     footerTitleMobileColor: "#0c0d0d",
-    backgroundLowerBlockMobile:"rgba(243, 244, 252, 0.2)",
-    colorError: "#c61a0e",
-    colorSuccess:"#40bb27",
     backgroundLowerBlockMobile: "rgba(243, 244, 252, 0.2)",
+    colorError: "#c61a0e",
+    colorSuccess: "#40bb27",
     accentFocusColor: "rgba(169, 181, 237, 0.8)",
     descriptionModal: "#000105",
     borderButtonSwiper: "#4c4c4d",
     hoverBorderSwiper: "#19191a",
+    hoverButtonBgSwiper: "rgba(169, 181, 237, 0.8)",
+    cardSwiperBg: " rgba(243, 244, 252, 0.4)",
+    checkboxText: "#000",
     focusButtonBgSwiper: "rgba(169, 181, 237, 0.4)",
     cardSwiperBg:"  rgba(243, 244, 252, 0.8)",
     titleCardProduct: "#000",
@@ -49,7 +51,6 @@ export const theme = {
     activeBgNavLink: "rgba(169, 181, 237, 0.4)",
     hoverIcon:" #a9b5ed",
     
-
   },
 
   fonts: {

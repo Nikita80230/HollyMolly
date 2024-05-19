@@ -1,51 +1,35 @@
 import { useState } from "react";
-// import { StyledPriceRangeSlider } from "./Styled";
-
-import Box from "@mui/material/Box";
-import Slider from "@mui/material/Slider";
-
-function valuetext(value) {
-  return value;
-}
+import RangeSlider from "react-range-slider-input";
+import "react-range-slider-input/dist/style.css";
+import { StyledPriceRangeSlider } from "./Styled";
+import { useDispatch } from "react-redux";
 
 const PriceRangeSlider = ({ handleChangePrice }) => {
-  const [value, setValue] = useState([500, 4500]);
+  const dispatch = useDispatch();
+  const [value, setValue] = useState([150, 2000]);
 
-  const handleChange = (event, newValue) => {
-    // console.log("event.target.value", event.target.value);
-
-    setValue(newValue);
-
-    handleChangePrice(value);
+  const handleChange = (value) => {
+    setValue(value);
+    handleChangePrice({ name: "priceRange", value });
   };
 
   return (
-    <Box sx={{ maxWidth: 306, width: "100%" }}>
-      <Slider
-        sx={{
-          marginBottom: 0,
-          color: "#d9d9d9",
-          "& .MuiSlider-thumb": {
-            width: "24px",
-            height: "24px",
-            color: "#939fdf",
-            // borderRadius: "1px",
-          },
-        }}
-        min={120}
-        max={5000}
-        getAriaLabel={() => "Price range"}
+    <StyledPriceRangeSlider>
+      <RangeSlider
+        min={100}
+        max={2500}
+        step={5}
         value={value}
-        onChange={handleChange}
-        valueLabelDisplay="auto"
-        getAriaValueText={valuetext}
-        disableSwap
+        onInput={(value) => {
+          handleChange(value);
+        }}
+        className="range-slider-yellow rangeSlider"
       />
       <div className="priceLabels">
-        <span className="minPriceLabel">₴120</span>
-        <span className="maxPriceLabel">₴5000</span>
+        <span className="minPriceLabel">₴{value[0]}</span>
+        <span className="maxPriceLabel">₴{value[1]}</span>
       </div>
-    </Box>
+    </StyledPriceRangeSlider>
   );
 };
 

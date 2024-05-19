@@ -11,6 +11,7 @@ import FiltersPanel from "src/components/FiltersPanel/FiltersPanel";
 import ProductsGrid from "src/components/ProductsGrid/ProductsGrid";
 import { useEffect } from "react";
 import { getProductsByCurrentCategory } from "src/redux/products/operations";
+import { selectFilters } from "src/redux/filters/filtersSlice";
 import { selectProductsByCurrentCategory } from "src/redux/products/productsSlice";
 // import { selectAllProducts } from "src/redux/products/productsSlice";
 
@@ -23,6 +24,7 @@ const CatalogPage = () => {
   const { categoryGroupId, categoryId } = useParams();
 
   const allCategories = useSelector(selectCategories);
+  const filters = useSelector(selectFilters);
 
   const mainCategory = allCategories?.find(
     (mainCategory) => mainCategory.id === Number(categoryGroupId)
@@ -60,7 +62,11 @@ const CatalogPage = () => {
       <div className="layout">
         <SortingPanel className="sorting" />
         <FiltersPanel className="filters" />
-        <ProductsGrid className="productsGrid" products={productsByCurrentCategory} />
+
+        <ProductsGrid className="productsGrid" filters={filters} />
+
+//         <ProductsGrid className="productsGrid" products={productsByCurrentCategory} />
+
       </div>
     </StyledCatalogPage>
   );
