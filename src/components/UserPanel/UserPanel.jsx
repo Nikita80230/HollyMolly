@@ -11,22 +11,29 @@ const UserPanel = () => {
 
   return (
     <StyledUserPanel>
-      <NavLink className="userPanelLink" to={routes.HOME}>
-        <FavoriteIcon className="icon" />
+      <NavLink className="userPanelLink" to={routes.FAVORITES}>
+        <button className="buttonIcon">
+          <FavoriteIcon className="icon" />
+        </button>
       </NavLink>
-      <NavLink className="userPanelLink" to={routes.HOME}>
-        <BasketIcon className="icon" />
+      <NavLink className="userPanelLink" to={routes.BASKET}>
+        <button className="buttonIcon">
+          <BasketIcon className="icon" />
+        </button>
       </NavLink>
       {isLoggedIn ? (
         <NavLink className="userPanelLink" to={routes.PROFILE}>
-          <UserIcon className="icon" />
+          <button className="buttonIcon">
+            <UserIcon className="icon" />
+          </button>
         </NavLink>
       ) : (
         <NavLink className="userPanelLink" to={routes.REGISTER}>
-          <UserIcon className="icon" />
+          <button className="buttonIcon">
+            <UserIcon className="icon" />
+          </button>
         </NavLink>
       )}
-  
     </StyledUserPanel>
   );
 };

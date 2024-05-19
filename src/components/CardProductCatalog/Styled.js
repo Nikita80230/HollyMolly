@@ -125,4 +125,9 @@ export const WrapperCard = styled.div`
     justify-content: space-between;
     align-items: center;
   }
+
+  .buttonIcon{
+    background-color: transparent;
+    border:transparent;
+  }
 `;

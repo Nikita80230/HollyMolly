@@ -2,21 +2,34 @@ import { styled } from "styled-components";
 
 export const StyledUserPanel = styled.div`
   display: flex;
-
-  gap: 13px;
-
+  gap: 17px;
   max-width: 168px;
   width: 100%;
 
   .userPanelLink {
     display: block;
-
-    padding: 11px;
   }
 
   .userPanelLink.active {
-    border: 1px solid ${({ theme }) => theme.colors.secondaryTxtColor};
+    button {
+      background-color: ${({ theme }) => theme.colors.activeBgNavLink};
+    }
+  }
+
+  .buttonIcon {
     border-radius: 8px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: transparent;
+    background-color: transparent;
+    transition: background-color ${({ theme }) => theme.animations.transition};
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.hoverIcon};
+    }
   }
 
   /* ==================================@media (max-width: 564px)========================================= */

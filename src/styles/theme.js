@@ -45,7 +45,9 @@ export const theme = {
     colorPrice: "#797878",
     colorPriceSecondary: "#6b5034",
     colorBgSpanDiscount: "#ff7673",
-    borderButtonColor:"#000"
+    borderButtonColor: "#000",
+    activeBgNavLink: "rgba(169, 181, 237, 0.4)",
+    hoverIcon:" #a9b5ed",
     
 
   },

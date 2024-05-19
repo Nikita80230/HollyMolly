@@ -11,4 +11,6 @@ export const routes = {
   RESET_PASSWORD:"/reset-password",
   TRACKING: "/tracking",
   SIZE_GUIDE: "/size-guide",
+  FAVORITES: "/favorites",
+  BASKET:"/basket",
 };
