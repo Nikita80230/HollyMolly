@@ -1,6 +1,10 @@
-import { StyledProductsGrid } from "./Styled";
-import { selectProductsByCurrentCategory } from "src/redux/products/productsSlice";
 import { useMemo } from "react";
+import { useSelector } from "react-redux";
+import CardProductCatalog from "../CardProductCatalog/CardProductCatalog";
+
+import { selectProductsByCurrentCategory } from "src/redux/products/productsSlice";
+
+import { StyledProductsGrid } from "./Styled";
 
 const ProductsGrid = ({ className, filters }) => {
   const productsByCurrentCategory = useSelector(
@@ -53,22 +57,8 @@ const ProductsGrid = ({ className, filters }) => {
   return (
     <StyledProductsGrid className={className}>
       {filteredProducts.map((product) => {
-        return (
-          <div key={product?.id}>
-            <span>{product?.name}</span>
-          </div>
-        );
+        return <CardProductCatalog key={product.id} product={product} />;
       })}
-// import CardProductCatalog from "../CardProductCatalog/CardProductCatalog";
-
-// const ProductsGrid = ({ className, products }) => {
-//   console.log("ProductsGrid", products);
-
-//   return (
-//     <StyledProductsGrid className={className}>
-//       {products.map((product) => (
-//         <CardProductCatalog key={product.id} product={product} />
-//       ))}
     </StyledProductsGrid>
   );
 };
