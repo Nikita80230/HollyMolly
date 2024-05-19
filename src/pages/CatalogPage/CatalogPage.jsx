@@ -16,10 +16,6 @@ import { selectProductsByCurrentCategory } from "src/redux/products/productsSlic
 // import { selectAllProducts } from "src/redux/products/productsSlice";
 
 const CatalogPage = () => {
- const productsByCurrentCategory = useSelector(
-    selectProductsByCurrentCategory
-  );
-
   const dispatch = useDispatch();
   const { categoryGroupId, categoryId } = useParams();
 
@@ -64,9 +60,6 @@ const CatalogPage = () => {
         <FiltersPanel className="filters" />
 
         <ProductsGrid className="productsGrid" filters={filters} />
-
-//         <ProductsGrid className="productsGrid" products={productsByCurrentCategory} />
-
       </div>
     </StyledCatalogPage>
   );
