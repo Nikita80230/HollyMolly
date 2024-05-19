@@ -36,12 +36,12 @@ export const StyledRecommendationSection = styled.section`
       border ${({ theme }) => theme.animations.transition};
   }
   .nextProductBtn:focus {
-    background-color: ${({ theme }) => theme.colors.hoverButtonBgSwiper};
+    background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper};
     border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
   }
 
   .prevProductBtn:focus {
-    background-color: ${({ theme }) => theme.colors.hoverButtonBgSwiper};
+    background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper};
     border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
   }
 
@@ -72,10 +72,14 @@ export const StyledRecommendationSection = styled.section`
       font-size: 20px;
     }
 
+    .buttonSwiper {
+      gap: 15px;
+    }
+
     .nextProductBtn,
     .prevProductBtn {
-      width: 31px;
-      height: 31px;
+      width: 36px;
+      height: 36px;
 
       border-radius: 6px;
       padding: 7px;

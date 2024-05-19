@@ -39,6 +39,18 @@ export const theme = {
     hoverButtonBgSwiper: "rgba(169, 181, 237, 0.8)",
     cardSwiperBg: " rgba(243, 244, 252, 0.4)",
     checkboxText: "#000",
+    focusButtonBgSwiper: "rgba(169, 181, 237, 0.4)",
+    cardSwiperBg:"  rgba(243, 244, 252, 0.8)",
+    titleCardProduct: "#000",
+    colorBgSpanNovelty: "#4169e1",
+    spanTextColor: "#fff",
+    colorPrice: "#797878",
+    colorPriceSecondary: "#6b5034",
+    colorBgSpanDiscount: "#ff7673",
+    borderButtonColor: "#000",
+    activeBgNavLink: "rgba(169, 181, 237, 0.4)",
+    hoverIcon:" #a9b5ed",
+    
   },
 
   fonts: {

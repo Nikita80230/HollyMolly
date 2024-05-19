@@ -26,6 +26,9 @@ import ConfirmEmail from "./pages/ConfirmEmailPage/ConfirmEmailPage";
 import TrackingPage from "./pages/TrackingPage/TrackingPage";
 import SizeGuidePage from "./pages/SizeGuidePage/SizeGuidePage";
 import { useAuth } from "./hooks";
+import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
+import BasketPage from "./pages/BasketPage/BasketPage";
+
 // import ComponentStyle from "styled-components/dist/models/ComponentStyle";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -92,6 +95,14 @@ const appRoutes = [
     path: routes.SIZE_GUIDE,
     element: <SizeGuidePage />,
   },
+  {
+    path: routes.FAVORITES,
+    element:<FavoritesPage/>,
+  },
+  {
+    path: routes.BASKET,
+    element:<BasketPage/>
+  }
 ];
 
 export const App = () => {
@@ -101,12 +112,9 @@ export const App = () => {
   const token = urlParams.get("token");
   const { isLoggedIn, isRefreshing } = useAuth();
 
-  
-
   useEffect(() => {
-    if (!isLoggedIn) {
-      // dispatch(refreshUser());
-      console.log(isLoggedIn)
+    if (isLoggedIn) {
+      dispatch(refreshUser());
     }
 
     dispatch(fetchCategories());

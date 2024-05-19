@@ -33,6 +33,9 @@ const Subscribe = () => {
       }
 
       actions.resetForm();
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
     } catch (error) {
       console.error(error);
       setMessage("Упс! Щось пішло не так.");
@@ -43,7 +46,7 @@ const Subscribe = () => {
     <SubscribeWrapper>
       <h2 className="title">Підпишись на наші оновлення</h2>
       <p className="description">
-        Підпишись на наші оновлення щоб не пропустити знижки на улюблені товари
+        Підпишись на наші оновлення, щоб не пропустити знижки на улюблені товари
       </p>
 
       <Formik
@@ -53,24 +56,26 @@ const Subscribe = () => {
         validationSchema={SubscribeSchema}
         onSubmit={onSubmit}
       >
-        {({ values, errors }) => (
+        {({ values, touched, errors }) => (
           <Form className="subscribeEmailForm">
             <Field
               className={
-                (errors.email ? " subscribeInputError " : "") +
+                (errors.email && touched.email ? " subscribeInputError " : "") +
                 (values.email && !errors.email
                   ? "subscribeInputSuccess"
                   : "subscribeInput")
               }
               name="email"
               placeholder="Your email"
-              type="email"
+              type="text"
               autoComplete="username"
             />
             <ErrorMessage className="errorMessage" component="p" name="email" />
-            { !errors.email ? (
+            {!errors.email ? (
               <p className="successMessage">{message}</p>
-            ):( <p className="errorMessage">{message}</p>)}
+            ) : (
+              <p className="errorMessage">{message}</p>
+            )}
             {values.email === "" ? (
               <button
                 className="subscribeButtonDisabled"

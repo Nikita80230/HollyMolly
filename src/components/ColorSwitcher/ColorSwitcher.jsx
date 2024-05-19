@@ -6,6 +6,7 @@ const colors = [
   { colorName: "yellow", colorRgb: "#4169E1" },
   { colorName: "blue", colorRgb: "#161616" },
   { colorName: "black", colorRgb: "#fff" },
+  
 ];
 
 const ColorSwitcher = () => {
