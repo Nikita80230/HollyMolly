@@ -4,7 +4,7 @@ export const StyledCardCategories = styled.div`
   text-align: center;
   width: 135px;
   height: 158px;
-  border-radius: 8px;
+  border-radius: 18px;
   transition: background-color ${({ theme }) => theme.animations.transition};
   &:hover,
   &:focus {
@@ -20,6 +20,7 @@ export const StyledCardCategories = styled.div`
   @media only screen and (min-width: 768px) {
     width: 310px;
     height: 294px;
+      border-radius: 16px;
     &:hover,
     &:focus {
       width: 330px;

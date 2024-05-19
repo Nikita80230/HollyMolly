@@ -8,14 +8,17 @@ export const StyledCatalogPage = styled.div`
       "f p p p p p";
 
     grid-template-columns: minmax(200px, 306px) 1fr;
+    margin-bottom:128px;
   }
 
   .sorting {
     grid-area: s;
 
     margin-left: auto;
+    margin-bottom:20px;
   }
   .filters {
+    margin-right: 30px;
     grid-area: f;
     /* max-width: 306px;
     width: 100%; */
