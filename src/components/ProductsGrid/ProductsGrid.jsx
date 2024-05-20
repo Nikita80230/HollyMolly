@@ -6,10 +6,10 @@ import { selectProductsByCurrentCategory } from "src/redux/products/productsSlic
 
 import { StyledProductsGrid } from "./Styled";
 
-const ProductsGrid = ({ className, filters }) => {
-  const productsByCurrentCategory = useSelector(
-    selectProductsByCurrentCategory
-  );
+const ProductsGrid = ({ className, filters,productsByCurrentCategory }) => {
+  // const productsByCurrentCategory = useSelector(
+  //   selectProductsByCurrentCategory
+  // );
 
   // console.log("filters", filters);
 

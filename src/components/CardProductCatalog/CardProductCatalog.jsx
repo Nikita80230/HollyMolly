@@ -30,7 +30,7 @@ const CardProductCatalog = ({ product }) => {
 
         {product.productsInstances[0].percentageDiscount > 0 && (
           <span className="styledSpanDiscount">
-            {product.productsInstances[0].percentageDiscount}%
+            -{product.productsInstances[0].percentageDiscount}%
           </span>
         )}
         {product.productsInstances[0].isNewCollection && (
