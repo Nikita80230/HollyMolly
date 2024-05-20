@@ -39,7 +39,7 @@ const CategoriesModal = ({ closeModal, categories }) => {
   return (
     <StyledCategoriesModal onClick={handleOverlayClick}>
       <div className="categoriesModal">
-        <h2 className="categoriesModalTitle">Усі категорії</h2>
+        {/* <h2 className="categoriesModalTitle">Усі категорії</h2> */}
         <div className="categoriesList">
           {categories.map((category) => {
             if (category.id <= 4) {

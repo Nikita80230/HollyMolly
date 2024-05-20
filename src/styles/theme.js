@@ -40,7 +40,6 @@ export const theme = {
     cardSwiperBg: " rgba(243, 244, 252, 0.4)",
     checkboxText: "#000",
     focusButtonBgSwiper: "rgba(169, 181, 237, 0.4)",
-    cardSwiperBg:"  rgba(243, 244, 252, 0.8)",
     titleCardProduct: "#000",
     colorBgSpanNovelty: "#4169e1",
     spanTextColor: "#fff",
@@ -49,8 +48,7 @@ export const theme = {
     colorBgSpanDiscount: "#ff7673",
     borderButtonColor: "#000",
     activeBgNavLink: "rgba(169, 181, 237, 0.4)",
-    hoverIcon:" #a9b5ed",
-    
+    hoverIcon: " #a9b5ed",
   },
 
   fonts: {

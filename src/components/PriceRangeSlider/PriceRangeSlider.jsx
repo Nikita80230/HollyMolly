@@ -1,18 +1,20 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
 import { StyledPriceRangeSlider } from "./Styled";
-import { useDispatch } from "react-redux";
 
 const PriceRangeSlider = ({ handleChangePrice }) => {
   const dispatch = useDispatch();
   const [value, setValue] = useState([150, 2000]);
 
   const handleChange = (value) => {
+    console.log(value);
     setValue(value);
     handleChangePrice({ name: "priceRange", value });
   };
 
+  console.log(value);
   return (
     <StyledPriceRangeSlider>
       <RangeSlider
@@ -26,11 +28,29 @@ const PriceRangeSlider = ({ handleChangePrice }) => {
         className="range-slider-yellow rangeSlider"
       />
       <div className="priceLabels">
-        <span className="minPriceLabel">₴{value[0]}</span>
-        <span className="maxPriceLabel">₴{value[1]}</span>
+        <span className="priceLabel">{`₴${value[0]}`}</span>
+        <span className="priceLabel">{`₴${value[1]}`}</span>
+      </div>
+      <div className="priceInputs">
+        <input
+          className="minPriceInput priceInput"
+          onChange={(e) => {
+            handleChange([e.target.value, value[1]]);
+          }}
+          value={value[0]}
+        />
+        <div className="divider"></div>
+        <input
+          className="maxPriceInput priceInput"
+          onChange={(e) => {
+            handleChange([value[0], e.target.value]);
+          }}
+          value={value[1]}
+        />
       </div>
     </StyledPriceRangeSlider>
   );
 };
 
 export default PriceRangeSlider;
+// ₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
