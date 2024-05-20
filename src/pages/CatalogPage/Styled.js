@@ -9,7 +9,7 @@ export const StyledCatalogPage = styled.div`
       "pg pg pg pg pg pg";
 
     grid-template-columns: minmax(200px, 306px) 1fr;
-    margin-bottom: 128px;
+    margin-bottom: 130px;
   }
 
   .sorting {
@@ -26,11 +26,24 @@ export const StyledCatalogPage = styled.div`
   }
   .productsGrid {
     grid-area: p;
-    margin-bottom:78px;
+    margin-bottom: 78px;
   }
 
- .buttonsPagination{
-grid-area: pg;
-display:flex;
- }
+  .buttonsPagination {
+    grid-area: pg;
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid ${({ theme }) => theme.colors.borderPagination};
+  }
+  .buttonPrevNext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid ${({ theme }) => theme.colors.borderPagination};
+    width: 56px;
+    height: 42px;
+    background-color: transparent;
+  }
 `;

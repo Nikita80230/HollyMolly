@@ -19,6 +19,8 @@ import {
 import Loader from "src/components/Loader/Loader";
 import Pagination from "src/components/Pagination/Pagination";
 // import { selectAllProducts } from "src/redux/products/productsSlice";
+import IconNext from "src/assets/images/nextPagination.svg?react";
+import IconPrev from "src/assets/images/prevPagination.svg?react";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -64,16 +66,27 @@ const CatalogPage = () => {
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
-    // $('html, body').animate({ scrollTop: $('.custom-category').offset().top }, 'slow');
+    window.scrollTo({
+      top: document.querySelector(".productsGrid").offsetTop,
+      behavior: "smooth",
+    });
   };
 
   const handleNextPage = () => {
     setCurrentPage((prev) => prev + 1);
+    window.scrollTo({
+      top: document.querySelector(".productsGrid").offsetTop,
+      behavior: "smooth",
+    });
   };
 
   const handlePrevPage = () => {
     setCurrentPage((prev) => prev - 1);
-    };
+    window.scrollTo({
+      top: document.querySelector(".productsGrid").offsetTop,
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
     dispatch(getProductsByCurrentCategory({ categoryGroupId, categoryId }));
@@ -97,20 +110,32 @@ const CatalogPage = () => {
           <ProductsGrid
             className="productsGrid"
             filters={filters}
-            // productsByCurrentCategory={productsByCurrentCategory}
             productsByCurrentCategory={currentProduct}
           />
         )}
+
         <div className="buttonsPagination">
-        <button className ="prevButton" onClick={handlePrevPage} >Prev</button>
-        <Pagination
-          className="pagination"
-          productsPerPage={productsPerPage}
-          totalProducts={productsByCurrentCategory.length}
-          paginate={paginate}
-        />
-          <button className="nextButton" onClick={handleNextPage}>Next</button>
-          </div>
+          <button
+            type="button"
+            className="buttonPrevNext"
+            onClick={handlePrevPage}
+          >
+            <IconPrev />
+          </button>
+          <Pagination
+            productsPerPage={productsPerPage}
+            totalProducts={productsByCurrentCategory.length}
+            paginate={paginate}
+            currentPage={currentPage}
+          />
+          <button
+            type="button"
+            className="buttonPrevNext"
+            onClick={handleNextPage}
+          >
+            <IconNext />
+          </button>
+        </div>
       </div>
     </StyledCatalogPage>
   );

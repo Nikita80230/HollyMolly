@@ -49,7 +49,9 @@ export const theme = {
     colorBgSpanDiscount: "#ff7673",
     borderButtonColor: "#000",
     activeBgNavLink: "rgba(169, 181, 237, 0.4)",
-    hoverIcon:" #a9b5ed",
+    hoverIcon: " #a9b5ed",
+    borderPagination: "#e2e2e2",
+    activePaginationBg:"rgba(169, 181, 237, 0.4)"
     
   },
 
