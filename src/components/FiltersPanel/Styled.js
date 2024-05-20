@@ -25,10 +25,6 @@ export const StyledFiltersPanel = styled.div`
     text-align: center;
     color: #000;
   }
-  .priceLabels {
-    display: flex;
-    justify-content: space-between;
-  }
 
   /* ----------colors---------- */
 `;

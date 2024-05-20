@@ -21,7 +21,7 @@ export const StyledCategoriesModal = styled.div`
 
     max-width: 654px;
     width: 100%;
-    height: 318px;
+    height: 208px;
 
     padding: 40px;
     border-radius: 15px;
