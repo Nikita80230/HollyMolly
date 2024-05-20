@@ -30,8 +30,11 @@ export const StyledSubcategoriesList = styled.div`
   }
 
   .subCategoryContent:hover {
+    .titleOverlay {
+      z-index: 0;
+    }
     .subCategoryTitle {
-      top: 0;
+      display: block;
     }
   }
 
@@ -39,14 +42,16 @@ export const StyledSubcategoriesList = styled.div`
     width: 100%;
     max-height: 251px;
   }
-  .subCategoryTitle {
+  .titleOverlay {
     display: flex;
     align-items: center;
     justify-content: center;
 
     position: absolute;
-    top: -100%;
+    top: 0;
     left: 0;
+
+    z-index: -1;
 
     width: 100%;
     min-height: 100%;
@@ -54,6 +59,10 @@ export const StyledSubcategoriesList = styled.div`
     background-color: ${({ theme }) => theme.colors.subCategoryHover};
 
     transition: ${({ theme }) => theme.animations.transition};
+  }
+
+  .subCategoryTitle {
+    display: none;
 
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 500;
