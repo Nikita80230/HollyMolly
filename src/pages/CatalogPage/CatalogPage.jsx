@@ -9,14 +9,24 @@ import SubcategoriesList from "src/components/SubcategoriesList/SubcategoriesLis
 import SortingPanel from "src/components/SortingPanel/SortingPanel";
 import FiltersPanel from "src/components/FiltersPanel/FiltersPanel";
 import ProductsGrid from "src/components/ProductsGrid/ProductsGrid";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getProductsByCurrentCategory } from "src/redux/products/operations";
 import { selectFilters } from "src/redux/filters/filtersSlice";
-import { selectProductsByCurrentCategory } from "src/redux/products/productsSlice";
+import {
+  selectLoading,
+  selectProductsByCurrentCategory,
+} from "src/redux/products/productsSlice";
+import Loader from "src/components/Loader/Loader";
+import Pagination from "src/components/Pagination/Pagination";
 // import { selectAllProducts } from "src/redux/products/productsSlice";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectLoading);
+  const productsByCurrentCategory = useSelector(
+    selectProductsByCurrentCategory
+  );
+
   const { categoryGroupId, categoryId } = useParams();
 
   const allCategories = useSelector(selectCategories);
@@ -42,6 +52,29 @@ const CatalogPage = () => {
     },
   ];
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(12);
+
+  const lastProductIndex = currentPage * productsPerPage;
+  const firstProductIndex = lastProductIndex - productsPerPage;
+  const currentProduct = productsByCurrentCategory.slice(
+    firstProductIndex,
+    lastProductIndex
+  );
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    // $('html, body').animate({ scrollTop: $('.custom-category').offset().top }, 'slow');
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prev) => prev + 1);
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage((prev) => prev - 1);
+    };
+
   useEffect(() => {
     dispatch(getProductsByCurrentCategory({ categoryGroupId, categoryId }));
   }, [categoryGroupId, categoryId, dispatch]);
@@ -58,8 +91,26 @@ const CatalogPage = () => {
       <div className="layout">
         <SortingPanel className="sorting" />
         <FiltersPanel className="filters" />
-
-        <ProductsGrid className="productsGrid" filters={filters} />
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <ProductsGrid
+            className="productsGrid"
+            filters={filters}
+            // productsByCurrentCategory={productsByCurrentCategory}
+            productsByCurrentCategory={currentProduct}
+          />
+        )}
+        <div className="buttonsPagination">
+        <button className ="prevButton" onClick={handlePrevPage} >Prev</button>
+        <Pagination
+          className="pagination"
+          productsPerPage={productsPerPage}
+          totalProducts={productsByCurrentCategory.length}
+          paginate={paginate}
+        />
+          <button className="nextButton" onClick={handleNextPage}>Next</button>
+          </div>
       </div>
     </StyledCatalogPage>
   );

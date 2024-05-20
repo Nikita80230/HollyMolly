@@ -5,17 +5,18 @@ export const StyledCatalogPage = styled.div`
     display: grid;
     grid-template-areas:
       "s s s s s s"
-      "f p p p p p";
+      "f p p p p p"
+      "pg pg pg pg pg pg";
 
     grid-template-columns: minmax(200px, 306px) 1fr;
-    margin-bottom:128px;
+    margin-bottom: 128px;
   }
 
   .sorting {
     grid-area: s;
 
     margin-left: auto;
-    margin-bottom:20px;
+    margin-bottom: 20px;
   }
   .filters {
     margin-right: 30px;
@@ -25,5 +26,11 @@ export const StyledCatalogPage = styled.div`
   }
   .productsGrid {
     grid-area: p;
+    margin-bottom:78px;
   }
+
+ .buttonsPagination{
+grid-area: pg;
+display:flex;
+ }
 `;
