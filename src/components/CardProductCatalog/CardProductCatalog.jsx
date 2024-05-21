@@ -47,7 +47,13 @@ const CardProductCatalog = ({ product }) => {
             <Link>
               <div className="wrapperFeedback">
                 <Feedback />
-                <span className="spanFeedback">Залишити відгук</span>
+                {product.feedbacks.length === 0 ? (
+                  <span className="spanFeedback">Залишити відгук</span>
+                ) : (
+                  <span className="spanFeedback">
+                    {product.feedbacks.length}
+                  </span>
+                )}
               </div>
             </Link>
           </div>
