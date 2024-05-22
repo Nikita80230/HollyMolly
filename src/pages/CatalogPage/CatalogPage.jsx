@@ -9,16 +9,17 @@ import SubcategoriesList from "src/components/SubcategoriesList/SubcategoriesLis
 import SortingPanel from "src/components/SortingPanel/SortingPanel";
 import FiltersPanel from "src/components/FiltersPanel/FiltersPanel";
 import ProductsGrid from "src/components/ProductsGrid/ProductsGrid";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { getProductsByCurrentCategory } from "src/redux/products/operations";
 import { selectFilters } from "src/redux/filters/filtersSlice";
 import {
+  filterProducts,
+  selectFilteredProducts,
   selectLoading,
   selectProductsByCurrentCategory,
 } from "src/redux/products/productsSlice";
 import Loader from "src/components/Loader/Loader";
 import Pagination from "src/components/Pagination/Pagination";
-// import { selectAllProducts } from "src/redux/products/productsSlice";
 import IconNext from "src/assets/images/nextPagination.svg?react";
 import IconPrev from "src/assets/images/prevPagination.svg?react";
 
@@ -28,6 +29,7 @@ const CatalogPage = () => {
   const [sortType, setSortType] = useState({ value: "", label: "" });
 
   const isLoading = useSelector(selectLoading);
+  const filteredProducts = useSelector(selectFilteredProducts);
   const productsByCurrentCategory = useSelector(
     selectProductsByCurrentCategory
   );
@@ -58,48 +60,13 @@ const CatalogPage = () => {
     },
   ];
 
-  const filteredProducts = useMemo(
-    () =>
-      productsByCurrentCategory
-        .filter((product) => {
-          if (filters?.priceRange.length === 0) return true;
-          if (
-            product.productsInstances[0].price >= filters?.priceRange[0] &&
-            product.productsInstances[0].price <= filters?.priceRange[1]
-          )
-            return true;
-
-          return false;
-        })
-        .filter((product) => {
-          if (filters?.colors.length === 0) return true;
-          if (filters?.colors.includes(product.productsInstances[0].color))
-            return true;
-
-          return false;
-        })
-        .filter((product) => {
-          if (filters?.materials?.length === 0) return true;
-          if (
-            filters?.materials.includes(product.productsInstances[0].material)
-          )
-            return true;
-
-          return false;
-        })
-        .filter((product) => {
-          if (filters?.sizes.length === 0) return true;
-          if (filters?.sizes.includes(product.productsInstances[0].size))
-            return true;
-
-          return false;
-        }),
-    [filters, productsByCurrentCategory]
-  );
-
   useEffect(() => {
     dispatch(getProductsByCurrentCategory({ categoryGroupId, categoryId }));
   }, [categoryGroupId, categoryId, dispatch]);
+
+  useEffect(() => {
+    dispatch(filterProducts(filters));
+  }, [filters, productsByCurrentCategory, dispatch]);
 
   // ==============================================================================================
   const [currentPage, setCurrentPage] = useState(1);
@@ -136,7 +103,7 @@ const CatalogPage = () => {
     });
   };
   // =======================================================================================
-
+  console.log(sortType);
   return (
     <StyledCatalogPage>
       <div className="navigation">
@@ -158,7 +125,6 @@ const CatalogPage = () => {
             filteredProducts={filteredProducts}
           />
         )}
-
         <div className="buttonsPagination">
           {currentPage == 1 ? (
             <button type="button" className="buttonPrevNextDisabled" disabled>
@@ -201,3 +167,42 @@ const CatalogPage = () => {
 };
 
 export default CatalogPage;
+
+// const filteredProducts = useMemo(
+//   () =>
+//     productsByCurrentCategory
+//       .filter((product) => {
+//         if (filters?.priceRange.length === 0) return true;
+//         if (
+//           product.productsInstances[0].price >= filters?.priceRange[0] &&
+//           product.productsInstances[0].price <= filters?.priceRange[1]
+//         )
+//           return true;
+
+//         return false;
+//       })
+//       .filter((product) => {
+//         if (filters?.colors.length === 0) return true;
+//         if (filters?.colors.includes(product.productsInstances[0].color))
+//           return true;
+
+//         return false;
+//       })
+//       .filter((product) => {
+//         if (filters?.materials?.length === 0) return true;
+//         if (
+//           filters?.materials.includes(product.productsInstances[0].material)
+//         )
+//           return true;
+
+//         return false;
+//       })
+//       .filter((product) => {
+//         if (filters?.sizes.length === 0) return true;
+//         if (filters?.sizes.includes(product.productsInstances[0].size))
+//           return true;
+
+//         return false;
+//       }),
+//   [filters, productsByCurrentCategory]
+// );
