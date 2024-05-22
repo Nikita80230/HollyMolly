@@ -1,15 +1,25 @@
 import ReactSelect from "react-select";
 import { StyledSortingPanel } from "./Styled";
+import { useState } from "react";
 
 const options = [
-  { value: "chocolate", label: "Сортування" },
-  { value: "chocolate", label: "За рейтингом" },
-  { value: "strawberry", label: "Від дешевших до дорогих" },
-  { value: "vanilla", label: "Від дорогих до дешевших" },
-  { value: "vanilla", label: "Нові" },
+  { value: "byRate", label: "За рейтингом" },
+  { value: "asc", label: "Від дешевших до дорогих" },
+  { value: "desc", label: "Від дорогих до дешевших" },
+  { value: "byDate", label: "Нові" },
 ];
 
 const customStyles = {
+  placeholder: (defaultStyles) => {
+    return {
+      ...defaultStyles,
+      fontFamily: `Nunito`,
+      fontWeight: "500",
+      fontSize: "22px",
+      textAlign: "center",
+      color: `#000`,
+    };
+  },
   control: (baseStyles, state) => ({
     ...baseStyles,
     borderRadius: 10,
@@ -21,7 +31,6 @@ const customStyles = {
     fontSize: 22,
     textAlign: "center",
     color: "#000",
-    // borderColor: state.isFocused ? "grey" : "red",
   }),
   option: (provided, state) => ({
     ...provided,
@@ -31,33 +40,25 @@ const customStyles = {
     color: "#000",
     borderLeft: state.isFocused ? "2px solid #939FDF" : "none",
     borderRight: state.isFocused ? "2px solid #939FDF" : "none",
-    backgroundColor: "transparent", // Change background color for selected options
-    // Change background color for selected options
+    backgroundColor: "transparent",
   }),
 };
 
-// styles={{
-//     control: (baseStyles, state) => ({
-//       ...baseStyles,
-//       borderColor: state.isFocused ? 'grey' : 'red',
-//     }),
-//   }}
+const SortingPanel = ({ className, handleSorting }) => {
+  // const [sortType, setSortType] = useState();
+  // const handleSorting = (option) => {
+  //   console.log(option);
+  // };
 
-// font-family: var(--font-family);
-// font-weight: 500;
-// font-size: 22px;
-// text-align: center;
-// color: #000;
-
-const SortingPanel = ({ className }) => {
   return (
     <StyledSortingPanel className={className}>
       <ReactSelect
-        defaultValue={options[0]}
+        placeholder="Сортування"
         options={options}
         isClearable={false}
         isSearchable={false}
         styles={customStyles}
+        onChange={handleSorting}
       />
     </StyledSortingPanel>
   );

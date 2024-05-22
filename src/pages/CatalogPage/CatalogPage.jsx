@@ -9,7 +9,7 @@ import SubcategoriesList from "src/components/SubcategoriesList/SubcategoriesLis
 import SortingPanel from "src/components/SortingPanel/SortingPanel";
 import FiltersPanel from "src/components/FiltersPanel/FiltersPanel";
 import ProductsGrid from "src/components/ProductsGrid/ProductsGrid";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getProductsByCurrentCategory } from "src/redux/products/operations";
 import { selectFilters } from "src/redux/filters/filtersSlice";
 import { selectProductsByCurrentCategory } from "src/redux/products/productsSlice";
@@ -17,6 +17,9 @@ import { selectProductsByCurrentCategory } from "src/redux/products/productsSlic
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
+
+  const [sortType, setSortType] = useState({ value: "", label: "" });
+
   const { categoryGroupId, categoryId } = useParams();
 
   const allCategories = useSelector(selectCategories);
@@ -25,6 +28,10 @@ const CatalogPage = () => {
   const mainCategory = allCategories?.find(
     (mainCategory) => mainCategory.id === Number(categoryGroupId)
   );
+
+  const handleSorting = (option) => {
+    setSortType(option);
+  };
 
   const categoryName = mainCategory?.name ?? "Завантаження...";
 
@@ -56,10 +63,14 @@ const CatalogPage = () => {
         />
       </div>
       <div className="layout">
-        <SortingPanel className="sorting" />
+        <SortingPanel className="sorting" handleSorting={handleSorting} />
         <FiltersPanel className="filters" />
 
-        <ProductsGrid className="productsGrid" filters={filters} />
+        <ProductsGrid
+          className="productsGrid"
+          filters={filters}
+          sortType={sortType}
+        />
       </div>
     </StyledCatalogPage>
   );

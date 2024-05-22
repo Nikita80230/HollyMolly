@@ -32,6 +32,17 @@ export const StyledProductCard = styled.div`
 
   .addToFavoriteIcon {
     display: block;
+    path {
+      stroke: ${({ theme }) => theme.updatedColors.arizona900};
+      fill: transparent;
+      transition: ${({ theme }) => theme.animations.transition};
+    }
+  }
+
+  .addToFavoriteIcon.added {
+    path {
+      fill: ${({ theme }) => theme.updatedColors.arizona900};
+    }
   }
 
   .productTitle {

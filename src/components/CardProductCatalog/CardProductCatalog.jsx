@@ -2,8 +2,8 @@ import { WrapperCard } from "./Styled";
 import Feedback from "src/assets/images/feedback.svg?react";
 import HeartIcon from "src/assets/images/heartBlue.svg?react";
 import BasketIcon from "src/assets/images/basketBlue.svg?react";
-import HeartHoverIcon from "src/assets/images/heartBlueHover.svg?react";
-import BasketHoverIcon from "src/assets/images/basketBlueHover.svg?react";
+// import HeartHoverIcon from "src/assets/images/heartBlueHover.svg?react";
+// import BasketHoverIcon from "src/assets/images/basketBlueHover.svg?react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -22,18 +22,22 @@ const CardProductCatalog = ({ product }) => {
     dispatch(toggleFavoriteProducts(product));
   };
 
+  const {
+    productsInstances: [productsInstance],
+  } = product;
+
   return (
     <li key={product.id}>
       <WrapperCard>
         <img className="productPhoto" width={278} height={393} />
         <h4 className="title">{product.name}</h4>
 
-        {product.productsInstances[0].percentageDiscount > 0 && (
+        {productsInstance.percentageDiscount > 0 && (
           <span className="styledSpanDiscount">
-            {product.productsInstances[0].percentageDiscount}%
+            {productsInstance.percentageDiscount}%
           </span>
         )}
-        {product.productsInstances[0].isNewCollection && (
+        {productsInstance.isNewCollection && (
           <span className="styledSpan">Новинка</span>
         )}
         <div className="wrapperColorsFeedbackHeart">
@@ -41,7 +45,7 @@ const CardProductCatalog = ({ product }) => {
             <button
               className="buttonColor"
               style={{
-                backgroundColor: product.productsInstances[0].color,
+                backgroundColor: productsInstance.color,
               }}
             ></button>
             <Link>
@@ -52,26 +56,30 @@ const CardProductCatalog = ({ product }) => {
             </Link>
           </div>
           <button className="buttonIcon" onClick={handleAddToFavorite}>
-            {isProductInFavorite ? (
-              <HeartHoverIcon className="iconHeart" />
-            ) : (
-              <HeartIcon className="iconHeart" />
-            )}
+            {
+              <HeartIcon
+                className={`iconHeart ${isProductInFavorite ? "added" : ""} `}
+              />
+            }
           </button>
         </div>
 
         <div className="wrapperPriceIcon">
           <div>
-            {product.productsInstances[0].price >
-              product.productsInstances[0].priceAfterDiscount && (
-              <p className="price">{product.productsInstances[0].price}₴</p>
+            {productsInstance.price > productsInstance.priceAfterDiscount && (
+              <p className="price">{productsInstance.price}₴</p>
             )}
             <p className="priceAfterDiscount">
-              {product.productsInstances[0].priceAfterDiscount}₴
+              {productsInstance.priceAfterDiscount}₴
             </p>
           </div>
           <button className="buttonIcon">
-            <BasketIcon className="iconBasket" />
+            {/* <BasketIcon className="iconBasket" />` */}
+            {
+              <BasketIcon
+                className={`iconBasket ${isProductInFavorite ? "added" : ""} `}
+              />
+            }
           </button>
         </div>
       </WrapperCard>

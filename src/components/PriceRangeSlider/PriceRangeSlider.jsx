@@ -1,20 +1,17 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
 import { StyledPriceRangeSlider } from "./Styled";
 
 const PriceRangeSlider = ({ handleChangePrice }) => {
-  const dispatch = useDispatch();
   const [value, setValue] = useState([150, 2000]);
 
   const handleChange = (value) => {
-    console.log(value);
+    // console.log(value);
     setValue(value);
     handleChangePrice({ name: "priceRange", value });
   };
 
-  console.log(value);
   return (
     <StyledPriceRangeSlider>
       <RangeSlider

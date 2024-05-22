@@ -27,20 +27,25 @@ export const StyledSubcategoriesList = styled.div`
   }
   .subCategoryContent {
     position: relative;
+    overflow: hidden;
   }
 
   .subCategoryContent:hover {
     .titleOverlay {
-      z-index: 0;
+      opacity: 1;
     }
-    .subCategoryTitle {
-      display: block;
+
+    .subCategoryImg {
+      transform: scale(1.2);
     }
   }
 
   .subCategoryImg {
     width: 100%;
     max-height: 251px;
+
+    transform: scale(1);
+    transition: ${({ theme }) => theme.animations.transition};
   }
   .titleOverlay {
     display: flex;
@@ -51,7 +56,9 @@ export const StyledSubcategoriesList = styled.div`
     top: 0;
     left: 0;
 
-    z-index: -1;
+    opacity: 0;
+
+    /* z-index: -1; */
 
     width: 100%;
     min-height: 100%;
@@ -62,8 +69,6 @@ export const StyledSubcategoriesList = styled.div`
   }
 
   .subCategoryTitle {
-    display: none;
-
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 500;
     font-size: 32px;

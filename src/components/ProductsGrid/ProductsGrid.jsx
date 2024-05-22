@@ -6,12 +6,10 @@ import { selectProductsByCurrentCategory } from "src/redux/products/productsSlic
 
 import { StyledProductsGrid } from "./Styled";
 
-const ProductsGrid = ({ className, filters }) => {
+const ProductsGrid = ({ className, filters, sortType }) => {
   const productsByCurrentCategory = useSelector(
     selectProductsByCurrentCategory
   );
-
-  // console.log("filters", filters);
 
   const filteredProducts = useMemo(
     () =>
@@ -52,8 +50,20 @@ const ProductsGrid = ({ className, filters }) => {
     [filters, productsByCurrentCategory]
   );
 
-  console.log("filteredProducts", productsByCurrentCategory);
+  const handleSort = (array, sortType) => {
+    switch (sortType.value) {
+      case "byRate":
+        filteredProducts.sort((item) => {});
+        break;
 
+      default:
+        break;
+    }
+    return filteredProducts.sort();
+  };
+
+  const sortedProducts = filteredProducts.sort();
+  console.log("sortType", sortType);
   return (
     <StyledProductsGrid className={className}>
       {filteredProducts.map((product) => {
