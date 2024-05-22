@@ -44,6 +44,23 @@ export const StyledCatalogPage = styled.div`
     border: 2px solid ${({ theme }) => theme.colors.borderPagination};
     width: 56px;
     height: 42px;
+    background-color: ${({ theme }) => theme.colors.activePaginationBg};
+    transition: background-color  ${({ theme }) => theme.animations.transition}, border  ${({ theme }) => theme.animations.transition};
+
+    &:hover{
+background-color: ${({ theme }) => theme.colors.hoverPaginationBg};
+border:1px solid  ${({ theme }) => theme.colors.borderHoverPagination};
+    }
+  }
+
+  .buttonPrevNextDisabled{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid ${({ theme }) => theme.colors.borderPagination};
+    width: 56px;
+    height: 42px;
     background-color: transparent;
   }
 `;

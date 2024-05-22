@@ -115,26 +115,40 @@ const CatalogPage = () => {
         )}
 
         <div className="buttonsPagination">
-          <button
-            type="button"
-            className="buttonPrevNext"
-            onClick={handlePrevPage}
-          >
-            <IconPrev />
-          </button>
+          {currentPage == 1 ? (
+            <button type="button" className="buttonPrevNextDisabled" disabled>
+              <IconPrev />
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="buttonPrevNext"
+              onClick={handlePrevPage}
+            >
+              <IconPrev />
+            </button>
+          )}
+
           <Pagination
             productsPerPage={productsPerPage}
             totalProducts={productsByCurrentCategory.length}
             paginate={paginate}
             currentPage={currentPage}
           />
-          <button
-            type="button"
-            className="buttonPrevNext"
-            onClick={handleNextPage}
-          >
-            <IconNext />
-          </button>
+          {currentProduct.length === productsPerPage &&
+          currentPage * productsPerPage < productsByCurrentCategory.length ? (
+            <button
+              type="button"
+              className="buttonPrevNext"
+              onClick={handleNextPage}
+            >
+              <IconNext />
+            </button>
+          ) : (
+            <button type="button" className="buttonPrevNextDisabled" disabled>
+              <IconNext />
+            </button>
+          )}
         </div>
       </div>
     </StyledCatalogPage>
