@@ -10,19 +10,69 @@ export const WrapperCard = styled.div`
     transform ${({ theme }) => theme.animations.transition};
 
   .iconHeart {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+
+    transition: ${({ theme }) => theme.animations.transition};
+    path {
+      stroke: #3251ae;
+      transition: ${({ theme }) => theme.animations.transition};
+    }
   }
 
   .iconBasket {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+
+    transition: ${({ theme }) => theme.animations.transition};
+
+    path {
+      /* stroke: #3251ae; */
+      transition: ${({ theme }) => theme.animations.transition};
+    }
+  }
+
+  .selectedBasketPath {
+    opacity: 0;
+    transition: ${({ theme }) => theme.animations.transition};
   }
 
   &:hover {
     .iconHeart {
-      display: block;
+      opacity: 1;
+      pointer-events: all;
+      user-select: all;
+      transition: ${({ theme }) => theme.animations.transition};
+
+      path {
+        fill: transparent;
+      }
     }
     .iconBasket {
-      display: block;
+      opacity: 1;
+      pointer-events: all;
+      user-select: all;
+      transition: ${({ theme }) => theme.animations.transition};
+
+      path {
+        fill: #3251ae;
+      }
+    }
+
+    .iconHeart.added {
+      path {
+        fill: #3251ae;
+      }
+    }
+    .iconBasket.added {
+      path {
+        fill: #3251ae;
+      }
+      .selectedBasketPath {
+        opacity: 1;
+      }
     }
   }
 
@@ -126,8 +176,8 @@ export const WrapperCard = styled.div`
     align-items: center;
   }
 
-  .buttonIcon{
+  .buttonIcon {
     background-color: transparent;
-    border:transparent;
+    border: transparent;
   }
 `;

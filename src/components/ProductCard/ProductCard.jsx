@@ -2,15 +2,13 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import {
-  // addProductToFavorite,
-  // removeProductFromFavorite,
   selectFavoriteProducts,
   toggleFavoriteProducts,
 } from "src/redux/products/productsSlice";
 
 import cardImg from "src/assets/images/recommendation-section/Rectangle 324.png";
-import NotAddToFavoriteIcon from "src/assets/images/heart.svg?react";
-import AddedToFavoriteIcon from "src/assets/images/heartFull.svg?react";
+// import NotAddToFavoriteIcon from "src/assets/images/heart.svg?react";
+import AddToFavoriteIcon from "src/assets/images/heartFull.svg?react";
 
 import ColorSwitcher from "../ColorSwitcher/ColorSwitcher";
 
@@ -38,11 +36,11 @@ const ProductCard = ({ product }) => {
           type="button"
           onClick={handleAddToFavorite}
         >
-          {isProductInFavorite ? (
-            <AddedToFavoriteIcon className="addToFavoriteIcon" />
-          ) : (
-            <NotAddToFavoriteIcon className="addToFavoriteIcon" />
-          )}
+          <AddToFavoriteIcon
+            className={`addToFavoriteIcon ${
+              isProductInFavorite ? "added" : ""
+            }`}
+          />
         </button>
 
         <h4 className="productTitle">{product.name}</h4>

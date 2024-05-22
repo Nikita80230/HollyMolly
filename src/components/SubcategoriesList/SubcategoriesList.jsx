@@ -29,7 +29,9 @@ const SubcategoriesList = ({ allCategories, categoryGroupId }) => {
                     src={subCategory.link}
                     alt="Category image"
                   />
-                  <span className="subCategoryTitle">{subCategory.name}</span>
+                  <div className="titleOverlay">
+                    <span className="subCategoryTitle">{subCategory.name}</span>
+                  </div>
                 </div>
               </Link>
             </li>

@@ -9,7 +9,7 @@ import SubcategoriesList from "src/components/SubcategoriesList/SubcategoriesLis
 import SortingPanel from "src/components/SortingPanel/SortingPanel";
 import FiltersPanel from "src/components/FiltersPanel/FiltersPanel";
 import ProductsGrid from "src/components/ProductsGrid/ProductsGrid";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getProductsByCurrentCategory } from "src/redux/products/operations";
 import { selectFilters } from "src/redux/filters/filtersSlice";
 import {
@@ -24,19 +24,23 @@ import IconPrev from "src/assets/images/prevPagination.svg?react";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
+  const { categoryGroupId, categoryId } = useParams();
+  const [sortType, setSortType] = useState({ value: "", label: "" });
+
   const isLoading = useSelector(selectLoading);
   const productsByCurrentCategory = useSelector(
     selectProductsByCurrentCategory
   );
-
-  const { categoryGroupId, categoryId } = useParams();
-
   const allCategories = useSelector(selectCategories);
   const filters = useSelector(selectFilters);
 
   const mainCategory = allCategories?.find(
     (mainCategory) => mainCategory.id === Number(categoryGroupId)
   );
+
+  const handleSorting = (option) => {
+    setSortType(option);
+  };
 
   const categoryName = mainCategory?.name ?? "Завантаження...";
 
@@ -54,12 +58,56 @@ const CatalogPage = () => {
     },
   ];
 
+  const filteredProducts = useMemo(
+    () =>
+      productsByCurrentCategory
+        .filter((product) => {
+          if (filters?.priceRange.length === 0) return true;
+          if (
+            product.productsInstances[0].price >= filters?.priceRange[0] &&
+            product.productsInstances[0].price <= filters?.priceRange[1]
+          )
+            return true;
+
+          return false;
+        })
+        .filter((product) => {
+          if (filters?.colors.length === 0) return true;
+          if (filters?.colors.includes(product.productsInstances[0].color))
+            return true;
+
+          return false;
+        })
+        .filter((product) => {
+          if (filters?.materials?.length === 0) return true;
+          if (
+            filters?.materials.includes(product.productsInstances[0].material)
+          )
+            return true;
+
+          return false;
+        })
+        .filter((product) => {
+          if (filters?.sizes.length === 0) return true;
+          if (filters?.sizes.includes(product.productsInstances[0].size))
+            return true;
+
+          return false;
+        }),
+    [filters, productsByCurrentCategory]
+  );
+
+  useEffect(() => {
+    dispatch(getProductsByCurrentCategory({ categoryGroupId, categoryId }));
+  }, [categoryGroupId, categoryId, dispatch]);
+
+  // ==============================================================================================
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(12);
 
   const lastProductIndex = currentPage * productsPerPage;
   const firstProductIndex = lastProductIndex - productsPerPage;
-  const currentProduct = productsByCurrentCategory.slice(
+  const currentProduct = filteredProducts.slice(
     firstProductIndex,
     lastProductIndex
   );
@@ -87,10 +135,7 @@ const CatalogPage = () => {
       behavior: "smooth",
     });
   };
-
-  useEffect(() => {
-    dispatch(getProductsByCurrentCategory({ categoryGroupId, categoryId }));
-  }, [categoryGroupId, categoryId, dispatch]);
+  // =======================================================================================
 
   return (
     <StyledCatalogPage>
@@ -102,7 +147,7 @@ const CatalogPage = () => {
         />
       </div>
       <div className="layout">
-        <SortingPanel className="sorting" />
+        <SortingPanel className="sorting" handleSorting={handleSorting} />
         <FiltersPanel className="filters" />
         {isLoading ? (
           <Loader />
@@ -110,7 +155,7 @@ const CatalogPage = () => {
           <ProductsGrid
             className="productsGrid"
             filters={filters}
-            productsByCurrentCategory={currentProduct}
+            filteredProducts={filteredProducts}
           />
         )}
 
@@ -131,12 +176,12 @@ const CatalogPage = () => {
 
           <Pagination
             productsPerPage={productsPerPage}
-            totalProducts={productsByCurrentCategory.length}
+            totalProducts={filteredProducts.length}
             paginate={paginate}
             currentPage={currentPage}
           />
           {currentProduct.length === productsPerPage &&
-          currentPage * productsPerPage < productsByCurrentCategory.length ? (
+          currentPage * productsPerPage < filteredProducts.length ? (
             <button
               type="button"
               className="buttonPrevNext"
