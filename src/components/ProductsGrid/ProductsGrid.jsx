@@ -1,8 +1,4 @@
-import { useMemo } from "react";
-// import { useSelector } from "react-redux";
 import CardProductCatalog from "../CardProductCatalog/CardProductCatalog";
-
-// import { selectProductsByCurrentCategory } from "src/redux/products/productsSlice";
 
 import { StyledProductsGrid } from "./Styled";
 

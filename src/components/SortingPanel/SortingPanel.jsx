@@ -45,11 +45,6 @@ const customStyles = {
 };
 
 const SortingPanel = ({ className, handleSorting }) => {
-  // const [sortType, setSortType] = useState();
-  // const handleSorting = (option) => {
-  //   console.log(option);
-  // };
-
   return (
     <StyledSortingPanel className={className}>
       <ReactSelect
