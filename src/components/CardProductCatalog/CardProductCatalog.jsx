@@ -34,7 +34,7 @@ const CardProductCatalog = ({ product }) => {
 
         {productsInstance.percentageDiscount > 0 && (
           <span className="styledSpanDiscount">
-            {productsInstance.percentageDiscount}%
+            -{productsInstance.percentageDiscount}%
           </span>
         )}
         {productsInstance.isNewCollection && (
@@ -51,7 +51,13 @@ const CardProductCatalog = ({ product }) => {
             <Link>
               <div className="wrapperFeedback">
                 <Feedback />
-                <span className="spanFeedback">Залишити відгук</span>
+                {product.feedbacks.length === 0 ? (
+                  <span className="spanFeedback">Залишити відгук</span>
+                ) : (
+                  <span className="spanFeedback">
+                    {product.feedbacks.length}
+                  </span>
+                )}
               </div>
             </Link>
           </div>
