@@ -107,14 +107,14 @@ export const WrapperCard = styled.div`
     width: 48px;
     height: 26px;
     background-color: ${({ theme }) => theme.colors.colorBgSpanDiscount};
-   font-family: ${({ theme }) => theme.fonts.familyNunito};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 800;
     font-size: 12px;
     text-transform: uppercase;
     color: ${({ theme }) => theme.colors.spanTextColor};
   }
 
-  .styledSpanRating{
+  .styledSpanRating {
     position: absolute;
     top: 16px;
     left: 16px;
@@ -124,9 +124,9 @@ export const WrapperCard = styled.div`
     border-radius: 23px;
     padding: 5px 8px;
     width: 115px;
-height: 26px;
+    height: 26px;
     background-color: ${({ theme }) => theme.colors.colorBgSpanRating};
-   font-family: ${({ theme }) => theme.fonts.familyNunito};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 800;
     font-size: 12px;
     text-transform: uppercase;
@@ -136,8 +136,6 @@ height: 26px;
   .productPhoto {
     margin-bottom: 10px;
   }
-
-  
 
   .title {
     margin-bottom: 10px;
@@ -163,10 +161,9 @@ height: 26px;
 
   .buttonsFeedback {
     display: flex;
+    align-items: center;
     gap: 12px;
   }
-
-  
 
   .wrapperFeedback {
     display: flex;

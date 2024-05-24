@@ -1,7 +1,18 @@
+import colorTranslations from "src/utils/colorTranslations";
 import { StyledList } from "./Styled";
 
+
+const translateColor = (color) => {
+  return colorTranslations[color.toLowerCase()] || color;
+};
+
 const ListColorsButtons = ({ colors }) => {
-  const uniqueColors = colors.filter(
+  const translatedColors = colors.map((colorObj) => ({
+    ...colorObj,
+    color: translateColor(colorObj.color),
+  }));
+
+  const uniqueColors = translatedColors.filter(
     (colorObj, index, self) =>
       index === self.findIndex((t) => t.color === colorObj.color)
   );

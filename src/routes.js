@@ -12,5 +12,6 @@ export const routes = {
   TRACKING: "/tracking",
   SIZE_GUIDE: "/size-guide",
   FAVORITES: "/favorites",
-  BASKET:"/basket",
+  BASKET: "/basket",
+  FEEDBACK:"/feedback",
 };
