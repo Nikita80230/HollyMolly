@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { StyledSubcategoriesList } from "./Styled";
 import { routes } from "src/routes";
+import defaultPhoto from "src/assets/images/defaultImg.webp";
 
 const SubcategoriesList = ({ allCategories, categoryGroupId }) => {
   if (allCategories.length === 0) return;
@@ -26,7 +27,7 @@ const SubcategoriesList = ({ allCategories, categoryGroupId }) => {
                 <div className="subCategoryContent">
                   <img
                     className="subCategoryImg"
-                    src={subCategory.link}
+                    src={subCategory.link || defaultPhoto}
                     alt="Category image"
                   />
                   <div className="titleOverlay">

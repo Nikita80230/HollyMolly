@@ -10,6 +10,8 @@ import {
   selectFavoriteProducts,
   toggleFavoriteProducts,
 } from "src/redux/products/productsSlice";
+import ListColorsButtons from "../ListColorsButtons/ListColorsButtons";
+import StarRating from "../StarRaiting/StarRaitind";
 
 const CardProductCatalog = ({ product }) => {
   const dispatch = useDispatch();
@@ -22,32 +24,33 @@ const CardProductCatalog = ({ product }) => {
     dispatch(toggleFavoriteProducts(product));
   };
 
-  const {
-    productsInstances: [productsInstance],
-  } = product;
+  // const {
+  //   productsInstances: [productsInstance],
+  // } = product;
 
   return (
     <li key={product.id}>
       <WrapperCard>
         <img className="productPhoto" width={278} height={393} />
+
+        <ListColorsButtons colors={product.productsInstances} />
+
         <h4 className="title">{product.name}</h4>
 
-        {productsInstance.percentageDiscount > 0 && (
-          <span className="styledSpanDiscount">
-            -{productsInstance.percentageDiscount}%
-          </span>
+        {product.productsInstances.map((productInstance) => {
+          productInstance.percentageDiscount;
+        }) > 0 && <span className="styledSpanDiscount">Акція</span>}
+        {product.productsInstances.map((productInstance) => {
+          productInstance.isNewCollection;
+        }) && <span className="styledSpan">Новинка</span>}
+        {product.rating === 5 && (
+          <span className="styledSpanRating">Топ продажів</span>
         )}
-        {productsInstance.isNewCollection && (
-          <span className="styledSpan">Новинка</span>
-        )}
+
         <div className="wrapperColorsFeedbackHeart">
           <div className="buttonsFeedback">
-            <button
-              className="buttonColor"
-              style={{
-                backgroundColor: productsInstance.color,
-              }}
-            ></button>
+            <StarRating />
+
             <Link>
               <div className="wrapperFeedback">
                 <Feedback />
@@ -72,11 +75,12 @@ const CardProductCatalog = ({ product }) => {
 
         <div className="wrapperPriceIcon">
           <div>
-            {productsInstance.price > productsInstance.priceAfterDiscount && (
-              <p className="price">{productsInstance.price}₴</p>
+            {product.productsInstances[0].price >
+              product.productsInstances[0].priceAfterDiscount && (
+              <p className="price">{product.productsInstances[0].price}₴</p>
             )}
             <p className="priceAfterDiscount">
-              {productsInstance.priceAfterDiscount}₴
+              {product.productsInstances[0].priceAfterDiscount}₴
             </p>
           </div>
           <button className="buttonIcon">

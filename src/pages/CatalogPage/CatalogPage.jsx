@@ -19,9 +19,7 @@ import {
   selectProductsByCurrentCategory,
 } from "src/redux/products/productsSlice";
 import Loader from "src/components/Loader/Loader";
-import Pagination from "src/components/Pagination/Pagination";
-import IconNext from "src/assets/images/nextPagination.svg?react";
-import IconPrev from "src/assets/images/prevPagination.svg?react";
+import PaginationContainer from "src/components/PaginationContainer/PaginationContainer";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -33,6 +31,7 @@ const CatalogPage = () => {
   const productsByCurrentCategory = useSelector(
     selectProductsByCurrentCategory
   );
+  console.log("productsByCurrentCategory", productsByCurrentCategory)
   const allCategories = useSelector(selectCategories);
   const filters = useSelector(selectFilters);
 
@@ -78,30 +77,27 @@ const CatalogPage = () => {
     firstProductIndex,
     lastProductIndex
   );
+  console.log("currentProduct",currentProduct)
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
-    window.scrollTo({
-      top: document.querySelector(".productsGrid").offsetTop,
-      behavior: "smooth",
-    });
   };
 
   const handleNextPage = () => {
     setCurrentPage((prev) => prev + 1);
-    window.scrollTo({
-      top: document.querySelector(".productsGrid").offsetTop,
-      behavior: "smooth",
-    });
   };
 
   const handlePrevPage = () => {
     setCurrentPage((prev) => prev - 1);
+  };
+
+  useEffect(() => {
     window.scrollTo({
-      top: document.querySelector(".productsGrid").offsetTop,
+      top: document.querySelector(".navigation").offsetTop,
       behavior: "smooth",
     });
-  };
+  }, [currentPage]);
+
   // =======================================================================================
   console.log(sortType);
   return (
@@ -122,45 +118,19 @@ const CatalogPage = () => {
           <ProductsGrid
             className="productsGrid"
             filters={filters}
-            filteredProducts={filteredProducts}
+            filteredProducts={currentProduct}
           />
         )}
-        <div className="buttonsPagination">
-          {currentPage == 1 ? (
-            <button type="button" className="buttonPrevNextDisabled" disabled>
-              <IconPrev />
-            </button>
-          ) : (
-            <button
-              type="button"
-              className="buttonPrevNext"
-              onClick={handlePrevPage}
-            >
-              <IconPrev />
-            </button>
-          )}
-
-          <Pagination
-            productsPerPage={productsPerPage}
-            totalProducts={filteredProducts.length}
-            paginate={paginate}
-            currentPage={currentPage}
-          />
-          {currentProduct.length === productsPerPage &&
-          currentPage * productsPerPage < filteredProducts.length ? (
-            <button
-              type="button"
-              className="buttonPrevNext"
-              onClick={handleNextPage}
-            >
-              <IconNext />
-            </button>
-          ) : (
-            <button type="button" className="buttonPrevNextDisabled" disabled>
-              <IconNext />
-            </button>
-          )}
-        </div>
+        
+        <PaginationContainer
+          productsPerPage={productsPerPage}
+          totalProducts={filteredProducts.length}
+          paginate={paginate}
+          currentPage={currentPage}
+          currentProduct={currentProduct}
+          handlePrevPage={handlePrevPage}
+          handleNextPage={handleNextPage}
+        />
       </div>
     </StyledCatalogPage>
   );
