@@ -10,18 +10,18 @@ const LeaveFeedback = ({ productId }) => {
   const ratingRef = useRef(null);
   return (
     <WrapperFeedback>
-      <h1>Leave Feedback</h1>
+      <h1>Залишити відгук</h1>
       <Formik
         initialValues={{
           authorName: "",
           review: "",
           rating: 0,
         }}
-        onSubmit={async (values, actions, { setSubmitting }) => {
+        onSubmit={async (values, { setSubmitting, resetForm }) => {
           try {
             await sentFeedback(productId, values);
             setSubmitting(false);
-            actions.resetForm();
+            resetForm();
           } catch (error) {
             console.error(error);
             setSubmitting(false);

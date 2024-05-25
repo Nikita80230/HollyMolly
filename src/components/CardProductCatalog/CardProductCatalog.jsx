@@ -13,6 +13,7 @@ import {
 import ListColorsButtons from "../ListColorsButtons/ListColorsButtons";
 import StarRatingCard from "../StarRaitingCard/StarRaitindCard";
 import { routes } from "src/routes";
+import { useEffect, useState } from "react";
 
 const CardProductCatalog = ({ product }) => {
   const dispatch = useDispatch();
@@ -25,36 +26,63 @@ const CardProductCatalog = ({ product }) => {
     dispatch(toggleFavoriteProducts(product));
   };
 
-  // const {
-  //   productsInstances: [productsInstance],
-  // } = product;
+  //===================================================================
+  const [price, setPrice] = useState(product.productsInstances[0].price);
+  const [priceAfterDiscount, setPriceAfterDiscount] = useState(
+    product.productsInstances[0].priceAfterDiscount
+  );
+  const [percentageDiscount, setPercentageDiscount] = useState(
+    product.productsInstances[0].percentageDiscount || null
+  );
+  const [isNewCollection, setIsNewCollection] = useState(
+    product.productsInstances[0].isNewCollection
+  );
+  const [activeColorId, setActiveColorId] = useState(null);
+
+  const handleClick = (id) => {
+    const selectedProductInstance = product.productsInstances.find(
+      (productInstance) => productInstance.id === id
+    );
+    if (selectedProductInstance) {
+      setPrice(selectedProductInstance.price);
+      setPriceAfterDiscount(selectedProductInstance.priceAfterDiscount);
+      setPercentageDiscount(selectedProductInstance.percentageDiscount || null);
+      setIsNewCollection(selectedProductInstance.isNewCollection);
+      setActiveColorId(id);
+    }
+  };
+
+  useEffect(() => {
+    if (product.productsInstances.length > 0) {
+      const firstProductInstance = product.productsInstances[0];
+      handleClick(firstProductInstance.id);
+    }
+  }, [product.productsInstances]);
 
   return (
     <li key={product.id}>
       <WrapperCard>
         <img className="productPhoto" width={278} height={393} />
 
-        <ListColorsButtons colors={product.productsInstances} />
-
+        <ListColorsButtons
+          colors={product.productsInstances}
+          handleClick={handleClick}
+          activeColorId={activeColorId}
+        />
         <h4 className="title">{product.name}</h4>
+        {percentageDiscount && (
+          <span className="styledSpanDiscount">Акція</span>
+        )}
+        {isNewCollection && <span className="styledSpan">Новинка</span>}
 
-        {product.productsInstances.map((productInstance) => {
-          productInstance.percentageDiscount;
-        }) > 0 && <span className="styledSpanDiscount">Акція</span>}
-        {product.productsInstances.map((productInstance) => {
-          productInstance.isNewCollection;
-        }) && <span className="styledSpan">Новинка</span>}
         {product.rating === 5 && (
           <span className="styledSpanRating">Топ продажів</span>
         )}
-
         <div className="wrapperColorsFeedbackHeart">
           <div className="buttonsFeedback">
             <StarRatingCard rating={product.rating} />
 
-            <Link
-              to={`${routes.FEEDBACK}/${product.categoryId}/${product.id}`}
-            >
+            <Link to={`${routes.FEEDBACK}/${product.categoryId}/${product.id}`}>
               <div className="wrapperFeedback">
                 <Feedback />
                 {product.feedbacks.length === 0 ? (
@@ -78,12 +106,11 @@ const CardProductCatalog = ({ product }) => {
 
         <div className="wrapperPriceIcon">
           <div>
-            {product.productsInstances[0].price >
-              product.productsInstances[0].priceAfterDiscount && (
-              <p className="price">{product.productsInstances[0].price}₴</p>
+            {price > priceAfterDiscount && (
+              <p className="price">{price ? `${price}₴` : ""}</p>
             )}
             <p className="priceAfterDiscount">
-              {product.productsInstances[0].priceAfterDiscount}₴
+              {priceAfterDiscount ? `${priceAfterDiscount}₴` : ""}
             </p>
           </div>
           <button className="buttonIcon">

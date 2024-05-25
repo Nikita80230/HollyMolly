@@ -103,7 +103,7 @@ button{
 
 .modal-content {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   right: auto;
   bottom: auto;
@@ -118,6 +118,6 @@ button{
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0,0,0,0.1);
+  background:rgba(0, 1, 5, 0.6);
 }
 `;

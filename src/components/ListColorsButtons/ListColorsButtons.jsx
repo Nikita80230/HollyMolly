@@ -1,12 +1,11 @@
 import colorTranslations from "src/utils/colorTranslations";
 import { StyledList } from "./Styled";
 
-
 const translateColor = (color) => {
   return colorTranslations[color.toLowerCase()] || color;
 };
 
-const ListColorsButtons = ({ colors }) => {
+const ListColorsButtons = ({ colors, handleClick, activeColorId }) => {
   const translatedColors = colors.map((colorObj) => ({
     ...colorObj,
     color: translateColor(colorObj.color),
@@ -22,10 +21,11 @@ const ListColorsButtons = ({ colors }) => {
       {uniqueColors.map(({ id, color }) => (
         <li key={id}>
           <button
-            className="buttonColor"
+            className={`buttonColor ${activeColorId === id ? "active" : ""}`}
             style={{
               backgroundColor: color,
             }}
+            onClick={() => handleClick(id)}
           ></button>
         </li>
       ))}
