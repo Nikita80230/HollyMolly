@@ -44,6 +44,55 @@ const CatalogPage = () => {
     setSortType(option);
   };
 
+  const sorting = () => {
+    if (sortType.value === "byRate") {
+      return [...filteredProducts].sort((a, b) => {
+        return b.rating - a.rating;
+      });
+    }
+    if (sortType.value === "asc") {
+      return [...filteredProducts]
+        .map((filteredProduct) => {
+          return [...filteredProduct.productsInstances].sort(
+            (product1, product2) => {
+              // console.log(product1, product2);
+              return product1.price - product2.price;
+            }
+          )[0];
+        })
+        .sort((product1, product2) => {
+          return product1.price - product2.price;
+        });
+    }
+    if (sortType.value === "desc") {
+      return [...filteredProducts]
+        .map((filteredProduct) => {
+          console.log(
+            "filteredProduct.productsInstances",
+            filteredProduct.productsInstances
+          );
+
+          return [...filteredProduct.productsInstances].sort(
+            (product1, product2) => {
+              // console.log(product1, product2);
+              return product2.price - product1.price;
+            }
+          )[0];
+        })
+        .sort((product1, product2) => {
+          return product2.price - product1.price;
+        });
+    }
+    // if (sortType.value === "byDate") {
+    //   return [...filteredProducts].sort((a, b) => {
+    //     return b.rating - a.rating;
+    //   });
+    // }
+  };
+
+  console.log(`${sortType.value}`, sorting());
+  // console.log("Not sorted", filteredProducts);
+
   const categoryName = mainCategory?.name ?? "Завантаження...";
 
   const subCategoryName =
@@ -104,6 +153,7 @@ const CatalogPage = () => {
   };
   // =======================================================================================
   console.log(sortType);
+
   return (
     <StyledCatalogPage>
       <div className="navigation">
