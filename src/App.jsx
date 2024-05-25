@@ -28,6 +28,7 @@ import SizeGuidePage from "./pages/SizeGuidePage/SizeGuidePage";
 import { useAuth } from "./hooks";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import BasketPage from "./pages/BasketPage/BasketPage";
+import FeedbacksPage from "./pages/FeedbacksPage/FeedbacksPage";
 
 // import ComponentStyle from "styled-components/dist/models/ComponentStyle";
 
@@ -97,12 +98,16 @@ const appRoutes = [
   },
   {
     path: routes.FAVORITES,
-    element:<FavoritesPage/>,
+    element: <FavoritesPage />,
   },
   {
     path: routes.BASKET,
-    element:<BasketPage/>
-  }
+    element: <BasketPage />,
+  },
+  {
+    path: `${routes.FEEDBACK}/:categoryId/:id`,
+    element: <FeedbacksPage />,
+  },
 ];
 
 export const App = () => {
@@ -113,9 +118,7 @@ export const App = () => {
   const { isLoggedIn, isRefreshing } = useAuth();
 
   useEffect(() => {
-    if (isLoggedIn) {
-      dispatch(refreshUser());
-    }
+    dispatch(refreshUser());
 
     dispatch(fetchCategories());
     dispatch(getAllProducts());

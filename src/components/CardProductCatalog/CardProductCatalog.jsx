@@ -11,7 +11,8 @@ import {
   toggleFavoriteProducts,
 } from "src/redux/products/productsSlice";
 import ListColorsButtons from "../ListColorsButtons/ListColorsButtons";
-import StarRating from "../StarRaiting/StarRaitind";
+import StarRatingCard from "../StarRaitingCard/StarRaitindCard";
+import { routes } from "src/routes";
 
 const CardProductCatalog = ({ product }) => {
   const dispatch = useDispatch();
@@ -49,9 +50,11 @@ const CardProductCatalog = ({ product }) => {
 
         <div className="wrapperColorsFeedbackHeart">
           <div className="buttonsFeedback">
-            <StarRating />
+            <StarRatingCard rating={product.rating} />
 
-            <Link>
+            <Link
+              to={`${routes.FEEDBACK}/${product.categoryId}/${product.id}`}
+            >
               <div className="wrapperFeedback">
                 <Feedback />
                 {product.feedbacks.length === 0 ? (

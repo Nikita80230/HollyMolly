@@ -16,13 +16,13 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post(
-        "/api/Account/registration?sendEmail=true",
+        "/api/Account/registration",
         credentials
       );
       setAuthHeader(res.data.token);
-      toast(
-        "Щоб підтвердити реєстрацію, перейдіть за посиланням з поштової скриньки"
-      );
+      // toast(
+      //   "Щоб підтвердити реєстрацію, перейдіть за посиланням з поштової скриньки"
+      // );
       return res.data;
     } catch (error) {
       toast.error("Такий користувач вже існує");
@@ -61,7 +61,7 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-
+    
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue("Unable to fetch user");
     }

@@ -31,7 +31,7 @@ const CatalogPage = () => {
   const productsByCurrentCategory = useSelector(
     selectProductsByCurrentCategory
   );
-  console.log("productsByCurrentCategory", productsByCurrentCategory)
+  
   const allCategories = useSelector(selectCategories);
   const filters = useSelector(selectFilters);
 
@@ -77,8 +77,7 @@ const CatalogPage = () => {
     firstProductIndex,
     lastProductIndex
   );
-  console.log("currentProduct",currentProduct)
-
+ 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
