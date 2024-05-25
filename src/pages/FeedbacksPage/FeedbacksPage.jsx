@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import LeaveFeedback from "src/components/LeaveFeedback/LeaveFeedback";
 import ReadFeedbacks from "src/components/ReadFeedbacks/ReadFeedbacks";
 import { useAuth } from "src/hooks";
+import { routes } from "src/routes";
 import { getFeedbacks } from "src/services/getFeedbacks";
 
 const FeedbacksPage = () => {
@@ -27,8 +28,16 @@ const FeedbacksPage = () => {
 
   return (
     <>
-      <ReadFeedbacks products={products} />
-      {isLoggedIn && <LeaveFeedback productId={id} />}
+      {products.length !==0 && <ReadFeedbacks products={products} />}
+     
+      {isLoggedIn ? (
+        <LeaveFeedback productId={id} />
+      ) : (
+        <h2>
+          {" "}
+          Щоб залишити відгук <Link to={routes.LOGIN}>авторизуйтесь</Link>
+        </h2>
+      )}
     </>
   );
 };

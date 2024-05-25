@@ -54,7 +54,8 @@ export const theme = {
     borderActivePagination:"rgba(41, 66, 142, 0.8)",
     hoverPaginationBg: "rgba(202, 208, 243, 0.6)",
     borderHoverPagination: "#cad0f3",
-    colorBgSpanRating:" #f0b375",
+    colorBgSpanRating: " #f0b375",
+    borderButtonColors:"#e2e2e2"
 
   },
 
