@@ -98,7 +98,7 @@ export const WrapperCard = styled.div`
   .styledSpanDiscount {
     position: absolute;
     top: 16px;
-    left: 100px;
+    left: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,11 +110,31 @@ export const WrapperCard = styled.div`
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 800;
     font-size: 12px;
+    text-transform: uppercase;
+    color: ${({ theme }) => theme.colors.spanTextColor};
+  }
+
+  .styledSpanRating {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 23px;
+    padding: 5px 8px;
+    width: 115px;
+    height: 26px;
+    background-color: ${({ theme }) => theme.colors.colorBgSpanRating};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
     color: ${({ theme }) => theme.colors.spanTextColor};
   }
 
   .productPhoto {
-    margin-bottom: 41px;
+    margin-bottom: 10px;
   }
 
   .title {
@@ -141,14 +161,8 @@ export const WrapperCard = styled.div`
 
   .buttonsFeedback {
     display: flex;
+    align-items: center;
     gap: 12px;
-  }
-
-  .buttonColor {
-    margin-bottom: 10px;
-    border: 1px solid ${({ theme }) => theme.colors.borderButtonColor};
-    width: 14px;
-    height: 14px;
   }
 
   .wrapperFeedback {

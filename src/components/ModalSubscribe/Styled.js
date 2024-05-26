@@ -7,10 +7,10 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 16px;
-  width: 280px;
-  height: 200px;
+  width: 653px;
+  height: 170px;
   padding: 32px 32px 40px 32px;
-  
+
   box-shadow: inset 0 0 50px 0 rgba(169, 181, 237, 0.3),
     0 4px 20px 0 rgba(4, 9, 34, 0.15);
   background: ${({ theme }) => theme.colors.primaryBgColor};
@@ -50,8 +50,7 @@ export const Wrapper = styled.div`
     right: 10px;
     background-color: transparent;
     border: transparent;
-   
-    
+
     @media only screen and (min-width: 768px) {
       top: 30px;
       right: 30px;

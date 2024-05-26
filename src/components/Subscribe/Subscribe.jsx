@@ -22,7 +22,7 @@ const Subscribe = () => {
     document.body.style.overflow = "";
   }
 
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values,{setSubmitting, resetForm}) => {
     try {
       const resMessage = await subscribeSentEmail(values);
 
@@ -32,13 +32,15 @@ const Subscribe = () => {
         openModal();
       }
 
-      actions.resetForm();
+      resetForm();
+      setSubmitting(false);
       setTimeout(() => {
         setMessage("");
       }, 2000);
     } catch (error) {
       console.error(error);
       setMessage("Упс! Щось пішло не так.");
+      setSubmitting(false);
     }
   };
 
@@ -56,7 +58,7 @@ const Subscribe = () => {
         validationSchema={SubscribeSchema}
         onSubmit={onSubmit}
       >
-        {({ values, touched, errors }) => (
+        {({ values, touched, errors, isSubmitting }) => (
           <Form className="subscribeEmailForm">
             <Field
               className={
@@ -85,7 +87,7 @@ const Subscribe = () => {
                 Надіслати
               </button>
             ) : (
-              <button className="subscribeButton" type="submit">
+              <button className="subscribeButton" type="submit" disabled={isSubmitting}>
                 Надіслати
               </button>
             )}

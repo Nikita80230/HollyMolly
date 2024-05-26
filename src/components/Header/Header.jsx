@@ -35,6 +35,13 @@ const Header = () => {
     setIsBurgerOpen(!isBurgerOpen);
   };
 
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: document.querySelector(".header").offsetTop,
+      behavior: "smooth",
+    })
+  }
+
   useEffect(() => {
     if (isBurgerOpen) {
       document.body.style.overflow = "hidden";
@@ -73,7 +80,7 @@ const Header = () => {
               />
             )}
           </button>
-          <Link to={routes.HOME} className="headerLogo">
+          <Link to={routes.HOME} className="headerLogo" onClick={handleScrollToTop}>
             <DesktopLogo className="headerDesktopLogoImg" />
             <MobileLogo className="headerMobileLogoImg" />
           </Link>
