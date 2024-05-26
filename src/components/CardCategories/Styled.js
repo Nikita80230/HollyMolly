@@ -5,30 +5,20 @@ export const StyledCardCategories = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 135px;
-  height: 158px;
   border-radius: 18px;
   transition: background-color ${({ theme }) => theme.animations.transition};
   &:hover,
   &:focus {
     padding: 10px;
-    width: 171px;
     background-color: ${({ theme }) => theme.colors.cardSwiperBg};
-    
-  }
-
-  @media only screen and (min-width: 375px) {
-    width: 164px;
   }
 
   @media only screen and (min-width: 768px) {
-    width: 310px;
-    height: 294px;
+    border-radius: 14px;
+  }
+
+  @media only screen and (min-width: 768px) {
     border-radius: 16px;
-    &:hover,
-    &:focus {
-      width: 310px;
-    }
   }
 
   .swiper-picture {
@@ -38,9 +28,16 @@ export const StyledCardCategories = styled.div`
     border-radius: 20px;
 
     @media only screen and (min-width: 768px) {
+      border-radius: 14px;
+      width: 100%;
+      height: 121px;
+    }
+
+    @media only screen and (min-width: 1440px) {
       width: 310px;
       height: 216px;
       margin-bottom: 53px;
+      border-radius: 20px;
     }
   }
 
@@ -50,6 +47,10 @@ export const StyledCardCategories = styled.div`
     color: ${({ theme }) => theme.colors.textCard};
 
     @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media only screen and (min-width: 1440px) {
       font-size: 18px;
     }
   }

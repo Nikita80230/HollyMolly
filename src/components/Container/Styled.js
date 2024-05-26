@@ -15,7 +15,8 @@ export const StyledContainer = styled.div`
   /* Tablet: з 768px до 1024px */
   @media only screen and (min-width: 768px) and (max-width: 1024px) {
     max-width: 1024px;
-    padding: 0 64px;
+    padding: 0 50px;
+    margin: 0 auto;
   }
 
   /* Laptop: з 1280px */

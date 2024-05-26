@@ -27,7 +27,7 @@ const FooterNavigation = () => {
         <h3 className="footer-title">Про нас</h3>
         <StyledLink to={routes.ABOUT_US}>Про нас</StyledLink>
         <StyledLink>Кар'єра</StyledLink>
-        <StyledLink to={routes.SUPPORT}>Допомога та підтримка</StyledLink>
+        <StyledLink to={routes.SUPPORT}>Допомога</StyledLink>
       </li>
 
       <li className="footer-items">
@@ -52,7 +52,7 @@ const FooterNavigation = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Instagram />
+            <Instagram className="icon"/>
             HollyMolly_Store
           </SocialLink>
         </WrapperSocialLink>
@@ -62,7 +62,7 @@ const FooterNavigation = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Facebook />
+            <Facebook  className="icon"/>
             Holly Molly Store
           </SocialLink>
         </WrapperSocialLink>
@@ -72,7 +72,7 @@ const FooterNavigation = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Twitter />
+            <Twitter className="icon"/>
             Your Store_
           </SocialLink>
         </WrapperSocialLink>

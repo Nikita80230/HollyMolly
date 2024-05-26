@@ -3,11 +3,15 @@ import { styled } from "styled-components";
 export const StyledCategoriesSection = styled.section`
   position: relative;
   margin-bottom: 36px;
-  margin-top:428px;
+  margin-top: 364px;
 
   @media only screen and (min-width: 768px) {
-    margin-bottom: 80px;
     margin-top: 0;
+    margin-bottom: 63px;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    margin-bottom: 80px;
   }
 
   .titleCategories {
@@ -17,6 +21,10 @@ export const StyledCategoriesSection = styled.section`
     color: ${({ theme }) => theme.colors.primaryTxtColor};
 
     @media only screen and (min-width: 768px) {
+      font-size: 28px;
+    }
+
+    @media only screen and (min-width: 1440px) {
       margin-bottom: 41px;
       font-size: 32px;
     }
@@ -27,7 +35,11 @@ export const StyledCategoriesSection = styled.section`
     height: 356px;
 
     @media only screen and (min-width: 768px) {
-      width: 100%;
+      height: 150px;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      /* width: 100%; */
       height: 324px;
     }
   }
@@ -43,6 +55,13 @@ export const StyledCategoriesSection = styled.section`
     gap: 15px;
 
     @media only screen and (min-width: 768px) {
+      
+      width: 124px;
+      height: 40px;
+      gap: 16px;
+    }
+
+    @media only screen and (min-width: 1440px) {
       top: 0;
       width: 147px;
       height: 50px;
@@ -60,13 +79,21 @@ export const StyledCategoriesSection = styled.section`
     background-color: transparent;
     border: 1px solid ${({ theme }) => theme.colors.borderButtonSwiper};
     border-radius: 8px;
-    transition: background-color ${({ theme }) => theme.animations.transition};
-    border  ${({ theme }) => theme.animations.transition};
+    transition: background-color ${({ theme }) => theme.animations.transition},
+      border ${({ theme }) => theme.animations.transition};
 
     @media only screen and (min-width: 768px) {
+      padding: 8px 11px;
+      width: 46px;
+      height: 40px;
+      border-radius: 6px;
+    }
+
+    @media only screen and (min-width: 1440px) {
       padding: 10px;
       width: 56px;
       height: 48px;
+      border-radius: 8px;
     }
   }
 
@@ -75,16 +102,16 @@ export const StyledCategoriesSection = styled.section`
     border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
   }
 
-   .swiper-button-prev:focus {
+  .swiper-button-prev:focus {
     background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper};
-    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper}
-  }
-
-   .swiper-button-next:hover {
     border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
   }
 
-   .swiper-button-prev:hover {
+  .swiper-button-next:hover {
+    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+  }
+
+  .swiper-button-prev:hover {
     border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
   }
 
@@ -95,11 +122,20 @@ export const StyledCategoriesSection = styled.section`
 
   .swiper-button-prev.swiper-button-disabled,
   .swiper-button-next.swiper-button-disabled {
-   border: 1px solid ${({ theme }) => theme.colors.borderButton};
-   
+    border: 1px solid ${({ theme }) => theme.colors.borderButton};
   }
   .swiperSlide {
     width: 164px;
     height: 158px;
+
+    @media only screen and (min-width: 768px) {
+      width: 121px;
+      height: 150px;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      width: 310px;
+      height: 294px;
+    }
   }
 `;

@@ -6,31 +6,42 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 16px;
+  
   width: 653px;
   height: 170px;
   padding: 32px 32px 40px 32px;
-
+border-radius: 16px;
   box-shadow: inset 0 0 50px 0 rgba(169, 181, 237, 0.3),
     0 4px 20px 0 rgba(4, 9, 34, 0.15);
   background: ${({ theme }) => theme.colors.primaryBgColor};
 
-  @media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
+border-radius: 14px;
+padding: 16px 12px 24px 12px;
+width: 525px;
+height: 140px;
+  
+}
+
+  @media only screen and (min-width: 1440px) {
     padding: 32px 32px 40px 32px;
     width: 653px;
     height: 170px;
+    border-radius: 16px;
   }
 
   .title {
     margin-bottom: 8px;
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-size: 18px;
-
-    color: ${({ theme }) => theme.colors.descriptionModal};
+color: ${({ theme }) => theme.colors.descriptionModal};
 
     @media only screen and (min-width: 768px) {
-      margin-bottom: 16px;
-      font-size: 32px;
+    font-size: 32px;
+    }
+
+    @media only screen and (min-width: 1440px) {
+       margin-bottom: 16px;
     }
   }
 
@@ -41,6 +52,9 @@ export const Wrapper = styled.div`
     color: ${({ theme }) => theme.colors.descriptionModal};
 
     @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+    @media only screen and (min-width: 1440px) {
       font-size: 16px;
     }
   }
@@ -52,7 +66,12 @@ export const Wrapper = styled.div`
     border: transparent;
 
     @media only screen and (min-width: 768px) {
-      top: 30px;
+      top: 22px;
+    right: 22px;
+    }
+
+    @media only screen and (min-width: 1440px) {
+ top: 30px;
       right: 30px;
     }
   }
