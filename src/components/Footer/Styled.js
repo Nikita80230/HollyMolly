@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 
+
 export const LowerBlock = styled.div`
   margin-bottom: 53px;
   padding: 0 20px;
@@ -14,12 +15,18 @@ export const LowerBlock = styled.div`
     gap: 20px;
   }
 
-  @media only screen and (min-width: 768px) {
+   @media only screen and (min-width: 768px) {
+    padding: 16px 50px;
     margin-bottom: 0;
-    padding: 19px 64px 15px 64px;
     justify-content: space-between;
-    height: 50px;
+    height: 44px;
     background-color: ${({ theme }) => theme.colors.secondaryBgColor};
+   }
+
+  @media only screen and (min-width: 1440px) {
+    padding: 19px 64px 15px 64px;
+   height: 50px;
+    
   }
 
   .text {
@@ -33,7 +40,11 @@ export const LowerBlock = styled.div`
       font-size: 11px;
     }
 
-    @media only screen and (min-width: 768px) {
+     @media only screen and (min-width: 768px) {
+      font-size: 10px;
+     }
+
+    @media only screen and (min-width: 1440px) {
       font-size: 14px;
     }
   }

@@ -8,6 +8,10 @@ export const SubscribeWrapper = styled.div`
   justify-content: center;
 
   @media only screen and (min-width: 768px) {
+    margin-bottom: 56px;
+  }
+
+  @media only screen and (min-width: 1440px) {
     margin-bottom: 80px;
   }
 
@@ -19,11 +23,16 @@ export const SubscribeWrapper = styled.div`
     text-align: center;
 
     @media only screen and (min-width: 768px) {
+      margin-bottom: 8px;
+      font-size: 32px;
+      color: ${({ theme }) => theme.colors.primaryTxtColor};
+    }
+
+    @media only screen and (min-width: 1440px) {
       margin-bottom: 22px;
       font-weight: 700;
       font-size: 36px;
       line-height: 1.38535;
-      color: ${({ theme }) => theme.colors.primaryTxtColor};
     }
   }
 
@@ -36,9 +45,13 @@ export const SubscribeWrapper = styled.div`
     text-align: center;
 
     @media only screen and (min-width: 768px) {
+      font-size: 14px;
+      color: ${({ theme }) => theme.colors.primaryTxtColor};
+    }
+
+    @media only screen and (min-width: 1440px) {
       margin-bottom: 41px;
       font-size: 18px;
-      color: ${({ theme }) => theme.colors.primaryTxtColor};
     }
   }
 
@@ -50,6 +63,10 @@ export const SubscribeWrapper = styled.div`
 
     @media only screen and (min-width: 768px) {
       gap: 8px;
+      width: 521px;
+    }
+
+    @media only screen and (min-width: 1440px) {
       width: 692px;
     }
   }
@@ -67,10 +84,16 @@ export const SubscribeWrapper = styled.div`
     /* color:${({ theme }) => theme.colors.placeholderColor}; */
 
     @media only screen and (min-width: 375px) {
-      width: 255px;
+      /* width: 255px; */
     }
-
     @media only screen and (min-width: 768px) {
+      padding: 4px 12px;
+      width: 394px;
+      height: 40px;
+      font-size: 14px;
+    }
+    @media only screen and (min-width: 1440px) {
+      padding: 12px 11px;
       width: 528px;
       height: 56px;
       font-size: 20px;
@@ -83,14 +106,23 @@ export const SubscribeWrapper = styled.div`
   .subscribeInput:focus {
     border-bottom: 1px solid ${({ theme }) => theme.colors.inputFocus};
     background-color: ${({ theme }) => theme.colors.primaryBgColor};
+
     @media only screen and (min-width: 768px) {
+      width: 394px;
+    }
+    @media only screen and (min-width: 1440px) {
       width: 528px;
     }
   }
   .subscribeInput::placeholder {
     font-size: 17px;
     color: ${({ theme }) => theme.colors.placeholderColor};
+
     @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media only screen and (min-width: 1440px) {
       font-size: 20px;
     }
   }
@@ -108,8 +140,12 @@ export const SubscribeWrapper = styled.div`
     @media only screen and (min-width: 375px) {
       width: 255px;
     }
-
     @media only screen and (min-width: 768px) {
+      width: 394px;
+      height: 40px;
+    }
+
+    @media only screen and (min-width: 1440px) {
       width: 528px;
       height: 56px;
     }
@@ -131,6 +167,11 @@ export const SubscribeWrapper = styled.div`
     }
 
     @media only screen and (min-width: 768px) {
+      width: 394px;
+      height: 40px;
+    }
+
+    @media only screen and (min-width: 1440px) {
       width: 528px;
       height: 56px;
     }
@@ -145,7 +186,13 @@ export const SubscribeWrapper = styled.div`
     font-size: 10px;
 
     @media only screen and (min-width: 768px) {
+      bottom: -18px;
       font-weight: 500;
+      font-size: 12px;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      bottom: -28px;
       font-size: 16px;
     }
   }
@@ -159,7 +206,13 @@ export const SubscribeWrapper = styled.div`
     font-size: 10px;
 
     @media only screen and (min-width: 768px) {
+      bottom: -18px;
       font-weight: 500;
+      font-size: 12px;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      bottom: -28px;
       font-size: 16px;
     }
   }
@@ -179,9 +232,18 @@ export const SubscribeWrapper = styled.div`
     transition: background-color ${({ theme }) => theme.animations.transition};
 
     @media only screen and (min-width: 768px) {
+      border-radius: 8px;
+      padding: 8px 16px;
+      width: 119px;
+      height: 40px;
+      font-size: 16px;
+    }
+
+    @media only screen and (min-width: 1440px) {
       padding: 16px 24px;
       width: 156px;
       height: 56px;
+      border-radius: 12px;
       font-weight: 600;
       font-size: 20px;
     }
@@ -208,9 +270,18 @@ export const SubscribeWrapper = styled.div`
     transition: background-color ${({ theme }) => theme.animations.transition};
 
     @media only screen and (min-width: 768px) {
+      border-radius: 8px;
+      padding: 8px 16px;
+      width: 119px;
+      height: 40px;
+      font-size: 16px;
+    }
+
+    @media only screen and (min-width: 1440px) {
       padding: 16px 24px;
       width: 156px;
       height: 56px;
+      border-radius: 12px;
       font-weight: 600;
       font-size: 20px;
     }
@@ -221,4 +292,6 @@ export const SubscribeWrapper = styled.div`
   .subscribeButtonDisabled:focus {
     background-color: ${({ theme }) => theme.colors.focusButton};
   }
+
+  
 `;

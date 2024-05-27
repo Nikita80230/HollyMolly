@@ -1,12 +1,16 @@
 import styled from "styled-components";
-import backgroundFirst1x from "../../assets/images/hero/cool-charming-girl-1x.webp";
-import backgroundFirst2x from "../../assets/images/hero/cool-charming-girl-2x.webp";
-import backgroundSecond1x from "../../assets/images/hero/hero-second1x.webp";
-import backgroundSecond2x from "../../assets/images/hero/hero-second2x.webp";
-import backgroundFirstMobile1x from "../../assets/images/hero/cool-charming- mobile-1x.webp";
-import backgroundFirstMobile2x from "../../assets/images/hero/cool-charming-mobile-2x.webp";
-import backgroundSecondMobile1x from "../../assets/images/hero/backgroundSecondMobile1x.webp";
-import backgroundSecondMobile2x from "../../assets/images/hero/backgroundSecondMobile2x.webp";
+import backgroundFirst1x from "src/assets/images/hero/cool-charming-girl-1x.webp";
+import backgroundFirst2x from "src/assets/images/hero/cool-charming-girl-2x.webp";
+import backgroundSecond1x from "src/assets/images/hero/hero-second1x.webp";
+import backgroundSecond2x from "src/assets/images/hero/hero-second2x.webp";
+import backgroundFirstMobile1x from "src/assets/images/hero/cool-charming- mobile-1x.webp";
+import backgroundFirstMobile2x from "src/assets/images/hero/cool-charming-mobile-2x.webp";
+import backgroundSecondMobile1x from "src/assets/images/hero/backgroundSecondMobile1x.webp";
+import backgroundSecondMobile2x from "src/assets/images/hero/backgroundSecondMobile2x.webp";
+import backgroundFirstTablet1x from "src/assets/images/hero/backgroundFirstTablet1x.webp";
+import backgroundFirstTablet2x from "src/assets/images/hero/backgroundFirstTablet2x.webp";
+import backgroundSecondTablet1x from "src/assets/images/hero/backgroundSecondTablet1x.webp";
+import backgroundSecondTablet2x from "src/assets/images/hero/backgroundSecondTablet2x.webp";
 
 export const StyledHero = styled.section`
   position: absolute;
@@ -19,9 +23,13 @@ export const StyledHero = styled.section`
 
   @media only screen and (min-width: 768px) {
     position: static;
-    margin-bottom: 80px;
+    margin-bottom: 56px;
     flex-direction: row;
     gap: 24px;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    margin-bottom: 80px;
   }
 
   .wrapperImage {
@@ -33,7 +41,7 @@ export const StyledHero = styled.section`
     width: 100%;
     height: 226px;
     background: url(${backgroundFirstMobile1x}),
-      linear-gradient(90deg, #d69f69 0%,  #8c6844 100%);
+      linear-gradient(90deg, #d69f69 0%, #8c6844 100%);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right center;
@@ -51,9 +59,37 @@ export const StyledHero = styled.section`
     }
 
     @media only screen and (min-width: 768px) {
+      padding-top: 24px;
+      padding-left: 24px;
+      padding-bottom: 34px;
+      border-radius: 16px;
+      /* width: 495px; */
+      width: 74%;
+      height: 292px;
+      background: url(${backgroundFirstTablet1x}),
+        linear-gradient(90deg, #d69f69 0%, #8c6844 100%);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-color: ${({ theme }) => theme.colors.heroBgColor};
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background: url(${backgroundFirstTablet2x}),
+          linear-gradient(90deg, #d69f69 0%, #8c6844 100%);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-color: ${({ theme }) => theme.colors.heroBgColor};
+      }
+    }
+
+    @media only screen and (min-width: 1440px) {
       padding-top: 50px;
       padding-left: 87px;
       padding-bottom: 86px;
+      border-radius: 20px;
       width: 978px;
       height: 548px;
       background: url(${backgroundFirst1x}),
@@ -84,10 +120,18 @@ export const StyledHero = styled.section`
     font-size: 28px;
 
     @media only screen and (min-width: 768px) {
+      margin-bottom: 4px;
+      width: 230px;
+      height: 185px;
+      text-transform: none;
+      font-size: 38px;
+      line-height: 1.2;
+    }
+
+    @media only screen and (min-width: 1440px) {
       margin-bottom: 24px;
       width: 423px;
       height: 344px;
-      text-transform: none;
       font-size: 72px;
       line-height: 1.2;
     }
@@ -100,6 +144,10 @@ export const StyledHero = styled.section`
     text-transform: none;
 
     @media only screen and (min-width: 768px) {
+      font-size: 38px;
+    }
+
+    @media only screen and (min-width: 1440px) {
       font-size: 72px;
       line-height: 1.2;
     }
@@ -112,8 +160,12 @@ export const StyledHero = styled.section`
       display: block;
       font-family: ${({ theme }) => theme.fonts.familyNunito};
       font-weight: 500;
-      font-size: 32px;
+      font-size: 16px;
       color: ${({ theme }) => theme.colors.lightTxtColor};
+    }
+
+    @media only screen and (min-width: 1440px) {
+      font-size: 32px;
     }
   }
 
@@ -144,10 +196,36 @@ export const StyledHero = styled.section`
     }
 
     @media only screen and (min-width: 768px) {
-      padding: 64px 34px;
       display: block;
+      padding: 24px 15px;
+      border-radius: 16px;
+      /* width: 149px; */
+      width:22%;
+      height: 292px;
+      background: url(${backgroundSecondTablet1x});
+
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: ${({ theme }) => theme.colors.heroBgColor};
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background: url(${backgroundSecondTablet2x});
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: ${({ theme }) => theme.colors.heroBgColor};
+      }
+    }
+
+    @media only screen and (min-width: 1440px) {
+      padding: 64px 34px;
       width: 310px;
       height: 548px;
+      border-radius: 20px;
       background: url(${backgroundSecond1x});
 
       background-size: cover;
@@ -158,8 +236,8 @@ export const StyledHero = styled.section`
       @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-        background: url(${backgroundSecond2x}),
-          linear-gradient(90deg, #f3c59b 0%, #98714a 100%);
+        background: url(${backgroundSecond2x});
+
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -177,7 +255,17 @@ export const StyledHero = styled.section`
     background-color: ${({ theme }) => theme.colors.backgroundHeroSubtitle};
 
     @media only screen and (min-width: 768px) {
+      border-radius: 12px;
+      padding: 8px 10px;
+      /* width: 118px; */
+      width:99%;
+      height: 51px;
+      
+    }
+
+    @media only screen and (min-width: 1440px) {
       padding: 12px 8px 8px 8px;
+      border-radius: 16px;
       width: 244px;
       height: 90px;
     }
@@ -192,6 +280,10 @@ export const StyledHero = styled.section`
     text-align: center;
 
     @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media only screen and (min-width: 1440px) {
       font-size: 32px;
     }
   }
@@ -202,6 +294,10 @@ export const StyledHero = styled.section`
     color: ${({ theme }) => theme.colors.accentTxtColor};
 
     @media only screen and (min-width: 768px) {
+      font-size: 12px;
+    }
+
+    @media only screen and (min-width: 1440px) {
       font-weight: 500;
       font-size: 22px;
     }
