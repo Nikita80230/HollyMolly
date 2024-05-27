@@ -63,9 +63,9 @@ export const StyledCategoriesSection = styled.section`
 
     @media only screen and (min-width: 1440px) {
       top: 0;
-      width: 147px;
+      width: 165px;
       height: 50px;
-      gap: 24px;
+      gap: 33px;
     }
   }
   .swiper-button-next,

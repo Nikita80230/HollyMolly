@@ -15,6 +15,8 @@ export const StyledHeader = styled.header`
 
   background: #fffbfe;
 
+
+
   .header {
     display: flex;
     align-items: center;

@@ -13,7 +13,6 @@ const RegisterForm = () => {
     }
   return (
       <>
-          <h1>Register</h1>
       <Formik
         initialValues={{
           email: "",
@@ -24,13 +23,13 @@ const RegisterForm = () => {
         validationSchema={RegisterSchema}
       >
         <StyledForm>
-          <Field name="email" type="email" />
+          <Field className="inputAuth" name="email" type="email" placeholder="E-mail"/>
           <ErrorMessage name="email" component="p"/>
-          <Field name="password" type="text" />
+          <Field className="inputAuth" name="password" type="text" placeholder="Пароль"/>
           <ErrorMessage name="password" component="p"/>
-          <Field name="confirmPassword" type="text" placeholder="Підтвердіть пароль" />
+          <Field className="inputAuth" name="confirmPassword" type="text" placeholder="Підтвердіть пароль" />
           <ErrorMessage name="confirmPassword" component="p"/>
-          <button type="submit">Register</button>
+          <button className="buttonAuth" type="submit">Зареєструватися</button>
         </StyledForm>
       </Formik>
     </>

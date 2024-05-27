@@ -29,6 +29,7 @@ import { useAuth } from "./hooks";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import BasketPage from "./pages/BasketPage/BasketPage";
 import FeedbacksPage from "./pages/FeedbacksPage/FeedbacksPage";
+import AuthPageLayout from "./components/AuthPageLayout/AuthPageLayout";
 
 // import ComponentStyle from "styled-components/dist/models/ComponentStyle";
 
@@ -110,6 +111,13 @@ const appRoutes = [
   },
 ];
 
+const authPaths = [
+  "/register",
+  "/login",
+  "/forgot-password",
+  "/reset-password",
+];
+
 export const App = () => {
   const dispatch = useDispatch();
   const location = useLocation();
@@ -128,10 +136,26 @@ export const App = () => {
     }
   }, [dispatch, token, isLoggedIn]);
 
+  const isAuthPage = authPaths.includes(location.pathname);
+
   return (
     <>
       {isRefreshing ? (
         <Loader />
+      ) : isAuthPage ? (
+        <AuthPageLayout>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              {appRoutes.map((route) => (
+                <Route
+                  path={route.path}
+                  element={route.element}
+                  key={route.path}
+                />
+              ))}
+            </Routes>
+          </Suspense>
+        </AuthPageLayout>
       ) : (
         <PageLayout>
           <Suspense fallback={<Loader />}>

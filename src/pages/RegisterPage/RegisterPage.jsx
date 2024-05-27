@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
 import RegisterForm from "src/components/AuthForms/RegisterForm";
-import GoogleAuth from "src/components/GoogleAuth/GoogleAuth";
+import AuthPageLayout from "src/components/AuthPageLayout/AuthPageLayout";
 import { routes } from "src/routes";
-import { Wrapper } from "./Styled";
+import {  WrapperRegister } from "./Styled";
 
 const RegisterPage = () => {
   return (
-    <Wrapper>
+    <AuthPageLayout>
+      <WrapperRegister>
+      <h1 className="titleAuth">Реєстрація</h1>
+      <p className="description">Введіть свої дані, щоб зареєструватися</p>
       <RegisterForm />
-      <Link to={routes.LOGIN}>Якщо ви вже реєструвались</Link>
-      <GoogleAuth />
-      <Link to={routes.FORGOT_PASSWORD}>Забули пароль?</Link>
-
-      {/* <button>Запам'ятати мене</button> */}
-    </Wrapper>
+      <p className="textAuth">
+        Вже маєте аккаунт?
+        <Link className="linkAuth" to={routes.LOGIN}>Увійдіть!</Link>
+        </p>
+        </WrapperRegister>
+    </AuthPageLayout>
   );
 };
 
