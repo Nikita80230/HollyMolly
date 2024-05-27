@@ -18,6 +18,7 @@ const FiltersPanel = ({ className }) => {
   //   filterName: "",
   //   values: [],
   // });
+
   const [colors, setColors] = useState(INITIAL_FILTER_STATE);
   const [material, setFabricType] = useState(INITIAL_FILTER_STATE);
   const [sizes, setSizes] = useState(INITIAL_FILTER_STATE);
@@ -54,14 +55,14 @@ const FiltersPanel = ({ className }) => {
         );
       });
     });
-  }, [itemsByCategory]);
+  }, [itemsByCategory, location]);
 
   useEffect(() => {
     setColors(INITIAL_FILTER_STATE);
     setFabricType(INITIAL_FILTER_STATE);
     setSizes(INITIAL_FILTER_STATE);
     dispatch(resetFilters());
-  }, [location, dispatch]);
+  }, [location.pathname, dispatch]);
 
   const handleChangePrice = debounce((option) => {
     // setPriceRange(price);

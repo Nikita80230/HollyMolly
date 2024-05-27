@@ -24,7 +24,9 @@ export const StyledProductCard = styled.div`
   .addToFavoriteButton {
     position: absolute;
     top: 5px;
-    right: 5px;
+    right: 0;
+
+    padding: 0;
 
     background: transparent;
     border: none;
