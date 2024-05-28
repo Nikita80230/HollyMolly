@@ -8,7 +8,6 @@ const FilterBlock = ({ title, options }) => {
   const dispatch = useDispatch();
   const handleChange = (e) => {
     const filter = { value: e.target.value, name: e.target.name };
-
     dispatch(addFilter(filter));
   };
   if (!options.values.length) return;

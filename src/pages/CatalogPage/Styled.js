@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledCatalogPage = styled.div`
   .layout {
+    position: relative;
     display: grid;
     grid-template-areas:
       "s s s s s s"
@@ -45,15 +46,16 @@ export const StyledCatalogPage = styled.div`
     width: 56px;
     height: 42px;
     background-color: ${({ theme }) => theme.colors.activePaginationBg};
-    transition: background-color  ${({ theme }) => theme.animations.transition}, border  ${({ theme }) => theme.animations.transition};
+    transition: background-color ${({ theme }) => theme.animations.transition},
+      border ${({ theme }) => theme.animations.transition};
 
-    &:hover{
-background-color: ${({ theme }) => theme.colors.hoverPaginationBg};
-border:1px solid  ${({ theme }) => theme.colors.borderHoverPagination};
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.hoverPaginationBg};
+      border: 1px solid ${({ theme }) => theme.colors.borderHoverPagination};
     }
   }
 
-  .buttonPrevNextDisabled{
+  .buttonPrevNextDisabled {
     display: flex;
     justify-content: center;
     align-items: center;

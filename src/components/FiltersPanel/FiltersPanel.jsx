@@ -5,19 +5,19 @@ import { StyledFiltersPanel } from "./Styled";
 import FilterBlock from "../FilterBlock/FilterBlock";
 import { useDispatch, useSelector } from "react-redux";
 import { selectProductsByCurrentCategory } from "src/redux/products/productsSlice";
-import { addFilter, resetFilters } from "src/redux/filters/filtersSlice";
+import {
+  addFilter,
+  resetFilters,
+  selectFilters,
+} from "src/redux/filters/filtersSlice";
 import { useLocation } from "react-router-dom";
+import SelectedFiltersList from "../SelectedFiltersList/SelectedFiltersList";
 
 const INITIAL_FILTER_STATE = { filterName: "", values: [] };
 
 const FiltersPanel = ({ className }) => {
   const dispatch = useDispatch();
   const location = useLocation();
-
-  // const [priceRange, setPriceRange] = useState({
-  //   filterName: "",
-  //   values: [],
-  // });
 
   const [colors, setColors] = useState(INITIAL_FILTER_STATE);
   const [material, setFabricType] = useState(INITIAL_FILTER_STATE);

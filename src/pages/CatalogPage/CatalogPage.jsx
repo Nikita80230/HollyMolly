@@ -22,6 +22,7 @@ import {
   getFilteredProducts,
   getSortedFilteredProducts,
 } from "src/utils/sortAndFilterFunctions";
+import SelectedFiltersList from "src/components/SelectedFiltersList/SelectedFiltersList";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -120,6 +121,7 @@ const CatalogPage = () => {
         />
       </div>
       <div className="layout">
+        <SelectedFiltersList selectedFilters={filters} />
         <SortingPanel className="sorting" handleSorting={handleSorting} />
         <FiltersPanel className="filters" />
         {isLoading ? (
