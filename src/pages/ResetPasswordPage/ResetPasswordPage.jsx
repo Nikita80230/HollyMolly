@@ -1,5 +1,8 @@
 import { useLocation} from "react-router-dom";
-import ResetPasswordForm from "src/components/ResetPasswordForm.jsx/ResetPasswordForm";
+import ResetPasswordForm from "src/components/AuthForms/ResetPasswordForm";
+import AuthPageLayout from "src/components/AuthPageLayout/AuthPageLayout";
+
+import { WrapperResetPassword } from "./Styled";
 
 const ResetPasswordPage = () => {
   const location = useLocation();
@@ -8,11 +11,14 @@ const ResetPasswordPage = () => {
   const token = searchParams.get("token");
 
   return (
-    <>
-      <h1>RESET PASSWORD</h1>
-      <p>Введіть ваш новий пароль</p>
-      <ResetPasswordForm token={token} userId={userId} />
-    </>
+    <AuthPageLayout>
+      <WrapperResetPassword>
+        <h1 className="titleReset">Оновлення паролю</h1>
+      <p className="description">Введіть ваш новий пароль</p>
+        <ResetPasswordForm token={token} userId={userId} />
+        </WrapperResetPassword>
+    </AuthPageLayout>
+    
   );
 };
 

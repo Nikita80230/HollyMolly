@@ -13,7 +13,7 @@ const RegisterPage = () => {
       <RegisterForm />
       <p className="textAuth">
         Вже маєте аккаунт?
-        <Link className="linkAuth" to={routes.LOGIN}>Увійдіть!</Link>
+        <Link className="linkAuth" to={routes.LOGIN}>  Увійдіть!</Link>
         </p>
         </WrapperRegister>
     </AuthPageLayout>

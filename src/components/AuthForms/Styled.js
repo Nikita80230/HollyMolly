@@ -21,19 +21,6 @@ export const StyledForm = styled(Form)`
     color: ${({ theme }) => theme.colors.authTextColor};
   }
 
-  /* input.inputAuth:-webkit-autofill,
-input.inputAuth:-moz-autofill,
-input.inputAuth:-ms-autofill {
-    background-color: ${({ theme }) => theme.colors.authBgInput} !important;
-    color: ${({ theme }) => theme.colors.authTextColor} !important;
-  }
-
-  input.inputAuth:-internal-autofill-selected {
-     appearance: none;
-     background-color: ${({ theme }) => theme.colors.authBgInput} !important;
-     color: ${({ theme }) => theme.colors.authTextColor}!important;
-  } */
-
   .inputAuth::placeholder {
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 500;
@@ -44,7 +31,7 @@ input.inputAuth:-ms-autofill {
   .buttonAuth {
     margin-bottom: 24px;
     border-radius: 8px;
-    padding: 15px 192px;
+    padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;

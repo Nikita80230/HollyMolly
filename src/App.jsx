@@ -120,11 +120,12 @@ const authPaths = [
   "/login",
   "/forgot-password",
   "/reset-password",
+  
 ];
 
 export const App = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
+   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
   const token = urlParams.get("token");
   const { isLoggedIn, isRefreshing } = useAuth();
@@ -138,7 +139,7 @@ export const App = () => {
     if (token) {
       dispatch(authGoogle({ token }));
     }
-  }, [dispatch, token, isLoggedIn]);
+  }, [dispatch, isLoggedIn]);
 
   const isAuthPage = authPaths.includes(location.pathname);
 

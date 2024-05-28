@@ -12,8 +12,8 @@ const LoginPage = () => {
       <LoginForm />
       <GoogleAuth />
       <p className="textLogin">
-        Ще не маєте аккаунту?
-        <Link className="linkLogin" to={routes.REGISTER}>Зареєструйтесь!</Link>
+        Ще не маєте аккаунту? 
+         <Link className="linkLogin" to={routes.REGISTER}>  Зареєструйтесь!</Link>
       </p>
     </WrapperLogin>
   );
