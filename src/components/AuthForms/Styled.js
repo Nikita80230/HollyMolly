@@ -1,4 +1,4 @@
-import { Form } from "formik";
+import { Field, Form } from "formik";
 import { styled } from "styled-components";
 
 export const StyledForm = styled(Form)`
@@ -15,33 +15,98 @@ export const StyledForm = styled(Form)`
     width: 100%;
     height: 57px;
     background-color: ${({ theme }) => theme.colors.authBgInput};
-    font-family: ${({theme})=>theme.fonts.familyNunito};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 500;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.authTextColor};
-
-    &::placeholder {
-      font-family:  ${({theme})=>theme.fonts.familyNunito};
-      font-weight: 500;
-      font-size: 16px;
-      color: ${({ theme }) => theme.colors.authTextColor};
-    }
   }
 
-  .buttonAuth{
-    margin-bottom:24px;
+  /* input.inputAuth:-webkit-autofill,
+input.inputAuth:-moz-autofill,
+input.inputAuth:-ms-autofill {
+    background-color: ${({ theme }) => theme.colors.authBgInput} !important;
+    color: ${({ theme }) => theme.colors.authTextColor} !important;
+  }
+
+  input.inputAuth:-internal-autofill-selected {
+     appearance: none;
+     background-color: ${({ theme }) => theme.colors.authBgInput} !important;
+     color: ${({ theme }) => theme.colors.authTextColor}!important;
+  } */
+
+  .inputAuth::placeholder {
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    font-weight: 500;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.authTextColor};
+  }
+
+  .buttonAuth {
+    margin-bottom: 24px;
     border-radius: 8px;
-padding: 15px 192px;
-display:flex;
-justify-content:center;
-align-items:center;
-width: 100%;
-height: 56px;
-border:transparent;
-background-color:${({ theme }) => theme.colors.authButtonBg};
-font-family:  ${({theme})=>theme.fonts.familyNunito};
-font-weight: 500;
-font-size: 22px;
-color: ${({theme})=>theme.colors.authTextColor};
+    padding: 15px 192px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 56px;
+    border: transparent;
+    background-color: ${({ theme }) => theme.colors.authButtonBg};
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    font-weight: 500;
+    font-size: 22px;
+    color: ${({ theme }) => theme.colors.authTextColor};
+  }
+`;
+
+export const LabelRegisterSubscribe = styled.label`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.authColorSecondaryText};
+`;
+
+export const InputCheckbox = styled(Field)`
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid ${({ theme }) => theme.colors.authColorSecondaryText};
+  background-color: ${({ theme }) => theme.colors.authBgInput};
+  cursor: pointer;
+  position: relative;
+  appearance: none;
+  outline: none;
+
+  &:checked {
+    background-color: ${({ theme }) => theme.colors.authBgInput};
+  }
+
+  &:checked::after {
+    content: "";
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 5px;
+    height: 10px;
+    border: solid ${({ theme }) => theme.colors.authColorSecondaryText};
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+`;
+
+export const ContainerCheckboxLink = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  .linkForgotPassword {
+    font-family: "Nunito", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: ${({ theme }) => theme.colors.authColorSecondaryText};
   }
 `;
