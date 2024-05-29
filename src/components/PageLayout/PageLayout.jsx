@@ -5,7 +5,8 @@ import { StyledPageLayout } from "./Styled";
 import Footer from "../Footer/Footer";
 
 
-const PageLayout = ({ children }) => {
+const PageLayout = ({ children}) => {
+  
   return (
     <StyledPageLayout>
       <Header />

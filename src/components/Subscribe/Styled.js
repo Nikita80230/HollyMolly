@@ -80,8 +80,9 @@ export const SubscribeWrapper = styled.div`
     width: 60%;
     height: 42px;
     transition: border-bottom ${({ theme }) => theme.animations.transition};
+    font-family: ${({ theme }) => theme.fonts.familyRoboto};
     font-size: 17px;
-    /* color:${({ theme }) => theme.colors.placeholderColor}; */
+    color:${({ theme }) => theme.colors.placeholderColor};
 
     @media only screen and (min-width: 375px) {
       /* width: 255px; */

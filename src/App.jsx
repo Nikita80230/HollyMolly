@@ -29,6 +29,7 @@ import { useAuth } from "./hooks";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import BasketPage from "./pages/BasketPage/BasketPage";
 import FeedbacksPage from "./pages/FeedbacksPage/FeedbacksPage";
+import AuthPageLayout from "./components/AuthPageLayout/AuthPageLayout";
 
 // import ComponentStyle from "styled-components/dist/models/ComponentStyle";
 
@@ -42,7 +43,11 @@ const appRoutes = [
 
   {
     path: routes.REGISTER,
-    element: <RegisterPage />,
+    element: (
+      <RestrictedRoute>
+        <RegisterPage />
+      </RestrictedRoute>
+    ),
   },
   {
     path: routes.CONFIRM_EMAIL,
@@ -110,9 +115,17 @@ const appRoutes = [
   },
 ];
 
+const authPaths = [
+  "/register",
+  "/login",
+  "/forgot-password",
+  "/reset-password",
+  
+];
+
 export const App = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
+   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
   const token = urlParams.get("token");
   const { isLoggedIn, isRefreshing } = useAuth();
@@ -126,12 +139,28 @@ export const App = () => {
     if (token) {
       dispatch(authGoogle({ token }));
     }
-  }, [dispatch, token, isLoggedIn]);
+  }, [dispatch, isLoggedIn]);
+
+  const isAuthPage = authPaths.includes(location.pathname);
 
   return (
     <>
       {isRefreshing ? (
         <Loader />
+      ) : isAuthPage ? (
+        <AuthPageLayout>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              {appRoutes.map((route) => (
+                <Route
+                  path={route.path}
+                  element={route.element}
+                  key={route.path}
+                />
+              ))}
+            </Routes>
+          </Suspense>
+        </AuthPageLayout>
       ) : (
         <PageLayout>
           <Suspense fallback={<Loader />}>

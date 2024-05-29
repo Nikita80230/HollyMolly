@@ -2,6 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 
 import { ForgotPasswordSchema } from "src/schemas/ForgotPasswordSchema";
 import { forgotPassword } from "src/services/forgotPassword";
+import { StyledForm } from "./Styled";
 
 
 
@@ -20,11 +21,11 @@ const ForgotPasswordForm = () => {
         validationSchema={ForgotPasswordSchema}
         onSubmit={onSubmit}
       >
-        <Form>
-          <Field name="email" placeholder="Your email" type="email" />
+        <StyledForm>
+          <Field className="inputAuth" name="email" placeholder="Your email" type="email" />
           <ErrorMessage component="p" name="email" />
-          <button type="submit">Надіслати</button>
-        </Form>
+          <button className="buttonAuth" type="submit">Надіслати</button>
+        </StyledForm>
       </Formik>
     </>
   );

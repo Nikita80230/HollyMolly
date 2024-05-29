@@ -25,7 +25,7 @@ const Subscribe = () => {
   const onSubmit = async (values,{setSubmitting, resetForm}) => {
     try {
       const resMessage = await subscribeSentEmail(values);
-
+      
       if (resMessage === "✔  Ваша підписка вже активована") {
         setMessage(resMessage);
       } else {

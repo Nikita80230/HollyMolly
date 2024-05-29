@@ -22,6 +22,6 @@ export const StyledPageLayout = styled.div`
   @media (max-width: 1024px) {
   }
   @media (max-width: 1440px) {
-   
+    
   }
 `;

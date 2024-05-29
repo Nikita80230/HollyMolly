@@ -1,3 +1,14 @@
+import { keyframes } from "styled-components";
+
+const slideInFromBottom = keyframes`
+from{
+  transform:translateY(100%);
+}
+to{
+  transform:translateY(0);
+}
+`
+
 export const theme = {
   colors: {
     primaryBgColor: "#FFFFFF",
@@ -55,7 +66,15 @@ export const theme = {
     hoverPaginationBg: "rgba(202, 208, 243, 0.6)",
     borderHoverPagination: "#cad0f3",
     colorBgSpanRating: " #f0b375",
-    borderButtonColors:"#e2e2e2"
+    borderButtonColors: "#e2e2e2",
+    backgroundAuth: "rgba(0, 1, 5, 0.32)",
+    colorAuth: "#e6e9f9",
+    authBorderInput: "#e0e0e0",
+    authBgInput: "rgba(255, 255, 255, 0.05)",
+    authTextColor: " #fff",
+    authButtonBg: "#000",
+    authColorSecondaryText: "#e6e9f9",
+    colorGoogleButton:" #000",
 
   },
 
@@ -137,5 +156,9 @@ export const theme = {
 
   animations: {
     transition: "300ms cubic-bezier(0.4, 0, 0.2, 1)",
+    slideInFromBottom,
   },
+  shadows: {
+    boxShadowAuth: "0 8px 32px 0 rgba(0, 0, 0, 0.32)",
+  }
 };

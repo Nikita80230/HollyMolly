@@ -1,8 +1,10 @@
 import { Field, Formik } from "formik";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { logIn } from "src/redux/auth/operations";
+import { routes } from "src/routes";
 import { FormSchema } from "src/schemas/FormSchema";
-import { StyledForm } from "./Styled";
+import { ContainerCheckboxLink, InputCheckbox, LabelRegisterSubscribe, StyledForm } from "./Styled";
 
 const LoginForm = () => {
 
@@ -14,7 +16,6 @@ const LoginForm = () => {
     }
     return (
         <>
-        <h1>LogIn</h1>
       <Formik
         initialValues={{
           email: "",
@@ -24,9 +25,18 @@ const LoginForm = () => {
         validationSchema={FormSchema}
       >
         <StyledForm>
-          <Field name="email" type="email" />
-          <Field name="password" type="text" />
-          <button type="submit">LogIn</button>
+          <Field className="inputAuth" name="email" type="email" placeholder="E-mail" />
+            <Field className="inputAuth" name="password" type="text" placeholder="Пароль" />
+            <ContainerCheckboxLink>
+            <LabelRegisterSubscribe>
+            <InputCheckbox 
+              type="checkbox"
+              name="subscribe"
+            />
+            Запам'ятати мене
+          </LabelRegisterSubscribe>
+             <Link className="linkForgotPassword" to={routes.FORGOT_PASSWORD}>Забули пароль?</Link></ContainerCheckboxLink>
+          <button className="buttonAuth" type="submit">LogIn</button>
         </StyledForm>
       </Formik>
     </>

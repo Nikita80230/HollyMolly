@@ -1,25 +1,22 @@
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import LoginForm from "src/components/AuthForms/LoginForm";
 import GoogleAuth from "src/components/GoogleAuth/GoogleAuth";
-
-import ButtonLogOut from "src/components/LogOut/ButtonLogOut";
-import { routes } from "src/routes"
-import { Wrapper } from "./Styled";
+import { routes } from "src/routes";
+import { WrapperLogin } from "./Styled";
 
 const LoginPage = () => {
-   
-    return (
-    <Wrapper>
-     <LoginForm />
-            <Link to={routes.REGISTER}>Перейти на Register</Link>
-            <GoogleAuth/>
-             <Link to={routes.FORGOT_PASSWORD}>Забули пароль?</Link>
-            <ButtonLogOut />
-            
-    </Wrapper>
-    
-    );
+  return (
+    <WrapperLogin>
+      <h1 className="titleLogin">З поверненням!</h1>
+      <p className="descriptionLogin">Введіть дані свого облікового запису</p>
+      <LoginForm />
+      <GoogleAuth />
+      <p className="textLogin">
+        Ще не маєте аккаунту? 
+         <Link className="linkLogin" to={routes.REGISTER}>  Зареєструйтесь!</Link>
+      </p>
+    </WrapperLogin>
+  );
 };
- 
+
 export default LoginPage;

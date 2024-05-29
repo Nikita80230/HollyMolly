@@ -18,7 +18,7 @@ export const StyledRecommendationSection = styled.section`
 
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 33px;
   }
 
   .nextProductBtn,

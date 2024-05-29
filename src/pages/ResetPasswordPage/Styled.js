@@ -1,13 +1,13 @@
 import { styled } from "styled-components";
 
-export const WrapperLogin = styled.section`
+export const WrapperResetPassword = styled.div`
 position: fixed;
   bottom: 0;
-  top: 18%;
+  top: 30%;
   left: 35%;
   padding: 68px 40px;
   width: 544px;
-  height: 676px;
+  height: 412px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,30 +19,19 @@ position: fixed;
 
   animation: ${({ theme }) => theme.animations.slideInFromBottom} 0.5s ease-out;
 
-  .titleLogin{
-     font-family: ${({ theme }) => theme.fonts.familyNunito};
+  .titleReset {
+    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-size: 32px;
     color: ${({ theme }) => theme.colors.colorAuth};
   }
-  .descriptionLogin{
+  .description {
     margin-bottom: 30px;
+    text-align:center;
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 500;
     font-size: 18px;
     color: ${({ theme }) => theme.colors.colorAuth};
   }
 
-   .textLogin {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 500;
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.authColorSecondaryText};
-  }
 
-  .linkLogin {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 800;
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.authColorSecondaryText};
-  }
 `
