@@ -76,7 +76,17 @@ export const StyledProductCard = styled.div`
       width: 100%;
     }
 
+    /* .productTitle {
+      margin-bottom: 5px;
+      font-weight: 500;
+
+      font-family: ${({ theme }) => theme.fonts.familyNunito};
+      font-size: 22px;
+    } */
+
     .productTitle {
+      min-height: auto;
+
       text-align: start;
       font-size: 12px;
       font-weight: 400;

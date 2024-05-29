@@ -65,6 +65,21 @@ export const StyledRecommendationSection = styled.section`
     pointer-events: none;
   }
 
+  @media (max-width: 1024px) {
+    .buttonSwiper {
+      gap: 15px;
+    }
+
+    .nextProductBtn,
+    .prevProductBtn {
+      width: 46px;
+      height: 40px;
+
+      border-radius: 6px;
+      padding: 7px;
+    }
+  }
+
   @media (max-width: 565px) {
     .titleRecommendation {
       margin-bottom: 32px;
@@ -108,36 +123,36 @@ export const StyledRecommendationSection = styled.section`
 
   @media (min-width: 520px) and (max-width: 565px) {
     .swiperCustom {
-      height: 750px;
+      height: 770px;
     }
   }
 
   @media (min-width: 480px) and (max-width: 519px) {
     .swiperCustom {
-      height: 700px;
+      height: 716px;
     }
   }
 
   @media (min-width: 420px) and (max-width: 479px) {
     .swiperCustom {
-      height: 660px;
+      height: 684px;
     }
   }
 
   @media (min-width: 395px) and (max-width: 419px) {
     .swiperCustom {
-      height: 600px;
+      height: 644px;
     }
   }
 
-  @media (min-width: 350px) and (max-width: 394px) {
+  @media (min-width: 350px) and (max-width: 395px) {
     .swiperCustom {
-      height: 567px;
+      height: 639px;
     }
   }
   @media (min-width: 320px) and (max-width: 349px) {
     .swiperCustom {
-      height: 500px;
+      height: 552px;
     }
   }
 `;

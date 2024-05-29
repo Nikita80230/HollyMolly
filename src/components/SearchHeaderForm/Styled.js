@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 
 export const StyledSearchHeaderBtn = styled.button`
   display: flex;
+  align-items: center;
   gap: 16px;
 
   max-width: 246px;
@@ -19,6 +20,7 @@ export const StyledSearchHeaderBtn = styled.button`
 
   .placeholder {
     text-transform: capitalize;
+    font-weight: 500;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.secondaryTxtColor};
 
@@ -58,7 +60,21 @@ export const StyledSearchHeaderBtn = styled.button`
     color: #fc842d;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    max-width: 140px;
+    width: 100%;
+
+    gap: 12px;
+
+    .placeholder {
+      text-transform: capitalize;
+
+      font-size: 10px;
+    }
+
+    .searchIcon {
+      width: 16px;
+    }
   }
 
   @media (max-width: 564px) {
