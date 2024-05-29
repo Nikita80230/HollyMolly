@@ -12,12 +12,12 @@ const filtersSlice = createSlice({
   name: "filtersSlice",
   initialState: initialFiltersState,
   reducers: {
-    addFilter(state, action) {
+    toggleFilter(state, action) {
       switch (action.payload.name) {
         case "priceRange":
           state.priceRange = action.payload.value;
           break;
-        case "color":
+        case "colors":
           if (state.colors.includes(action.payload.value)) {
             state.colors = state.colors.filter(
               (color) => color !== action.payload.value
@@ -26,7 +26,7 @@ const filtersSlice = createSlice({
             state.colors = [...state.colors, action.payload.value];
           }
           break;
-        case "size":
+        case "sizes":
           if (state.sizes.includes(action.payload.value)) {
             state.sizes = state.sizes.filter(
               (size) => size !== action.payload.value
@@ -35,7 +35,7 @@ const filtersSlice = createSlice({
             state.sizes = [...state.sizes, action.payload.value];
           }
           break;
-        case "material":
+        case "materials":
           if (state.materials.includes(action.payload.value)) {
             state.materials = state.materials.filter(
               (material) => material !== action.payload.value
@@ -56,7 +56,7 @@ const filtersSlice = createSlice({
   extraReducers: (builder) => {},
 });
 
-export const { addFilter, resetFilters } = filtersSlice.actions;
+export const { toggleFilter, resetFilters } = filtersSlice.actions;
 
 // priceRange;
 // colors;

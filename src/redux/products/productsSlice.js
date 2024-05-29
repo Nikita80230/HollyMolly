@@ -34,47 +34,6 @@ const productsSlice = createSlice({
         );
       }
     },
-    filterProducts: (state, action) => {
-      state.filteredProducts = state.productsByCurrentCategory
-        .filter((product) => {
-          if (action.payload.priceRange.length === 0) return true;
-          if (
-            product.productsInstances[0].price >=
-              action.payload?.priceRange[0] &&
-            product.productsInstances[0].price <= action.payload?.priceRange[1]
-          )
-            return true;
-
-          return false;
-        })
-        .filter((product) => {
-          if (action.payload?.colors.length === 0) return true;
-          if (
-            action.payload?.colors.includes(product.productsInstances[0].color)
-          )
-            return true;
-
-          return false;
-        })
-        .filter((product) => {
-          if (action.payload?.materials?.length === 0) return true;
-          if (
-            action.payload?.materials.includes(
-              product.productsInstances[0].material
-            )
-          )
-            return true;
-
-          return false;
-        })
-        .filter((product) => {
-          if (action.payload?.sizes.length === 0) return true;
-          if (action.payload?.sizes.includes(product.productsInstances[0].size))
-            return true;
-
-          return false;
-        });
-    },
   },
   extraReducers: (builder) => {
     builder
@@ -118,7 +77,7 @@ const productsSlice = createSlice({
   },
 });
 
-export const { toggleFavoriteProducts, filterProducts } = productsSlice.actions;
+export const { toggleFavoriteProducts } = productsSlice.actions;
 
 export const selectAllProducts = (state) => state.products.allProducts;
 export const selectRecommendedProducts = (state) =>
@@ -128,7 +87,7 @@ export const selectFavoriteProducts = (state) =>
 export const selectProductsByCurrentCategory = (state) =>
   state.products.productsByCurrentCategory;
 export const selectLoading = (state) => state.products.isLoading;
-export const selectFilteredProducts = (state) =>
-  state.products.filteredProducts;
+
+// export const selectSortedProducts = (state) => state.products.sortedProducts;
 
 export const productsReducer = productsSlice.reducer;

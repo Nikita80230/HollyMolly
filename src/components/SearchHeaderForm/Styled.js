@@ -58,6 +58,9 @@ export const StyledSearchHeaderBtn = styled.button`
     color: #fc842d;
   }
 
+  @media (min-width: 768px) {
+  }
+
   @media (max-width: 564px) {
     max-width: max-content;
     width: 100%;

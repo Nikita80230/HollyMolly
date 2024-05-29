@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const StyledFiltersPanel = styled.div`
+  position: relative;
+
   .title {
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 500;

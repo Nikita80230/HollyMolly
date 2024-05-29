@@ -5,7 +5,11 @@ import { StyledFiltersPanel } from "./Styled";
 import FilterBlock from "../FilterBlock/FilterBlock";
 import { useDispatch, useSelector } from "react-redux";
 import { selectProductsByCurrentCategory } from "src/redux/products/productsSlice";
-import { addFilter, resetFilters } from "src/redux/filters/filtersSlice";
+import {
+  toggleFilter,
+  resetFilters,
+  selectFilters,
+} from "src/redux/filters/filtersSlice";
 import { useLocation } from "react-router-dom";
 
 const INITIAL_FILTER_STATE = { filterName: "", values: [] };
@@ -14,10 +18,6 @@ const FiltersPanel = ({ className }) => {
   const dispatch = useDispatch();
   const location = useLocation();
 
-  // const [priceRange, setPriceRange] = useState({
-  //   filterName: "",
-  //   values: [],
-  // });
   const [colors, setColors] = useState(INITIAL_FILTER_STATE);
   const [material, setFabricType] = useState(INITIAL_FILTER_STATE);
   const [sizes, setSizes] = useState(INITIAL_FILTER_STATE);
@@ -30,7 +30,7 @@ const FiltersPanel = ({ className }) => {
         setColors((prevState) =>
           !prevState.values.includes(instance.color)
             ? {
-                filterName: "color",
+                filterName: "colors",
                 values: [...prevState.values, instance.color],
               }
             : prevState
@@ -39,7 +39,7 @@ const FiltersPanel = ({ className }) => {
           !prevState.values.includes(instance.material) &&
           instance.material !== null
             ? {
-                filterName: "material",
+                filterName: "materials",
                 values: [...prevState.values, instance.material],
               }
             : prevState
@@ -47,25 +47,25 @@ const FiltersPanel = ({ className }) => {
         setSizes((prevState) =>
           !prevState.values.includes(instance.size) && instance.size !== null
             ? {
-                filterName: "size",
+                filterName: "sizes",
                 values: [...prevState.values, instance.size],
               }
             : prevState
         );
       });
     });
-  }, [itemsByCategory]);
+  }, [itemsByCategory, location]);
 
   useEffect(() => {
     setColors(INITIAL_FILTER_STATE);
     setFabricType(INITIAL_FILTER_STATE);
     setSizes(INITIAL_FILTER_STATE);
     dispatch(resetFilters());
-  }, [location, dispatch]);
+  }, [location.pathname, dispatch]);
 
   const handleChangePrice = debounce((option) => {
     // setPriceRange(price);
-    dispatch(addFilter(option));
+    dispatch(toggleFilter(option));
   }, 500);
 
   return (
