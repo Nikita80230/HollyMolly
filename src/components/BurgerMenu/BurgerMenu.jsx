@@ -26,27 +26,17 @@ const BurgerMenu = ({ toggleBurgerMenu }) => {
       <Container>
         <SearchHeaderForm />
         <MobileCategoriesList />
-        <NavLink className="accountLink" to={routes.PROFILE}>
+        {/* <NavLink className="accountLink" to={routes.PROFILE}>
           <UserAccountIcon className="userAccountIcon icon" />
           <span className="userName">Аккаунт</span>
-        </NavLink>
+        </NavLink> */}
         <div className="burgerMenuBottom">
-          <div className="leftColumn column">
-            <NavLink className="link" to={routes.HOME}>
-              Розсилка
-            </NavLink>
-            <NavLink className="link" to={routes.HOME}>
-              Допомога
-            </NavLink>
-          </div>
-          <div className="rightColumn column">
-            <NavLink className="link" to={routes.HOME}>
-              Про нас
-            </NavLink>
-            <NavLink className="link" to={routes.HOME}>
-              Соціальні мережі
-            </NavLink>
-          </div>
+          <NavLink className="link" to={routes.HOME}>
+            Допомога
+          </NavLink>
+          <NavLink className="link" to={routes.HOME}>
+            Про нас
+          </NavLink>
         </div>
       </Container>
     </StyledBurgerMenu>,

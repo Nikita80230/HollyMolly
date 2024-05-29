@@ -13,7 +13,6 @@ export const StyledCategoryBtn = styled.div`
 
     background-color: transparent;
     border: none;
-    
   }
 
   .text {
@@ -30,5 +29,9 @@ export const StyledCategoryBtn = styled.div`
 
   .openCategoryIcon.openedCategoryIcon {
     transform: rotate(90deg);
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-right: 8px;
   }
 `;

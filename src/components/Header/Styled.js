@@ -15,11 +15,12 @@ export const StyledHeader = styled.header`
 
   background: #fffbfe;
 
-
-
   .header {
+    position: relative;
+
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-direction: row;
     min-height: 108px;
 
@@ -42,6 +43,13 @@ export const StyledHeader = styled.header`
   }
 
   .headerLogo {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
     display: flex;
     margin: 0 auto;
   }
@@ -67,10 +75,13 @@ export const StyledHeader = styled.header`
     .headerDesktopLogoImg {
       width: 139px;
     }
+    .leftHeader {
+      max-width: 235px;
+    }
   }
 
   /* =============================@media (max-width: 564px) =================================== */
-  @media (max-width: 564px) {
+  @media (max-width: 767px) {
     margin-bottom: 25px;
 
     box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15),
@@ -85,6 +96,11 @@ export const StyledHeader = styled.header`
     }
 
     .headerLogo {
+      top: 50%;
+      left: 32%;
+
+      transform: translate(-50%, -50%);
+
       display: flex;
       margin-left: 8px;
       margin-right: auto;
