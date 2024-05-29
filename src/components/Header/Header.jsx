@@ -39,8 +39,8 @@ const Header = () => {
     window.scrollTo({
       top: document.querySelector(".header").offsetTop,
       behavior: "smooth",
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     if (isBurgerOpen) {
@@ -80,8 +80,13 @@ const Header = () => {
               />
             )}
           </button>
-          <Link to={routes.HOME} className="headerLogo" onClick={handleScrollToTop}>
+          <Link
+            to={routes.HOME}
+            className="headerLogo"
+            onClick={handleScrollToTop}
+          >
             <DesktopLogo className="headerDesktopLogoImg" />
+
             <MobileLogo className="headerMobileLogoImg" />
           </Link>
           <UserPanel />

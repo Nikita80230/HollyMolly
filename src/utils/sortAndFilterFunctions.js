@@ -54,48 +54,51 @@ export const getFilteredProducts = (filters, productsByCurrentCategory) =>
   productsByCurrentCategory
     .filter((product) => {
       if (filters?.priceRange.length === 0) return true;
-      if (
-        product.productsInstances.some(
-          (productInstance) =>
-            productInstance.price >= filters?.priceRange[0] &&
-            productInstance.price <= filters?.priceRange[1]
-        )
-      )
-        return true;
+
+      const isInstancesPriceInPriceRage = product.productsInstances.some(
+        (productInstance) =>
+          productInstance.price >= filters?.priceRange[0] &&
+          productInstance.price <= filters?.priceRange[1]
+      );
+
+      if (isInstancesPriceInPriceRage) return true;
 
       return false;
     })
     .filter((product) => {
       if (filters?.colors.length === 0) return true;
 
-      if (
+      const isFiltersColorIncludesInstancesColors =
         product.productsInstances.some((productInstance) => {
           return filters?.colors.includes(productInstance.color);
-        })
-      )
-        return true;
+        });
+
+      if (isFiltersColorIncludesInstancesColors) return true;
 
       return false;
     })
     .filter((product) => {
       if (filters?.materials?.length === 0) return true;
-      if (
+
+      const isFiltersMaterialIncludesInstancesMaterial =
         product.productsInstances.some((productInstance) => {
           return filters?.materials.includes(productInstance.material);
-        })
-      )
-        return true;
+        });
+
+      if (isFiltersMaterialIncludesInstancesMaterial) return true;
 
       return false;
     })
     .filter((product) => {
       if (filters?.sizes.length === 0) return true;
-      if (
-        product.productsInstances.some((productInstance) => {
+
+      const isFiltersSizeIncludesInstancesSize = product.productsInstances.some(
+        (productInstance) => {
           return filters?.sizes.includes(productInstance.size);
-        })
-      )
-        return true;
+        }
+      );
+
+      if (isFiltersSizeIncludesInstancesSize) return true;
 
       return false;
     });

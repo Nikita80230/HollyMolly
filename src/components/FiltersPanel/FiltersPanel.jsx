@@ -6,12 +6,11 @@ import FilterBlock from "../FilterBlock/FilterBlock";
 import { useDispatch, useSelector } from "react-redux";
 import { selectProductsByCurrentCategory } from "src/redux/products/productsSlice";
 import {
-  addFilter,
+  toggleFilter,
   resetFilters,
   selectFilters,
 } from "src/redux/filters/filtersSlice";
 import { useLocation } from "react-router-dom";
-import SelectedFiltersList from "../SelectedFiltersList/SelectedFiltersList";
 
 const INITIAL_FILTER_STATE = { filterName: "", values: [] };
 
@@ -31,7 +30,7 @@ const FiltersPanel = ({ className }) => {
         setColors((prevState) =>
           !prevState.values.includes(instance.color)
             ? {
-                filterName: "color",
+                filterName: "colors",
                 values: [...prevState.values, instance.color],
               }
             : prevState
@@ -40,7 +39,7 @@ const FiltersPanel = ({ className }) => {
           !prevState.values.includes(instance.material) &&
           instance.material !== null
             ? {
-                filterName: "material",
+                filterName: "materials",
                 values: [...prevState.values, instance.material],
               }
             : prevState
@@ -48,7 +47,7 @@ const FiltersPanel = ({ className }) => {
         setSizes((prevState) =>
           !prevState.values.includes(instance.size) && instance.size !== null
             ? {
-                filterName: "size",
+                filterName: "sizes",
                 values: [...prevState.values, instance.size],
               }
             : prevState
@@ -66,7 +65,7 @@ const FiltersPanel = ({ className }) => {
 
   const handleChangePrice = debounce((option) => {
     // setPriceRange(price);
-    dispatch(addFilter(option));
+    dispatch(toggleFilter(option));
   }, 500);
 
   return (

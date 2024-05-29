@@ -48,6 +48,8 @@ export const StyledProductCard = styled.div`
   }
 
   .productTitle {
+    min-height: 51px;
+
     margin-bottom: 5px;
     font-weight: 500;
 

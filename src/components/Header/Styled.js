@@ -59,8 +59,15 @@ export const StyledHeader = styled.header`
     display: none;
   }
 
-  /* =============================@media (max-width: 564px)=================================== */
+  /* =============================@media (max-width: 768px)=================================== */
 
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .headerDesktopLogoImg {
+      width: 139px;
+    }
+  }
+
+  /* =============================@media (max-width: 564px) =================================== */
   @media (max-width: 564px) {
     margin-bottom: 25px;
 
