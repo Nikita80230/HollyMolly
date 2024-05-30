@@ -1,6 +1,12 @@
 import { StyledInputGroup } from "./Styled";
 
-const InputGroup = ({ handleChange, searchValue, className, placeholder }) => {
+const InputGroup = ({
+  handleChange,
+  searchValue,
+  className,
+  placeholder,
+  autoFocus,
+}) => {
   return (
     <StyledInputGroup className={className}>
       <input
@@ -10,6 +16,7 @@ const InputGroup = ({ handleChange, searchValue, className, placeholder }) => {
         name="searchForm"
         onChange={handleChange}
         value={searchValue}
+        autoFocus={autoFocus}
         // required={required}
         // disabled={disabled}
       />

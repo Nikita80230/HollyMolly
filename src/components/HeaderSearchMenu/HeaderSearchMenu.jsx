@@ -48,6 +48,7 @@ const HeaderSearchMenu = ({ handleCloseSearchMenu }) => {
                 searchValue={searchValue}
                 handleChange={handleChange}
                 placeholder="Що ви шукаєте?"
+                autoFocus={true}
               />
             </div>
 

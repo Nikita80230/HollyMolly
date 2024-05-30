@@ -14,8 +14,6 @@ const FilterBlock = ({ title, options }) => {
     dispatch(toggleFilter(filter));
   };
 
-  console.log("options", options);
-
   if (!options.values.length) return;
 
   return (

@@ -43,11 +43,15 @@ export const getSortedFilteredProducts = (filteredProducts, sortCriteria) => {
         );
       });
   }
-  // if (sortCriteria === "byDate") {
-  //   return [...filteredProducts].sort((a, b) => {
-  //     return b.rating - a.rating;
-  //   });
-  // }
+  if (sortCriteria === "isNewCollection") {
+    const products = [...filteredProducts].filter((filteredProduct) => {
+      return [...filteredProduct.productsInstances].some((productInstance) => {
+        return productInstance.isNewCollection === true;
+      });
+    });
+    console.log("sorted products", products);
+    return products;
+  }
 };
 
 export const getFilteredProducts = (filters, productsByCurrentCategory) =>

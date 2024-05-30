@@ -8,7 +8,7 @@ import { selectProductsByCurrentCategory } from "src/redux/products/productsSlic
 import {
   toggleFilter,
   resetFilters,
-  selectFilters,
+  // selectFilters,
 } from "src/redux/filters/filtersSlice";
 import { useLocation } from "react-router-dom";
 
@@ -74,6 +74,8 @@ const FiltersPanel = ({ className }) => {
         <h3 className="priceFilterTitle title">Ціна</h3>
         <PriceRangeSlider handleChangePrice={handleChangePrice} />
       </div>
+      <FilterBlock title="Колір" options={colors} />
+
       <FilterBlock title="Колір" options={colors} />
       <FilterBlock title="Матеріал" options={material} />
       <FilterBlock title="Розмір" options={sizes} />
