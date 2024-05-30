@@ -28,6 +28,16 @@ export const StyledForm = styled(Form)`
     color: ${({ theme }) => theme.colors.authTextColor};
   }
 
+  .styledLabel{
+    position:relative;
+  }
+
+  .iconEye{
+    position:absolute;
+    top:20px;
+    right:22px;
+  }
+
   .buttonAuth {
     margin-bottom: 24px;
     border-radius: 8px;

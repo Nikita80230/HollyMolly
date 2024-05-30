@@ -2,26 +2,26 @@ import { styled } from "styled-components";
 
 export const StyledPageLayout = styled.div`
   .main {
-    padding-top: 168px;
-    
+    margin-top:81px;
+    padding-top:364px;
   }
-  @media (max-width: 564px) {
+  @media (min-width: 564px) {
     .main {
-      padding-top: 81px;
-      
     }
   }
 
-   @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 768px) {
     .main {
-      padding-top: 98px;
-      
+      margin-top: 82px;
+      padding-top:16px;
     }
-   }
+  }
 
   @media (max-width: 1024px) {
   }
-  @media (max-width: 1440px) {
-    
+
+  @media (min-width: 1440px) {
+    margin-top: 110px;
+    padding-top: 49px; 
   }
 `;

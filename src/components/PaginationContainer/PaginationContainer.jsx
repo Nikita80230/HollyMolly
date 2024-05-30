@@ -19,7 +19,7 @@ const PaginationContainer = ({
 
   return (
     <>
-      {currentProduct.length === 0  ? (
+      {currentProduct.length === 0 || currentProduct.length < 12 ? (
         <></>
       ) : (
         <div className="buttonsPagination">

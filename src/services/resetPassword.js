@@ -7,10 +7,10 @@ export const resetPassword = async ({ credentials }) => {
   try {
     const { userId } = credentials;
     const { resetToken:resetToken, newPassword:newPassword } = credentials;
-    console.log(newPassword)
-    await axios.put(`/api/Account/${userId}/password/reset`, {resetToken, newPassword});
+   const result =await axios.put(`/api/Account/${userId}/password/reset`, {resetToken, newPassword});
     toast.success("Пароль оновлено");
+    return result;
   } catch (error) {
-    toast.error("");
+    console.error(error);
   }
 };
