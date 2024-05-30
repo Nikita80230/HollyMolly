@@ -74,7 +74,6 @@ const FiltersPanel = ({ className }) => {
         <h3 className="priceFilterTitle title">Ціна</h3>
         <PriceRangeSlider handleChangePrice={handleChangePrice} />
       </div>
-      <FilterBlock title="Колір" options={colors} />
 
       <FilterBlock title="Колір" options={colors} />
       <FilterBlock title="Матеріал" options={material} />
