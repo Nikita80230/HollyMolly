@@ -6,7 +6,7 @@ const options = [
   { value: "byRate", label: "За рейтингом" },
   { value: "asc", label: "Від дешевших до дорогих" },
   { value: "desc", label: "Від дорогих до дешевших" },
-  { value: "byDate", label: "Нові" },
+  { value: "isNewCollection", label: "Нова колекція" },
 ];
 
 const customStyles = {

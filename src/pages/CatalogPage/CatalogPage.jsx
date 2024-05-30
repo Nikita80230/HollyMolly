@@ -1,6 +1,6 @@
 // import Container from "src/components/Container/Container";
 import { StyledCatalogPage } from "./Styled";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Breadcrumb from "src/components/Breadcrumb/Breadcrumb";
 import { routes } from "src/routes";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,6 +25,7 @@ import {
 import SelectedFiltersList from "src/components/SelectedFiltersList/SelectedFiltersList";
 
 const CatalogPage = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
   const { categoryGroupId, categoryId } = useParams();
   const [sortType, setSortType] = useState({ value: "", label: "" });
@@ -42,7 +43,11 @@ const CatalogPage = () => {
   );
 
   const handleSorting = (option) => {
-    setSortType(option);
+    setSortType((prevState) => {
+      return prevState.value === option.value
+        ? { value: "", label: "" }
+        : option;
+    });
   };
 
   const filteredProducts = useMemo(
@@ -52,27 +57,44 @@ const CatalogPage = () => {
 
   const sortedFilteredProducts = useMemo(
     () => getSortedFilteredProducts(filteredProducts, sortType.value),
-    [filteredProducts, sortType.value]
+    [filteredProducts, sortType?.value]
   );
 
-  console.log("sortedFilteredProducts-->", sortedFilteredProducts);
-  console.log("filteredProducts-->", filteredProducts);
+  const categoryName = mainCategory?.name;
 
-  const categoryName = mainCategory?.name ?? "Завантаження...";
+  const subCategoryName = mainCategory?.categories?.find(
+    (subCat) => subCat.id === Number(categoryId)
+  )?.name;
 
-  const subCategoryName =
-    mainCategory?.categories?.find((subCat) => subCat.id === Number(categoryId))
-      ?.name ?? "Завантаження...";
+  // const structure = [
+  //   { url: routes.HOME, text: "Головна" },
+  //   {
+  //     url: categoryId
+  //       ? `${routes.CATALOG_PAGE}/${categoryGroupId}/${categoryId}`
+  //       : `${routes.CATALOG_PAGE}/${categoryGroupId}`,
+  //     text: categoryId ? subCategoryName : categoryName,
+  //   },
+  // ];
 
-  const structure = [
-    { url: routes.HOME, text: "Головна" },
-    {
-      url: categoryId
-        ? `${routes.CATALOG_PAGE}/${categoryGroupId}/${categoryId}`
-        : `${routes.CATALOG_PAGE}/${categoryGroupId}`,
-      text: categoryId ? subCategoryName : categoryName,
-    },
-  ];
+  const structure = subCategoryName
+    ? [
+        { url: routes.HOME, text: "Головна" },
+        {
+          url: `${routes.CATALOG_PAGE}/${categoryGroupId}`,
+          text: categoryName,
+        },
+        {
+          url: `${routes.CATALOG_PAGE}/${categoryGroupId}/${categoryId}`,
+          text: subCategoryName,
+        },
+      ]
+    : [
+        { url: routes.HOME, text: "Головна" },
+        {
+          url: `${routes.CATALOG_PAGE}/${categoryGroupId}`,
+          text: categoryName,
+        },
+      ];
 
   useEffect(() => {
     dispatch(getProductsByCurrentCategory({ categoryGroupId, categoryId }));
@@ -109,7 +131,6 @@ const CatalogPage = () => {
   }, [currentPage]);
 
   // =======================================================================================
-  console.log(sortType);
 
   return (
     <StyledCatalogPage>
@@ -122,7 +143,11 @@ const CatalogPage = () => {
       </div>
       <div className="layout">
         <SelectedFiltersList selectedFilters={filters} />
-        <SortingPanel className="sorting" handleSorting={handleSorting} />
+        <SortingPanel
+          className="sorting"
+          handleSorting={handleSorting}
+          sortType={sortType}
+        />
         <FiltersPanel className="filters" />
         {isLoading ? (
           <Loader />

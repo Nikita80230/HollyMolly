@@ -14,7 +14,6 @@ const CategoriesModal = ({ closeModal, categories }) => {
   };
 
   useEffect(() => {
-    console.log("isFirstRenderRef.current: ", isFirstRenderRef.current);
     if (isFirstRenderRef.current === false) closeModal();
 
     return () => (isFirstRenderRef.current = false);

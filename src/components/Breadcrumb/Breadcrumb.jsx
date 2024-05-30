@@ -8,14 +8,14 @@ const Breadcrumb = ({ structure }) => {
       {structure.map((element, index) => {
         if (structure.length - 1 === index) {
           return (
-            <span key={element.text} className="currentLink">
+            <span key={index} className="currentLink">
               {element.text}
             </span>
           );
         }
 
         return (
-          <Fragment key={element.text}>
+          <Fragment key={index}>
             <NavLink className="mainLink" to={element.url}>
               {element.text}
             </NavLink>
