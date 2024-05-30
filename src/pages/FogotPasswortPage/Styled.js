@@ -19,6 +19,12 @@ export const WrapperForgotPassword = styled.div`
 
   animation: ${({ theme }) => theme.animations.slideInFromBottom} 0.5s ease-out;
 
+  .arrowIcon{
+position: absolute;
+top:32px;
+left:40px;
+  }
+
   .titleForgot {
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-size: 32px;

@@ -3,10 +3,8 @@ import { styled } from "styled-components";
 export const StyledCategoriesSection = styled.section`
   position: relative;
   margin-bottom: 36px;
-  margin-top: 364px;
 
   @media only screen and (min-width: 768px) {
-    margin-top: 0;
     margin-bottom: 63px;
   }
 

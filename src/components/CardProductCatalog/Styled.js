@@ -144,7 +144,18 @@ export const WrapperCard = styled.div`
     color: ${({ theme }) => theme.colors.titleCardProduct};
   }
 
+   .wrapperPriceIcon {
+    position:relative;
+    padding-top:14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .price {
+    position:absolute;
+    top:0;
+    left:0;
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 500;
     font-size: 14px;
@@ -184,11 +195,7 @@ export const WrapperCard = styled.div`
     justify-content: space-between;
     align-items: center;
   }
-  .wrapperPriceIcon {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+ 
 
   .buttonIcon {
     background-color: transparent;

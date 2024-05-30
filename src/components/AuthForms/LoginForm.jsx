@@ -4,18 +4,25 @@ import { Link } from "react-router-dom";
 import { logIn } from "src/redux/auth/operations";
 import { routes } from "src/routes";
 import { FormSchema } from "src/schemas/FormSchema";
-import { ContainerCheckboxLink, InputCheckbox, LabelRegisterSubscribe, StyledForm } from "./Styled";
+import {
+  ContainerCheckboxLink,
+  InputCheckbox,
+  LabelRegisterSubscribe,
+  StyledForm,
+} from "./Styled";
+import EyeSlashIcon from "src/assets/images/eye-slash.svg?react";
+import { useState } from "react";
 
 const LoginForm = () => {
+  const [passwordShown, setPasswordShown] = useState(false);
+  const dispatch = useDispatch();
 
-     const dispatch = useDispatch();
-
-    const handleSubmit = (values,actions) => {
-        dispatch(logIn(values));
-        actions.resetForm()
-    }
-    return (
-        <>
+  const handleSubmit = (values, actions) => {
+    dispatch(logIn(values));
+    actions.resetForm();
+  };
+  return (
+    <>
       <Formik
         initialValues={{
           email: "",
@@ -25,23 +32,39 @@ const LoginForm = () => {
         validationSchema={FormSchema}
       >
         <StyledForm>
-          <Field className="inputAuth" name="email" type="email" placeholder="E-mail" />
-            <Field className="inputAuth" name="password" type="text" placeholder="Пароль" />
-            <ContainerCheckboxLink>
-            <LabelRegisterSubscribe>
-            <InputCheckbox 
-              type="checkbox"
-              name="subscribe"
+          <Field
+            className="inputAuth"
+            name="email"
+            type="email"
+            placeholder="E-mail"
+          />
+          <label className="styledLabel">
+            <Field
+              className="inputAuth"
+              name="password"
+                type={passwordShown ? 'text' : 'password'}
+              placeholder="Пароль"
             />
-            Запам'ятати мене
-          </LabelRegisterSubscribe>
-             <Link className="linkForgotPassword" to={routes.FORGOT_PASSWORD}>Забули пароль?</Link></ContainerCheckboxLink>
-          <button className="buttonAuth" type="submit">LogIn</button>
+            <EyeSlashIcon className="iconEye" onClick={() => {
+              setPasswordShown(!passwordShown)
+            }} />
+          </label>
+          <ContainerCheckboxLink>
+            <LabelRegisterSubscribe>
+              <InputCheckbox type="checkbox" name="subscribe" />
+              Запам'ятати мене
+            </LabelRegisterSubscribe>
+            <Link className="linkForgotPassword" to={routes.FORGOT_PASSWORD}>
+              Забули пароль?
+            </Link>
+          </ContainerCheckboxLink>
+          <button className="buttonAuth" type="submit">
+            LogIn
+          </button>
         </StyledForm>
       </Formik>
     </>
-        
-    )
-}
+  );
+};
 
 export default LoginForm;

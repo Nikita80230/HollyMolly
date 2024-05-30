@@ -5,8 +5,10 @@ import { register } from "src/redux/auth/operations";
 import { RegisterSchema } from "src/schemas/RegisterSchema";
 import { subscribeSentEmail } from "src/services/subscribeSentEmail";
 import { InputCheckbox, LabelRegisterSubscribe, StyledForm } from "./Styled";
+import EyeSlashIcon from "src/assets/images/eye-slash.svg?react"
 
 const RegisterForm = () => {
+  const [passwordShown, setPasswordShown] = useState(false);
   const dispatch = useDispatch();
   const [isSubscribe, setIsSubscribe] = useState(false);
 
@@ -47,20 +49,24 @@ const RegisterForm = () => {
             />
             Отримувати повідомлення про новинки, знижки, акціїї
           </LabelRegisterSubscribe>
+          <label className="styledLabel">
           <Field
             className="inputAuth"
             name="password"
-            type="text"
+            type={ passwordShown? "text" :"password"}
             placeholder="Пароль"
           />
-          <ErrorMessage name="password" component="p" />
-          <Field
+            <EyeSlashIcon className="iconEye" onClick={()=>{setPasswordShown(!passwordShown)} } />
+          <ErrorMessage name="password" component="p" /></label>
+          
+          <label className="styledLabel"><Field
             className="inputAuth"
             name="confirmPassword"
-            type="text"
+            type={passwordShown ? "text" : "password"}
             placeholder="Підтвердіть пароль"
           />
-          <ErrorMessage name="confirmPassword" component="p" />
+            <EyeSlashIcon className="iconEye" onClick={()=>{setPasswordShown(!passwordShown)} } />
+          <ErrorMessage name="confirmPassword" component="p" /></label>
           <button className="buttonAuth" type="submit">
             Зареєструватися
           </button>

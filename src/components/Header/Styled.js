@@ -72,6 +72,9 @@ export const StyledHeader = styled.header`
   /* =============================@media (max-width: 768px)=================================== */
 
   @media (min-width: 768px) and (max-width: 1024px) {
+    .header {
+      min-height: 82px;
+    }
     .headerDesktopLogoImg {
       width: 139px;
     }
@@ -82,7 +85,7 @@ export const StyledHeader = styled.header`
 
   /* =============================@media (max-width: 564px) =================================== */
   @media (max-width: 767px) {
-    margin-bottom: 25px;
+    margin-bottom: 17px;
 
     box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15),
       0 1px 2px 0 rgba(0, 0, 0, 0.3);

@@ -91,6 +91,7 @@ const appRoutes = [
   },
   {
     path: routes.RESET_PASSWORD,
+
     element: <ResetPasswordPage />,
   },
   {
@@ -120,26 +121,28 @@ const authPaths = [
   "/login",
   "/forgot-password",
   "/reset-password",
-  
 ];
 
 export const App = () => {
   const dispatch = useDispatch();
-   const location = useLocation();
+  const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
   const token = urlParams.get("token");
   const { isLoggedIn, isRefreshing } = useAuth();
+  const pathname = location.pathname;
 
   useEffect(() => {
     dispatch(refreshUser());
-
     dispatch(fetchCategories());
     dispatch(getAllProducts());
+  }, [dispatch]);
 
-    if (token) {
+  useEffect(() => {
+    if (token && !pathname.includes('reset-password')) {
       dispatch(authGoogle({ token }));
     }
-  }, [dispatch, isLoggedIn]);
+    
+  }, [dispatch, token, pathname]);
 
   const isAuthPage = authPaths.includes(location.pathname);
 
