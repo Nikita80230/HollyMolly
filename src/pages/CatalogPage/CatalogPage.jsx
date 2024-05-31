@@ -110,7 +110,7 @@ const CatalogPage = () => {
     sortType.value.length > 0
       ? sortedFilteredProducts.slice(firstProductIndex, lastProductIndex)
       : filteredProducts.slice(firstProductIndex, lastProductIndex);
-
+  
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -165,6 +165,8 @@ const CatalogPage = () => {
           paginate={paginate}
           currentPage={currentPage}
           currentProduct={currentProduct}
+          filteredProducts={filteredProducts}
+          sortedFilteredProducts={sortedFilteredProducts}
           handlePrevPage={handlePrevPage}
           handleNextPage={handleNextPage}
         />

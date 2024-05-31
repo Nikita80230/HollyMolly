@@ -8,6 +8,8 @@ const PaginationContainer = ({
   paginate,
   currentPage,
   currentProduct,
+  filteredProducts,
+  sortedFilteredProducts,
   handlePrevPage,
   handleNextPage,
 }) => {
@@ -17,13 +19,19 @@ const PaginationContainer = ({
     pageNumbers.push(i);
   }
 
+  const shouldShowPagination = () => {
+    if (currentProduct.length === 0) return false;
+    if (currentProduct.length < 12) return false;
+    if (filteredProducts.length === 12) return false;
+    if (sortedFilteredProducts.length === 12) return false;
+    return true;
+  };
+
   return (
     <>
-      {currentProduct.length === 0 || currentProduct.length < 12 ? (
-        <></>
-      ) : (
+      {shouldShowPagination() ? (
         <div className="buttonsPagination">
-          {currentPage == 1 ? (
+          {currentPage === 1 ? (
             <button type="button" className="buttonPrevNextDisabled" disabled>
               <IconPrev />
             </button>
@@ -44,7 +52,7 @@ const PaginationContainer = ({
                   <button
                     type="button"
                     className={
-                      number == currentPage
+                      number === currentPage
                         ? "paginationButtonActive"
                         : "paginationButton"
                     }
@@ -71,6 +79,8 @@ const PaginationContainer = ({
             </button>
           )}
         </div>
+      ) : (
+        <></>
       )}
     </>
   );

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledCatalogPage = styled.div`
+ margin-bottom: 130px;
   .layout {
     position: relative;
     display: grid;
@@ -10,7 +11,7 @@ export const StyledCatalogPage = styled.div`
       "pg pg pg pg pg pg";
 
     grid-template-columns: minmax(200px, 306px) 1fr;
-    margin-bottom: 130px;
+   
   }
 
   .sorting {
