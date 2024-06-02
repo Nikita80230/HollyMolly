@@ -15,11 +15,23 @@ export const getProfile= createAsyncThunk(
       return thunkAPI.rejectWithValue("Unable to fetch user");
     }
     try {
-       setAuthHeader(res.data.token);
+       setAuthHeader(persistedToken);
       const res = await axios.get("/api/Account/profile");
-      
+      console.log(res.data)
       return res.data;
-      console.log(res.data);
+      
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateProfile = createAsyncThunk(
+  'user/updateProfile',
+  async (user, thunkAPI) => {
+    try {
+      const res = await axios.put('/api/Account/profile', user);
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

@@ -74,7 +74,14 @@ export const theme = {
     authTextColor: " #fff",
     authButtonBg: "#000",
     authColorSecondaryText: "#e6e9f9",
-    colorGoogleButton:" #000",
+    colorGoogleButton: " #000",
+    profileColorPrimary: " #000",
+    profileColorSecondary: " #fff",
+    profileBgColorAccent: "#4169e1",
+    borderTitle: "#e4e4e4",
+    colorProfileSubtitle: "#000105",
+    colorSubtitle: "#19191a",
+    colorLabelProfile:"#323234",
 
   },
 
