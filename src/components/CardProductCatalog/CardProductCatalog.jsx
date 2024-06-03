@@ -15,7 +15,7 @@ import StarRatingCard from "../StarRaitingCard/StarRaitindCard";
 import { routes } from "src/routes";
 import { useEffect, useState } from "react";
 
-const CardProductCatalog = ({ product }) => {
+const CardProductCatalog = ({ product, sortType }) => {
   const dispatch = useDispatch();
   const favoriteProducts = useSelector(selectFavoriteProducts);
   const isProductInFavorite = favoriteProducts.some(
@@ -27,17 +27,12 @@ const CardProductCatalog = ({ product }) => {
   };
 
   //===================================================================
-  const [price, setPrice] = useState(product.productsInstances[0].price);
-  const [priceAfterDiscount, setPriceAfterDiscount] = useState(
-    product.productsInstances[0].priceAfterDiscount
-  );
-  const [percentageDiscount, setPercentageDiscount] = useState(
-    product.productsInstances[0].percentageDiscount || null
-  );
-  const [isNewCollection, setIsNewCollection] = useState(
-    product.productsInstances[0].isNewCollection
-  );
+  const [price, setPrice] = useState(null);
+  const [priceAfterDiscount, setPriceAfterDiscount] = useState(null);
+  const [percentageDiscount, setPercentageDiscount] = useState(null);
+  const [isNewCollection, setIsNewCollection] = useState(false);
   const [activeColorId, setActiveColorId] = useState(null);
+  const [pictureProduct, setPictureProduct] = useState(null);
 
   const handleClick = (id) => {
     const selectedProductInstance = product.productsInstances.find(
@@ -49,20 +44,41 @@ const CardProductCatalog = ({ product }) => {
       setPercentageDiscount(selectedProductInstance.percentageDiscount || null);
       setIsNewCollection(selectedProductInstance.isNewCollection);
       setActiveColorId(id);
+      if (
+        selectedProductInstance.images &&
+        selectedProductInstance.images.length > 0
+      ) {
+        setPictureProduct(selectedProductInstance.images[0].link);
+      }
     }
   };
 
   useEffect(() => {
-    if (product.productsInstances.length > 0) {
-      const firstProductInstance = product.productsInstances[0];
-      handleClick(firstProductInstance.id);
+    if (sortType.value === "isNewCollection") {
+      const newCollectionProduct = product.productsInstances.find(
+        (instance) => instance.isNewCollection
+      );
+      if (newCollectionProduct) {
+        handleClick(newCollectionProduct.id);
+      }
+    } else {
+      if (product.productsInstances.length > 0) {
+        const firstProductInstance = product.productsInstances[0];
+        handleClick(firstProductInstance.id);
+      }
     }
-  }, [product.productsInstances]);
+  }, [product.productsInstances, sortType]);
 
   return (
     <li key={product.id}>
       <WrapperCard>
-        <img className="productPhoto" width={278} height={393} />
+        <img
+          className="productPhoto"
+          src={pictureProduct}
+          alt={product.name}
+          width={278}
+          height={393}
+        />
 
         <ListColorsButtons
           colors={product.productsInstances}
