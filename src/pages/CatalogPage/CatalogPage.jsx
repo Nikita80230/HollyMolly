@@ -166,7 +166,6 @@ const CatalogPage = () => {
           currentPage={currentPage}
           currentProduct={currentProduct}
           filteredProducts={filteredProducts}
-          sortedFilteredProducts={sortedFilteredProducts}
           handlePrevPage={handlePrevPage}
           handleNextPage={handleNextPage}
         />

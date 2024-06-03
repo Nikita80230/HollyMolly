@@ -30,8 +30,10 @@ import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import BasketPage from "./pages/BasketPage/BasketPage";
 import FeedbacksPage from "./pages/FeedbacksPage/FeedbacksPage";
 import AuthPageLayout from "./components/AuthPageLayout/AuthPageLayout";
-
-// import ComponentStyle from "styled-components/dist/models/ComponentStyle";
+import ProfileOrdersPage from "./pages/ProfileOrdersPage/ProfileOrdersPage";
+import ProfileReturnsPage from "./pages/ProfileReturnsPage/ProfileReturnsPage";
+import ProfileShippingAdressesPage from "./pages/ProfileShippingAdressesPage/ProfileShippingAdressesPage";
+import ProfilePageLayout from "./components/ProfilePageLayout/ProfilePageLayout";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -62,14 +64,6 @@ const appRoutes = [
     ),
   },
   {
-    path: routes.PROFILE,
-    element: (
-      <PrivateRoute>
-        <ProfilePage />
-      </PrivateRoute>
-    ),
-  },
-  {
     path: `${routes.CATALOG_PAGE}/:categoryGroupId/:categoryId?`,
     element: (
       // <PrivateRoute>
@@ -91,7 +85,6 @@ const appRoutes = [
   },
   {
     path: routes.RESET_PASSWORD,
-
     element: <ResetPasswordPage />,
   },
   {
@@ -114,21 +107,60 @@ const appRoutes = [
     path: `${routes.FEEDBACK}/:categoryId/:id`,
     element: <FeedbacksPage />,
   },
+  {
+    path: routes.PROFILE,
+    element: (
+      <PrivateRoute>
+        <ProfilePage />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: routes.MY_ORDERS,
+    element: (
+      <PrivateRoute>
+        <ProfileOrdersPage />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: routes.MY_RETURNS,
+    element: (
+      <PrivateRoute>
+        <ProfileReturnsPage />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: routes.SHIPPING_ADDRESSES,
+    element: (
+      <PrivateRoute>
+        <ProfileShippingAdressesPage />
+      </PrivateRoute>
+    ),
+  },
 ];
 
 const authPaths = [
-  "/register",
-  "/login",
-  "/forgot-password",
-  "/reset-password",
+  routes.REGISTER,
+  routes.LOGIN,
+  routes.FORGOT_PASSWORD,
+  routes.RESET_PASSWORD,
 ];
+
+const profilePaths = [
+  routes.PROFILE,
+  routes.MY_ORDERS,
+  routes.MY_RETURNS,
+  routes.SHIPPING_ADDRESSES,
+]
 
 export const App = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
   const token = urlParams.get("token");
-  const { isLoggedIn, isRefreshing } = useAuth();
+  const { isRefreshing } = useAuth();
   const pathname = location.pathname;
 
   useEffect(() => {
@@ -138,13 +170,13 @@ export const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (token && !pathname.includes('reset-password')) {
+    if (token && !pathname.includes("reset-password")) {
       dispatch(authGoogle({ token }));
     }
-    
   }, [dispatch, token, pathname]);
 
   const isAuthPage = authPaths.includes(location.pathname);
+  const isProfilePage = profilePaths.includes(location.pathname);
 
   return (
     <>
@@ -164,7 +196,19 @@ export const App = () => {
             </Routes>
           </Suspense>
         </AuthPageLayout>
-      ) : (
+      ) : isProfilePage ? (<ProfilePageLayout>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              {appRoutes.map((route) => (
+                <Route
+                  path={route.path}
+                  element={route.element}
+                  key={route.path}
+                />
+              ))}
+            </Routes>
+          </Suspense>
+        </ProfilePageLayout>): (
         <PageLayout>
           <Suspense fallback={<Loader />}>
             <Routes>

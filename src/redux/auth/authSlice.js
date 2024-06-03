@@ -26,6 +26,7 @@ const handelRefreshUserPending = (state) => {
 };
 
 const handelRefreshUserFulfilled = (state, action) => {
+  state.user = action.payload.userEmail;
   state.token = action.payload.accessToken;
   state.refreshToken = action.payload.refreshToken;
   state.isLoggedIn = true;

@@ -5,7 +5,7 @@ import { WrapperFavoritesPage } from "./Styled";
 
 const FavoritesPage = () => {
   const favoriteProducts = useSelector(selectFavoriteProducts);
-  console.log("Favorite Page", favoriteProducts);
+
   return (
     <WrapperFavoritesPage>
       {!favoriteProducts.length ? (

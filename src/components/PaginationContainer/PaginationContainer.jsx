@@ -9,7 +9,6 @@ const PaginationContainer = ({
   currentPage,
   currentProduct,
   filteredProducts,
-  sortedFilteredProducts,
   handlePrevPage,
   handleNextPage,
 }) => {
@@ -23,7 +22,6 @@ const PaginationContainer = ({
     if (currentProduct.length === 0) return false;
     if (currentProduct.length < 12) return false;
     if (filteredProducts.length === 12) return false;
-    if (sortedFilteredProducts.length === 12) return false;
     return true;
   };
 

@@ -2,7 +2,6 @@ export const routes = {
   HOME: "/",
   REGISTER: "/register",
   LOGIN: "/login",
-  PROFILE: "/profile",
   CATALOG_PAGE: "/catalog",
   CONFIRM_EMAIL: "/confirm-email",
   SUPPORT: "/support",
@@ -13,5 +12,12 @@ export const routes = {
   SIZE_GUIDE: "/size-guide",
   FAVORITES: "/favorites",
   BASKET: "/basket",
-  FEEDBACK:"/feedback",
+  FEEDBACK: "/feedback",
+  PROFILE: "/profile",
+  MY_ORDERS: "/profile/my-orders",
+  MY_RETURNS: "/profile/returns",
+  SHIPPING_ADDRESSES: '/profile/shipping-addresses',
+  
+
+  
 };
