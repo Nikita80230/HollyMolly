@@ -44,7 +44,7 @@ const ResetPasswordForm = ({ token, userId }) => {
                 setPasswordShown(!passwordShown);
               }}
             />
-            <ErrorMessage component="p" name="password" />
+            <ErrorMessage className="errorMessage" component="p" name="password" />
           </label>
           <button className="buttonAuth" type="submit">
             Змінити пароль

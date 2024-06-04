@@ -6,6 +6,7 @@ export const WrapperForgotPassword = styled.div`
   top: 30%;
   left: 35%;
   padding: 68px 40px;
+  border-radius: 32px;
   width: 544px;
   height: 412px;
   display: flex;

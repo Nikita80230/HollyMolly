@@ -1,4 +1,4 @@
-import { Field, Formik } from "formik";
+import { ErrorMessage, Field, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { logIn } from "src/redux/auth/operations";
@@ -32,12 +32,13 @@ const LoginForm = () => {
         validationSchema={FormSchema}
       >
         <StyledForm>
+          <label className="styledLabel">
           <Field
             className="inputAuth"
             name="email"
-            type="email"
+            type="text"
             placeholder="E-mail"
-          />
+          /> <ErrorMessage className="errorMessage" name="email" component="p" /></label>
           <label className="styledLabel">
             <Field
               className="inputAuth"
@@ -48,6 +49,7 @@ const LoginForm = () => {
             <EyeSlashIcon className="iconEye" onClick={() => {
               setPasswordShown(!passwordShown)
             }} />
+             <ErrorMessage className="errorMessage" name="password" component="p" />
           </label>
           <ContainerCheckboxLink>
             <LabelRegisterSubscribe>

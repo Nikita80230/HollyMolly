@@ -5,7 +5,7 @@ import { register } from "src/redux/auth/operations";
 import { RegisterSchema } from "src/schemas/RegisterSchema";
 import { subscribeSentEmail } from "src/services/subscribeSentEmail";
 import { InputCheckbox, LabelRegisterSubscribe, StyledForm } from "./Styled";
-import EyeSlashIcon from "src/assets/images/eye-slash.svg?react"
+import EyeSlashIcon from "src/assets/images/eye-slash.svg?react";
 
 const RegisterForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -25,23 +25,56 @@ const RegisterForm = () => {
     <>
       <Formik
         initialValues={{
-          email: "",
           password: "",
           confirmPassword: "",
+          email: "",
         }}
         onSubmit={handleSubmit}
         validationSchema={RegisterSchema}
       >
         <StyledForm>
-          <Field
+         <label className="styledLabel">
+            <Field
+              className="inputAuth"
+              name="password"
+              type={passwordShown ? "text" : "password"}
+              placeholder="Пароль"
+            />
+            <EyeSlashIcon
+              className="iconEye"
+              onClick={() => {
+                setPasswordShown(!passwordShown);
+              }}
+            />
+            <ErrorMessage className="errorMessage" name="password" component="p" />
+          </label>
+
+          <label className="styledLabel">
+            <Field
+              className="inputAuth"
+              name="confirmPassword"
+              type={passwordShown ? "text" : "password"}
+              placeholder="Підтвердіть пароль"
+            />
+            <EyeSlashIcon
+              className="iconEye"
+              onClick={() => {
+                setPasswordShown(!passwordShown);
+              }}
+            />
+            <ErrorMessage className="errorMessage" name="confirmPassword" component="p" />
+          </label>
+          <label className="styledLabel">
+           <Field
             className="inputAuth"
             name="email"
-            type="email"
+            type="text"
             placeholder="E-mail"
           />
-          <ErrorMessage name="email" component="p" />
-          <LabelRegisterSubscribe>
-            <InputCheckbox 
+            <ErrorMessage className="errorMessage" name="email" component="p" />
+          </label>
+            <LabelRegisterSubscribe>
+            <InputCheckbox
               type="checkbox"
               name="subscribe"
               checked={isSubscribe}
@@ -49,24 +82,6 @@ const RegisterForm = () => {
             />
             Отримувати повідомлення про новинки, знижки, акціїї
           </LabelRegisterSubscribe>
-          <label className="styledLabel">
-          <Field
-            className="inputAuth"
-            name="password"
-            type={ passwordShown? "text" :"password"}
-            placeholder="Пароль"
-          />
-            <EyeSlashIcon className="iconEye" onClick={()=>{setPasswordShown(!passwordShown)} } />
-          <ErrorMessage name="password" component="p" /></label>
-          
-          <label className="styledLabel"><Field
-            className="inputAuth"
-            name="confirmPassword"
-            type={passwordShown ? "text" : "password"}
-            placeholder="Підтвердіть пароль"
-          />
-            <EyeSlashIcon className="iconEye" onClick={()=>{setPasswordShown(!passwordShown)} } />
-          <ErrorMessage name="confirmPassword" component="p" /></label>
           <button className="buttonAuth" type="submit">
             Зареєструватися
           </button>
