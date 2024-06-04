@@ -29,7 +29,7 @@ const CatalogPage = () => {
   const dispatch = useDispatch();
   const { categoryGroupId, categoryId } = useParams();
   const [sortType, setSortType] = useState({ value: "", label: "" });
-
+  
   const isLoading = useSelector(selectLoading);
 
   const productsByCurrentCategory = useSelector(
@@ -113,22 +113,27 @@ const CatalogPage = () => {
   
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
+     window.scrollTo({
+      top: document.querySelector(".navigation").offsetTop,
+      behavior: "smooth",
+    });
   };
 
   const handleNextPage = () => {
     setCurrentPage((prev) => prev + 1);
+     window.scrollTo({
+      top: document.querySelector(".navigation").offsetTop,
+      behavior: "smooth",
+    });
   };
 
   const handlePrevPage = () => {
     setCurrentPage((prev) => prev - 1);
-  };
-
-  useEffect(() => {
-    window.scrollTo({
+     window.scrollTo({
       top: document.querySelector(".navigation").offsetTop,
       behavior: "smooth",
     });
-  }, [currentPage]);
+  };
 
   // =======================================================================================
 
@@ -155,7 +160,8 @@ const CatalogPage = () => {
           <ProductsGrid
             className="productsGrid"
             filters={filters}
-            filteredProducts={currentProduct}
+              filteredProducts={currentProduct}
+              sortType={sortType}
           />
         )}
 
@@ -166,6 +172,7 @@ const CatalogPage = () => {
           currentPage={currentPage}
           currentProduct={currentProduct}
           filteredProducts={filteredProducts}
+          sortedFilteredProducts={sortedFilteredProducts}
           handlePrevPage={handlePrevPage}
           handleNextPage={handleNextPage}
         />
