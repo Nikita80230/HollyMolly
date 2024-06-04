@@ -15,27 +15,36 @@ export const StyledForm = styled(Form)`
     width: 100%;
     height: 57px;
     background-color: ${({ theme }) => theme.colors.authBgInput};
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    /* font-family: ${({ theme }) => theme.fonts.familyNunito}; */
     font-weight: 500;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.authTextColor};
   }
 
   .inputAuth::placeholder {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    /* font-family: ${({ theme }) => theme.fonts.familyNunito}; */
     font-weight: 500;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.authTextColor};
   }
 
-  .styledLabel{
-    position:relative;
+  .styledLabel {
+    position: relative;
   }
 
-  .iconEye{
-    position:absolute;
-    top:20px;
-    right:22px;
+  .iconEye {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+  }
+
+  .errorMessage {
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+    font-weight: 500;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.colorError};
   }
 
   .buttonAuth {
@@ -54,6 +63,7 @@ export const StyledForm = styled(Form)`
     font-size: 22px;
     color: ${({ theme }) => theme.colors.authTextColor};
   }
+  
 `;
 
 export const LabelRegisterSubscribe = styled.label`

@@ -121,4 +121,21 @@ button{
   height: 100vh;
   background:rgba(0, 1, 5, 0.6);
 }
+.custom-toast {
+    padding: 74px 24px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    background-color: #FFFFFF;
+    color: #323234;
+    border-radius: 23px;
+    text-align: center;
+    max-width: 500px;
+    height: 200px;
+    margin: 0 auto;
+    position: fixed;
+    top: 400px;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
 `;

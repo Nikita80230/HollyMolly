@@ -72,7 +72,7 @@ export const theme = {
     authBorderInput: "#e0e0e0",
     authBgInput: "rgba(255, 255, 255, 0.05)",
     authTextColor: " #fff",
-    authButtonBg: "#000",
+    authButtonBg: "#1d2f65",
     authColorSecondaryText: "#e6e9f9",
     colorGoogleButton: " #000",
     profileColorPrimary: " #000",

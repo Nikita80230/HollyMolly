@@ -6,6 +6,7 @@ position: fixed;
   top: 18%;
   left: 35%;
   padding: 68px 40px;
+  border-radius: 32px;
   width: 544px;
   height: 676px;
   display: flex;
