@@ -121,20 +121,16 @@ const CatalogPage = () => {
 
   const handleNextPage = () => {
     setCurrentPage((prev) => prev + 1);
-     window.scrollTo({
-      top: document.querySelector(".navigation").offsetTop,
-      behavior: "smooth",
-    });
   };
 
   const handlePrevPage = () => {
     setCurrentPage((prev) => prev - 1);
-     window.scrollTo({
-      top: document.querySelector(".navigation").offsetTop,
-      behavior: "smooth",
-    });
   };
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
+  
   // =======================================================================================
 
   return (

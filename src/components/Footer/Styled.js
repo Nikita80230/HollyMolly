@@ -2,7 +2,6 @@ import { styled } from "styled-components";
 
 
 export const LowerBlock = styled.div`
-  margin-bottom: 53px;
   padding: 0 20px;
   display: flex;
   justify-content: center;
@@ -17,7 +16,6 @@ export const LowerBlock = styled.div`
 
    @media only screen and (min-width: 768px) {
     padding: 16px 50px;
-    margin-bottom: 0;
     justify-content: space-between;
     height: 44px;
     background-color: ${({ theme }) => theme.colors.secondaryBgColor};

@@ -162,6 +162,7 @@ export const App = () => {
   const token = urlParams.get("token");
   const { isRefreshing } = useAuth();
   const pathname = location.pathname;
+  const userId = urlParams.get("userId");
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -170,10 +171,10 @@ export const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (token && !pathname.includes("reset-password")) {
+   if (token && !pathname.includes('password-reset') && !userId) {
       dispatch(authGoogle({ token }));
-    }
-  }, [dispatch, token, pathname]);
+    } 
+  }, [dispatch, token, pathname, userId]);
 
   const isAuthPage = authPaths.includes(location.pathname);
   const isProfilePage = profilePaths.includes(location.pathname);
