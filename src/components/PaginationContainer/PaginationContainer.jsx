@@ -18,19 +18,11 @@ const PaginationContainer = ({
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
     pageNumbers.push(i);
   }
-  // console.log("sortedFilteredProducts", sortedFilteredProducts);
-  // console.log("filteredProducts", filteredProducts);
-  // console.log("currentProduct", currentProduct);
 
   const shouldShowPagination = () => {
-    if (currentProduct.length === 0) return filteredProducts.length > 12;
-    if (currentProduct.length < 12) return filteredProducts.length > 12;
-    if (filteredProducts.length === 12) return false;
-    if (
-      sortedFilteredProducts &&
-      sortedFilteredProducts.length <= 12 &&
-      filteredProducts.length > 12 && currentProduct.length < 12
-    )
+    if (sortedFilteredProducts && sortedFilteredProducts.length <= 12)
+      return false;
+    if (currentProduct.length < 12 && filteredProducts.length < 12)
       return false;
     return true;
   };
