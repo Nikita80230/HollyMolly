@@ -18,6 +18,7 @@ const LoginForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
+    console.log(values);
     dispatch(logIn(values));
     actions.resetForm();
   };
@@ -27,43 +28,65 @@ const LoginForm = () => {
         initialValues={{
           email: "",
           password: "",
+          rememberMe: false,
         }}
         onSubmit={handleSubmit}
         validationSchema={FormSchema}
       >
-        <StyledForm>
-          <label className="styledLabel">
-          <Field
-            className="inputAuth"
-            name="email"
-            type="text"
-            placeholder="E-mail"
-          /> <ErrorMessage className="errorMessage" name="email" component="p" /></label>
-          <label className="styledLabel">
-            <Field
-              className="inputAuth"
-              name="password"
-                type={passwordShown ? 'text' : 'password'}
-              placeholder="Пароль"
-            />
-            <EyeSlashIcon className="iconEye" onClick={() => {
-              setPasswordShown(!passwordShown)
-            }} />
-             <ErrorMessage className="errorMessage" name="password" component="p" />
-          </label>
-          <ContainerCheckboxLink>
-            <LabelRegisterSubscribe>
-              <InputCheckbox type="checkbox" name="subscribe" />
-              Запам'ятати мене
-            </LabelRegisterSubscribe>
-            <Link className="linkForgotPassword" to={routes.FORGOT_PASSWORD}>
-              Забули пароль?
-            </Link>
-          </ContainerCheckboxLink>
-          <button className="buttonAuth" type="submit">
-            LogIn
-          </button>
-        </StyledForm>
+        {({ values, handleChange, handleBlur }) => (
+          <StyledForm>
+            <label className="styledLabel">
+              <Field
+                className="inputAuth"
+                name="email"
+                type="text"
+                placeholder="E-mail"
+              />{" "}
+              <ErrorMessage
+                className="errorMessage"
+                name="email"
+                component="p"
+              />
+            </label>
+            <label className="styledLabel">
+              <Field
+                className="inputAuth"
+                name="password"
+                type={passwordShown ? "text" : "password"}
+                placeholder="Пароль"
+              />
+              <EyeSlashIcon
+                className="iconEye"
+                onClick={() => {
+                  setPasswordShown(!passwordShown);
+                }}
+              />
+              <ErrorMessage
+                className="errorMessage"
+                name="password"
+                component="p"
+              />
+            </label>
+            <ContainerCheckboxLink>
+              <LabelRegisterSubscribe>
+                <InputCheckbox
+                  type="checkbox"
+                  name="rememberMe"
+                  checked={values.rememberMe}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                Запам'ятати мене
+              </LabelRegisterSubscribe>
+              <Link className="linkForgotPassword" to={routes.FORGOT_PASSWORD}>
+                Забули пароль?
+              </Link>
+            </ContainerCheckboxLink>
+            <button className="buttonAuth" type="submit">
+              LogIn
+            </button>
+          </StyledForm>
+        )}
       </Formik>
     </>
   );

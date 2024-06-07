@@ -9,7 +9,7 @@ const FavoritesPage = () => {
   return (
     <WrapperFavoritesPage>
       {!favoriteProducts.length ? (
-        <h1>Ви не додали улюблених товарів</h1>
+        <h1>Додайте ваші улюблені товари</h1>
       ) : (
         <ul className="gridFavorites">
           {favoriteProducts.map((product) => (

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { register, logIn, logOut, refreshUser, authGoogle } from "./operations";
+import { register, logIn, logOutAllDevices, refreshUser, authGoogle } from "./operations";
 
 const handelRegisterFulfilled = (state, action) => {
   state.user = action.payload.userEmail;
@@ -12,13 +12,17 @@ const handelLoginFulfilled = (state, action) => {
   state.token = action.payload.accessToken;
   state.refreshToken = action.payload.refreshToken;
   state.isLoggedIn = true;
+  state.rememberMe = action.payload.rememberMe; 
+  
 };
 
-const handelLogOutFulfilled = (state) => {
+const handelLogOutAllDevicesFulfilled = (state) => {
   state.user = { email: null };
   state.token = null;
   state.refreshToken = null;
   state.isLoggedIn = false;
+  state.rememberMe = false; 
+   
 };
 
 const handelRefreshUserPending = (state) => {
@@ -42,6 +46,7 @@ const handleAuthGoogleFulfilled = (state, action) => {
   state.token = action.payload.accessToken;
   state.refreshToken = action.payload.refreshToken;
   state.isLoggedIn = true;
+ state.rememberMe = action.payload.rememberMe; 
 };
 
 const initialState = {
@@ -50,16 +55,26 @@ const initialState = {
   refreshToken: null,
   isLoggedIn: false,
   isRefreshing: false,
+  rememberMe:false,
 };
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
+  reducers: {
+     logOut: (state) => {
+      state.token = null;
+  state.refreshToken = null;
+  state.isLoggedIn = false;
+  state.rememberMe = false; 
+      
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, handelRegisterFulfilled)
       .addCase(logIn.fulfilled, handelLoginFulfilled)
-      .addCase(logOut.fulfilled, handelLogOutFulfilled)
+      .addCase(logOutAllDevices.fulfilled, handelLogOutAllDevicesFulfilled)
       .addCase(refreshUser.pending, handelRefreshUserPending)
       .addCase(refreshUser.fulfilled, handelRefreshUserFulfilled)
       .addCase(refreshUser.rejected, handelRefreshUserRejected)
@@ -68,3 +83,4 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
+export const { logOut } = authSlice.actions;

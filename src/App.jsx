@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { routes } from "./routes";
 
@@ -34,6 +34,8 @@ import ProfileOrdersPage from "./pages/ProfileOrdersPage/ProfileOrdersPage";
 import ProfileReturnsPage from "./pages/ProfileReturnsPage/ProfileReturnsPage";
 import ProfileShippingAdressesPage from "./pages/ProfileShippingAdressesPage/ProfileShippingAdressesPage";
 import ProfilePageLayout from "./components/ProfilePageLayout/ProfilePageLayout";
+import { logOut } from "./redux/auth/authSlice";
+import { selectAuth } from "./redux/auth/selectors";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -153,7 +155,7 @@ const profilePaths = [
   routes.MY_ORDERS,
   routes.MY_RETURNS,
   routes.SHIPPING_ADDRESSES,
-]
+];
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -196,7 +198,8 @@ export const App = () => {
             </Routes>
           </Suspense>
         </AuthPageLayout>
-      ) : isProfilePage ? (<ProfilePageLayout>
+      ) : isProfilePage ? (
+        <ProfilePageLayout>
           <Suspense fallback={<Loader />}>
             <Routes>
               {appRoutes.map((route) => (
@@ -208,7 +211,8 @@ export const App = () => {
               ))}
             </Routes>
           </Suspense>
-        </ProfilePageLayout>): (
+        </ProfilePageLayout>
+      ) : (
         <PageLayout>
           <Suspense fallback={<Loader />}>
             <Routes>

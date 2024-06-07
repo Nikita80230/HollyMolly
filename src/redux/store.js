@@ -10,6 +10,8 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+
+import storageSession from "redux-persist/lib/storage/session";
 import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/authSlice";
 import { categoriesReducer } from "./categories/categoriesSlice";
@@ -19,7 +21,7 @@ import { userReducer } from "./user/userSlice";
 
 const productsPersistConfig = {
   key: "products",
-  storage,
+  storage:storage,
 
   whitelist: ["favoriteProducts"],
 };
@@ -27,15 +29,21 @@ const productsPersistConfig = {
 const authPersistConfig = {
   key: "auth",
   storage,
-  whitelist: ["token", "refreshToken"],
+  whitelist: ["token", "refreshToken", "rememberMe"],
 };
+
+// const authPersistConfig = {
+//   key: "auth",
+//   storage: storageSession,
+//   whitelist: ["token", "refreshToken"],
+// };
 
 const persistedProductsReducer = persistReducer(
   productsPersistConfig,
   productsReducer
 );
 
-const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
+ const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 
 export const store = configureStore({
   reducer: {
@@ -43,7 +51,7 @@ export const store = configureStore({
     categories: categoriesReducer,
     products: persistedProductsReducer,
     filters: filtersReducer,
-    user:userReducer,
+    user: userReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -51,7 +59,6 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-  // devTools: process.env.NODE_ENV === "development",
 });
 
 export const persistor = persistStore(store);

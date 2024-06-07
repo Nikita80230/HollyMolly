@@ -29,7 +29,7 @@ console.log(firstName)
         }}
         onSubmit={(values) => {
           console.log(values);
-          dispatch(updateProfile(values));
+          // dispatch(updateProfile(values));
         }}
       >
         {({ setFieldValue, values }) => (
