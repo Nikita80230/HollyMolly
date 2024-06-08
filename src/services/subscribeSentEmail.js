@@ -9,6 +9,6 @@ export const subscribeSentEmail = async (values) => {
       return 1;
     }
   } catch (error) {
-    console.error(error);
+      throw new Error("Щось пішло не так.");
   }
 };

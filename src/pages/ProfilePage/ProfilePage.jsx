@@ -12,9 +12,9 @@ const ProfilePage = () => {
   const { firstName, lastName, phoneNumber, dateOfBirth, email } = profile;
   console.log(firstName);
 
-  useEffect(() => {
-    dispatch(getProfile());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getProfile());
+  // }, [dispatch]);
 
   return (
     <>

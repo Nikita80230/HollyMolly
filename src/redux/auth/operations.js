@@ -15,10 +15,7 @@ export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post(
-        "/api/Account/registration",
-        credentials
-      );
+      const res = await axios.post("/api/Account/registration", credentials);
       setAuthHeader(res.data.token);
       // toast(
       //   "Щоб підтвердити реєстрацію, перейдіть за посиланням з поштової скриньки"
@@ -33,35 +30,37 @@ export const register = createAsyncThunk(
 
 export const logIn = createAsyncThunk(
   "auth/login",
-  async (credentials, thunkAPI) => {
+  async ({ email, password, rememberMe }, thunkAPI) => {
     try {
-      const res = await axios.post("/api/Account/login", credentials);
-
+      const res = await axios.post("/api/Account/login", { email, password });
       setAuthHeader(res.data.token);
-      return res.data;
+      return { ...res.data, rememberMe };
     } catch (error) {
-      toast.error("Невірний логін чи пароль");
+      toast("Невірний логін чи пароль");
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
-  try {
-    await axios.post("/api/Account/logoutAllDevices");
+export const logOutAllDevices = createAsyncThunk(
+  "auth/logout",
+  async (_, thunkAPI) => {
+    try {
+      await axios.post("/api/Account/logoutAllDevices");
 
-    clearAuthHeader();
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+      clearAuthHeader();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
+);
 
 export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-    
+
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue("Unable to fetch user");
     }

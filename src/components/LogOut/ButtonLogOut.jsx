@@ -1,12 +1,12 @@
 import { useDispatch } from "react-redux";
-import { logOut } from "src/redux/auth/operations";
+import {  logOutAllDevices } from "src/redux/auth/operations";
 import { StyledButtonLogOut } from "./Styled";
 
 const ButtonLogOut = () => {
   const dispatch = useDispatch();
   return (
     <>
-      <StyledButtonLogOut type="button" onClick={() => dispatch(logOut())}>
+      <StyledButtonLogOut type="button" onClick={() => dispatch(logOutAllDevices())}>
         Вийти
       </StyledButtonLogOut>
     </>

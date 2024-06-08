@@ -9,8 +9,9 @@ import EyeSlashIcon from "src/assets/images/eye-slash.svg?react";
 
 const RegisterForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
-  const dispatch = useDispatch();
+  const [confirmPassword, setConfirmPassword] = useState(false);
   const [isSubscribe, setIsSubscribe] = useState(false);
+  const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
     dispatch(register(values));
@@ -33,7 +34,7 @@ const RegisterForm = () => {
         validationSchema={RegisterSchema}
       >
         <StyledForm>
-         <label className="styledLabel">
+          <label className="styledLabel">
             <Field
               className="inputAuth"
               name="password"
@@ -46,34 +47,42 @@ const RegisterForm = () => {
                 setPasswordShown(!passwordShown);
               }}
             />
-            <ErrorMessage className="errorMessage" name="password" component="p" />
+            <ErrorMessage
+              className="errorMessage"
+              name="password"
+              component="p"
+            />
           </label>
 
           <label className="styledLabel">
             <Field
               className="inputAuth"
               name="confirmPassword"
-              type={passwordShown ? "text" : "password"}
+              type={confirmPassword ? "text" : "password"}
               placeholder="Підтвердіть пароль"
             />
             <EyeSlashIcon
               className="iconEye"
               onClick={() => {
-                setPasswordShown(!passwordShown);
+                setConfirmPassword(!confirmPassword);
               }}
             />
-            <ErrorMessage className="errorMessage" name="confirmPassword" component="p" />
+            <ErrorMessage
+              className="errorMessage"
+              name="confirmPassword"
+              component="p"
+            />
           </label>
           <label className="styledLabel">
-           <Field
-            className="inputAuth"
-            name="email"
-            type="text"
-            placeholder="E-mail"
-          />
+            <Field
+              className="inputAuth"
+              name="email"
+              type="text"
+              placeholder="E-mail"
+            />
             <ErrorMessage className="errorMessage" name="email" component="p" />
           </label>
-            <LabelRegisterSubscribe>
+          <LabelRegisterSubscribe>
             <InputCheckbox
               type="checkbox"
               name="subscribe"
