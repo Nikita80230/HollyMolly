@@ -29,7 +29,7 @@ const CatalogPage = () => {
   const dispatch = useDispatch();
   const { categoryGroupId, categoryId } = useParams();
   const [sortType, setSortType] = useState({ value: "", label: "" });
-  
+
   const isLoading = useSelector(selectLoading);
 
   const productsByCurrentCategory = useSelector(
@@ -44,6 +44,7 @@ const CatalogPage = () => {
 
   const handleSorting = (option) => {
     setSortType((prevState) => {
+      setCurrentPage(1);
       return prevState.value === option.value
         ? { value: "", label: "" }
         : option;
@@ -110,10 +111,10 @@ const CatalogPage = () => {
     sortType.value.length > 0
       ? sortedFilteredProducts.slice(firstProductIndex, lastProductIndex)
       : filteredProducts.slice(firstProductIndex, lastProductIndex);
-  
+
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
-     window.scrollTo({
+    window.scrollTo({
       top: document.querySelector(".navigation").offsetTop,
       behavior: "smooth",
     });
@@ -128,9 +129,9 @@ const CatalogPage = () => {
   };
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
-  
+
   // =======================================================================================
 
   return (
@@ -143,21 +144,24 @@ const CatalogPage = () => {
         />
       </div>
       <div className="layout">
-        <SelectedFiltersList selectedFilters={filters} />
+        <SelectedFiltersList
+          selectedFilters={filters}
+          setCurrentPage={setCurrentPage}
+        />
         <SortingPanel
           className="sorting"
           handleSorting={handleSorting}
           sortType={sortType}
         />
-        <FiltersPanel className="filters" />
+        <FiltersPanel className="filters" setCurrentPage={setCurrentPage} />
         {isLoading ? (
           <Loader />
         ) : (
           <ProductsGrid
             className="productsGrid"
             filters={filters}
-              filteredProducts={currentProduct}
-              sortType={sortType}
+            filteredProducts={currentProduct}
+            sortType={sortType}
           />
         )}
 
