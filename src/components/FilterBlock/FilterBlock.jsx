@@ -4,12 +4,13 @@ import { StyledFilterBlock } from "./Styled";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFilters, toggleFilter } from "src/redux/filters/filtersSlice";
 
-const FilterBlock = ({ title, options }) => {
+const FilterBlock = ({ title, options, setCurrentPage }) => {
   const dispatch = useDispatch();
 
   const filters = useSelector(selectFilters);
 
   const handleChange = (e) => {
+     setCurrentPage(1);
     const filter = { value: e.target.value, name: e.target.name };
     dispatch(toggleFilter(filter));
   };

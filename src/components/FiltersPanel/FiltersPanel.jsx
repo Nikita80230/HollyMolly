@@ -14,7 +14,7 @@ import { useLocation } from "react-router-dom";
 
 const INITIAL_FILTER_STATE = { filterName: "", values: [] };
 
-const FiltersPanel = ({ className }) => {
+const FiltersPanel = ({ className, setCurrentPage }) => {
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -57,13 +57,17 @@ const FiltersPanel = ({ className }) => {
   }, [itemsByCategory, location]);
 
   useEffect(() => {
+     setCurrentPage(1);
     setColors(INITIAL_FILTER_STATE);
     setFabricType(INITIAL_FILTER_STATE);
     setSizes(INITIAL_FILTER_STATE);
     dispatch(resetFilters());
-  }, [location.pathname, dispatch]);
+           
+
+  }, [location.pathname, dispatch, setCurrentPage]);
 
   const handleChangePrice = debounce((option) => {
+      setCurrentPage(1);
     // setPriceRange(price);
     dispatch(toggleFilter(option));
   }, 500);
@@ -75,7 +79,7 @@ const FiltersPanel = ({ className }) => {
         <PriceRangeSlider handleChangePrice={handleChangePrice} />
       </div>
 
-      <FilterBlock title="Колір" options={colors} />
+      <FilterBlock title="Колір" options={colors} setCurrentPage={setCurrentPage} />
       <FilterBlock title="Матеріал" options={material} />
       <FilterBlock title="Розмір" options={sizes} />
     </StyledFiltersPanel>
