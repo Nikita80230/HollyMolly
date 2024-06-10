@@ -29,7 +29,8 @@ const CatalogPage = () => {
   const dispatch = useDispatch();
   const { categoryGroupId, categoryId } = useParams();
   const [sortType, setSortType] = useState({ value: "", label: "" });
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(12);
   const isLoading = useSelector(selectLoading);
 
   const productsByCurrentCategory = useSelector(
@@ -102,8 +103,6 @@ const CatalogPage = () => {
   }, [categoryGroupId, categoryId, dispatch]);
 
   // ==============================================================================================
-  const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(12);
 
   const lastProductIndex = currentPage * productsPerPage;
   const firstProductIndex = lastProductIndex - productsPerPage;
@@ -144,16 +143,13 @@ const CatalogPage = () => {
         />
       </div>
       <div className="layout">
-        <SelectedFiltersList
-          selectedFilters={filters}
-          setCurrentPage={setCurrentPage}
-        />
+        <SelectedFiltersList selectedFilters={filters} />
         <SortingPanel
           className="sorting"
           handleSorting={handleSorting}
           sortType={sortType}
         />
-        <FiltersPanel className="filters" setCurrentPage={setCurrentPage} />
+        <FiltersPanel className="filters" />
         {isLoading ? (
           <Loader />
         ) : (

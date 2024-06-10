@@ -14,6 +14,7 @@ import ListColorsButtons from "../ListColorsButtons/ListColorsButtons";
 import StarRatingCard from "../StarRaitingCard/StarRaitindCard";
 import { routes } from "src/routes";
 import { useEffect, useState } from "react";
+import defaultPhoto from "src/assets/images/defaultImg.webp";
 
 const CardProductCatalog = ({ product, sortType }) => {
   const dispatch = useDispatch();
@@ -74,8 +75,8 @@ const CardProductCatalog = ({ product, sortType }) => {
       <WrapperCard>
         <img
           className="productPhoto"
-          src={pictureProduct}
-          alt={product.name}
+          src={pictureProduct || defaultPhoto}
+          alt={product.name || "product picture"}
           width={278}
           height={393}
         />
