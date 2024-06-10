@@ -2,24 +2,21 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getProfile, updateProfile } from "./operations";
 
 const handleGetProfileFulfilled = (state, action) => {
-    console.log(action.payload)
-  state.user = action.payload;
+  state.user.email = action.payload.email;
+  state.user.id = action.payload.id;
+  state.profiles = action.payload.profiles;
 };
 
 const handleUpdateProfile = (state, action) => {
-  state.user = { ...state.user, ...action.payload };
+  state.profiles = { ...state.profiles, ...action.payload.profile };
 };
 
 const initialState = {
-  user:{
-    firstName: "",
-    lastName: "",
-    phoneNumber: "",
+  user: {
     email: "",
-    dateOfBirth: "",
-    city: "",
-    deliveryAddress: "",}
-  
+    id: "",
+  },
+  profiles: [],
 };
 
 const userSlice = createSlice({

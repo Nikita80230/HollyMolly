@@ -1,25 +1,25 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { toast } from "react-hot-toast";
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-export const getProfile= createAsyncThunk(
+export const getProfile = createAsyncThunk(
   "user/getProfile",
   async (_, thunkAPI) => {
-     const state = thunkAPI.getState();
+    const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue("Unable to fetch user");
     }
     try {
-       setAuthHeader(persistedToken);
-      const res = await axios.get("/api/Account/profile");
-      console.log(res.data)
+      setAuthHeader(persistedToken);
+      const res = await axios.get("/api/Account/userInfo");
+
       return res.data;
-      
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -27,12 +27,16 @@ export const getProfile= createAsyncThunk(
 );
 
 export const updateProfile = createAsyncThunk(
-  'user/updateProfile',
-  async (user, thunkAPI) => {
+  "user/updateProfile",
+  async ({ user, profileId }, thunkAPI) => {
     try {
-      const res = await axios.put('/api/Account/profile', user);
+      const res = await axios.put(`/api/Account/profiles/${profileId}`, user);
       return res.data;
     } catch (error) {
+      toast("Щось пішло не такю Впевніться, що всі дані вірні та спробуйте ще раз", {
+        duration: 4000,
+        position: 'top-center'
+      })
       return thunkAPI.rejectWithValue(error.message);
     }
   }

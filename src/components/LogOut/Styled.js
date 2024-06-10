@@ -8,14 +8,13 @@ width: 263px;
 height: 60px;
 border:transparent;
 background-color: ${({ theme }) => theme.colors.primaryBgColor};
-font-family: "Nunito", sans-serif;
-font-weight: 400;
+font-weight: 500;
 font-size: 18px;
 color: ${({ theme }) => theme.colors.profileColorPrimary};
-transition: background-color ${({ theme }) => theme.animations.transition}, color: ${({ theme }) => theme.animations.transition};
+/* transition: background-color ${({ theme }) => theme.animations.transition}, color: ${({ theme }) => theme.animations.transition};
 
 &:focus{
    color: ${({ theme }) => theme.colors.profileColorSecondary}; 
    background-color: ${({ theme }) => theme.colors.profileBgColorAccent};
-}
+} */
 `
