@@ -11,19 +11,19 @@ import {
   REGISTER,
 } from "redux-persist";
 
-import storageSession from "redux-persist/lib/storage/session";
 import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/authSlice";
 import { categoriesReducer } from "./categories/categoriesSlice";
 import { productsReducer } from "./products/productsSlice";
 import { filtersReducer } from "./filters/filtersSlice";
 import { userReducer } from "./user/userSlice";
+import { ordersReducer } from "./orders/ordersSlice";
 
 const productsPersistConfig = {
   key: "products",
   storage:storage,
 
-  whitelist: ["favoriteProducts"],
+  whitelist: ["favoriteProducts", "basketProducts"],
 };
 
 const authPersistConfig = {
@@ -31,12 +31,6 @@ const authPersistConfig = {
   storage,
   whitelist: ["token", "refreshToken", "rememberMe"],
 };
-
-// const authPersistConfig = {
-//   key: "auth",
-//   storage: storageSession,
-//   whitelist: ["token", "refreshToken"],
-// };
 
 const persistedProductsReducer = persistReducer(
   productsPersistConfig,
@@ -52,6 +46,7 @@ export const store = configureStore({
     products: persistedProductsReducer,
     filters: filtersReducer,
     user: userReducer,
+    orders:ordersReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

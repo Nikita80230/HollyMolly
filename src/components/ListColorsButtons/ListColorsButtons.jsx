@@ -6,6 +6,8 @@ const translateColor = (color) => {
 };
 
 const ListColorsButtons = ({ colors, handleClick, activeColorId }) => {
+  if (!colors || !colors.length) return null;
+  
   const translatedColors = colors.map((colorObj) => ({
     ...colorObj,
     color: translateColor(colorObj.color),

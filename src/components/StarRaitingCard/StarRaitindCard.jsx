@@ -2,6 +2,7 @@ import { FaStar, FaStarHalf } from "react-icons/fa";
 import { WrapperStarsIcons } from "./Styled";
 
 const StarRatingCard = ({ rating }) => {
+  
   const fullStars = Math.floor(rating); // Кількість повних зірок
   const hasHalfStar = rating - fullStars >= 0.5; // Перевірка, чи є половинна зірка
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0); // Кількість порожніх зірок

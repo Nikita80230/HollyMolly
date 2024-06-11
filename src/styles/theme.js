@@ -81,7 +81,8 @@ export const theme = {
     borderTitle: "#e4e4e4",
     colorProfileSubtitle: "#000105",
     colorSubtitle: "#19191a",
-    colorLabelProfile:"#323234",
+    colorLabelProfile: "#323234",
+    iconAdd:"#3251ae",
 
   },
 

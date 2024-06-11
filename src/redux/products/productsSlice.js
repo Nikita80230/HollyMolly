@@ -16,6 +16,7 @@ const initialProductsState = {
   favoriteProducts: [],
   productsByCurrentCategory: [],
   filteredProducts: [],
+  basketProducts: [],
 };
 
 const productsSlice = createSlice({
@@ -33,6 +34,10 @@ const productsSlice = createSlice({
           (favoriteProduct) => favoriteProduct.id !== action.payload.id
         );
       }
+    },
+
+    addProductsToBasket: (state, action) => {
+      state.basketProducts.push(action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -77,7 +82,8 @@ const productsSlice = createSlice({
   },
 });
 
-export const { toggleFavoriteProducts } = productsSlice.actions;
+export const { toggleFavoriteProducts, addProductsToBasket } =
+  productsSlice.actions;
 
 export const selectAllProducts = (state) => state.products.allProducts;
 export const selectRecommendedProducts = (state) =>
@@ -87,6 +93,7 @@ export const selectFavoriteProducts = (state) =>
 export const selectProductsByCurrentCategory = (state) =>
   state.products.productsByCurrentCategory;
 export const selectLoading = (state) => state.products.isLoading;
+export const selectBasketProducts = (state) => state.products.basketProducts;
 
 // export const selectSortedProducts = (state) => state.products.sortedProducts;
 
