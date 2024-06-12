@@ -30,26 +30,36 @@ const ResetPasswordForm = ({ token, userId }) => {
         validationSchema={ResetPasswordSchema}
         onSubmit={onSubmit}
       >
-        <StyledForm>
-          <label className="styledLabel">
-            <Field
-              className="inputAuth"
-              name="password"
-              placeholder="New password"
-              type={passwordShown ? "text" : "password"}
-            />
-            <EyeSlashIcon
-              className="iconEye"
-              onClick={() => {
-                setPasswordShown(!passwordShown);
-              }}
-            />
-            <ErrorMessage className="errorMessage" component="p" name="password" />
-          </label>
-          <button className="buttonAuth" type="submit">
-            Змінити пароль
-          </button>
-        </StyledForm>
+        {({ touched, errors }) => (
+          <StyledForm>
+            <label className="styledLabel">
+              <Field
+                className={
+                  errors.password && touched.password
+                    ? "inputError "
+                    : "inputAuth"
+                }
+                name="password"
+                placeholder="New password"
+                type={passwordShown ? "text" : "password"}
+              />
+              <EyeSlashIcon
+                className="iconEye"
+                onClick={() => {
+                  setPasswordShown(!passwordShown);
+                }}
+              />
+              <ErrorMessage
+                className="errorMessage"
+                component="p"
+                name="password"
+              />
+            </label>
+            <button className="buttonAuth" type="submit">
+              Змінити пароль
+            </button>
+          </StyledForm>
+        )}
       </Formik>
     </>
   );
