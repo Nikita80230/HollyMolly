@@ -25,6 +25,11 @@ background: #d9d9d9;
    width:516px;
    
 }
+
+.buttonTrash{
+    border:transparent;
+    background-color: ${({ theme }) => theme.colors.primaryBgColor};
+}
 .spanColor{
     margin-bottom:auto;
 }

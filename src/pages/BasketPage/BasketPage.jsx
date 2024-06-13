@@ -1,13 +1,48 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import BasketCard from "src/components/BasketCard/BasketCard";
 import { selectBasketProducts } from "src/redux/products/productsSlice";
+import { routes } from "src/routes";
 
 import { WrapperBasketPage } from "./Styled";
 
 const BasketPage = () => {
   const products = useSelector(selectBasketProducts);
-  console.log("basket", products)
+  
+  const [counts, setCounts] = useState({});
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    const initialCounts = products.reduce((acc, product) => {
+      acc[product.productInstanceId] = 1;
+      return acc;
+    }, {});
+    setCounts(initialCounts);
+  }, [products]);
+
+  useEffect(() => {
+    const newTotalPrice = products.reduce((sum, product) => {
+      const count = counts[product.productInstanceId] || 1;
+      return sum + count * product.priceAfterDiscount;
+    }, 0);
+    setTotalPrice(newTotalPrice);
+  }, [products, counts]);
+
+  const handleClickAddCount = (productId) => {
+    setCounts((prevCounts) => ({
+      ...prevCounts,
+      [productId]: (prevCounts[productId] || 1) + 1,
+    }));
+  };
+
+  const handleClickCount = (productId) => {
+    setCounts((prevCounts) => ({
+      ...prevCounts,
+      [productId]: Math.max((prevCounts[productId] || 1) - 1, 1),
+    }));
+  };
+
   return (
     <WrapperBasketPage>
       <div>
@@ -15,8 +50,19 @@ const BasketPage = () => {
         <div className="wrapperBasket">
           <div className="wrapperList">
             <ul>
-              {products.map((product)=>
-                <BasketCard product={product} key={product.productInstanceId} />)}
+              {products.map((product) => (
+                <BasketCard
+                  product={product}
+                  key={product.productInstanceId}
+                  count={counts[product.productInstanceId]}
+                  handleClickCount={() =>
+                    handleClickCount(product.productInstanceId)
+                  }
+                  handleClickAddCount={() =>
+                    handleClickAddCount(product.productInstanceId)
+                  }
+                />
+              ))}
             </ul>
           </div>
           <div>
@@ -24,7 +70,7 @@ const BasketPage = () => {
               <div className="wrapperPrices">
                 <div className="containerSpan">
                   <span>Ціна товарів </span>
-                  <span>₴</span>
+                  <span>{totalPrice}₴</span>
                 </div>
                 <div className="containerSpan">
                   <span>Доставка </span>
@@ -32,7 +78,7 @@ const BasketPage = () => {
                 </div>
                 <div className="containerSpan">
                   <span>Загальна ціна </span>
-                  <span>₴</span>
+                  <span>{totalPrice + 100}₴</span>
                 </div>
               </div>
               <div className="wrapperPromoCode">
@@ -40,7 +86,7 @@ const BasketPage = () => {
                 <input />
                 <button>Додати</button>
               </div>
-              <button>Перейти до оформлення</button>
+              <Link to={routes.SUBMIT_ORDER}>Перейти до оформлення</Link>
             </div>
             <div>
               <span>Способи оплати:</span>

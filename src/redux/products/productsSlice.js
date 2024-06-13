@@ -39,6 +39,16 @@ const productsSlice = createSlice({
     addProductsToBasket: (state, action) => {
       state.basketProducts.push(action.payload);
     },
+
+    deleteProduct: (state, action) => {
+      const index = state.basketProducts.findIndex(
+        product => product.productInstanceId === action.payload.productInstanceId
+      );
+  
+      if (index !== -1) {
+        state.basketProducts.splice(index, 1);
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -82,7 +92,7 @@ const productsSlice = createSlice({
   },
 });
 
-export const { toggleFavoriteProducts, addProductsToBasket } =
+export const { toggleFavoriteProducts, addProductsToBasket, deleteProduct } =
   productsSlice.actions;
 
 export const selectAllProducts = (state) => state.products.allProducts;

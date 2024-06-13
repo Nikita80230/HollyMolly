@@ -36,6 +36,7 @@ import ProfileShippingAdressesPage from "./pages/ProfileShippingAdressesPage/Pro
 import ProfilePageLayout from "./components/ProfilePageLayout/ProfilePageLayout";
 import { logOut } from "./redux/auth/authSlice";
 import { selectAuth } from "./redux/auth/selectors";
+import SubmitOrderPage from "./pages/SubmitOrderPage/SubmitOrderPage";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -138,6 +139,14 @@ const appRoutes = [
     element: (
       <PrivateRoute>
         <ProfileShippingAdressesPage />
+      </PrivateRoute>
+    ),
+  },
+  {
+ path: routes.SUBMIT_ORDER,
+    element: (
+      <PrivateRoute>
+        <SubmitOrderPage />
       </PrivateRoute>
     ),
   },
