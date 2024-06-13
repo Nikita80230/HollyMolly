@@ -71,7 +71,7 @@ const Subscribe = () => {
               name="email"
               placeholder="Your email"
               type="text"
-              autoComplete="username"
+              
             />
             <ErrorMessage className="errorMessage" component="p" name="email" />
             {!errors.email ? (

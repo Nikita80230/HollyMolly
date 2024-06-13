@@ -16,12 +16,12 @@ import StarRatingCard from "../StarRaitingCard/StarRaitindCard";
 import { routes } from "src/routes";
 import { useEffect, useState } from "react";
 import AddToBasket from "../AddToBasket/AddToBasket";
+import defaultPhoto from "src/assets/images/defaultImg.webp";
+
 
 const CardProductCatalog = ({ product, sortType }) => {
   const dispatch = useDispatch();
   const favoriteProducts = useSelector(selectFavoriteProducts);
-  // const basketProducts = useSelector(selectBasketProducts);
-  // console.log(basketProducts);
 
   const isProductInFavorite = favoriteProducts.some(
     ({ id }) => id === product.id
@@ -30,17 +30,6 @@ const CardProductCatalog = ({ product, sortType }) => {
   const handleAddToFavorite = () => {
     dispatch(toggleFavoriteProducts(product));
   };
-
-  //   const isProductInBasket = basketProducts.some(
-  //   (basketProduct) => basketProduct.id === product.id &&
-  //                       basketProduct.productInstances.some(
-  //                         (instance) => instance.id === selectedProductInstance.id
-  //                       )
-  // );
-
-  //  const handleAddToBasket = () => {
-  //   dispatch(toggleBasketProducts(product))
-  // }
 
   //===================================================================
   const [price, setPrice] = useState(null);
@@ -92,8 +81,8 @@ const CardProductCatalog = ({ product, sortType }) => {
       <WrapperCard>
         <img
           className="productPhoto"
-          src={pictureProduct}
-          alt={product.name}
+          src={pictureProduct || defaultPhoto}
+          alt={product.name || "product picture"}
           width={278}
           height={393}
         />

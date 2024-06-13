@@ -67,11 +67,11 @@ export const theme = {
     borderHoverPagination: "#cad0f3",
     colorBgSpanRating: " #f0b375",
     borderButtonColors: "#e2e2e2",
-    backgroundAuth: "rgba(0, 1, 5, 0.32)",
+    backgroundAuth: "rgba(0, 1, 5, 0.6)",
     colorAuth: "#e6e9f9",
-    authBorderInput: "#e0e0e0",
+    authBorderInput: "#727273",
     authBgInput: "rgba(255, 255, 255, 0.05)",
-    authTextColor: " #fff",
+    authTextColor: " #f2f2f2",
     authButtonBg: "#1d2f65",
     authColorSecondaryText: "#e6e9f9",
     colorGoogleButton: " #000",
@@ -83,7 +83,7 @@ export const theme = {
     colorSubtitle: "#19191a",
     colorLabelProfile: "#323234",
     iconAdd:"#3251ae",
-
+    colorErrorAuth: " #ff7673",
   },
 
   updatedColors: {

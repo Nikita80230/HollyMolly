@@ -32,11 +32,11 @@ const LoginForm = () => {
         onSubmit={handleSubmit}
         validationSchema={FormSchema}
       >
-        {({ values, handleChange, handleBlur }) => (
+        {({ values, handleChange, handleBlur, errors, touched }) => (
           <StyledForm>
             <label className="styledLabel">
               <Field
-                className="inputAuth"
+                  className={(errors.email && touched.email ? "inputError " : "inputAuth")}
                 name="email"
                 type="text"
                 placeholder="E-mail"
@@ -49,7 +49,7 @@ const LoginForm = () => {
             </label>
             <label className="styledLabel">
               <Field
-                className="inputAuth"
+                  className={(errors.password && touched.password ? "inputError " : "inputAuth")}
                 name="password"
                 type={passwordShown ? "text" : "password"}
                 placeholder="Пароль"
