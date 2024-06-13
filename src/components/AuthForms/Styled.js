@@ -9,26 +9,40 @@ export const StyledForm = styled(Form)`
 
   .inputAuth {
     padding: 18px 24px;
-    border: 1px solid ${({ theme }) => theme.colors.authBorderInput};
+    border: 2px solid ${({ theme }) => theme.colors.authBorderInput};
     outline: none;
     border-radius: 8px;
     width: 100%;
     height: 57px;
     background-color: ${({ theme }) => theme.colors.authBgInput};
-    /* font-family: ${({ theme }) => theme.fonts.familyNunito}; */
     font-weight: 500;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.authTextColor};
+    
   }
 
   .inputAuth::placeholder {
-    /* font-family: ${({ theme }) => theme.fonts.familyNunito}; */
+    font-weight: 500;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.authTextColor};
+  }
+ 
+
+  .inputError{
+    padding: 18px 24px;
+    border: 1px solid ${({ theme }) => theme.colors.authBorderInput};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.colorErrorAuth};
+    outline: none;
+    border-radius: 8px;
+    width: 100%;
+    height: 57px;
+    background-color: ${({ theme }) => theme.colors.authBgInput};
     font-weight: 500;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.authTextColor};
   }
 
-  .styledLabel {
+   .styledLabel {
     position: relative;
   }
 
@@ -44,7 +58,7 @@ export const StyledForm = styled(Form)`
     left: 0;
     font-weight: 500;
     font-size: 16px;
-    color: ${({ theme }) => theme.colors.colorError};
+    color: ${({ theme }) => theme.colors.colorErrorAuth};
   }
 
   .buttonAuth {
@@ -71,7 +85,7 @@ export const LabelRegisterSubscribe = styled.label`
   align-items: center;
   cursor: pointer;
   gap: 12px;
-  font-family: "Roboto", sans-serif;
+  font-family: ${({ theme }) => theme.fonts.familyRoboto};
   font-weight: 400;
   font-size: 16px;
   color: ${({ theme }) => theme.colors.authColorSecondaryText};
@@ -81,7 +95,7 @@ export const InputCheckbox = styled(Field)`
   width: 20px;
   height: 20px;
   border-radius: 5px;
-  border: 2px solid ${({ theme }) => theme.colors.authColorSecondaryText};
+  border: 2px solid ${({ theme }) => theme.colors.authBorderInput};
   background-color: ${({ theme }) => theme.colors.authBgInput};
   cursor: pointer;
   position: relative;

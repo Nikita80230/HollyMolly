@@ -14,8 +14,8 @@ export const WrapperRegister = styled.div`
   justify-content: center;
   align-items: center;
   box-shadow: ${({ theme }) => theme.shadows.boxShadowAuth};
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px); /* Для підтримки в Safari */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); /* Для підтримки в Safari */
   background: ${({ theme }) => theme.colors.backgroundAuth};
 
   animation: ${({ theme }) => theme.animations.slideInFromBottom} 0.5s ease-out;
