@@ -82,8 +82,8 @@ export const theme = {
     colorProfileSubtitle: "#000105",
     colorSubtitle: "#19191a",
     colorLabelProfile: "#323234",
+    iconAdd:"#3251ae",
     colorErrorAuth: " #ff7673",
-   
   },
 
   updatedColors: {

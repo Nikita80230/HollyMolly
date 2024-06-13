@@ -1,12 +1,13 @@
 import { WrapperCard } from "./Styled";
 import Feedback from "src/assets/images/feedback.svg?react";
 import HeartIcon from "src/assets/images/heartBlue.svg?react";
-import BasketIcon from "src/assets/images/basketBlue.svg?react";
+
 // import HeartHoverIcon from "src/assets/images/heartBlueHover.svg?react";
 // import BasketHoverIcon from "src/assets/images/basketBlueHover.svg?react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  selectBasketProducts,
   selectFavoriteProducts,
   toggleFavoriteProducts,
 } from "src/redux/products/productsSlice";
@@ -14,11 +15,14 @@ import ListColorsButtons from "../ListColorsButtons/ListColorsButtons";
 import StarRatingCard from "../StarRaitingCard/StarRaitindCard";
 import { routes } from "src/routes";
 import { useEffect, useState } from "react";
+import AddToBasket from "../AddToBasket/AddToBasket";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
+
 
 const CardProductCatalog = ({ product, sortType }) => {
   const dispatch = useDispatch();
   const favoriteProducts = useSelector(selectFavoriteProducts);
+
   const isProductInFavorite = favoriteProducts.some(
     ({ id }) => id === product.id
   );
@@ -34,6 +38,7 @@ const CardProductCatalog = ({ product, sortType }) => {
   const [isNewCollection, setIsNewCollection] = useState(false);
   const [activeColorId, setActiveColorId] = useState(null);
   const [pictureProduct, setPictureProduct] = useState(null);
+  const [selectedProductInstance, setSelectedProductInstance] = useState(null);
 
   const handleClick = (id) => {
     const selectedProductInstance = product.productsInstances.find(
@@ -45,6 +50,7 @@ const CardProductCatalog = ({ product, sortType }) => {
       setPercentageDiscount(selectedProductInstance.percentageDiscount || null);
       setIsNewCollection(selectedProductInstance.isNewCollection);
       setActiveColorId(id);
+      setSelectedProductInstance(selectedProductInstance);
       if (
         selectedProductInstance.images &&
         selectedProductInstance.images.length > 0
@@ -55,7 +61,7 @@ const CardProductCatalog = ({ product, sortType }) => {
   };
 
   useEffect(() => {
-    if (sortType.value === "isNewCollection") {
+    if (sortType?.value === "isNewCollection") {
       const newCollectionProduct = product.productsInstances.find(
         (instance) => instance.isNewCollection
       );
@@ -63,7 +69,7 @@ const CardProductCatalog = ({ product, sortType }) => {
         handleClick(newCollectionProduct.id);
       }
     } else {
-      if (product.productsInstances.length > 0) {
+      if (product.productsInstances && product.productsInstances.length > 0) {
         const firstProductInstance = product.productsInstances[0];
         handleClick(firstProductInstance.id);
       }
@@ -82,7 +88,7 @@ const CardProductCatalog = ({ product, sortType }) => {
         />
 
         <ListColorsButtons
-          colors={product.productsInstances}
+          colors={product.productsInstances || []}
           handleClick={handleClick}
           activeColorId={activeColorId}
         />
@@ -97,16 +103,16 @@ const CardProductCatalog = ({ product, sortType }) => {
         )}
         <div className="wrapperColorsFeedbackHeart">
           <div className="buttonsFeedback">
-            <StarRatingCard rating={product.rating} />
+            <StarRatingCard rating={product.rating || 0} />
 
             <Link to={`${routes.FEEDBACK}/${product.categoryId}/${product.id}`}>
               <div className="wrapperFeedback">
                 <Feedback />
-                {product.feedbacks.length === 0 ? (
+                {product.feedbacks && product.feedbacks.length === 0 ? (
                   <span className="spanFeedback">Залишити відгук</span>
                 ) : (
                   <span className="spanFeedback">
-                    {product.feedbacks.length}
+                    {product.feedbacks ? product.feedbacks.length : 0}
                   </span>
                 )}
               </div>
@@ -130,14 +136,10 @@ const CardProductCatalog = ({ product, sortType }) => {
               {priceAfterDiscount ? `${priceAfterDiscount}₴` : ""}
             </p>
           </div>
-          <button className="buttonIcon">
-            {/* <BasketIcon className="iconBasket" />` */}
-            {
-              <BasketIcon
-                className={`iconBasket ${isProductInFavorite ? "added" : ""} `}
-              />
-            }
-          </button>
+          <AddToBasket
+            product={product}
+            selectedProductInstance={selectedProductInstance}
+          />
         </div>
       </WrapperCard>
     </li>

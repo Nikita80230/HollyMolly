@@ -33,6 +33,7 @@ const RegisterForm = () => {
         onSubmit={handleSubmit}
         validationSchema={RegisterSchema}
       >
+         
         {({  touched, errors }) => (
           <StyledForm>
             <label className="styledLabel">

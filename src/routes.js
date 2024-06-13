@@ -17,7 +17,7 @@ export const routes = {
   MY_ORDERS: "/profile/my-orders",
   MY_RETURNS: "/profile/returns",
   SHIPPING_ADDRESSES: '/profile/shipping-addresses',
-  
+  SUBMIT_ORDER:'/submit-order',
 
   
 };

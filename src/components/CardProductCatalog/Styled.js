@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const WrapperCard = styled.div`
   position: relative;
   padding: 16px;
-  border: 1px solid #e2e2e2;
+  border: 1px solid ${({ theme }) => theme.colors.borderButtonColors};
   width: 310px;
   height: 603px;
   transition: opacity ${({ theme }) => theme.animations.transition},
@@ -16,7 +16,7 @@ export const WrapperCard = styled.div`
 
     transition: ${({ theme }) => theme.animations.transition};
     path {
-      stroke: #3251ae;
+      stroke: ${({ theme }) => theme.colors.iconAdd};
       transition: ${({ theme }) => theme.animations.transition};
     }
   }
@@ -29,7 +29,6 @@ export const WrapperCard = styled.div`
     transition: ${({ theme }) => theme.animations.transition};
 
     path {
-      /* stroke: #3251ae; */
       transition: ${({ theme }) => theme.animations.transition};
     }
   }
@@ -44,31 +43,32 @@ export const WrapperCard = styled.div`
       opacity: 1;
       pointer-events: all;
       user-select: all;
-      transition: ${({ theme }) => theme.animations.transition};
+      transition: opacity ${({ theme }) => theme.animations.transition};
 
       path {
         fill: transparent;
       }
     }
-    .iconBasket {
-      opacity: 1;
-      pointer-events: all;
-      user-select: all;
-      transition: ${({ theme }) => theme.animations.transition};
-
-      path {
-        fill: #3251ae;
-      }
-    }
-
     .iconHeart.added {
       path {
         fill: #3251ae;
       }
     }
+
+    .iconBasket {
+      opacity: 1;
+      pointer-events: all;
+      user-select: all;
+      transition: opacity ${({ theme }) => theme.animations.transition};
+
+      path {
+        fill: ${({theme}) => theme.colors.iconAdd};
+      }
+    }
+
     .iconBasket.added {
       path {
-        fill: #3251ae;
+        fill: ${({theme}) => theme.colors.iconAdd};
       }
       .selectedBasketPath {
         opacity: 1;
@@ -144,18 +144,18 @@ export const WrapperCard = styled.div`
     color: ${({ theme }) => theme.colors.titleCardProduct};
   }
 
-   .wrapperPriceIcon {
-    position:relative;
-    padding-top:14px;
+  .wrapperPriceIcon {
+    position: relative;
+    padding-top: 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
   .price {
-    position:absolute;
-    top:0;
-    left:0;
+    position: absolute;
+    top: 0;
+    left: 0;
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 500;
     font-size: 14px;
@@ -195,7 +195,6 @@ export const WrapperCard = styled.div`
     justify-content: space-between;
     align-items: center;
   }
- 
 
   .buttonIcon {
     background-color: transparent;
