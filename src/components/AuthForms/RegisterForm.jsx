@@ -36,6 +36,19 @@ const RegisterForm = () => {
          
         {({  touched, errors }) => (
           <StyledForm>
+              <label className="styledLabel">
+              <Field
+                   className={(errors.email && touched.email ? "inputError " : "inputAuth")}
+              name="email"
+              type="text"
+              placeholder="E-mail"
+            />
+              <ErrorMessage
+                className="errorMessage"
+                name="email"
+                component="p"
+              />
+            </label>
             <label className="styledLabel">
               <Field
                  className={(errors.password && touched.password ? "inputError " : "inputAuth")}
@@ -75,19 +88,7 @@ const RegisterForm = () => {
                 component="p"
               />
             </label>
-            <label className="styledLabel">
-              <Field
-                   className={(errors.email && touched.email ? "inputError " : "inputAuth")}
-              name="email"
-              type="text"
-              placeholder="E-mail"
-            />
-              <ErrorMessage
-                className="errorMessage"
-                name="email"
-                component="p"
-              />
-            </label>
+          
             <LabelRegisterSubscribe>
               <InputCheckbox
                 type="checkbox"

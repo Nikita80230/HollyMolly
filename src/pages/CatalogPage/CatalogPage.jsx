@@ -11,7 +11,7 @@ import FiltersPanel from "src/components/FiltersPanel/FiltersPanel";
 import ProductsGrid from "src/components/ProductsGrid/ProductsGrid";
 import { useEffect, useMemo, useState } from "react";
 import { getProductsByCurrentCategory } from "src/redux/products/operations";
-import { selectFilters } from "src/redux/filters/filtersSlice";
+import { selectFilters, toggleFilter } from "src/redux/filters/filtersSlice";
 import {
   selectLoading,
   selectProductsByCurrentCategory,
@@ -50,6 +50,10 @@ const CatalogPage = () => {
         ? { value: "", label: "" }
         : option;
     });
+  };
+
+  const handlePaginationReset = () => {
+    setCurrentPage(1); 
   };
 
   const filteredProducts = useMemo(
@@ -100,6 +104,7 @@ const CatalogPage = () => {
 
   useEffect(() => {
     dispatch(getProductsByCurrentCategory({ categoryGroupId, categoryId }));
+    setCurrentPage(1);
   }, [categoryGroupId, categoryId, dispatch]);
 
   // ==============================================================================================
@@ -131,6 +136,10 @@ const CatalogPage = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
+   useEffect(() => {
+    setCurrentPage(1); 
+  }, [location]);
+
   // =======================================================================================
 
   return (
@@ -149,7 +158,7 @@ const CatalogPage = () => {
           handleSorting={handleSorting}
           sortType={sortType}
         />
-        <FiltersPanel className="filters" />
+        <FiltersPanel className="filters" onPaginationReset={handlePaginationReset}/>
         {isLoading ? (
           <Loader />
         ) : (

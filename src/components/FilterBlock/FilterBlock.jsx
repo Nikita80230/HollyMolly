@@ -4,7 +4,7 @@ import { StyledFilterBlock } from "./Styled";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFilters, toggleFilter } from "src/redux/filters/filtersSlice";
 
-const FilterBlock = ({ title, options }) => {
+const FilterBlock = ({ title, options, onPaginationReset }) => {
   const dispatch = useDispatch();
 
   const filters = useSelector(selectFilters);
@@ -12,6 +12,7 @@ const FilterBlock = ({ title, options }) => {
   const handleChange = (e) => {
     const filter = { value: e.target.value, name: e.target.name };
     dispatch(toggleFilter(filter));
+    onPaginationReset();
   };
 
   if (!options.values.length) return;
