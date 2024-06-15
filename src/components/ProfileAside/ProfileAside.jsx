@@ -1,9 +1,11 @@
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { logOutAllDevices } from "src/redux/auth/operations";
 import { routes } from "src/routes";
-import ButtonLogOut from "../LogOut/ButtonLogOut";
 import { StyledAside } from "./Styled";
 
 const ProfileAside = () => {
+  const dispatch = useDispatch();
   return (
     <StyledAside>
       <nav>
@@ -40,8 +42,20 @@ const ProfileAside = () => {
               </div>
             </NavLink>
           </li>
+          <li>
+            {" "}
+            <NavLink
+              className="linkAside"
+              to={routes.HOME}
+              end
+              onClick={() => dispatch(logOutAllDevices())}
+            >
+              <div className="wrapperLink">
+                <span>Вийти</span>
+              </div>
+            </NavLink>
+          </li>
         </ul>
-        <ButtonLogOut />
       </nav>
     </StyledAside>
   );

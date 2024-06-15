@@ -1,8 +1,6 @@
 import { styled } from "styled-components";
 
 export const StyledAside = styled.aside`
-padding-left:64px;
-/* width:327px; */
 
 .linkAside{
 font-weight: 500;
