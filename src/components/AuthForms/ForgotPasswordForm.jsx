@@ -9,7 +9,7 @@ const ForgotPasswordForm = () => {
   const onSubmit = async (values, actions) => {
     try {
       const result = await forgotPassword(values);
-      
+
       if (result && result.status === 204) {
         toast.custom(
           <div className="custom-toast">
@@ -25,7 +25,9 @@ const ForgotPasswordForm = () => {
       }
     } catch (error) {
       toast.custom(
-        <div className="custom-toast">Щось пішло не так. Спробуйте ще раз.</div>,
+        <div className="custom-toast">
+          Щось пішло не так. Спробуйте ще раз.
+        </div>,
         {
           duration: 4000,
         }

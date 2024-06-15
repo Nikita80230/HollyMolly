@@ -18,7 +18,6 @@ export const StyledForm = styled(Form)`
     font-weight: 500;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.authTextColor};
-    
   }
 
   .inputAuth::placeholder {
@@ -26,9 +25,8 @@ export const StyledForm = styled(Form)`
     font-size: 16px;
     color: ${({ theme }) => theme.colors.authTextColor};
   }
- 
 
-  .inputError{
+  .inputError {
     padding: 18px 24px;
     border: 1px solid ${({ theme }) => theme.colors.authBorderInput};
     border-bottom: 2px solid ${({ theme }) => theme.colors.colorErrorAuth};
@@ -42,7 +40,7 @@ export const StyledForm = styled(Form)`
     color: ${({ theme }) => theme.colors.authTextColor};
   }
 
-   .styledLabel {
+  .styledLabel {
     position: relative;
   }
 
@@ -77,7 +75,6 @@ export const StyledForm = styled(Form)`
     font-size: 22px;
     color: ${({ theme }) => theme.colors.authTextColor};
   }
-  
 `;
 
 export const LabelRegisterSubscribe = styled.label`
