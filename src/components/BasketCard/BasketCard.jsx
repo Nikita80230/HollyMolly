@@ -8,7 +8,6 @@ import { BasketItem } from "./Styled";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
 import TrashIcon from "src/assets/images/trash.svg?react";
 
-
 const BasketCard = ({
   product,
   count,
@@ -26,10 +25,9 @@ const BasketCard = ({
     priceAfterDiscount,
     stockQuantity,
   } = product;
-  
 
   const pictureProduct = images.length > 0 ? images[0].link : defaultPhoto;
-  
+
   const handleClick = () => {
     dispatch(deleteProduct({ productInstanceId }));
   };
@@ -38,7 +36,12 @@ const BasketCard = ({
     <BasketItem key={productInstanceId}>
       <div className="wrapperCardBasket">
         <div className="wrapperPhoto">
-          <img src={ pictureProduct} alt={productName} width={200} height={200} />
+          <img
+            src={pictureProduct}
+            alt={productName}
+            width={200}
+            height={200}
+          />
         </div>
         <div className="wrapperBox">
           <div className="boxNameDelete">

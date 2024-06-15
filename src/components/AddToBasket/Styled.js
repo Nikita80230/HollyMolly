@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const ButtonAddToBasket = styled.button`
-background-color: transparent;
+  background-color: transparent;
   border: transparent;
 
   .iconBasket {
@@ -20,4 +20,4 @@ background-color: transparent;
     opacity: 0;
     transition: ${({ theme }) => theme.animations.transition};
   }
-`
+`;

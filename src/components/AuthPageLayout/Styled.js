@@ -3,7 +3,7 @@ import backgroundAuthLayout1x from "src/assets/images/authLayout/authPageBg1x.we
 import backgroundAuthLayout2x from "src/assets/images/authLayout/authPageBg2x.webp";
 
 export const StyledAuthPageLayout = styled.div`
-position:relative;
+  position: relative;
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.05) url(${backgroundAuthLayout1x});
