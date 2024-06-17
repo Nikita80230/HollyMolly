@@ -9,8 +9,7 @@ import defaultPhoto from "src/assets/images/defaultImg.webp";
 import TrashIcon from "src/assets/images/trash.svg?react";
 
 const BasketCard = ({
-  product,
-  count,
+ product,
   handleClickCount,
   handleClickAddCount,
 }) => {
@@ -24,6 +23,7 @@ const BasketCard = ({
     price,
     priceAfterDiscount,
     stockQuantity,
+    quantity,
   } = product;
 
   const pictureProduct = images.length > 0 ? images[0].link : defaultPhoto;
@@ -58,16 +58,17 @@ const BasketCard = ({
               <button
                 type="button"
                 onClick={handleClickCount}
-                disabled={count <= 1}
+                disabled={quantity <= 1}
               >
                 {" "}
                 -{" "}
               </button>
-              <span>{count}</span>
+              <span>{quantity}</span>
               <button
                 type="button"
                 onClick={handleClickAddCount}
-                disabled={count >= stockQuantity}
+                disabled={quantity >= stockQuantity}
+
               >
                 +
               </button>

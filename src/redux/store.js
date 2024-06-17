@@ -21,7 +21,7 @@ import { ordersReducer } from "./orders/ordersSlice";
 
 const productsPersistConfig = {
   key: "products",
-  storage:storage,
+  storage: storage,
 
   whitelist: ["favoriteProducts", "basketProducts"],
 };
@@ -37,7 +37,7 @@ const persistedProductsReducer = persistReducer(
   productsReducer
 );
 
- const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
+const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 
 export const store = configureStore({
   reducer: {
@@ -46,7 +46,7 @@ export const store = configureStore({
     products: persistedProductsReducer,
     filters: filtersReducer,
     user: userReducer,
-    orders:ordersReducer,
+    orders: ordersReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

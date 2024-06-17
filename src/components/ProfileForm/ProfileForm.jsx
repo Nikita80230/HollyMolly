@@ -6,7 +6,6 @@ import CalendarIcon from "src/assets/images/calendar.svg?react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateProfile } from "src/redux/user/operations";
 import { selectProfiles } from "src/redux/user/selectors";
-import Loader from "../Loader/Loader";
 import { useState } from "react";
 import { ProfileSchema } from "src/schemas/ProfileSchema";
 import { subscribeSentEmail } from "src/services/subscribeSentEmail";
@@ -16,23 +15,26 @@ const ProfileForm = ({ userEmail }) => {
   const profiles = useSelector(selectProfiles);
   const [isSubscribe, setIsSubscribe] = useState(false);
 
-  if (!profiles || profiles.length === 0) {
-    return <Loader />;
-  }
-
-  const { firstName, lastName, phoneNumber, dateOfBirth, id } = profiles[0];
-
-  const phoneCode = phoneNumber.slice(0, 4);
-  const phoneNum = phoneNumber.slice(4);
-
-  const initialValues = {
-    firstName: firstName || "",
-    lastName: lastName || "",
-    email: userEmail || "",
-    phoneCode: phoneCode || "+380",
-    phoneNumber: phoneNum || "",
-    dateOfBirth: dateOfBirth ? new Date(dateOfBirth) : null,
-  };
+  const initialValues =
+    profiles && profiles.length > 0
+      ? {
+          firstName: profiles[0]?.firstName || "",
+          lastName: profiles[0]?.lastName || "",
+          email: userEmail || "",
+          phoneCode: profiles[0]?.phoneNumber?.slice(0, 4) || "+380",
+          phoneNumber: profiles[0]?.phoneNumber?.slice(4) || "",
+          dateOfBirth: profiles[0]?.dateOfBirth
+            ? new Date(profiles[0].dateOfBirth)
+            : null,
+        }
+      : {
+          firstName: "",
+          lastName: "",
+          email: userEmail || "",
+          phoneCode: "+380",
+          phoneNumber: "",
+          dateOfBirth: null,
+        };
 
   const handleSubmit = (values) => {
     const updatedValues = {
@@ -47,7 +49,11 @@ const ProfileForm = ({ userEmail }) => {
       subscribeSentEmail(values);
     }
 
-    dispatch(updateProfile({ user: updatedValues, profileId: id }));
+    if (profiles && profiles.length > 0) {
+      dispatch(
+        updateProfile({ user: updatedValues, profileId: profiles[0].id })
+      );
+    }
   };
 
   return (
