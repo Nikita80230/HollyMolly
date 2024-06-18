@@ -17,6 +17,7 @@ const initialProductsState = {
   productsByCurrentCategory: [],
   filteredProducts: [],
   basketProducts: [],
+  amountOrder:0,
 };
 
 const productsSlice = createSlice({
@@ -37,18 +38,57 @@ const productsSlice = createSlice({
     },
 
     addProductsToBasket: (state, action) => {
-      state.basketProducts.push(action.payload);
+      
+      const { productInstanceId, priceAfterDiscount } = action.payload;
+      const currentProduct = state.basketProducts.find(
+        (product) => product.productInstanceId === productInstanceId
+      );
+      if (currentProduct) {
+        currentProduct.quantity += 1;
+        currentProduct.totalPrice =
+          currentProduct.quantity * priceAfterDiscount;
+      } else {
+        state.basketProducts.push({
+          ...action.payload,
+          quantity: 1,
+          totalPrice: priceAfterDiscount,
+        });
+      }
     },
 
     deleteProduct: (state, action) => {
       const index = state.basketProducts.findIndex(
-        product => product.productInstanceId === action.payload.productInstanceId
+        (product) =>
+          product.productInstanceId === action.payload.productInstanceId
       );
-  
+
       if (index !== -1) {
         state.basketProducts.splice(index, 1);
       }
     },
+
+    updateProduct: (state, action) => {
+      const { productInstanceId, quantity } = action.payload;
+      const currentProduct = state.basketProducts.find(
+        (product) => product.productInstanceId === productInstanceId
+      );
+      if (currentProduct) {
+        currentProduct.quantity = quantity;
+        currentProduct.totalPrice =
+          quantity * currentProduct.priceAfterDiscount;
+      }
+    },
+
+     calculateAmountOrder: (state) => {
+      state.amountOrder = state.basketProducts.reduce((sum, product) => {
+        return sum + product.totalPrice;
+      }, 0);
+    },
+     
+    clearBasket: (state) => {
+      state.basketProducts = [];
+      state.amountOrder = 0;
+     }
   },
   extraReducers: (builder) => {
     builder
@@ -92,8 +132,14 @@ const productsSlice = createSlice({
   },
 });
 
-export const { toggleFavoriteProducts, addProductsToBasket, deleteProduct } =
-  productsSlice.actions;
+export const {
+  toggleFavoriteProducts,
+  addProductsToBasket,
+  deleteProduct,
+  updateProduct,
+  calculateAmountOrder,
+  clearBasket,
+} = productsSlice.actions;
 
 export const selectAllProducts = (state) => state.products.allProducts;
 export const selectRecommendedProducts = (state) =>
@@ -104,6 +150,7 @@ export const selectProductsByCurrentCategory = (state) =>
   state.products.productsByCurrentCategory;
 export const selectLoading = (state) => state.products.isLoading;
 export const selectBasketProducts = (state) => state.products.basketProducts;
+export const selectAmountOrder = (state) => state.products.amountOrder;
 
 // export const selectSortedProducts = (state) => state.products.sortedProducts;
 
