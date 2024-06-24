@@ -12,19 +12,19 @@ export const StyledSearchHeaderBtn = styled.button`
 
   background: transparent;
   border: none;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.secondaryTxtColor};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.primaryTxtColor};
 
   .searchIcon {
     margin: auto 0;
   }
 
   .placeholder {
-    text-transform: capitalize;
-    font-weight: 500;
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.secondaryTxtColor};
-
-    font-family: "Roboto";
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.placeholderTxtColor};
   }
 
   .input {

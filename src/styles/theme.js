@@ -11,23 +11,36 @@ to{
 
 export const theme = {
   colors: {
-    primaryBgColor: "#FFFFFF",
+    primaryBgColor: "#fff",
+    
+    heroBgColor: "#eae8dc",
+    gradient: "linear-gradient(135deg, #fff 0%, #fff 100%)",
+    gradientTitle:"linear-gradient(90deg, #100503 0%, #e85a50 100%)",
+    primaryTxtColor: "#100503",
+    whiteTxtColor: "#fff",
+    placeholderTxtColor: "#c4c4c4",
+    cardBorderColor: "#fff6e7",
+   accentColor: "#e85a50",
+    
     secondaryBgColor: "#f3f2f1",
-    heroBgColor: "#f3c59b ",
-    primaryTxtColor: "#323234",
     secondaryTxtColor: " rgba(0, 3, 15, 0.6)",
     headerSearchMenuList: "#000105",
     lightTxtColor: "#fcf2ea",
     lightColorButton: "#f3f4fc",
     accentTxtColor: "#1d2f65",
+    
     colorLogo: "#6b5034",
     colorLink: "#4169e1",
+    bgColorWrapperHats: "#fff6e7",
+    bgColorWrapperBags: "#e2edf4",
+    bgColorWrapperJewelry: " #eff9f1",
+    bgColorWrapperOther:"#f9eff5",
     colorInput: " #727273",
     inputFocus: "#19191a",
     inputBorder: "#4c4c4d",
     hoverInput: "#323234",
     footerSubtitle: "#4c4c4d",
-    buttonBgColor: "#3251ae",
+    buttonBgColor: "#e85a50",
     hoverButton: "#1d2f65",
     focusButton: "#8094e7",
     backgroundCard: "#FFE959",
@@ -158,8 +171,9 @@ export const theme = {
   },
 
   fonts: {
-    familyNunito: "Nunito",
-    familyRoboto: "Roboto",
+    familyPacifico: "Pacifico", 
+    familyGaramond: "EBGaramond-Variable",
+    familyDidact: "Didact Gothic",
   },
 
   animations: {

@@ -7,7 +7,7 @@ import {
 } from "./Styled";
 import Instagram from "../../assets/images/instagram.svg?react";
 import Facebook from "../../assets/images/facebook.svg?react";
-import Twitter from "../../assets/images/twitter.svg?react";
+import Telegram from "../../assets/images/telegram.svg?react";
 import { routes } from "src/routes";
 import { selectCategories } from "src/redux/categories/selectors";
 import { useSelector } from "react-redux";
@@ -25,9 +25,9 @@ const FooterNavigation = () => {
   };
 
   const handleLinkClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
-  
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -57,8 +57,12 @@ const FooterNavigation = () => {
           </div>
           {(isMobile ? openContainer === "help" : true) && (
             <div>
-              <StyledLink to={routes.TRACKING} onClick={handleLinkClick}>Відстеження товару</StyledLink>
-              <StyledLink to={routes.SIZE_GUIDE}onClick={handleLinkClick}>Довідник розмірів</StyledLink>
+              <StyledLink to={routes.TRACKING} onClick={handleLinkClick}>
+                Відстеження товару
+              </StyledLink>
+              <StyledLink to={routes.SIZE_GUIDE} onClick={handleLinkClick}>
+                Довідник розмірів
+              </StyledLink>
               <StyledLink onClick={handleLinkClick}>FAQ</StyledLink>
             </div>
           )}
@@ -79,9 +83,13 @@ const FooterNavigation = () => {
           </div>
           {(isMobile ? openContainer === "aboutUs" : true) && (
             <div>
-              <StyledLink to={routes.ABOUT_US} onClick={handleLinkClick}>Про нас</StyledLink>
+              <StyledLink to={routes.ABOUT_US} onClick={handleLinkClick}>
+                Про нас
+              </StyledLink>
               <StyledLink onClick={handleLinkClick}>Кар'єра</StyledLink>
-              <StyledLink to={routes.SUPPORT} onClick={handleLinkClick}>Допомога</StyledLink>
+              <StyledLink to={routes.SUPPORT} onClick={handleLinkClick}>
+                Допомога
+              </StyledLink>
             </div>
           )}
         </li>
@@ -153,11 +161,11 @@ const FooterNavigation = () => {
               </WrapperSocialLink>
               <WrapperSocialLink>
                 <SocialLink
-                  to="https://twitter.com/"
+                  to="https://t.me/yourstore"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Twitter className="icon" />
+                  <Telegram className="icon" />
                   Your Store_
                 </SocialLink>
               </WrapperSocialLink>

@@ -16,11 +16,13 @@ export const StyledCategoryBtn = styled.div`
   }
 
   .text {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
+     font-family: ${({ theme }) => theme.fonts.familyGaramond};
     font-weight: 400;
-    font-size: 18px;
+    font-size: 36px;
+    line-height: 1.22222;
+    text-align: center;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
-    margin-right: 15px;
+    margin-right: 5px;
   }
 
   .openCategoryIcon {
@@ -28,7 +30,7 @@ export const StyledCategoryBtn = styled.div`
   }
 
   .openCategoryIcon.openedCategoryIcon {
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {

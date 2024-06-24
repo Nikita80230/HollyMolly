@@ -2,17 +2,19 @@ import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const WrapperFooterNavigation = styled.div`
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   display: flex;
   justify-content: center;
   align-items: center;
 
   @media only screen and (min-width: 768px) {
-    margin-bottom: 64px;
+    /* margin-bottom: 64px; */
   }
 
   @media only screen and (min-width: 1440px) {
-    margin-bottom: 98px;
+    /* margin-bottom: 98px; */
+    width: 1127px;
+    height: 125px;
   }
 `;
 
@@ -28,13 +30,14 @@ export const FooterNavigationList = styled.ul`
   }
 
   @media only screen and (min-width: 1440px) {
-    gap: 24px;
+    gap: 145px;
   }
 
   .footer-items {
     @media only screen and (min-width: 1440px) {
-      width: 198px;
-      height: 155px;
+      /* width: 198px;
+      height: 155px; */
+      width: 173px;
     }
   }
 
@@ -56,8 +59,9 @@ export const FooterNavigationList = styled.ul`
     }
 
     @media only screen and (min-width: 1440px) {
-      width: 198px;
-      height: 25px;
+      /* width: 198px;
+      height: 25px; */
+      margin-bottom: 5px;
     }
   }
 
@@ -74,12 +78,13 @@ export const FooterNavigationList = styled.ul`
 
     @media only screen and (min-width: 768px) {
       font-size: 16px;
-      color: ${({ theme }) => theme.colors.primaryTxtColor};
     }
 
     @media only screen and (min-width: 1440px) {
-      font-weight: 300;
-      font-size: 18px;
+      font-family: ${({ theme }) => theme.fonts.familyGaramond};
+      font-weight: 700;
+      font-size: 16px;
+      color: ${({ theme }) => theme.colors.primaryTxtColor};
     }
   }
 
@@ -101,7 +106,7 @@ export const FooterNavigationList = styled.ul`
     }
 
     @media only screen and (min-width: 1440px) {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       width: 198px;
       height: 25px;
     }
@@ -110,7 +115,7 @@ export const FooterNavigationList = styled.ul`
 export const StyledLink = styled(NavLink)`
   display: block;
   margin-bottom: 8px;
-  font-family: ${({ theme }) => theme.fonts.familyRoboto};
+
   font-weight: 400;
   font-size: 14px;
   text-align: center;
@@ -127,7 +132,11 @@ export const StyledLink = styled(NavLink)`
   }
 
   @media only screen and (min-width: 1440px) {
+    margin-bottom: 5px;
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
     font-size: 16px;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 `;
 
@@ -135,7 +144,7 @@ export const SocialLink = styled(NavLink)`
   display: flex;
   align-items: center;
   gap: 4px;
-  font-family: ${({ theme }) => theme.fonts.familyRoboto};
+
   font-weight: 400;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.colorLink};
@@ -150,8 +159,11 @@ export const SocialLink = styled(NavLink)`
   }
 
   @media only screen and (min-width: 1440px) {
-    gap: 8px;
-    font-size: 18px;
+    gap: 5px;
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 `;
 
@@ -162,7 +174,7 @@ export const WrapperSocialLink = styled.div`
   @media only screen and (min-width: 768px) {
   }
   @media only screen and (min-width: 1440px) {
-    margin-bottom: 4px;
+    margin-bottom: 5px;
   }
 
   .icon {
@@ -172,8 +184,8 @@ export const WrapperSocialLink = styled.div`
     }
 
     @media only screen and (min-width: 1440px) {
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
     }
   }
 `;

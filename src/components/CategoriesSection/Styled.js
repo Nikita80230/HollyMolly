@@ -9,12 +9,12 @@ export const StyledCategoriesSection = styled.section`
   }
 
   @media only screen and (min-width: 1440px) {
-    margin-bottom: 80px;
+    margin-bottom: 36px;
   }
 
   .titleCategories {
     margin-bottom: 32px;
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
+   
     font-size: 20px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
 
@@ -23,8 +23,41 @@ export const StyledCategoriesSection = styled.section`
     }
 
     @media only screen and (min-width: 1440px) {
-      margin-bottom: 41px;
-      font-size: 32px;
+      margin-bottom: 36px;
+      font-weight: 500;
+      font-size: 40px;
+    }
+  }
+
+  .listCategories {
+    @media only screen and (min-width: 1440px) {
+      display: flex;
+      gap: 46px;
+    }
+  }
+
+  .categoriesPhoto {
+    @media only screen and (min-width: 1440px) {
+      margin-bottom: 37px;
+      border-radius: 10px 10px 0 0;
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  .wrapperItem {
+    @media only screen and (min-width: 1440px) {
+      border-radius: 10px;
+      width: 300px;
+      height: 413px;
+    }
+  }
+
+  .textCard {
+    @media only screen and (min-width: 1440px) {
+      font-size: 30px;
+      text-align: center;
+      color: ${({ theme }) => theme.colors.primaryTxtColor};
     }
   }
 
@@ -38,7 +71,7 @@ export const StyledCategoriesSection = styled.section`
 
     @media only screen and (min-width: 1440px) {
       /* width: 100%; */
-      height: 324px;
+      height: 413px;
     }
   }
 
@@ -46,71 +79,70 @@ export const StyledCategoriesSection = styled.section`
     position: absolute;
     top: 5px;
     right: 0;
-    width: 105px;
-    height: 38px;
+    /* width: 105px;
+    height: 38px; */
     display: flex;
     align-items: center;
     gap: 15px;
 
     @media only screen and (min-width: 768px) {
-      
-      width: 124px;
-      height: 40px;
+      /* width: 124px;
+      height: 40px; */
       gap: 16px;
     }
 
     @media only screen and (min-width: 1440px) {
       top: 0;
-      width: 165px;
-      height: 50px;
-      gap: 33px;
+      width: 111px;
+      height: 32px;
+      gap: 27px;
     }
   }
   .swiper-button-next,
   .swiper-button-prev {
-    padding: 7px;
+    padding: 0;
     width: 36px;
     height: 36px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: transparent;
-    border: 1px solid ${({ theme }) => theme.colors.borderButtonSwiper};
+    border: transparent;
     border-radius: 8px;
     transition: background-color ${({ theme }) => theme.animations.transition},
       border ${({ theme }) => theme.animations.transition};
 
     @media only screen and (min-width: 768px) {
-      padding: 8px 11px;
+      padding: 0;
       width: 46px;
       height: 40px;
       border-radius: 6px;
     }
 
     @media only screen and (min-width: 1440px) {
-      padding: 10px;
-      width: 56px;
-      height: 48px;
-      border-radius: 8px;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      /* border-radius: 8px; */
     }
   }
 
   .swiper-button-next:focus {
     background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper};
-    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+    /* border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper}; */
   }
 
   .swiper-button-prev:focus {
     background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper};
-    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+    /* border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper}; */
   }
 
   .swiper-button-next:hover {
-    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+    /* border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper}; */
   }
 
   .swiper-button-prev:hover {
-    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+    /* border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper}; */
   }
 
   .swiper-button-next:after,
@@ -120,7 +152,7 @@ export const StyledCategoriesSection = styled.section`
 
   .swiper-button-prev.swiper-button-disabled,
   .swiper-button-next.swiper-button-disabled {
-    border: 1px solid ${({ theme }) => theme.colors.borderButton};
+    border: transparent;
   }
   .swiperSlide {
     width: 164px;
@@ -132,8 +164,8 @@ export const StyledCategoriesSection = styled.section`
     }
 
     @media only screen and (min-width: 1440px) {
-      width: 310px;
-      height: 294px;
+      width: 300px;
+      height: 413px;
     }
   }
 `;

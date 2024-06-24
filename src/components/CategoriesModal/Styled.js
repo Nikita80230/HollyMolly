@@ -16,16 +16,16 @@ export const StyledCategoriesModal = styled.div`
     position: relative;
     z-index: 2;
 
-    top: 7%;
+    top: 9.5%;
     left: 0;
 
-    max-width: 654px;
+    max-width: 882px;
     width: 100%;
-    height: 208px;
+    height: 281px;
 
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.25);
+    padding: 30px 50px 50px 50px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px 0 #a88465;
     background: #fff;
   }
 
@@ -60,36 +60,36 @@ export const StyledCategoriesModal = styled.div`
   }
 
   .categoryGroupTitle {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 300;
-    font-size: 17px;
-    color: #000105;
-
-    padding: 3px;
-    margin-bottom: 24px;
-
-    border-bottom: 1px solid rgba(0, 1, 5, 0.4);
+    margin-bottom:20px;
+    font-family: ${({theme})=> theme.fonts.familyPacifico};
+font-weight: 400;
+font-size: 28px;
+line-height: 1.21429;
+text-align: center;
+color: ${({ theme }) => theme.colors.accentColor};
+white-space:nowrap;
   }
 
   .categoryGroupList {
     display: flex;
     flex-direction: column;
 
-    max-height: 89px;
+    /* max-height: 89px; */
     height: 100%;
 
     width: 100%;
   }
 
   .subCategoryLink {
-    font-family: ${({ theme }) => theme.fonts.familyRoboto};
-    font-weight: 400;
-    font-size: 15px;
-    color: #000105;
+  
+font-weight: 400;
+font-size: 30px;
+text-align: center;
+color:${({theme})=>theme.colors.primaryTxtColor}
   }
 
   .subCategoryLink:not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   .subCategoryLink:hover,

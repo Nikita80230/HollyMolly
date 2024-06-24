@@ -1,5 +1,5 @@
 import { StyledCategoryBtn } from "./Styled";
-import ArrowRight from "../../assets/images/halfRightArrow.svg?react";
+import ArrowRight from "../../assets/images/arrow-down.svg?react";
 import { useSelector } from "react-redux";
 import { selectCategories } from "src/redux/categories/selectors";
 import { useState } from "react";

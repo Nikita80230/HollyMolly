@@ -3,58 +3,38 @@ import "modern-normalize";
 
 export const GlobalStyle = createGlobalStyle`
 
-
- @font-face {
-	font-family: 'Roboto';
-	/* font-display: swap; */
-	src: local("Roboto-Regular"), url('/public/fonts/Roboto-Regular.ttf') format("ttf");
-	font-weight: 400;
-	font-style: normal;
-}
-
 @font-face {
-	font-family: 'Roboto';
-	/* font-display: swap; */
-	src: local("Roboto-Bold"), url("/public/fonts/Roboto-Bold.ttf") format("ttf");
-	font-weight: 700;
-	font-style: normal;
-}
-
-
-@font-face {
-	font-family: 'Nunito';
-	/* font-display: swap; */
-	src: local("Nunito-Regular"), url("/public/fonts/Nunito-Regular.ttf") format("ttf");
-	font-weight: 400;
-	font-style: normal;
-}
-
-
-
-@font-face {
-	font-family: 'Nunito';
-	/* font-display: swap; */
-	src: local("Nunito-Medium"), url("/public/fonts/Nunito-Medium.ttf") format("ttf");
-	font-weight: 500;
-	font-style: normal;
-}
-
-
-
-@font-face {
-	font-family: 'Nunito';
-	/* font-display: swap; */
-	src: local("Nunito-SemiBold"), url("/public/fonts/Nunito-SemiBold.ttf") format("ttf");
-	font-weight: 600;
-	font-style: normal;
+	font-family: "Pacifico", cursive;
+	src: local("Pacifico-Regular"),  url("/fonts/Pacifico-Regular.ttf") format("ttf"),
+         url("/fonts/Pacifico-Regular.woff") format("woff"),
+         url("/fonts/Pacifico-Regular.woff2") format("woff2");
+	 font-weight: 400;
+  font-style: normal;
 } 
 
+@font-face {
+	font-family: "EB Garamond", serif;
+	src: local("EBGaramond-Variable"), url("/fonts/EBGaramond-VariableFont_wght.ttf") format("ttf"),
+         url("/fonts/EBGaramond-Regular.woff") format("woff"),
+         url("/fonts/EBGaramond-Regular.woff2") format("woff2");
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} 
 
-
+@font-face {
+    font-family: "Didact Gothic";
+    src: local("DidactGothic"),
+         url("/fonts/DidactGothic-Regular.ttf") format("truetype"),
+         url("/fonts/DidactGothic-Regular.otf") format("opentype"),
+         url("/fonts/DidactGothic-Regular.woff") format("woff"),
+         url("/fonts/DidactGothic-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
 
 body {
-  font-family: ${({ theme }) => theme.fonts.familyNunito};
-
+  font-family: ${({ theme }) => theme.fonts.familyGaramond};
   margin: 0 auto;
   min-width: 100%;
   background-color: ${({ theme }) => theme.colors.primaryBgColor};
@@ -123,7 +103,7 @@ button{
 }
 .custom-toast {
     padding: 74px 24px;
-    font-family: 'Nunito', sans-serif;
+    font-family: ${({ theme }) => theme.fonts.familyGaramond};
     font-size: 20px;
     background-color: #FFFFFF;
     color: #323234;

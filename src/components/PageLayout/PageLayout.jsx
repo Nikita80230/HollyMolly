@@ -1,18 +1,13 @@
 import Header from "../Header/Header";
-import Container from "../Container/Container";
 
 import { StyledPageLayout } from "./Styled";
 import Footer from "../Footer/Footer";
 
-
-const PageLayout = ({ children}) => {
-  
+const PageLayout = ({ children }) => {
   return (
     <StyledPageLayout>
       <Header />
-      <main className="main">
-        <Container>{children}</Container>
-      </main>
+      <main className="main">{children}</main>
       <Footer />
     </StyledPageLayout>
   );
