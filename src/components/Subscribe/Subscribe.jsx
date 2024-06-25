@@ -46,7 +46,7 @@ const Subscribe = () => {
 
   return (
     <SubscribeWrapper>
-      <h2 className="title">Підпишись на наші оновлення:</h2>
+      <h2 className="title">Підпишись на наші оновлення :</h2>
       <p className="description">
         Так ти завжди будеш в курсі останніх новин, отримувати <br></br>спеціальні
         пропозиції та першою дізнаватися про акції та нові <br></br> товари

@@ -3,8 +3,8 @@ import { styled } from "styled-components";
 export const WrapperCard = styled.div`
   position: relative;
   padding: 16px;
-  border: 1px solid ${({ theme }) => theme.colors.borderButtonColors};
-  width: 310px;
+  /* border: 1px solid ${({ theme }) => theme.colors.borderButtonColors}; */
+  width: 300px;
   height: 603px;
   transition: opacity ${({ theme }) => theme.animations.transition},
     transform ${({ theme }) => theme.animations.transition};
@@ -62,13 +62,13 @@ export const WrapperCard = styled.div`
       transition: opacity ${({ theme }) => theme.animations.transition};
 
       path {
-        fill: ${({theme}) => theme.colors.iconAdd};
+        fill: ${({ theme }) => theme.colors.iconAdd};
       }
     }
 
     .iconBasket.added {
       path {
-        fill: ${({theme}) => theme.colors.iconAdd};
+        fill: ${({ theme }) => theme.colors.iconAdd};
       }
       .selectedBasketPath {
         opacity: 1;
@@ -134,14 +134,19 @@ export const WrapperCard = styled.div`
   }
 
   .productPhoto {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
   }
 
   .title {
-    margin-bottom: 10px;
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.titleCardProduct};
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+    white-space: nowrap;
   }
 
   .wrapperPriceIcon {
@@ -164,10 +169,11 @@ export const WrapperCard = styled.div`
   }
 
   .priceAfterDiscount {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 500;
-    font-size: 20px;
-    color: ${({ theme }) => theme.colors.colorPriceSecondary};
+    font-family: ${({ theme }) => theme.fonts.familyPacifico};
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.21429;
+    color: ${({ theme }) => theme.colors.accentColor};
   }
 
   .buttonsFeedback {

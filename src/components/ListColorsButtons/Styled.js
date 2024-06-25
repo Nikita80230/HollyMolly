@@ -1,29 +1,37 @@
 import styled from "styled-components";
 
 export const StyledList = styled.ul`
-  margin-bottom: 10px;
-
+  margin-bottom: 15px;
   display: flex;
-  justify-content: center;
-  gap: 8px;
+  gap: 12px;
 
   .buttonColor {
-    margin-bottom: 10px;
-    border: 1px solid ${({ theme }) => theme.colors.borderButtonColors};
-    width: 14px;
-    height: 14px;
+    position: relative;
+    border-radius: 2px;
+    border: transparent;
+    width: 24px;
+    height: 24px;
     transition: border ${({ theme }) => theme.animations.transition};
 
     &:hover {
-      border: 1px solid ${({ theme }) => theme.colors.borderButtonColor};
+      border: 1px solid ${({ theme }) => theme.colors.borderColor};
     }
   }
 
   .buttonColor.active {
-    margin-bottom: 10px;
-    width: 14px;
-    height: 14px;
-    transition: border ${({ theme }) => theme.animations.transition};
-    border: 1px solid ${({ theme }) => theme.colors.borderButtonColor};
+    border: 1px solid ${({ theme }) => theme.colors.borderColor};
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+  }
+
+  .containerColor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    width: 20px;
+    height: 20px;
   }
 `;

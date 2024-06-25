@@ -40,7 +40,7 @@ export const StyledCategoriesSection = styled.section`
     @media only screen and (min-width: 1440px) {
       margin-bottom: 37px;
       border-radius: 10px 10px 0 0;
-      width: 300px;
+      width: 100%;
       height: 300px;
     }
   }

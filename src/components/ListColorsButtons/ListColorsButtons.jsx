@@ -7,7 +7,7 @@ const translateColor = (color) => {
 
 const ListColorsButtons = ({ colors, handleClick, activeColorId }) => {
   if (!colors || !colors.length) return null;
-  
+
   const translatedColors = colors.map((colorObj) => ({
     ...colorObj,
     color: translateColor(colorObj.color),
@@ -28,7 +28,14 @@ const ListColorsButtons = ({ colors, handleClick, activeColorId }) => {
               backgroundColor: color,
             }}
             onClick={() => handleClick(id)}
-          ></button>
+          >
+            <div
+              className="containerColor"
+              style={{
+                backgroundColor: color,
+              }}
+            ></div>
+          </button>
         </li>
       ))}
     </StyledList>
