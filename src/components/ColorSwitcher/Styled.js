@@ -3,19 +3,17 @@ import styled from "styled-components";
 export const StyledColorSwitcher = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 5px;
-
-  padding-left: 2px;
+  gap: 12px;
 
   .colorBtn {
     width: 24px;
     height: 24px;
 
-    border: 1px solid #3a3a3a;
-    border-radius: 3px;
+    border: transparent;
+    border-radius: 2px;
   }
 
   .colorBtn.activeColorBtn {
-    outline: 2px solid #000;
+    outline: 2px solid ${({theme})=>theme.colors.cardBorderColor};
   }
 `;

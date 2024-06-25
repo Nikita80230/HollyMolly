@@ -34,9 +34,9 @@ export const StyledCardCategories = styled.div`
     }
 
     @media only screen and (min-width: 1440px) {
-      width: 310px;
-      height: 216px;
-      margin-bottom: 53px;
+      width: 300px;
+      height: 300px;
+      margin-bottom: 37px;
       border-radius: 20px;
     }
   }
@@ -44,14 +44,17 @@ export const StyledCardCategories = styled.div`
   .textCard {
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-size: 12px;
-    color: ${({ theme }) => theme.colors.textCard};
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
 
     @media only screen and (min-width: 768px) {
       font-size: 14px;
     }
 
     @media only screen and (min-width: 1440px) {
-      font-size: 18px;
+      font-family: "EB Garamond", sans-serif;
+      font-weight: 400;
+      font-size: 30px;
+      text-align: center;
     }
   }
 `;

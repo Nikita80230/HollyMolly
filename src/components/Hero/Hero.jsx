@@ -3,20 +3,12 @@ import { StyledHero } from "./Styled";
 const Hero = () => {
   return (
     <StyledHero>
-      <div className="wrapperImage">
-
-        <h1 className="heroTitle">
-          <span className="spanTitle">До -40% </span>
-         Знижка на сережки <br></br> та Браслети
-        </h1>
-      <p className="heroImageText">Сяй яскраво наче діамант</p> 
+      <div className="containerInHero">
+        <h1 className="titleHero">Сяй яскраво наче діамант</h1>
+        <span className="spanHero">-40%</span>
+        <h3 className="title">Знижка на сережки та браслети</h3>
       </div>
-      <div className="wrapperSecondImage">
-        <div className="wrapperHeroSubtitle">
-        <h2 className="heroSubtitle">Нова Колекція</h2>
-          <p className="textSubtitle">незабаром...</p>
-          </div>
-      </div>
+      <h2 className="secondTitle">Нова колекція скоро...</h2>
     </StyledHero>
   );
 };

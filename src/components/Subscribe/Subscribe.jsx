@@ -22,10 +22,10 @@ const Subscribe = () => {
     document.body.style.overflow = "";
   }
 
-  const onSubmit = async (values,{setSubmitting, resetForm}) => {
+  const onSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       const resMessage = await subscribeSentEmail(values);
-      
+
       if (resMessage === "✔  Ваша підписка вже активована") {
         setMessage(resMessage);
       } else {
@@ -46,10 +46,10 @@ const Subscribe = () => {
 
   return (
     <SubscribeWrapper>
-      <h2 className="title">Підпишись на наші оновлення</h2>
+      <h2 className="title">Підпишись на наші оновлення:</h2>
       <p className="description">
-       Так ти завжди будеш в курсі останніх новин, отримувати спеціальні пропозиції
-та першою дізнаватися про акції та нові товари
+        Так ти завжди будеш в курсі останніх новин, отримувати <br></br>спеціальні
+        пропозиції та першою дізнаватися про акції та нові <br></br> товари
       </p>
 
       <Formik
@@ -71,7 +71,6 @@ const Subscribe = () => {
               name="email"
               placeholder="Your email"
               type="text"
-              
             />
             <ErrorMessage className="errorMessage" component="p" name="email" />
             {!errors.email ? (
@@ -85,11 +84,15 @@ const Subscribe = () => {
                 type="submit"
                 disabled
               >
-                Надіслати
+                Підписатися
               </button>
             ) : (
-              <button className="subscribeButton" type="submit" disabled={isSubmitting}>
-                Надіслати
+              <button
+                className="subscribeButton"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                Підписатися
               </button>
             )}
           </Form>

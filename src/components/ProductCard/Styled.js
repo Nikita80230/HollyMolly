@@ -4,40 +4,38 @@ export const StyledProductCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 300px;
 
   /* height: 264px; */
 
   .productImg {
-    margin-bottom: 8px;
+    margin-bottom: 20px;
+
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
 
     /* max-width: 310px; */
-    width: 100%;
+    /* width: 100%; */
   }
 
   .productInfoWrapper {
-    position: relative;
-
+    margin-bottom: 15px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
   }
 
   .addToFavoriteButton {
-    position: absolute;
-    top: 5px;
-    right: 0;
-
-    padding: 0;
-
     background: transparent;
     border: none;
+    transition: fill ${({ theme }) => theme.animations.transition};
   }
 
   .addToFavoriteIcon {
     display: block;
     path {
-      stroke: ${({ theme }) => theme.updatedColors.arizona900};
+      stroke: ${({ theme }) => theme.colors.primaryTxtColor};
       fill: transparent;
-      transition: ${({ theme }) => theme.animations.transition};
     }
   }
 
@@ -48,22 +46,19 @@ export const StyledProductCard = styled.div`
   }
 
   .productTitle {
-    min-height: 51px;
-
-    margin-bottom: 5px;
-    font-weight: 500;
-
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
   .productPrice {
-    margin-bottom: 8px;
-
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-size: 20px;
-
-    color: ${({ theme }) => theme.colors.colorLogo};
+font-family: ${({theme})=> theme.fonts.familyPacifico};
+font-weight: 400;
+font-size: 28px;
+line-height: 1.21429;
+color: ${({theme})=> theme.colors.accentColor} ;
   }
   .productColorSwitcher {
   }

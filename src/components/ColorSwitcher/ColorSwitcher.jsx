@@ -2,10 +2,10 @@ import { useState } from "react";
 import { StyledColorSwitcher } from "./Styled";
 
 const colors = [
-  { colorName: "green", colorRgb: "#dfc7b1" },
-  { colorName: "yellow", colorRgb: "#4169E1" },
-  { colorName: "blue", colorRgb: "#161616" },
-  { colorName: "black", colorRgb: "#fff" },
+  { colorName: "green", colorRgb: "#fff6e7" },
+  { colorName: "yellow", colorRgb: "#e2edf4" },
+  { colorName: "blue", colorRgb: " #eff9f1" },
+  { colorName: "black", colorRgb: "#f9eff5" },
 ];
 
 const ColorSwitcher = () => {

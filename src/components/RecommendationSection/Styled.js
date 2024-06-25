@@ -2,55 +2,53 @@ import styled from "styled-components";
 
 export const StyledRecommendationSection = styled.section`
   position: relative;
-  margin-bottom: 80px;
+  margin-bottom: 36px;
 
   .titleRecommendation {
-    margin-bottom: 40px;
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-size: 32px;
+    margin-bottom: 36px;
+    font-weight: 500;
+    font-size: 40px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
   .buttonSwiper {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 51px;
 
     display: flex;
     align-items: center;
-    gap: 33px;
+    gap: 10px;
   }
 
   .nextProductBtn,
   .prevProductBtn {
     padding: 10px;
-    width: 56px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: transparent;
-    border: 1px solid ${({ theme }) => theme.colors.borderButtonSwiper};
-    border-radius: 8px;
-    transition: background-color ${({ theme }) => theme.animations.transition}
-      border ${({ theme }) => theme.animations.transition};
+    border: transparent;
+    /* transition: background-color ${({ theme }) => theme.animations.transition}; */
   }
   .nextProductBtn:focus {
-    background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper};
-    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+    /* background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper}; */
+    border: transparent;
   }
 
   .prevProductBtn:focus {
-    background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper};
-    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+    /* background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper}; */
+    border: transparent;
   }
 
   .nextProductBtn:hover {
-    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+    /* border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper}; */
   }
 
   .prevProductBtn:hover {
-    border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper};
+    /* border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper}; */
   }
 
   .nextProductBtn:after,
@@ -59,7 +57,7 @@ export const StyledRecommendationSection = styled.section`
   }
   .prevProductBtn.swiper-button-disabled,
   .nextProductBtn.swiper-button-disabled {
-    border: 1px solid ${({ theme }) => theme.colors.borderButton};
+    border: transparent;
     opacity: 0.35;
     cursor: auto;
     pointer-events: none;
@@ -75,7 +73,6 @@ export const StyledRecommendationSection = styled.section`
       width: 46px;
       height: 40px;
 
-      border-radius: 6px;
       padding: 7px;
     }
   }
@@ -95,8 +92,6 @@ export const StyledRecommendationSection = styled.section`
     .prevProductBtn {
       width: 36px;
       height: 36px;
-
-      border-radius: 6px;
       padding: 7px;
     }
 
@@ -105,7 +100,7 @@ export const StyledRecommendationSection = styled.section`
       /* height: 100%; */
       margin-left: auto;
       margin-right: auto;
-      height: 750px;
+      height: 447px;
     }
 
     .swiper-slideCustom {

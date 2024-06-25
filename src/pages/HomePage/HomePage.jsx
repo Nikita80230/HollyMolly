@@ -1,12 +1,12 @@
-import CategoriesSwiper from "src/components/CategoriesSwiper/CategoriesSwiper";
+import CategoriesSection from "src/components/CategoriesSection/CategoriesSection";
 import Hero from "src/components/Hero/Hero";
 import RecommendationSection from "src/components/RecommendationSection/RecommendationSection";
 
 const HomePage = () => {
   return (
     <>
-      <Hero />
-      <CategoriesSwiper />
+       <Hero/>
+      <CategoriesSection />
       <RecommendationSection />
     </>
   );

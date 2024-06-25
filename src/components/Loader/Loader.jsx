@@ -7,7 +7,7 @@ const Loader = () => {
       <Hearts
         height="100"
         width="100"
-        color="#98714A"
+        color="#e85a50"
         ariaLabel="hearts-loading"
         visible={true}
       />

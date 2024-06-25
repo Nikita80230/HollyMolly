@@ -13,7 +13,7 @@ export const StyledHeader = styled.header`
   align-items: center;
   flex-direction: row;
 
-  background: #fffbfe;
+  background: ${({theme})=>theme.colors.primaryBgColor};
 
   .header {
     position: relative;
@@ -22,9 +22,9 @@ export const StyledHeader = styled.header`
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    min-height: 108px;
+    min-height: 115px;
 
-    background: #fffbfe;
+    background: ${({theme})=>theme.colors.primaryBgColor};
   }
 
   .leftHeader {
@@ -32,15 +32,14 @@ export const StyledHeader = styled.header`
     align-items: center;
     flex-direction: row;
 
-    max-width: 350px;
+    max-width: 425px;
     width: 100%;
   }
 
-  .title {
-    /* font-family: var(--family-croissantOne); */
+  /* .title {
     font-size: 30px;
     color: ${({ theme }) => theme.colors.accentTxtColor};
-  }
+  } */
 
   .headerLogo {
     position: absolute;

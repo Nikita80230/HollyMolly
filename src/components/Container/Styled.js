@@ -28,6 +28,6 @@ export const StyledContainer = styled.div`
   /* Desktop: до 1440px */
   @media only screen and (min-width: 1024px) {
     max-width: 1440px;
-    padding: 0 64px;
+    padding: 0 51px;
   }
 `;
