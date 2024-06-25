@@ -17,6 +17,7 @@ import ArrowRight from "src/assets/images/arrowRight.svg?react";
 import { StyledRecommendationSection } from "./Styled";
 import { selectRecommendedProducts } from "src/redux/products/productsSlice";
 import Container from "../Container/Container";
+import CardProductCatalog from "../CardProductCatalog/CardProductCatalog";
 
 const RecommendationSection = () => {
   const dispatch = useDispatch();
@@ -68,7 +69,8 @@ const RecommendationSection = () => {
       >
         {recommendedProducts.map((product, index) => (
           <SwiperSlide key={product.id} className="swiper-slideCustom">
-            <ProductCard product={product} index={index} />
+            {/* <ProductCard product={product} index={index} /> */}
+            <CardProductCatalog product={product} />
           </SwiperSlide>
         ))}
       </Swiper>

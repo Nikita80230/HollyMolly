@@ -14,7 +14,7 @@ export const StyledRecommendationSection = styled.section`
   .buttonSwiper {
     position: absolute;
     top: 0;
-    right: 51px;
+    right: 81px;
 
     display: flex;
     align-items: center;
@@ -108,9 +108,10 @@ export const StyledRecommendationSection = styled.section`
       font-size: 18px;
       background: #fff;
       height: calc((100% - 10px) / 2) !important;
+     
 
       /* Center slide text vertically */
-      display: flex;
+       display: flex;
       justify-content: center;
       align-items: center;
     }

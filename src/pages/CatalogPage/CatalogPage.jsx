@@ -23,6 +23,7 @@ import {
   getSortedFilteredProducts,
 } from "src/utils/sortAndFilterFunctions";
 import SelectedFiltersList from "src/components/SelectedFiltersList/SelectedFiltersList";
+import Container from "src/components/Container/Container";
 
 const CatalogPage = () => {
   const location = useLocation();
@@ -144,6 +145,7 @@ const CatalogPage = () => {
 
   return (
     <StyledCatalogPage>
+      <Container>
       <div className="navigation">
         <Breadcrumb structure={structure} />
         <SubcategoriesList
@@ -181,7 +183,8 @@ const CatalogPage = () => {
           handlePrevPage={handlePrevPage}
           handleNextPage={handleNextPage}
         />
-      </div>
+        </div>
+        </Container>
     </StyledCatalogPage>
   );
 };

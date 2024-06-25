@@ -12,11 +12,10 @@ export const StyledProductCard = styled.div`
     margin-bottom: 20px;
 
     border-radius: 10px;
-    width: 300px;
+    max-width:300px;
+    width: 100%;
     height: 300px;
 
-    /* max-width: 310px; */
-    /* width: 100%; */
   }
 
   .productInfoWrapper {

@@ -6,7 +6,6 @@ export const StyledCategoriesModal = styled.div`
   top: 0;
   left: 0;
 
-  /* max-width: 654px; */
   width: 100vw;
   height: 100vh;
 
@@ -16,8 +15,8 @@ export const StyledCategoriesModal = styled.div`
     position: relative;
     z-index: 2;
 
-    top: 9.5%;
-    left: 0;
+    top: 14%;
+    left: -1%;
 
     max-width: 882px;
     width: 100%;
@@ -29,25 +28,12 @@ export const StyledCategoriesModal = styled.div`
     background: #fff;
   }
 
-  .categoriesModalTitle {
-    width: auto;
-
-    margin-bottom: 25px;
-
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 600;
-    font-size: 32px;
-    color: #000105;
-  }
-
   .categoriesList {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
     width: 100%;
-
-    /* padding: 12px 0; */
   }
 
   .categoryGroup {
@@ -60,14 +46,14 @@ export const StyledCategoriesModal = styled.div`
   }
 
   .categoryGroupTitle {
-    margin-bottom:20px;
-    font-family: ${({theme})=> theme.fonts.familyPacifico};
-font-weight: 400;
-font-size: 28px;
-line-height: 1.21429;
-text-align: center;
-color: ${({ theme }) => theme.colors.accentColor};
-white-space:nowrap;
+    margin-bottom: 20px;
+    font-family: ${({ theme }) => theme.fonts.familyPacifico};
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.21429;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.accentColor};
+    white-space: nowrap;
   }
 
   .categoryGroupList {
@@ -81,11 +67,11 @@ white-space:nowrap;
   }
 
   .subCategoryLink {
-  
-font-weight: 400;
-font-size: 30px;
-text-align: center;
-color:${({theme})=>theme.colors.primaryTxtColor}
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+    transition: font-weight ${({ theme }) => theme.animations.transition};
   }
 
   .subCategoryLink:not(:last-child) {
@@ -94,6 +80,6 @@ color:${({theme})=>theme.colors.primaryTxtColor}
 
   .subCategoryLink:hover,
   .subCategoryLink:focus {
-    color: #3251ae;
+    font-weight: 600;
   }
 `;

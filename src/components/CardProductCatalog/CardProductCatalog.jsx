@@ -18,7 +18,6 @@ import { useEffect, useState } from "react";
 import AddToBasket from "../AddToBasket/AddToBasket";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
 
-
 const CardProductCatalog = ({ product, sortType }) => {
   const dispatch = useDispatch();
   const favoriteProducts = useSelector(selectFavoriteProducts);
@@ -39,6 +38,8 @@ const CardProductCatalog = ({ product, sortType }) => {
   const [activeColorId, setActiveColorId] = useState(null);
   const [pictureProduct, setPictureProduct] = useState(null);
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
+
+  
 
   const handleClick = (id) => {
     const selectedProductInstance = product.productsInstances.find(
@@ -83,16 +84,15 @@ const CardProductCatalog = ({ product, sortType }) => {
           className="productPhoto"
           src={pictureProduct || defaultPhoto}
           alt={product.name || "product picture"}
-          width={278}
-          height={393}
+          
         />
 
+        <h4 className="title">{product.name}</h4>
         <ListColorsButtons
           colors={product.productsInstances || []}
           handleClick={handleClick}
           activeColorId={activeColorId}
         />
-        <h4 className="title">{product.name}</h4>
         {percentageDiscount && (
           <span className="styledSpanDiscount">Акція</span>
         )}

@@ -20,7 +20,8 @@ export const theme = {
     whiteTxtColor: "#fff",
     placeholderTxtColor: "#c4c4c4",
     cardBorderColor: "#fff6e7",
-   accentColor: "#e85a50",
+    accentColor: "#e85a50",
+   borderColor:"#c4c4c4",
     
     secondaryBgColor: "#f3f2f1",
     secondaryTxtColor: " rgba(0, 3, 15, 0.6)",

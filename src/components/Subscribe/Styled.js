@@ -3,11 +3,10 @@ import backgroundSubscribe1x from "src/assets/images/subscribe/subscribe-desktop
 import backgroundSubscribe2x from "src/assets/images/subscribe/subscribe-dekstop2x.webp";
 
 export const SubscribeWrapper = styled.div`
-  /* margin-bottom: 48px; */
+  
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-  justify-content: center; */
+ 
 
   @media only screen and (min-width: 768px) {
     /* margin-bottom: 56px; */
@@ -15,7 +14,6 @@ export const SubscribeWrapper = styled.div`
 
   @media only screen and (min-width: 1440px) {
     padding: 235px 104px 33px 625px;
-    /* margin-bottom: 38px; */
     width: 100%;
     height: 470px;
     background-color: ${({ theme }) => theme.colors.heroBgColor};
@@ -238,6 +236,7 @@ export const SubscribeWrapper = styled.div`
 
   .subscribeButton {
     border-radius: 5px;
+    border:transparent;
     width: 165px;
     height: 40px;
 
