@@ -12,7 +12,6 @@ to{
 export const theme = {
   colors: {
     primaryBgColor: "#fff",
-    
     heroBgColor: "#eae8dc",
     gradient: "linear-gradient(135deg, #fff 0%, #fff 100%)",
     gradientTitle:"linear-gradient(90deg, #100503 0%, #e85a50 100%)",
@@ -21,40 +20,27 @@ export const theme = {
     placeholderTxtColor: "#c4c4c4",
     cardBorderColor: "#fff6e7",
     accentColor: "#e85a50",
-   borderColor:"#c4c4c4",
-    
-    secondaryBgColor: "#f3f2f1",
-    secondaryTxtColor: " rgba(0, 3, 15, 0.6)",
+    borderColor: "#c4c4c4",
+    borderColorActive:"#727273",
+    borderHoverColor: "#a1a1a2",
+    borderFocusColor: " #100503",
+    buttonBgDisabled: " #ed9d97",
+    buttonBgColor: "#e85a50",
+    hoverBgButton: "#e85a50",
+    activeBgColor: "#c04c43",
+    footerSubtitle: "#4c4c4d",
+
     headerSearchMenuList: "#000105",
-    lightTxtColor: "#fcf2ea",
-    lightColorButton: "#f3f4fc",
-    accentTxtColor: "#1d2f65",
-    
     colorLogo: "#6b5034",
     colorLink: "#4169e1",
-    bgColorWrapperHats: "#fff6e7",
-    bgColorWrapperBags: "#e2edf4",
-    bgColorWrapperJewelry: " #eff9f1",
-    bgColorWrapperOther:"#f9eff5",
-    colorInput: " #727273",
-    inputFocus: "#19191a",
-    inputBorder: "#4c4c4d",
-    hoverInput: "#323234",
-    footerSubtitle: "#4c4c4d",
-    buttonBgColor: "#e85a50",
-    hoverButton: "#1d2f65",
-    focusButton: "#8094e7",
-    backgroundCard: "#FFE959",
-    textCard: "#19191a",
-    borderButton: "#727273",
-    placeholderColor: "rgba(0, 1, 5, 0.6)",
+    
+    
+    
     footerLinks: "#000105",
     subCategoryHover: "rgba(0, 0, 0, 0.37)",
-    backgroundHeroSubtitle: "rgba(243, 244, 252, 0.4)",
-    disabledButtonBg: "#a9b5ed",
+    
     dividerBurgerMenu: "#e4e4e4",
-    footerTitleMobileColor: "#0c0d0d",
-    backgroundLowerBlockMobile: "rgba(243, 244, 252, 0.2)",
+    
     colorError: "#c61a0e",
     colorSuccess: "#40bb27",
     accentFocusColor: "rgba(169, 181, 237, 0.8)",
@@ -183,5 +169,7 @@ export const theme = {
   },
   shadows: {
     boxShadowAuth: "0 8px 32px 0 rgba(0, 0, 0, 0.32)",
+    boxShadowCategory: " 10px 10px 5px 0 #b8b7b7",
+    boxShadowCategoryModal:"10px 10px 20px 0 #a88465",
   }
 };

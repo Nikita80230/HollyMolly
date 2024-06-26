@@ -22,7 +22,7 @@ import CardProductCatalog from "../CardProductCatalog/CardProductCatalog";
 const RecommendationSection = () => {
   const dispatch = useDispatch();
   const recommendedProducts = useSelector(selectRecommendedProducts);
-
+console.log(recommendedProducts)
   useEffect(() => {
     dispatch(getRecommendedProducts());
   }, [dispatch]);
@@ -70,7 +70,7 @@ const RecommendationSection = () => {
         {recommendedProducts.map((product, index) => (
           <SwiperSlide key={product.id} className="swiper-slideCustom">
             {/* <ProductCard product={product} index={index} /> */}
-            <CardProductCatalog product={product} />
+            <CardProductCatalog product={product} index={index} />
           </SwiperSlide>
         ))}
       </Swiper>

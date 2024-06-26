@@ -9,12 +9,13 @@ const ProductsGrid = ({
 }) => {
   return (
     <StyledProductsGrid className={className}>
-      {filteredProducts.map((product) => {
+      {filteredProducts.map((product,index) => {
         return (
           <CardProductCatalog
             key={product.id}
             product={product}
             sortType={sortType}
+            index={index}
           />
         );
       })}

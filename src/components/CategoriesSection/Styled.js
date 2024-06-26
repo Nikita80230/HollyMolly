@@ -36,6 +36,18 @@ export const StyledCategoriesSection = styled.section`
     }
   }
 
+   .wrapperItem {
+    @media only screen and (min-width: 1440px) {
+      border-radius: 10px;
+      width: 300px;
+      height: 413px;
+      transition:${({ theme }) => theme.animations.transition};
+      &:hover{
+        box-shadow:${({theme})=>theme.shadows.boxShadowCategory};
+      }
+    }
+  }
+
   .categoriesPhoto {
     @media only screen and (min-width: 1440px) {
       margin-bottom: 37px;
@@ -45,13 +57,7 @@ export const StyledCategoriesSection = styled.section`
     }
   }
 
-  .wrapperItem {
-    @media only screen and (min-width: 1440px) {
-      border-radius: 10px;
-      width: 300px;
-      height: 413px;
-    }
-  }
+ 
 
   .textCard {
     @media only screen and (min-width: 1440px) {

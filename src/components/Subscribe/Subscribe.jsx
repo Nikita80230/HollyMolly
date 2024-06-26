@@ -71,6 +71,7 @@ const Subscribe = () => {
               name="email"
               placeholder="Your email"
               type="text"
+              autoComplete="off"
             />
             <ErrorMessage className="errorMessage" component="p" name="email" />
             {!errors.email ? (
@@ -107,7 +108,7 @@ const Subscribe = () => {
       >
         <ModalSubscribe onClose={closeModal} />
       </Modal>
-    </SubscribeWrapper>
+      </SubscribeWrapper>
   );
 };
 

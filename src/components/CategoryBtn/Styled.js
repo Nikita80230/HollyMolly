@@ -26,11 +26,11 @@ export const StyledCategoryBtn = styled.div`
   }
 
   .openCategoryIcon {
-    /* transition: ${({ theme }) => theme.animations.transition}; */
+    transition: ${({ theme }) => theme.animations.transition};
   }
 
   .openCategoryIcon.openedCategoryIcon {
-    /* transform: rotate(-90deg); */
+    transform: rotate(180deg);
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {

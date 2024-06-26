@@ -1,22 +1,29 @@
 import { styled } from "styled-components";
 
 export const WrapperCard = styled.div`
-  position: relative;
-  padding: 16px;
-  /* border: 1px solid ${({ theme }) => theme.colors.borderButtonColors}; */
+ position: relative;
   width: 300px;
-  height: 603px;
-  transition: opacity ${({ theme }) => theme.animations.transition},
-    transform ${({ theme }) => theme.animations.transition};
+  /* height: 447px; */
+  transition: transform ${({ theme }) => theme.animations.transition};
+  overflow: hidden;
+
+  &:hover {
+    .productPhoto {
+      transform: scale(1.2);
+    }
+  }
+
+       
 
   .iconHeart {
-    opacity: 0;
+    /* opacity: 0;
     pointer-events: none;
-    user-select: none;
-
+    user-select: none; */
+width:24px;
+height:24px;
     transition: ${({ theme }) => theme.animations.transition};
     path {
-      stroke: ${({ theme }) => theme.colors.iconAdd};
+      fill: ${({ theme }) => theme.colors.primaryTxtColor};
       transition: ${({ theme }) => theme.animations.transition};
     }
   }
@@ -38,7 +45,7 @@ export const WrapperCard = styled.div`
     transition: ${({ theme }) => theme.animations.transition};
   }
 
-  &:hover {
+  /* &:hover {
     .iconHeart {
       opacity: 1;
       pointer-events: all;
@@ -48,10 +55,10 @@ export const WrapperCard = styled.div`
       path {
         fill: transparent;
       }
-    }
+    } */
     .iconHeart.added {
       path {
-        fill: #3251ae;
+        fill: ${({theme})=>theme.colors.accentColor};
       }
     }
 
@@ -74,6 +81,11 @@ export const WrapperCard = styled.div`
         opacity: 1;
       }
     }
+  
+
+  .wrapperColorFavorite{
+    display:flex;
+    justify-content:space-between;
   }
 
   .styledSpan {
@@ -132,12 +144,20 @@ export const WrapperCard = styled.div`
     text-transform: uppercase;
     color: ${({ theme }) => theme.colors.spanTextColor};
   }
-
-  .productPhoto {
-    margin-bottom: 20px;
-    width: 100%;
+  
+  .wrapperPhoto{
+    overflow: hidden;
+    width: 300px;
     height: 300px;
     border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .productPhoto {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: transform ${({ theme }) => theme.animations.transition};
   }
 
   .title {
@@ -203,7 +223,8 @@ export const WrapperCard = styled.div`
   }
 
   .buttonIcon {
-    background-color: transparent;
-    border: transparent;
+    display:flex;
+   background-color: transparent;
+   border:transparent;
   }
 `;

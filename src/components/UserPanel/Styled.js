@@ -3,21 +3,44 @@ import { styled } from "styled-components";
 export const StyledUserPanel = styled.div`
   display: flex;
   gap: 17px;
-  /* max-width: 168px;
-  width: 100%; */
 
   .userPanelLink {
     display: block;
   }
 
-  .userPanelLink.active {
-    button {
-      background-color: ${({ theme }) => theme.colors.activeBgNavLink};
+  .icon {
+    width: 32px;
+    height: 32px;
+    path {
+      fill: ${({ theme }) => theme.colors.primaryTxtColor};
     }
+    transition: fill ${({ theme }) => theme.animations.transition};
+  }
+  .iconBasket {
+    width: 32px;
+    height: 32px;
+    path {
+      fill: transparent;
+      stroke: ${({ theme }) => theme.colors.primaryTxtColor};
+    }
+    transition: stroke ${({ theme }) => theme.animations.transition};
   }
 
+  /* .userPanelLink.active {
+    .icon {
+      path {
+        fill: ${({ theme }) => theme.colors.accentColor};
+      }
+    }
+    .iconBasket{
+      path {
+        stroke: ${({ theme }) => theme.colors.accentColor};
+      }
+    }
+  } */
+
   .buttonIcon {
-    border-radius: 8px;
+    /* border-radius: 8px; */
 
     padding: 11px;
 
@@ -27,10 +50,18 @@ export const StyledUserPanel = styled.div`
 
     border: transparent;
     background-color: transparent;
-    transition: background-color ${({ theme }) => theme.animations.transition};
 
     &:hover {
-      background-color: ${({ theme }) => theme.colors.hoverIcon};
+      .icon {
+        path {
+          fill: ${({ theme }) => theme.colors.accentColor};
+        }
+      }
+      .iconBasket {
+        path {
+          stroke: ${({ theme }) => theme.colors.accentColor};
+        }
+      }
     }
   }
 

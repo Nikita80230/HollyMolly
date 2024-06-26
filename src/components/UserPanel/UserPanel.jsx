@@ -32,7 +32,7 @@ const UserPanel = () => {
       )}
        <NavLink className="userPanelLink" to={routes.BASKET}>
         <button className="buttonIcon">
-          <BasketIcon className="icon" />
+          <BasketIcon className="iconBasket" />
         </button>
       </NavLink>
     </StyledUserPanel>

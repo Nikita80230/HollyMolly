@@ -44,7 +44,6 @@ export const StyledInputGroup = styled.label`
     letter-spacing: 0.04em;
     color: inherit;
     background-color: transparent;
-    text-transform: capitalize;
 
     &:focus,
     &:hover {

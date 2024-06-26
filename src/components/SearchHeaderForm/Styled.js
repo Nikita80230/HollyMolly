@@ -3,19 +3,19 @@ import { styled } from "styled-components";
 export const StyledSearchHeaderBtn = styled.button`
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
 
-  max-width: 246px;
+  max-width: 182px;
   width: 100%;
 
-  padding: 8px;
-
+  padding-bottom: 8px;
   background: transparent;
-  border: none;
+  border: transparent;
   border-bottom: 1px solid ${({ theme }) => theme.colors.primaryTxtColor};
 
   .searchIcon {
-    margin: auto 0;
+    width: 24px;
+    height: 24px;
   }
 
   .placeholder {
@@ -23,30 +23,33 @@ export const StyledSearchHeaderBtn = styled.button`
     font-weight: 400;
     font-size: 20px;
     line-height: 1.2;
-    text-align: center;
+
     color: ${({ theme }) => theme.colors.placeholderTxtColor};
+    white-space: nowrap;
   }
 
   .input {
-    min-height: 35px;
+    min-height: 24px;
 
-    padding-bottom: 3px;
+    padding-bottom: 5px;
 
     outline: none;
     border: none;
 
     transition: all 0.3s;
-
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.04em;
-    color: ${({ theme }) => theme.colors.secondaryTxtColor};
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
     background-color: transparent;
 
     &:not(:placeholder-shown) + .placeholder {
       transform: translateY(-28px);
-      font-weight: 500;
-      font-size: 12px;
+      font-family: ${({ theme }) => theme.fonts.familyDidact};
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.2;
     }
   }
   .validationError {
@@ -67,8 +70,6 @@ export const StyledSearchHeaderBtn = styled.button`
     gap: 12px;
 
     .placeholder {
-      text-transform: capitalize;
-
       font-size: 10px;
     }
 

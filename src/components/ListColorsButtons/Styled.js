@@ -8,7 +8,7 @@ export const StyledList = styled.ul`
   .buttonColor {
     position: relative;
     border-radius: 2px;
-    border: transparent;
+    border: 0.5px solid ${({ theme }) => theme.colors.borderColor};
     width: 24px;
     height: 24px;
     transition: border ${({ theme }) => theme.animations.transition};
@@ -19,7 +19,7 @@ export const StyledList = styled.ul`
   }
 
   .buttonColor.active {
-    border: 1px solid ${({ theme }) => theme.colors.borderColor};
+    border: 0.5px solid ${({ theme }) => theme.colors.borderColorActive};
     width: 24px;
     height: 24px;
     background-color: transparent;

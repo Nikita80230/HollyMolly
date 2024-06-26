@@ -1,6 +1,6 @@
 import { WrapperCard } from "./Styled";
 import Feedback from "src/assets/images/feedback.svg?react";
-import HeartIcon from "src/assets/images/heartBlue.svg?react";
+import HeartIcon from "src/assets/images/like.svg?react";
 
 // import HeartHoverIcon from "src/assets/images/heartBlueHover.svg?react";
 // import BasketHoverIcon from "src/assets/images/basketBlueHover.svg?react";
@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 import AddToBasket from "../AddToBasket/AddToBasket";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
 
-const CardProductCatalog = ({ product, sortType }) => {
+const CardProductCatalog = ({ product, sortType, index}) => {
   const dispatch = useDispatch();
   const favoriteProducts = useSelector(selectFavoriteProducts);
 
@@ -39,7 +39,8 @@ const CardProductCatalog = ({ product, sortType }) => {
   const [pictureProduct, setPictureProduct] = useState(null);
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
 
-  
+const colors = ['#fff6e7', '#e2edf4', '#eff9f1', '#f9eff5'];
+  const borderColor = colors[index % colors.length];
 
   const handleClick = (id) => {
     const selectedProductInstance = product.productsInstances.find(
@@ -80,32 +81,40 @@ const CardProductCatalog = ({ product, sortType }) => {
   return (
     <li key={product.id}>
       <WrapperCard>
+        <div className="wrapperPhoto" style={{ border: `3px solid ${borderColor}` }}>
         <img
           className="productPhoto"
           src={pictureProduct || defaultPhoto}
           alt={product.name || "product picture"}
           
-        />
+        /></div>
 
         <h4 className="title">{product.name}</h4>
+        <div className="wrapperColorFavorite">
         <ListColorsButtons
           colors={product.productsInstances || []}
           handleClick={handleClick}
           activeColorId={activeColorId}
-        />
-        {percentageDiscount && (
+          />
+           <button className="buttonIcon" onClick={handleAddToFavorite}>
+         <HeartIcon
+                className={`iconHeart ${isProductInFavorite ? "added" : ""} `}
+            /></button>
+        </div>
+        
+        {/* {percentageDiscount && (
           <span className="styledSpanDiscount">Акція</span>
         )}
         {isNewCollection && <span className="styledSpan">Новинка</span>}
 
         {product.rating === 5 && (
           <span className="styledSpanRating">Топ продажів</span>
-        )}
-        <div className="wrapperColorsFeedbackHeart">
-          <div className="buttonsFeedback">
-            <StarRatingCard rating={product.rating || 0} />
+        )} */}
+        {/* <div className="wrapperColorsFeedbackHeart">
+          <div className="buttonsFeedback"> */}
+            {/* <StarRatingCard rating={product.rating || 0} /> */}
 
-            <Link to={`${routes.FEEDBACK}/${product.categoryId}/${product.id}`}>
+            {/* <Link to={`${routes.FEEDBACK}/${product.categoryId}/${product.id}`}>
               <div className="wrapperFeedback">
                 <Feedback />
                 {product.feedbacks && product.feedbacks.length === 0 ? (
@@ -116,8 +125,8 @@ const CardProductCatalog = ({ product, sortType }) => {
                   </span>
                 )}
               </div>
-            </Link>
-          </div>
+            </Link> */}
+          {/* </div>
           <button className="buttonIcon" onClick={handleAddToFavorite}>
             {
               <HeartIcon
@@ -125,7 +134,7 @@ const CardProductCatalog = ({ product, sortType }) => {
               />
             }
           </button>
-        </div>
+        </div> */}
 
         <div className="wrapperPriceIcon">
           <div>
@@ -136,10 +145,10 @@ const CardProductCatalog = ({ product, sortType }) => {
               {priceAfterDiscount ? `${priceAfterDiscount}₴` : ""}
             </p>
           </div>
-          <AddToBasket
+          {/* <AddToBasket
             product={product}
             selectedProductInstance={selectedProductInstance}
-          />
+          /> */}
         </div>
       </WrapperCard>
     </li>

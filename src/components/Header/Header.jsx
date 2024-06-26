@@ -25,10 +25,12 @@ const Header = () => {
 
   const handleOpenSearchMenu = () => {
     setIsMenuOpened(true);
+     document.body.style.overflow = "hidden";
   };
 
   const handleCloseSearchMenu = () => {
     setIsMenuOpened(false);
+    document.body.style.overflow = "";
   };
 
   const toggleBurgerMenu = () => {
