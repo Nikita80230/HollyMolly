@@ -23,6 +23,7 @@ const PriceRangeSlider = ({ handleChangePrice }) => {
           handleChange(value);
         }}
         className="range-slider-yellow rangeSlider"
+       
       />
       <div className="priceLabels">
         <span className="priceLabel">{`₴${value[0]}`}</span>

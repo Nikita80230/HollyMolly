@@ -3,28 +3,32 @@ import styled from "styled-components";
 export const StyledBreadcrumb = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 24px;
 
-  padding: 40px 0;
+  padding: 36px 0;
 
   .mainLink {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    position: relative;
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
     font-weight: 400;
-    font-size: 16px;
-    text-align: center;
-    color: #000;
-  }
+    font-size: 20px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
 
-  .linksDivider {
+    &::after {
+      content: "|";
+      position: absolute;
+      right: -12px;
+      color: ${({ theme }) => theme.colors.primaryTxtColor};
+    }
   }
 
   .currentLink {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
     font-weight: 400;
-    font-size: 16px;
-    text-align: center;
-    color: #818181;
-    /* cursor: text; */
+    font-size: 20px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.secondaryTxtColor};
     pointer-events: none;
   }
 `;

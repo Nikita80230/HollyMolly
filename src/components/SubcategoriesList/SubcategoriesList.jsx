@@ -24,16 +24,16 @@ const SubcategoriesList = ({ allCategories, categoryGroupId }) => {
                 className="subCategoryLink"
                 to={`${routes.CATALOG_PAGE}/${subCategory.categoryGroupId}/${subCategory.id}`}
               >
-                <div className="subCategoryContent">
+                {/* <div className="subCategoryContent"> */}
                   <img
                     className="subCategoryImg"
                     src={subCategory.link || defaultPhoto}
                     alt="Category image"
                   />
-                  <div className="titleOverlay">
-                    <span className="subCategoryTitle">{subCategory.name}</span>
-                  </div>
-                </div>
+                  {/* <div className="titleOverlay"> */}
+                    <p className="subCategoryTitle">{subCategory.name}</p>
+                  {/* </div> */}
+                {/* </div> */}
               </Link>
             </li>
           );

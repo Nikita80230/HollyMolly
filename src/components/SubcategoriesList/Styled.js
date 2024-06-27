@@ -1,53 +1,53 @@
 import styled from "styled-components";
 
 export const StyledSubcategoriesList = styled.div`
-  margin-bottom: 64px;
+  margin-bottom: 87px;
 
   .title {
-    margin-bottom: 12px;
-    text-align: left;
-
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    margin-bottom: 36px;
     font-weight: 500;
-    font-size: 32px;
-    color: #000;
+    font-size: 40px;
   }
   .subcategoriesList {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 17px;
+    gap: 54px;
   }
   .subCategoryItem {
-    max-width: 421px;
+    max-width: 410px;
     width: 100%;
-    overflow: hidden;
-    border-radius: 16px;
+    height: 413px;
+    /* overflow: hidden; */
+    border-radius: 10px;
+    background-color: ${({ theme }) => theme.colors.secondaryBgColor};
   }
-  .subCategoryLink {
+  /* .subCategoryLink {
   }
   .subCategoryContent {
     position: relative;
     overflow: hidden;
-  }
+  } */
 
-  .subCategoryContent:hover {
+  /* .subCategoryContent:hover {
     .titleOverlay {
       opacity: 1;
-    }
+    } */
 
-    .subCategoryImg {
+  /* .subCategoryImg {
       transform: scale(1.2);
     }
-  }
+  } */
 
   .subCategoryImg {
+    margin-bottom:37px;
     width: 100%;
-    max-height: 251px;
+    max-height: 300px;
+    border-radius: 10px 10px 0 0;
 
-    transform: scale(1);
-    transition: ${({ theme }) => theme.animations.transition};
+    /* transform: scale(1);
+    transition: ${({ theme }) => theme.animations.transition}; */
   }
-  .titleOverlay {
+  /* .titleOverlay {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,19 +60,18 @@ export const StyledSubcategoriesList = styled.div`
 
     /* z-index: -1; */
 
-    width: 100%;
+  /* width: 100%;
     min-height: 100%;
 
     background-color: ${({ theme }) => theme.colors.subCategoryHover};
 
     transition: ${({ theme }) => theme.animations.transition};
-  }
+  }  */
 
   .subCategoryTitle {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 500;
-    font-size: 32px;
+    font-size: 30px;
     text-align: center;
-    color: #fff;
+    color:${({ theme }) => theme.colors.primaryTxtColor };
   }
 `;

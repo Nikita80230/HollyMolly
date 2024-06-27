@@ -15,9 +15,9 @@ const SelectedFiltersList = ({ selectedFilters }) => {
   };
 
   const filtersArray = Object.entries(selectedFilters).map(([key, values]) => {
-    return values.map((value) => {
-      return (
-        <div key={value} className="filter">
+   if (Array.isArray(values)) {
+      return values.map((value) => (
+        <div key={`${key}-${value}`} className="filter">
           <span className="filterName">{value}</span>
           <button
             type="button"
@@ -27,8 +27,11 @@ const SelectedFiltersList = ({ selectedFilters }) => {
             <CrossIcon />
           </button>
         </div>
-      );
-    });
+      ));
+    } else {
+     
+      return []; 
+    }
   });
 
   return (

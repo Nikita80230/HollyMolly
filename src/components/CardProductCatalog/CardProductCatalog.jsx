@@ -112,9 +112,9 @@ const colors = ['#fff6e7', '#e2edf4', '#eff9f1', '#f9eff5'];
         )} */}
         {/* <div className="wrapperColorsFeedbackHeart">
           <div className="buttonsFeedback"> */}
-            {/* <StarRatingCard rating={product.rating || 0} /> */}
+            {/* <StarRatingCard rating={product.rating || 0} />
 
-            {/* <Link to={`${routes.FEEDBACK}/${product.categoryId}/${product.id}`}>
+            <Link to={`${routes.FEEDBACK}/${product.categoryId}/${product.id}`}>
               <div className="wrapperFeedback">
                 <Feedback />
                 {product.feedbacks && product.feedbacks.length === 0 ? (

@@ -1,22 +1,26 @@
 import styled from "styled-components";
 
 export const StyledFilterBlock = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 
   .filterTitle {
-    margin-bottom: 24px;
+    margin-bottom: 36px;
   }
 
   .checkboxSection {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 15px;
   }
 
   .checkboxLabel {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 13px;
+
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.20833;
   }
 
   .fakeCheckbox {
@@ -24,11 +28,11 @@ export const StyledFilterBlock = styled.div`
     align-items: center;
     justify-content: center;
 
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     background-color: transparent;
-    border-radius: 5px;
-    border: 1px solid rgba(119, 120, 119, 0.47);
+    border-radius: 2px;
+    border: 1px solid ${({ theme }) => theme.colors.borderColor};
 
     transition: ${({ theme }) => theme.animations.transition};
   }
@@ -57,7 +61,7 @@ export const StyledFilterBlock = styled.div`
   }
 
   .commonCheckbox:checked + .fakeCheckbox {
-    background-color: #939fdf;
+    background-color: ${({ theme }) => theme.colors.accentColor};
   }
 
   .textCheckbox {
