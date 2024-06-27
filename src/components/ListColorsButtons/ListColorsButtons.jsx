@@ -25,7 +25,7 @@ const ListColorsButtons = ({ colors, handleClick, activeColorId }) => {
           <button
             className={`buttonColor ${activeColorId === id ? "active" : ""}`}
             style={{
-              backgroundColor: color,
+              backgroundColor: activeColorId === id ? "transparent" : color,
             }}
             onClick={() => handleClick(id)}
           >

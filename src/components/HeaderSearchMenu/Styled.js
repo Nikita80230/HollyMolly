@@ -15,7 +15,9 @@ export const StyledHeaderSearchMenu = styled.div`
   max-height: 485px;
   height: 100vh;
 
-  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: ${({ theme }) => theme.shadows.boxShadowCategoryModal};
+  background: ${({ theme }) => theme.colors.primaryBgColor};
 
   .searchMenuTop {
     display: flex;
@@ -48,7 +50,7 @@ export const StyledHeaderSearchMenu = styled.div`
 
     margin-bottom: 30px;
 
-    border-bottom: 1px solid ${({ theme }) => theme.colors.hoverInput};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
   .searchMenuList {
@@ -84,10 +86,11 @@ export const StyledHeaderSearchMenu = styled.div`
     flex-direction: row;
     align-items: center;
 
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
     font-weight: 400;
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.headerSearchMenuList};
+    font-size: 20px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
   .searchMenuItemText {
@@ -100,10 +103,11 @@ export const StyledHeaderSearchMenu = styled.div`
   .searchMenuInput {
     /* background: red; */
 
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
     font-weight: 400;
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.inputFocus};
+    font-size: 20px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
   /* .searchMenuLogoIcon {
   } */

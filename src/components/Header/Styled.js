@@ -32,7 +32,7 @@ export const StyledHeader = styled.header`
     align-items: center;
     flex-direction: row;
 
-    max-width: 425px;
+    max-width: 426px;
     width: 100%;
   }
 
