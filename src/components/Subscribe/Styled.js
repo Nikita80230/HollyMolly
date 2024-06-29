@@ -7,7 +7,6 @@ export const SubscribeWrapper = styled.section`
   flex-direction: column;
 
   @media only screen and (min-width: 768px) {
-    
   }
 
   @media only screen and (min-width: 1440px) {
@@ -72,12 +71,10 @@ export const SubscribeWrapper = styled.section`
 
     @media only screen and (min-width: 768px) {
       gap: 8px;
-      
     }
 
     @media only screen and (min-width: 1440px) {
       gap: 7px;
-      
     }
   }
 
@@ -85,11 +82,11 @@ export const SubscribeWrapper = styled.section`
     /* padding: 12px 11px; */
     outline: transparent;
     outline-offset: -1px;
-     border-radius: 5px;
-    border:  1px solid ${({ theme }) => theme.colors.borderColor};
+    border-radius: 5px;
+    border: 1px solid ${({ theme }) => theme.colors.borderColor};
     font-size: 17px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
-    transition: border-color ${({theme})=>theme.animations.transition};
+    transition: border-color ${({ theme }) => theme.animations.transition};
 
     @media only screen and (min-width: 375px) {
       /* width: 255px; */
@@ -110,12 +107,10 @@ export const SubscribeWrapper = styled.section`
   }
 
   .subscribeInput:hover {
-   border: 1px solid ${({ theme }) => theme.colors.borderHoverColor};
-
+    border: 1px solid ${({ theme }) => theme.colors.borderHoverColor};
   }
   .subscribeInput:focus {
     border: 1px solid ${({ theme }) => theme.colors.borderFocusColor};
-    
 
     @media only screen and (min-width: 768px) {
       width: 394px;
@@ -134,23 +129,21 @@ export const SubscribeWrapper = styled.section`
     }
 
     @media only screen and (min-width: 1440px) {
-      
       font-weight: 400;
       font-size: 20px;
       line-height: 1.2;
-      
     }
   }
 
   .subscribeInputError {
     padding: 12px 11px;
     border: transparent;
-    border-bottom: 2px solid ${({ theme }) => theme.colors.colorError};
+    border: 2px solid ${({ theme }) => theme.colors.colorError};
     outline: transparent;
     outline-offset: -1px;
     width: 60%;
     height: 42px;
-    transition: border-bottom ${({ theme }) => theme.animations.transition};
+    transition: border ${({ theme }) => theme.animations.transition};
 
     @media only screen and (min-width: 375px) {
       width: 255px;
@@ -164,19 +157,23 @@ export const SubscribeWrapper = styled.section`
       border-radius: 5px;
       width: 400px;
       height: 40px;
+      font-family: ${({ theme }) => theme.fonts.familyDidact};
+      font-weight: 400;
+      font-size: 20px;
+      background: ${({ theme }) => theme.colors.primaryBgColor};
     }
   }
 
   .subscribeInputSuccess {
     padding: 12px 11px;
     border: transparent;
-    border-bottom: 2px solid ${({ theme }) => theme.colors.colorSuccess};
+    border: 2px solid ${({ theme }) => theme.colors.colorSuccess};
     outline: transparent;
     outline-offset: -1px;
 
     width: 60%;
     height: 42px;
-    transition: border-bottom ${({ theme }) => theme.animations.transition};
+    transition: border ${({ theme }) => theme.animations.transition};
 
     @media only screen and (min-width: 375px) {
       width: 255px;
@@ -191,6 +188,10 @@ export const SubscribeWrapper = styled.section`
       border-radius: 5px;
       width: 400px;
       height: 40px;
+      font-family: ${({ theme }) => theme.fonts.familyDidact};
+      font-weight: 400;
+      font-size: 20px;
+      background: ${({ theme }) => theme.colors.primaryBgColor};
     }
   }
 
@@ -199,7 +200,7 @@ export const SubscribeWrapper = styled.section`
     bottom: -28px;
     left: 0;
     color: ${({ theme }) => theme.colors.colorError};
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
     font-size: 10px;
 
     @media only screen and (min-width: 768px) {
@@ -209,7 +210,8 @@ export const SubscribeWrapper = styled.section`
     }
 
     @media only screen and (min-width: 1440px) {
-      bottom: -28px;
+      bottom: -18px;
+      font-weight: 900;
       font-size: 16px;
     }
   }
@@ -219,7 +221,7 @@ export const SubscribeWrapper = styled.section`
     bottom: -28px;
     left: 0;
     color: ${({ theme }) => theme.colors.colorSuccess};
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
     font-size: 10px;
 
     @media only screen and (min-width: 768px) {
@@ -229,20 +231,19 @@ export const SubscribeWrapper = styled.section`
     }
 
     @media only screen and (min-width: 1440px) {
-      bottom: -28px;
+      bottom: -18px;
+      font-weight: 900;
       font-size: 16px;
     }
   }
 
   .subscribeButton {
-    
     @media only screen and (min-width: 768px) {
-     
     }
 
     @media only screen and (min-width: 1440px) {
       border-radius: 5px;
-      border:transparent;
+      border: transparent;
       padding: 5px 8px;
       width: 154px;
       height: 40px;
@@ -252,23 +253,20 @@ export const SubscribeWrapper = styled.section`
       line-height: 1.20833;
       text-align: center;
       color: ${({ theme }) => theme.colors.whiteTxtColor};
-      background-color:${({ theme }) => theme.colors.activeBgColor};
+      background-color: ${({ theme }) => theme.colors.activeBgColor};
       transition: background-color ${({ theme }) => theme.animations.transition};
     }
   }
- 
 
   .subscribeButtonDisabled {
-  
     transition: background-color ${({ theme }) => theme.animations.transition};
 
     @media only screen and (min-width: 768px) {
-      
     }
 
     @media only screen and (min-width: 1440px) {
       border-radius: 5px;
-      border:transparent;
+      border: transparent;
       padding: 5px 8px;
       width: 154px;
       height: 40px;

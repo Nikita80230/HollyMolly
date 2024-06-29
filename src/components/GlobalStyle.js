@@ -84,13 +84,14 @@ button{
 
 .modal-content {
   position: absolute;
-  top: 45%;
+  top: 35%;
   left: 50%;
   right: auto;
   bottom: auto;
   transform: translate(-50%, -50%);
   padding: 0;
   border: transparent;
+ 
 }
 .modal-overlay {
   position: fixed;
@@ -99,7 +100,7 @@ button{
   left: 0;
   width: 100%;
   height: 100vh;
-  background:rgba(0, 1, 5, 0.6);
+  background:rgba(76, 76, 77, 0.5);
 }
 .custom-toast {
     padding: 74px 24px;

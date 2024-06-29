@@ -6,7 +6,11 @@ export const StyledList = styled.ul`
   gap: 12px;
 
   .buttonColor {
-    position: relative;
+    
+    padding:0;
+    display: flex;
+    justify-content: center;
+    align-items:center;
     border-radius: 2px;
     border: 0.5px solid ${({ theme }) => theme.colors.borderColor};
     width: 24px;
@@ -26,12 +30,8 @@ export const StyledList = styled.ul`
   }
 
   .containerColor {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     border-radius: 2px;
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
   }
 `;

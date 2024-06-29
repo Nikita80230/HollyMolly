@@ -7,14 +7,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 653px;
-  height: 170px;
-  padding: 32px 32px 40px 32px;
-  border-radius: 16px;
-  box-shadow: inset 0 0 50px 0 rgba(169, 181, 237, 0.3),
-    0 4px 20px 0 rgba(4, 9, 34, 0.15);
-  background: ${({ theme }) => theme.colors.primaryBgColor};
-
+ 
   @media only screen and (min-width: 768px) {
     border-radius: 14px;
     padding: 16px 12px 24px 12px;
@@ -23,44 +16,52 @@ export const Wrapper = styled.div`
   }
 
   @media only screen and (min-width: 1440px) {
-    padding: 32px 32px 40px 32px;
-    width: 653px;
-    height: 170px;
-    border-radius: 16px;
+     border-radius: 10px;
+padding: 5px 20px 25px 20px;
+width: 791px;
+height: 258px;
+  background-color: ${({theme})=>theme.colors.accentColor};
+  backdrop-filter: blur(60px);
+
   }
 
   .title {
     margin-bottom: 8px;
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-size: 18px;
-    color: ${({ theme }) => theme.colors.descriptionModal};
-
+   
     @media only screen and (min-width: 768px) {
       font-size: 32px;
     }
 
     @media only screen and (min-width: 1440px) {
-      margin-bottom: 16px;
+      margin-bottom:20px;
+      font-family: ${({theme})=>theme.fonts.familyPacifico};
+font-weight: 400;
+font-size: 45px;
+line-height: 1.2;
+text-align: center;
+color: ${({theme})=>theme.colors.whiteTxtColor};
     }
   }
 
   .description {
-    font-family: ${({ theme }) => theme.fonts.familyRoboto};
-    font-weight: 400;
-    font-size: 10px;
-    color: ${({ theme }) => theme.colors.descriptionModal};
+   
 
     @media only screen and (min-width: 768px) {
       font-size: 14px;
     }
     @media only screen and (min-width: 1440px) {
-      font-size: 16px;
+      
+font-weight: 400;
+font-size: 24px;
+line-height: 1.20833;
+text-align: center;
+
     }
   }
   .buttonModal {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 14px;
+    right: 20px;
     background-color: transparent;
     border: transparent;
 
@@ -70,8 +71,8 @@ export const Wrapper = styled.div`
     }
 
     @media only screen and (min-width: 1440px) {
-      top: 30px;
-      right: 30px;
+      top: 14px;
+      right: 20px;
     }
   }
 `;

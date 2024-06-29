@@ -65,10 +65,11 @@ export const StyledFilterBlock = styled.div`
   }
 
   .textCheckbox {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 500;
-    font-size: 20px;
-    color: ${({ theme }) => theme.colors.checkboxText};
-    text-transform: capitalize;
+    font-family: ${({ theme }) => theme.fonts.familyGaramond};
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.20833;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+    text-transform:capitalize;
   }
 `;

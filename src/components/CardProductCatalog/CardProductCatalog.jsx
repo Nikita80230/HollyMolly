@@ -80,6 +80,7 @@ const colors = ['#fff6e7', '#e2edf4', '#eff9f1', '#f9eff5'];
 
   return (
     <li key={product.id}>
+      <Link to={`${routes.PRODUCT_PAGE}/${product.id}`}>
       <WrapperCard>
         <div className="wrapperPhoto" style={{ border: `3px solid ${borderColor}` }}>
         <img
@@ -102,14 +103,14 @@ const colors = ['#fff6e7', '#e2edf4', '#eff9f1', '#f9eff5'];
             /></button>
         </div>
         
-        {/* {percentageDiscount && (
+       {percentageDiscount && (
           <span className="styledSpanDiscount">Акція</span>
         )}
         {isNewCollection && <span className="styledSpan">Новинка</span>}
 
         {product.rating === 5 && (
           <span className="styledSpanRating">Топ продажів</span>
-        )} */}
+        )} 
         {/* <div className="wrapperColorsFeedbackHeart">
           <div className="buttonsFeedback"> */}
             {/* <StarRatingCard rating={product.rating || 0} />
@@ -150,7 +151,8 @@ const colors = ['#fff6e7', '#e2edf4', '#eff9f1', '#f9eff5'];
             selectedProductInstance={selectedProductInstance}
           /> */}
         </div>
-      </WrapperCard>
+        </WrapperCard>
+        </Link>
     </li>
   );
 };
