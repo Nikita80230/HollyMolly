@@ -37,6 +37,7 @@ import ProfilePageLayout from "./components/ProfilePageLayout/ProfilePageLayout"
 import { logOut } from "./redux/auth/authSlice";
 import { selectAuth } from "./redux/auth/selectors";
 import SubmitOrderPage from "./pages/SubmitOrderPage/SubmitOrderPage";
+import ProductPage from "./pages/ProductPage/ProductPage";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -73,6 +74,12 @@ const appRoutes = [
       <CatalogPage />
       // </PrivateRoute>
     ),
+  },
+  {
+      path: `${routes.PRODUCT_PAGE}/:productId`,
+    element:  <ProductPage />
+     
+    ,  
   },
   {
     path: routes.SUPPORT,

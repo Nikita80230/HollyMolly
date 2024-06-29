@@ -123,9 +123,9 @@ export const StyledLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.footerLinks};
   transition: color ${({ theme }) => theme.animations.transition};
 
-  &:hover {
+  /* &:hover {
     color: ${({ theme }) => theme.colors.colorLink};
-  }
+  } */
 
   @media only screen and (min-width: 768px) {
     text-align: left;
@@ -151,9 +151,9 @@ export const SocialLink = styled(NavLink)`
   white-space: nowrap;
   transition: color ${({ theme }) => theme.animations.transition};
 
-  &:hover {
+  /* &:hover {
     color: ${({ theme }) => theme.colors.hoverButton};
-  }
+  } */
 
   @media only screen and (min-width: 768px) {
   }

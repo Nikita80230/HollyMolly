@@ -3,6 +3,7 @@ export const routes = {
   REGISTER: "/register",
   LOGIN: "/login",
   CATALOG_PAGE: "/catalog",
+  PRODUCT_PAGE:"/product",
   CONFIRM_EMAIL: "/confirm-email",
   SUPPORT: "/support",
   ABOUT_US: "/about",

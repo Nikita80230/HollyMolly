@@ -31,8 +31,17 @@ export const theme = {
     hoverBgButton: "#e85a50",
     activeBgColor: "#c04c43",
     footerSubtitle: "#4c4c4d",
-
+    colorBgSpanRating: "#e2edf4",
+    colorBgSpanNovelty: "#f9eff5",
+    colorBgSpanDiscount: "##eff9f1",
     headerSearchMenuList: "#000105",
+    colorError: "#c61a0e",
+    colorSuccess: " #349920",
+
+
+
+    
+   
     colorLogo: "#6b5034",
     colorLink: "#4169e1",
     
@@ -43,8 +52,8 @@ export const theme = {
     
     dividerBurgerMenu: "#e4e4e4",
     
-    colorError: "#c61a0e",
-    colorSuccess: "#40bb27",
+    
+    
     accentFocusColor: "rgba(169, 181, 237, 0.8)",
     descriptionModal: "#000105",
     borderButtonSwiper: "#4c4c4d",
@@ -54,11 +63,11 @@ export const theme = {
     checkboxText: "#000",
     focusButtonBgSwiper: "rgba(169, 181, 237, 0.4)",
     titleCardProduct: "#000",
-    colorBgSpanNovelty: "#4169e1",
+    
     spanTextColor: "#fff",
     colorPrice: "#797878",
     colorPriceSecondary: "#6b5034",
-    colorBgSpanDiscount: "#ff7673",
+    
     borderButtonColor: "#000",
     activeBgNavLink: "rgba(169, 181, 237, 0.4)",
     hoverIcon: " #a9b5ed",
@@ -67,7 +76,7 @@ export const theme = {
     borderActivePagination:"rgba(41, 66, 142, 0.8)",
     hoverPaginationBg: "rgba(202, 208, 243, 0.6)",
     borderHoverPagination: "#cad0f3",
-    colorBgSpanRating: " #f0b375",
+    
     borderButtonColors: "#e2e2e2",
     backgroundAuth: "rgba(0, 1, 5, 0.6)",
     colorAuth: "#e6e9f9",
