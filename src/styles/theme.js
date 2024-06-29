@@ -12,10 +12,12 @@ to{
 export const theme = {
   colors: {
     primaryBgColor: "#fff",
+    secondaryBgColor:"#fff6e7",
     heroBgColor: "#eae8dc",
     gradient: "linear-gradient(135deg, #fff 0%, #fff 100%)",
     gradientTitle:"linear-gradient(90deg, #100503 0%, #e85a50 100%)",
     primaryTxtColor: "#100503",
+    secondaryTxtColor:"#c4c4c4",
     whiteTxtColor: "#fff",
     placeholderTxtColor: "#c4c4c4",
     cardBorderColor: "#fff6e7",

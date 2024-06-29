@@ -13,42 +13,61 @@ const customStyles = {
   placeholder: (defaultStyles) => {
     return {
       ...defaultStyles,
-      fontFamily: `Nunito`,
-      fontWeight: "500",
-      fontSize: "22px",
+      fontWeight: 400,
+      fontSize: 24,
+      lineHeight: 1.20833,
       textAlign: "center",
-      color: `#000`,
+      color: "#100503",
     };
   },
   control: (baseStyles, state) => ({
     ...baseStyles,
     borderRadius: 10,
+    borderColor: "#c4c4c4",
+    boxShadow: "none",
     paddingLeft: 20,
     paddingRight: 20,
-    width: 358,
-    height: 54,
-    fontWeight: 500,
-    fontSize: 22,
+    width: 340,
+    height: 40,
+    fontWeight: 400,
+    fontSize: 24,
+    lineHeight: 1.20833,
     textAlign: "center",
-    color: "#000",
+    color: "#100503",
+    "&:hover": {
+      borderColor: "#c4c4c4",
+    },
   }),
   option: (provided, state) => ({
     ...provided,
-    fontWeight: 500,
-    fontSize: 22,
+    fontWeight: 400,
+    fontSize: 24,
+    lineHeight: 1.20833,
     textAlign: "center",
-    color: "#000",
-    borderLeft: state.isFocused ? "2px solid #939FDF" : "none",
-    borderRight: state.isFocused ? "2px solid #939FDF" : "none",
-    backgroundColor: "transparent",
+    color: state.isSelected ? "#e85a50" : "#100503",
+    backgroundColor: "#fff",
+  }),
+  menu: (provided, state) => ({
+    ...provided,
+    boxShadow: "5px 5px 10px 0 #c0bfbf",
+    borderRadius: 10,
+  }),
+  menuList: (provided, state) => ({
+    ...provided,
+    paddingTop: 9,
+    paddingBottom: 9,
+    paddingLeft: 20,
+    paddingRight: 20,
+    borderRadius: 10,
   }),
 };
 
 const SortingPanel = ({ className, handleSorting }) => {
   return (
     <StyledSortingPanel className={className}>
+      <h2 className="titleSorting">Сортування</h2>
       <ReactSelect
-        placeholder="Сортування"
+        placeholder="За рейтингом"
         options={options}
         isClearable={false}
         isSearchable={false}

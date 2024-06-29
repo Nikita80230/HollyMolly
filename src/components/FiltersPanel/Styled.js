@@ -4,19 +4,18 @@ export const StyledFiltersPanel = styled.div`
   position: relative;
 
   .title {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 500;
-    font-size: 32px;
-    text-align: left;
-    color: #000;
+font-weight: 400;
+font-size: 36px;
+line-height: 1.22222;
+
   }
 
   .priceFilter {
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
 
   .priceFilterTitle {
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
 
   .minPriceLabel,

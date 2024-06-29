@@ -19,7 +19,6 @@ const Breadcrumb = ({ structure }) => {
             <NavLink className="mainLink" to={element.url}>
               {element.text}
             </NavLink>
-            <div className="linksDivider">/</div>
           </Fragment>
         );
       })}
