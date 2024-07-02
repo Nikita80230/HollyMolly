@@ -76,7 +76,7 @@ const appRoutes = [
     ),
   },
   {
-      path: `${routes.PRODUCT_PAGE}/:productId`,
+      path: `${routes.PRODUCT_PAGE}/:productId/:productInstanceId`,
     element:  <ProductPage />
      
     ,  

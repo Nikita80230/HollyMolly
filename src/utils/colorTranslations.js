@@ -1,19 +1,19 @@
 const colorTranslations = {
-    червоний: " #e85a50",
-    зелений: "#349920",
-    синій: "#4169e1",
-    жовтий: " #fc0",
+    червоний: "red",
+    зелений: "green",
+    синій: "blue",
+    жовтий: " yellow",
     чорний: "black",
     білий: "white",
     оранжевий: "orange",
     фіолетовий: "purple",
     рожевий: "pink",
-    золотий: " #bd9028",
+    золотий: "green",
     срібний: "silver",
     коричневий: "brown",
     сірий: "gray",
-    блакитний: "#87CEEB",
-    бежевий :" #fff6e7",
+    блакитний: "blue",
+    бежевий :" beige",
 };
   
 export default colorTranslations;

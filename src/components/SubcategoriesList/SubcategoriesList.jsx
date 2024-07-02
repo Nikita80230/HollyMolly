@@ -4,6 +4,20 @@ import { routes } from "src/routes";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
 
 const SubcategoriesList = ({ allCategories, categoryGroupId }) => {
+  const colorSchemes = {
+    1: ["#fff6e7", "#fff6e7", "#fff6e7"],
+    2: ["#e2edf4", "#e2edf4", "#e2edf4"],
+    3: ["#eff9f1", "#eff9f1", "#eff9f1"],
+    4: ["#f9eff5", "#f9eff5", "#f9eff5"],
+  };
+
+  const colors = colorSchemes[categoryGroupId] || [
+    "#fff6e7",
+    "#e2edf4",
+    "#eff9f1",
+    "#f9eff5",
+  ];
+
   if (allCategories.length === 0) return;
 
   let subCategoriesToRender = [];
@@ -17,22 +31,26 @@ const SubcategoriesList = ({ allCategories, categoryGroupId }) => {
     <StyledSubcategoriesList>
       <h2 className="title">Підкатегорії</h2>
       <ul className="subcategoriesList">
-        {subCategoriesToRender.map((subCategory) => {
+        {subCategoriesToRender.map((subCategory, index) => {
           return (
-            <li className="subCategoryItem" key={subCategory.id}>
+            <li
+              className="subCategoryItem"
+              key={subCategory.id}
+              style={{ backgroundColor: colors[index % colors.length] }}
+            >
               <Link
                 className="subCategoryLink"
                 to={`${routes.CATALOG_PAGE}/${subCategory.categoryGroupId}/${subCategory.id}`}
               >
                 {/* <div className="subCategoryContent"> */}
-                  <img
-                    className="subCategoryImg"
-                    src={subCategory.link || defaultPhoto}
-                    alt="Category image"
-                  />
-                  {/* <div className="titleOverlay"> */}
-                    <p className="subCategoryTitle">{subCategory.name}</p>
-                  {/* </div> */}
+                <img
+                  className="subCategoryImg"
+                  src={subCategory.link || defaultPhoto}
+                  alt="Category image"
+                />
+                {/* <div className="titleOverlay"> */}
+                <p className="subCategoryTitle">{subCategory.name}</p>
+                {/* </div> */}
                 {/* </div> */}
               </Link>
             </li>

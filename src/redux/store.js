@@ -18,6 +18,7 @@ import { productsReducer } from "./products/productsSlice";
 import { filtersReducer } from "./filters/filtersSlice";
 import { userReducer } from "./user/userSlice";
 import { ordersReducer } from "./orders/ordersSlice";
+import { basketReducer } from "./basket/basketSlice";
 
 const productsPersistConfig = {
   key: "products",
@@ -47,6 +48,7 @@ export const store = configureStore({
     filters: filtersReducer,
     user: userReducer,
     orders: ordersReducer,
+    basket: basketReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

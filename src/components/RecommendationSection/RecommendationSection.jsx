@@ -22,7 +22,7 @@ import CardProductCatalog from "../CardProductCatalog/CardProductCatalog";
 const RecommendationSection = () => {
   const dispatch = useDispatch();
   const recommendedProducts = useSelector(selectRecommendedProducts);
-console.log(recommendedProducts)
+
   useEffect(() => {
     dispatch(getRecommendedProducts());
   }, [dispatch]);

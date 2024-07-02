@@ -1,4 +1,4 @@
-import { FooterContainer, LowerBlock } from "./Styled";
+import { FooterContainer} from "./Styled";
 import FooterNavigation from "../FooterNavigation/FooterNavigation";
 
 const Footer = () => {

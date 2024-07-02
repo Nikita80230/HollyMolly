@@ -9,7 +9,7 @@ const ModalSubscribe = ({onClose}) => {
       <p className="description">
         Ви успішно підписалися на нашу щотижневу розсилку.
       </p>
-      <p className="description">
+      <p className="text">
         Тепер Ви завжди будете в курсі всіх останніх новинок нашого магазину.
       </p>
     </ Wrapper>
