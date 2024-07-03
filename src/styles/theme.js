@@ -37,6 +37,7 @@ export const theme = {
     headerSearchMenuList: "#000105",
     colorError: "#c61a0e",
     colorSuccess: " #349920",
+    borderProductPhoto:"#fff6e7",
 
 
 
@@ -181,6 +182,7 @@ export const theme = {
   shadows: {
     boxShadowAuth: "0 8px 32px 0 rgba(0, 0, 0, 0.32)",
     boxShadowCategory: " 10px 10px 5px 0 #b8b7b7",
-    boxShadowCategoryModal:"10px 10px 20px 0 #a88465",
+    boxShadowCategoryModal: "10px 10px 20px 0 #a88465",
+    boxShadowButtonHover:"5px 5px 5px 0 #a5a4a4",
   }
 };

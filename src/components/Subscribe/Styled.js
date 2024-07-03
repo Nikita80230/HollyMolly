@@ -277,11 +277,13 @@ export const SubscribeWrapper = styled.section`
       text-align: center;
       color: ${({ theme }) => theme.colors.whiteTxtColor};
       background-color: ${({ theme }) => theme.colors.buttonBgDisabled};
-      transition: background-color ${({ theme }) => theme.animations.transition};
+      transition: background-color ${({ theme }) => theme.animations.transition},
+      box-shadow ${({ theme }) => theme.animations.transition};
     }
   }
   .subscribeButtonDisabled:hover {
     background-color: ${({ theme }) => theme.colors.hoverBgButton};
+    box-shadow: ${({ theme }) => theme.shadows.boxShadowButtonHover};
   }
   .subscribeButtonDisabled:focus {
     background-color: ${({ theme }) => theme.colors.activeBgColor};

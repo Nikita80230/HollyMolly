@@ -49,3 +49,16 @@ export const getProductsByCurrentCategory = createAsyncThunk(
     }
   }
 );
+
+export const getProductById = createAsyncThunk(
+  "products/getProductById",
+  async (productId, thunkApi) => {
+    try {
+      const res = await instance.get(`Products/${productId}`);
+      return res.data;
+    } catch (error) {
+      toast.error(error.message);
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);

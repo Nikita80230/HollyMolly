@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 import AddToBasket from "../AddToBasket/AddToBasket";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
 
-const CardProductCatalog = ({ product, sortType, index}) => {
+const CardProductCatalog = ({ product, sortType, index }) => {
   const dispatch = useDispatch();
   const favoriteProducts = useSelector(selectFavoriteProducts);
 
@@ -39,7 +39,7 @@ const CardProductCatalog = ({ product, sortType, index}) => {
   const [pictureProduct, setPictureProduct] = useState(null);
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
 
-const colors = ['#fff6e7', '#e2edf4', '#eff9f1', '#f9eff5'];
+  const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
   const borderColor = colors[index % colors.length];
 
   const handleClick = (id) => {
@@ -80,62 +80,44 @@ const colors = ['#fff6e7', '#e2edf4', '#eff9f1', '#f9eff5'];
 
   return (
     <li key={product.id}>
-      <Link to={`${routes.PRODUCT_PAGE}/${product.id}`}>
       <WrapperCard>
-        <div className="wrapperPhoto" style={{ border: `3px solid ${borderColor}` }}>
-        <img
-          className="productPhoto"
-          src={pictureProduct || defaultPhoto}
-          alt={product.name || "product picture"}
-          
-        /></div>
+        <Link
+          to={`${routes.PRODUCT_PAGE}/${product.id}/${selectedProductInstance?.id}`}
+        >
+          <div
+            className="wrapperPhoto"
+            style={{ border: `3px solid ${borderColor}` }}
+          >
+            <img
+              className="productPhoto"
+              src={pictureProduct || defaultPhoto}
+              alt={product.name || "product picture"}
+            />
+          </div>
+        </Link>
 
         <h4 className="title">{product.name}</h4>
         <div className="wrapperColorFavorite">
-        <ListColorsButtons
-          colors={product.productsInstances || []}
-          handleClick={handleClick}
-          activeColorId={activeColorId}
+          <ListColorsButtons
+            colors={product.productsInstances || []}
+            handleClick={handleClick}
+            activeColorId={activeColorId}
           />
-           <button className="buttonIcon" onClick={handleAddToFavorite}>
-         <HeartIcon
-                className={`iconHeart ${isProductInFavorite ? "added" : ""} `}
-            /></button>
+          <button className="buttonIcon" onClick={handleAddToFavorite}>
+            <HeartIcon
+              className={`iconHeart ${isProductInFavorite ? "added" : ""} `}
+            />
+          </button>
         </div>
-        
-       {percentageDiscount && (
+
+        {percentageDiscount && (
           <span className="styledSpanDiscount">Акція</span>
         )}
         {isNewCollection && <span className="styledSpan">Новинка</span>}
 
         {product.rating === 5 && (
           <span className="styledSpanRating">Топ продажів</span>
-        )} 
-        {/* <div className="wrapperColorsFeedbackHeart">
-          <div className="buttonsFeedback"> */}
-            {/* <StarRatingCard rating={product.rating || 0} />
-
-            <Link to={`${routes.FEEDBACK}/${product.categoryId}/${product.id}`}>
-              <div className="wrapperFeedback">
-                <Feedback />
-                {product.feedbacks && product.feedbacks.length === 0 ? (
-                  <span className="spanFeedback">Залишити відгук</span>
-                ) : (
-                  <span className="spanFeedback">
-                    {product.feedbacks ? product.feedbacks.length : 0}
-                  </span>
-                )}
-              </div>
-            </Link> */}
-          {/* </div>
-          <button className="buttonIcon" onClick={handleAddToFavorite}>
-            {
-              <HeartIcon
-                className={`iconHeart ${isProductInFavorite ? "added" : ""} `}
-              />
-            }
-          </button>
-        </div> */}
+        )}
 
         <div className="wrapperPriceIcon">
           <div>
@@ -151,8 +133,7 @@ const colors = ['#fff6e7', '#e2edf4', '#eff9f1', '#f9eff5'];
             selectedProductInstance={selectedProductInstance}
           /> */}
         </div>
-        </WrapperCard>
-        </Link>
+      </WrapperCard>
     </li>
   );
 };

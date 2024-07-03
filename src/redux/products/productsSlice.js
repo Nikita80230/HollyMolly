@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   getAllProducts,
+  getProductById,
   getProductsByCurrentCategory,
   getRecommendedProducts,
 } from "./operations";
@@ -10,14 +11,17 @@ const initialProductsState = {
   isAllProductsLoading: false,
   isRecommendedProductsLoading: false,
   // productsByCurrentCategory: false,
+  isCurrentProductLoading: false,
   error: "",
+  currentProductError: null,
   allProducts: [],
   recommendedProducts: [],
   favoriteProducts: [],
   productsByCurrentCategory: [],
   filteredProducts: [],
-  basketProducts: [],
-  amountOrder:0,
+  // basketProducts: [],
+  amountOrder: 0,
+  currentProduct: null,
 };
 
 const productsSlice = createSlice({
@@ -37,24 +41,23 @@ const productsSlice = createSlice({
       }
     },
 
-    addProductsToBasket: (state, action) => {
-      
-      const { productInstanceId, priceAfterDiscount } = action.payload;
-      const currentProduct = state.basketProducts.find(
-        (product) => product.productInstanceId === productInstanceId
-      );
-      if (currentProduct) {
-        currentProduct.quantity += 1;
-        currentProduct.totalPrice =
-          currentProduct.quantity * priceAfterDiscount;
-      } else {
-        state.basketProducts.push({
-          ...action.payload,
-          quantity: 1,
-          totalPrice: priceAfterDiscount,
-        });
-      }
-    },
+    // addProductsToBasket: (state, action) => {
+    //   const { productInstanceId, priceAfterDiscount } = action.payload;
+    //   const currentProduct = state.basketProducts.find(
+    //     (product) => product.productInstanceId === productInstanceId
+    //   );
+    //   if (currentProduct) {
+    //     currentProduct.quantity += 1;
+    //     currentProduct.totalPrice =
+    //       currentProduct.quantity * priceAfterDiscount;
+    //   } else {
+    //     state.basketProducts.push({
+    //       ...action.payload,
+    //       quantity: 1,
+    //       totalPrice: priceAfterDiscount,
+    //     });
+    //   }
+    // },
 
     deleteProduct: (state, action) => {
       const index = state.basketProducts.findIndex(
@@ -79,16 +82,16 @@ const productsSlice = createSlice({
       }
     },
 
-     calculateAmountOrder: (state) => {
+    calculateAmountOrder: (state) => {
       state.amountOrder = state.basketProducts.reduce((sum, product) => {
         return sum + product.totalPrice;
       }, 0);
     },
-     
+
     clearBasket: (state) => {
       state.basketProducts = [];
       state.amountOrder = 0;
-     }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -128,6 +131,19 @@ const productsSlice = createSlice({
       })
       .addCase(getProductsByCurrentCategory.rejected, (state, action) => {
         state.error = action.payload;
+      })
+      .addCase(getProductById.pending, (state) => {
+        state.isCurrentProductLoading = true;
+        state.currentProductError = null;
+      })
+      .addCase(getProductById.fulfilled, (state, action) => {
+        state.currentProduct = action.payload;
+        state.isCurrentProductLoading = false;
+        state.currentProductError = null;
+      })
+      .addCase(getProductById.rejected, (state, action) => {
+        state.isCurrentProductLoading = false;
+        state.currentProductError = action.payload;
       });
   },
 });
@@ -149,6 +165,9 @@ export const selectFavoriteProducts = (state) =>
 export const selectProductsByCurrentCategory = (state) =>
   state.products.productsByCurrentCategory;
 export const selectLoading = (state) => state.products.isLoading;
+export const selectCurrentProduct = (state) => state.products.currentProduct;
+export const selectCurrentLoading = (state) =>
+  state.products.isCurrentProductLoading;
 export const selectBasketProducts = (state) => state.products.basketProducts;
 export const selectAmountOrder = (state) => state.products.amountOrder;
 

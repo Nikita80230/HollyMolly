@@ -31,7 +31,7 @@ export const StyledList = styled.ul`
 
   .containerColor {
     border-radius: 2px;
-    width: 19px;
-    height: 19px;
+    width: 19.5px;
+    height: 19.5px;
   }
 `;

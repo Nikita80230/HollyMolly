@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 import ChevronRightIcon from "src/assets/images/chevron-right.svg?react";
 import ChevronDownIcon from "src/assets/images/chevron-down .svg?react";
 import { useEffect, useState } from "react";
-import Container from "../Container/Container";
+
 
 const FooterNavigation = () => {
   const categories = useSelector(selectCategories);
@@ -42,7 +42,6 @@ const FooterNavigation = () => {
 
   return (
     <WrapperFooterNavigation>
-      <Container>
         <FooterNavigationList>
           <li className="footer-items">
             <div
@@ -175,7 +174,6 @@ const FooterNavigation = () => {
             )}
           </li>
         </FooterNavigationList>
-      </Container>
     </WrapperFooterNavigation>
   );
 };

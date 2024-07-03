@@ -17,7 +17,7 @@ import { routes } from "src/routes";
 
 const CategoriesSection = () => {
   const categories = useSelector(selectCategories);
-  console.log(categories)
+  
 
   // const categories = data.flatMap((item) => item.categories);
   const colors = ['#fff6e7', '#e2edf4', '#eff9f1', '#f9eff5'];

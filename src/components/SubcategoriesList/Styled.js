@@ -19,7 +19,6 @@ export const StyledSubcategoriesList = styled.div`
     height: 413px;
     /* overflow: hidden; */
     border-radius: 10px;
-    background-color: ${({ theme }) => theme.colors.secondaryBgColor};
   }
   /* .subCategoryLink {
   }
