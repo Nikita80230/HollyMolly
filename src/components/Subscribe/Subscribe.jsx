@@ -5,8 +5,9 @@ import { SubscribeSchema } from "src/schemas/SubscribeSchema";
 import { subscribeSentEmail } from "src/services/subscribeSentEmail";
 import { SubscribeWrapper } from "./Styled";
 import ModalSubscribe from "../ModalSubscribe/ModalSubscribe";
+import Container from "../Container/Container";
 
-Modal.setAppElement("#root");
+
 
 const Subscribe = () => {
   const [message, setMessage] = useState("");
@@ -46,7 +47,9 @@ const Subscribe = () => {
 
   return (
     <SubscribeWrapper>
-      <h2 className="title">Підпишись на наші оновлення :</h2>
+      <Container>
+        <div className="containerSubscribe">
+      <h2 className="title">Підпишись на наші оновлення:</h2>
       <p className="description">
         Так ти завжди будеш в курсі останніх новин, отримувати <br></br>спеціальні
         пропозиції та першою дізнаватися про акції та нові <br></br> товари
@@ -98,16 +101,17 @@ const Subscribe = () => {
             )}
           </Form>
         )}
-      </Formik>
+      </Formik></div>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         className="modal-content"
         overlayClassName="modal-overlay"
-        contentLabel=" Modal"
+        contentLabel="Modal Subscription"
       >
         <ModalSubscribe onClose={closeModal} />
-      </Modal>
+        </Modal>
+        </Container>
       </SubscribeWrapper>
   );
 };

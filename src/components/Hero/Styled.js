@@ -4,7 +4,8 @@ import backgroundDesktop2x from "src/assets/images/hero/background-hero-desktop-
 
 export const StyledHero = styled.section`
   @media only screen and (min-width: 1440px) {
-    padding: 214px 40px 43px 65px;
+    position: relative;
+    padding: 214px 0 43px 0;
     margin-bottom: 36px;
 
     width: 100%;
@@ -26,20 +27,30 @@ export const StyledHero = styled.section`
     }
   }
 
-  .containerInHero {
-    @media only screen and (min-width: 1440px) {
-      padding: 60px 47px;
-      margin-bottom: 65px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 712px;
-      height: 389px;
-      border-radius: 10px;
-      backdrop-filter: blur(60px);
-      background: ${({ theme }) => theme.colors.gradient};
-      opacity: 0.5;
-    }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 214px;
+    left: 5.5%;
+    width: 726px;
+    height: 389px;
+    border-radius: 10px;
+    backdrop-filter: blur(60px);
+    background: ${({ theme }) => theme.colors.primaryBgColor};
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  .contentContainer {
+    position: relative;
+    z-index: 2;
+    width: 726px;
+    height: 389px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .titleHero {
@@ -68,7 +79,8 @@ export const StyledHero = styled.section`
 
   .secondTitle {
     @media only screen and (min-width: 1440px) {
-      margin-left: 927px;
+      margin-top: 65px;
+      margin-left: 880px;
       font-family: ${({ theme }) => theme.fonts.familyPacifico};
       font-weight: 400;
       font-size: 48px;
@@ -80,8 +92,7 @@ export const StyledHero = styled.section`
     @media only screen and (min-width: 1440px) {
       font-family: ${({ theme }) => theme.fonts.familyGaramond};
       font-weight: 400;
-      font-size: 46px;
-      text-align: center;
+      font-size: 48px;
       color: ${({ theme }) => theme.colors.primaryTxtColor};
     }
   }

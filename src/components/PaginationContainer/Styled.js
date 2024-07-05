@@ -1,48 +1,46 @@
 import { styled } from "styled-components";
 
-
 export const WrapperPagination = styled.div`
   .pagination {
     display: flex;
-    gap: 12px;
+    gap: 5px;
   }
 
   .paginationButton {
-    border: 2px solid ${({ theme }) => theme.colors.borderPagination};
-    border-radius: 10px;
-    padding: 10px 20px;
+    border: 1px solid ${({ theme }) => theme.colors.borderColor};
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 44px;
-    height: 44px;
-    background-color: ${({ theme }) => theme.colors.primaryBgColor};
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 500;
-    font-size: 20px;
-    color: ${({ theme }) => theme.colors.borderButtonColor};
-    transition: background-color ${({ theme }) => theme.animations.transition},
-      border ${({ theme }) => theme.animations.transition};
+    width: 24px;
+    height: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    background-color: transparent;
+    transition: box-shadow ${({ theme }) => theme.animations.transition};
 
     &:hover {
-      background-color: ${({ theme }) => theme.colors.hoverPaginationBg};
-      border: 1px solid ${({ theme }) => theme.colors.borderHoverPagination};
+      box-shadow: ${({ theme }) => theme.shadows.boxShadowButtonHover};
     }
   }
 
   .paginationButtonActive {
-    border: 2px solid ${({ theme }) => theme.colors.borderActivePagination};
-    border-radius: 10px;
-    padding: 10px 20px;
+    border-radius: 5px;
+    border: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 44px;
-    height: 44px;
-    background-color: ${({ theme }) => theme.colors.activePaginationBg};
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 500;
-    font-size: 20px;
-    color: ${({ theme }) => theme.colors.borderButtonColor};
+    width: 24px;
+    height: 24px;
+    background-color: ${({ theme }) => theme.colors.accentColor};
+    font-weight: 400;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.whiteTxtColor};
+
+    transition: box-shadow ${({ theme }) => theme.animations.transition};
+
+    &:hover {
+      box-shadow: ${({ theme }) => theme.shadows.boxShadowButtonHover};
+    }
   }
 `;

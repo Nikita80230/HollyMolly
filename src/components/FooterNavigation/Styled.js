@@ -2,19 +2,18 @@ import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const WrapperFooterNavigation = styled.div`
-  /* margin-bottom: 40px; */
+ 
   display: flex;
   justify-content: center;
   align-items: center;
 
   @media only screen and (min-width: 768px) {
-    /* margin-bottom: 64px; */
+   
   }
 
   @media only screen and (min-width: 1440px) {
-    /* margin-bottom: 98px; */
-    width: 1127px;
-    height: 125px;
+  width: 1127px;
+height: 125px;
   }
 `;
 
@@ -42,25 +41,25 @@ export const FooterNavigationList = styled.ul`
   }
 
   .wrapper-title-footer-nav {
-    margin-bottom: 6px;
+    /* margin-bottom: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 8px 0px;
     width: 132px;
-    height: 32px;
+    height: 32px; */
 
     @media only screen and (min-width: 768px) {
-      margin-bottom: 16px;
+      /* margin-bottom: 16px;
       justify-content: start;
       align-items: start;
       width: 92px;
-      height: 22px;
+      height: 22px; */
     }
 
     @media only screen and (min-width: 1440px) {
-      /* width: 198px;
-      height: 25px; */
+      width: 173px;
+      height: 20px;
       margin-bottom: 5px;
     }
   }
@@ -89,26 +88,26 @@ export const FooterNavigationList = styled.ul`
   }
 
   .contacts-title-wrapper {
-    margin-bottom: 6px;
+    /* margin-bottom: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 8px 0px;
     width: 132px;
-    height: 32px;
+    height: 32px; */
 
     @media only screen and (min-width: 768px) {
-      margin-bottom: 16px;
+      /* margin-bottom: 16px;
       justify-content: start;
       align-items: start;
       width: 92px;
-      height: 22px;
+      height: 22px; */
     }
 
     @media only screen and (min-width: 1440px) {
       margin-bottom: 5px;
-      width: 198px;
-      height: 25px;
+      width: 173px;
+      height: 20px;
     }
   }
 `;

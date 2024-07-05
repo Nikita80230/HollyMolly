@@ -20,4 +20,6 @@ export const StyledPageLayout = styled.div`
       /* padding-top: 49px; */
     }
   }
+
+  
 `;

@@ -15,10 +15,9 @@ import ListColorsButtons from "../ListColorsButtons/ListColorsButtons";
 import StarRatingCard from "../StarRaitingCard/StarRaitindCard";
 import { routes } from "src/routes";
 import { useEffect, useState } from "react";
-import AddToBasket from "../AddToBasket/AddToBasket";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
 
-const CardProductCatalog = ({ product, sortType, index }) => {
+const CardProductCatalog = ({ product, sortType, index, borderColor }) => {
   const dispatch = useDispatch();
   const favoriteProducts = useSelector(selectFavoriteProducts);
 
@@ -39,8 +38,8 @@ const CardProductCatalog = ({ product, sortType, index }) => {
   const [pictureProduct, setPictureProduct] = useState(null);
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
 
-  const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
-  const borderColor = colors[index % colors.length];
+  // const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
+  // const borderColor = colors[index % colors.length];
 
   const handleClick = (id) => {
     const selectedProductInstance = product.productsInstances.find(
@@ -86,7 +85,7 @@ const CardProductCatalog = ({ product, sortType, index }) => {
         >
           <div
             className="wrapperPhoto"
-            style={{ border: `3px solid ${borderColor}` }}
+             style={{ border: `3px solid ${borderColor}` }}
           >
             <img
               className="productPhoto"
@@ -119,19 +118,15 @@ const CardProductCatalog = ({ product, sortType, index }) => {
           <span className="styledSpanRating">Топ продажів</span>
         )}
 
-        <div className="wrapperPriceIcon">
-          <div>
+        <div className="wrapperPrice">
+          
             {price > priceAfterDiscount && (
               <p className="price">{price ? `${price}₴` : ""}</p>
             )}
             <p className="priceAfterDiscount">
               {priceAfterDiscount ? `${priceAfterDiscount}₴` : ""}
             </p>
-          </div>
-          {/* <AddToBasket
-            product={product}
-            selectedProductInstance={selectedProductInstance}
-          /> */}
+          
         </div>
       </WrapperCard>
     </li>

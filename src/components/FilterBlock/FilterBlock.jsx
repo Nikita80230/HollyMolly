@@ -29,6 +29,8 @@ const FilterBlock = ({ title, options, onPaginationReset }) => {
             //   "filters[options.filterName]",
             //   filters[options.filterName]
             // );
+            const formattedOption =
+              option.charAt(0).toUpperCase() + option.slice(1).toLowerCase();
             return (
               <label className="checkboxLabel" key={option}>
                 <input
@@ -42,7 +44,7 @@ const FilterBlock = ({ title, options, onPaginationReset }) => {
                 <span className="fakeCheckbox">
                   <CheckedIcon className="checkboxIcon" />
                 </span>
-                <span className="textCheckbox">{option}</span>
+                <span className="textCheckbox">{formattedOption}</span>
               </label>
             );
           })}

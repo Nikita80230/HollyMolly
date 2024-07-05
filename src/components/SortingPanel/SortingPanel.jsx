@@ -45,7 +45,10 @@ const customStyles = {
     lineHeight: 1.20833,
     textAlign: "center",
     color: state.isSelected ? "#e85a50" : "#100503",
-    backgroundColor: "#fff",
+    backgroundColor: state.isFocused ? "#fff" : "#fff",
+    "&:active": {
+      backgroundColor: "#fff",
+    },
   }),
   menu: (provided, state) => ({
     ...provided,

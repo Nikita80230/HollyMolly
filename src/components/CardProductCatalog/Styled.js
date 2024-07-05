@@ -154,24 +154,22 @@ export const WrapperCard = styled.div`
   .title {
     margin-bottom: 15px;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 24px;
     text-align: center;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
     white-space: nowrap;
   }
 
-  .wrapperPriceIcon {
+  .wrapperPrice {
     position: relative;
-    padding-top: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-top: 15px;
+    
   }
 
   .price {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 10px;
+    left: 65px;
 
     font-family: ${({ theme }) => theme.fonts.familyPacifico};
     font-weight: 400;

@@ -3,14 +3,14 @@ import backgroundSubscribe1x from "src/assets/images/subscribe/subscribe-desktop
 import backgroundSubscribe2x from "src/assets/images/subscribe/subscribe-dekstop2x.webp";
 
 export const SubscribeWrapper = styled.section`
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 
   @media only screen and (min-width: 768px) {
   }
 
   @media only screen and (min-width: 1440px) {
-    padding: 235px 104px 33px 625px;
+    margin-bottom:40px;
     width: 100%;
     height: 470px;
     background-color: ${({ theme }) => theme.colors.heroBgColor};
@@ -30,6 +30,10 @@ export const SubscribeWrapper = styled.section`
     }
   }
 
+  .containerSubscribe {
+    padding: 219px 54px 42px 574px;
+  }
+
   .title {
     font-family: ${({ theme }) => theme.fonts.familyPacifico};
 
@@ -43,7 +47,7 @@ export const SubscribeWrapper = styled.section`
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      height: 100px;
+      height: 78px;
     }
   }
 
@@ -278,7 +282,7 @@ export const SubscribeWrapper = styled.section`
       color: ${({ theme }) => theme.colors.whiteTxtColor};
       background-color: ${({ theme }) => theme.colors.buttonBgDisabled};
       transition: background-color ${({ theme }) => theme.animations.transition},
-      box-shadow ${({ theme }) => theme.animations.transition};
+        box-shadow ${({ theme }) => theme.animations.transition};
     }
   }
   .subscribeButtonDisabled:hover {

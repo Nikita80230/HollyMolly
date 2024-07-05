@@ -7,23 +7,22 @@ from{
 to{
   transform:translateY(0);
 }
-`
+`;
 
 export const theme = {
   colors: {
     primaryBgColor: "#fff",
-    secondaryBgColor:"#fff6e7",
+    secondaryBgColor: "#fff6e7",
     heroBgColor: "#eae8dc",
-    gradient: "linear-gradient(135deg, #fff 0%, #fff 100%)",
-    gradientTitle:"linear-gradient(90deg, #100503 0%, #e85a50 100%)",
+    gradientTitle: "linear-gradient(90deg, #100503 0%, #e85a50 100%)",
     primaryTxtColor: "#100503",
-    secondaryTxtColor:"#c4c4c4",
+    secondaryTxtColor: "#c4c4c4",
     whiteTxtColor: "#fff",
     placeholderTxtColor: "#c4c4c4",
     cardBorderColor: "#fff6e7",
     accentColor: "#e85a50",
     borderColor: "#c4c4c4",
-    borderColorActive:"#727273",
+    borderColorActive: "#727273",
     borderHoverColor: "#a1a1a2",
     borderFocusColor: " #100503",
     buttonBgDisabled: " #ed9d97",
@@ -37,24 +36,16 @@ export const theme = {
     headerSearchMenuList: "#000105",
     colorError: "#c61a0e",
     colorSuccess: " #349920",
-    borderProductPhoto:"#fff6e7",
+    borderProductPhoto: "#fff6e7",
 
-
-
-    
-   
     colorLogo: "#6b5034",
     colorLink: "#4169e1",
-    
-    
-    
+
     footerLinks: "#000105",
     subCategoryHover: "rgba(0, 0, 0, 0.37)",
-    
+
     dividerBurgerMenu: "#e4e4e4",
-    
-    
-    
+
     accentFocusColor: "rgba(169, 181, 237, 0.8)",
     descriptionModal: "#000105",
     borderButtonSwiper: "#4c4c4d",
@@ -64,20 +55,20 @@ export const theme = {
     checkboxText: "#000",
     focusButtonBgSwiper: "rgba(169, 181, 237, 0.4)",
     titleCardProduct: "#000",
-    
+
     spanTextColor: "#fff",
     colorPrice: "#797878",
     colorPriceSecondary: "#6b5034",
-    
+
     borderButtonColor: "#000",
     activeBgNavLink: "rgba(169, 181, 237, 0.4)",
     hoverIcon: " #a9b5ed",
     borderPagination: " #a1a1a2",
     activePaginationBg: "rgba(202, 208, 243, 0.8)",
-    borderActivePagination:"rgba(41, 66, 142, 0.8)",
+    borderActivePagination: "rgba(41, 66, 142, 0.8)",
     hoverPaginationBg: "rgba(202, 208, 243, 0.6)",
     borderHoverPagination: "#cad0f3",
-    
+
     borderButtonColors: "#e2e2e2",
     backgroundAuth: "rgba(0, 1, 5, 0.6)",
     colorAuth: "#e6e9f9",
@@ -94,7 +85,7 @@ export const theme = {
     colorProfileSubtitle: "#000105",
     colorSubtitle: "#19191a",
     colorLabelProfile: "#323234",
-    iconAdd:"#3251ae",
+    iconAdd: "#3251ae",
     colorErrorAuth: " #ff7673",
   },
 
@@ -170,7 +161,7 @@ export const theme = {
   },
 
   fonts: {
-    familyPacifico: "Pacifico", 
+    familyPacifico: "Pacifico",
     familyGaramond: "EBGaramond-Variable",
     familyDidact: "Didact Gothic",
   },
@@ -183,6 +174,6 @@ export const theme = {
     boxShadowAuth: "0 8px 32px 0 rgba(0, 0, 0, 0.32)",
     boxShadowCategory: " 10px 10px 5px 0 #b8b7b7",
     boxShadowCategoryModal: "10px 10px 20px 0 #a88465",
-    boxShadowButtonHover:"5px 5px 5px 0 #a5a4a4",
-  }
+    boxShadowButtonHover: "5px 5px 5px 0 #a5a4a4",
+  },
 };
