@@ -6,20 +6,18 @@ import ProductOnPage from "src/components/ProductOnPage/ProductOnPage";
 import { getProductById } from "src/redux/products/operations";
 
 const ProductPage = () => {
+  const { productId, productInstanceId } = useParams();
 
-    const { productId, productInstanceId } = useParams();
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProductById(productId));
+  }, [dispatch]);
 
-    useEffect(() => {
-        dispatch(getProductById(productId));   
-    }, [dispatch]);
-
-    
-    return (
-        <Container>
-            <ProductOnPage instanceId={productInstanceId} />
+  return (
+    <Container>
+      <ProductOnPage instanceId={productInstanceId} />
     </Container>
-    )
-}
+  );
+};
 export default ProductPage;

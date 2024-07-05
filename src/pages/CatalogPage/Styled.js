@@ -22,23 +22,26 @@ export const StyledCatalogPage = styled.div`
   }
   .filters {
     margin-right: 47px;
+    margin-bottom: 36px;
     grid-area: f;
     /* max-width: 306px;
     width: 100%; */
   }
   .productsGrid {
     grid-area: p;
-    margin-bottom: 78px;
+    margin-bottom: 36px;
   }
 
   .buttonsPagination {
     grid-area: pg;
-    padding-top: 50px;
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid ${({ theme }) => theme.colors.borderPagination};
+     width: 100%;
+     margin-bottom:42px;
+     display:flex;
+     justify-content:center;
+     align-items:center;
+   
   }
-  .buttonPrevNext {
+  /* .buttonPrevNext {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,5 +68,5 @@ export const StyledCatalogPage = styled.div`
     width: 56px;
     height: 42px;
     background-color: transparent;
-  }
+  } */
 `;

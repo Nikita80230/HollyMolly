@@ -24,6 +24,7 @@ import {
 } from "src/utils/sortAndFilterFunctions";
 import SelectedFiltersList from "src/components/SelectedFiltersList/SelectedFiltersList";
 import Container from "src/components/Container/Container";
+import { colorSchemes } from "src/utils/colorsScheme";
 
 const CatalogPage = () => {
   const location = useLocation();
@@ -101,7 +102,14 @@ const CatalogPage = () => {
           url: `${routes.CATALOG_PAGE}/${categoryGroupId}`,
           text: categoryName,
         },
-      ];
+    ];
+  
+  const colors = colorSchemes[categoryGroupId] || [
+    "#fff6e7",
+    "#e2edf4",
+    "#eff9f1",
+    "#f9eff5",
+  ];
 
   useEffect(() => {
     dispatch(getProductsByCurrentCategory({ categoryGroupId, categoryId }));
@@ -125,13 +133,13 @@ const CatalogPage = () => {
     });
   };
 
-  const handleNextPage = () => {
-    setCurrentPage((prev) => prev + 1);
-  };
+  // const handleNextPage = () => {
+  //   setCurrentPage((prev) => prev + 1);
+  // };
 
-  const handlePrevPage = () => {
-    setCurrentPage((prev) => prev - 1);
-  };
+  // const handlePrevPage = () => {
+  //   setCurrentPage((prev) => prev - 1);
+  // };
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -168,11 +176,13 @@ const CatalogPage = () => {
             className="productsGrid"
             filters={filters}
             filteredProducts={currentProduct}
-            sortType={sortType}
+                sortType={sortType}
+                colors={colors}
           />
         )}
 
-        <PaginationContainer
+          <PaginationContainer
+          className="buttonsPagination"
           productsPerPage={productsPerPage}
           totalProducts={filteredProducts.length}
           paginate={paginate}
@@ -180,8 +190,8 @@ const CatalogPage = () => {
           currentProduct={currentProduct}
           filteredProducts={filteredProducts}
           sortedFilteredProducts={sortedFilteredProducts}
-          handlePrevPage={handlePrevPage}
-          handleNextPage={handleNextPage}
+          // handlePrevPage={handlePrevPage}
+          // handleNextPage={handleNextPage}
         />
         </div>
         </Container>

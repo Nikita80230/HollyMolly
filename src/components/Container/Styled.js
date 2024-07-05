@@ -19,11 +19,11 @@ export const StyledContainer = styled.div`
     margin: 0 auto;
   }
 
-  /* Laptop: з 1280px */
-  /* @media only screen and (min-width: 1280px) {
+  /* Laptop: з 1280px  */
+   @media only screen and (min-width: 1280px) {
     max-width: 1280px;
     padding: 0 64px;
-  } */
+  }
 
   /* Desktop: до 1440px */
   @media only screen and (min-width: 1024px) {
@@ -31,3 +31,5 @@ export const StyledContainer = styled.div`
     padding: 0 51px;
   }
 `;
+
+

@@ -2,15 +2,10 @@ import { Link } from "react-router-dom";
 import { StyledSubcategoriesList } from "./Styled";
 import { routes } from "src/routes";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
+import { colorSchemes } from "src/utils/colorsScheme";
 
 const SubcategoriesList = ({ allCategories, categoryGroupId }) => {
-  const colorSchemes = {
-    1: ["#fff6e7", "#fff6e7", "#fff6e7"],
-    2: ["#e2edf4", "#e2edf4", "#e2edf4"],
-    3: ["#eff9f1", "#eff9f1", "#eff9f1"],
-    4: ["#f9eff5", "#f9eff5", "#f9eff5"],
-  };
-
+  
   const colors = colorSchemes[categoryGroupId] || [
     "#fff6e7",
     "#e2edf4",

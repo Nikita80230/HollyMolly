@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledList = styled.ul`
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   display: flex;
   gap: 12px;
 

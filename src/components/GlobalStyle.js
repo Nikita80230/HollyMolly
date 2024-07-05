@@ -84,7 +84,7 @@ button{
 
 .modal-content {
   position: absolute;
-  top: 35%;
+  top: 50%;
   left: 50%;
   right: auto;
   bottom: auto;

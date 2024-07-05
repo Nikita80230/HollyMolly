@@ -6,6 +6,7 @@ const ProductsGrid = ({
   className,
   filteredProducts,
   sortType,
+  colors,
 }) => {
   return (
     <StyledProductsGrid className={className}>
@@ -16,6 +17,7 @@ const ProductsGrid = ({
             product={product}
             sortType={sortType}
             index={index}
+            borderColor={colors[index % colors.length]}
           />
         );
       })}

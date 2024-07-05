@@ -3,6 +3,7 @@ import IconPrev from "src/assets/images/prevPagination.svg?react";
 import { WrapperPagination } from "./Styled";
 
 const PaginationContainer = ({
+  className,
   productsPerPage,
   totalProducts,
   paginate,
@@ -10,8 +11,8 @@ const PaginationContainer = ({
   currentProduct,
   filteredProducts,
   sortedFilteredProducts,
-  handlePrevPage,
-  handleNextPage,
+  // handlePrevPage,
+  // handleNextPage,
 }) => {
   let pageNumbers = [];
 
@@ -29,7 +30,7 @@ const PaginationContainer = ({
 
   return (
     <>
-      {shouldShowPagination() ? (
+      {/* {shouldShowPagination() ? (
         <div className="buttonsPagination">
           {currentPage === 1 ? (
             <button type="button" className="buttonPrevNextDisabled" disabled>
@@ -43,28 +44,28 @@ const PaginationContainer = ({
             >
               <IconPrev />
             </button>
-          )}
-
-          <WrapperPagination>
-            <ul className="pagination">
-              {pageNumbers.map((number) => (
-                <li key={number}>
-                  <button
-                    type="button"
-                    className={
-                      number === currentPage
-                        ? "paginationButtonActive"
-                        : "paginationButton"
-                    }
-                    onClick={() => paginate(number)}
-                  >
-                    {number}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </WrapperPagination>
-          {currentProduct.length === productsPerPage &&
+          )} */}
+      {shouldShowPagination() &&
+        <WrapperPagination className={className}>
+          <ul className="pagination">
+            {pageNumbers.map((number) => (
+              <li key={number}>
+                <button
+                  type="button"
+                  className={
+                    number === currentPage
+                      ? "paginationButtonActive"
+                      : "paginationButton"
+                  }
+                  onClick={() => paginate(number)}
+                >
+                  {number}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </WrapperPagination>}
+          {/* {currentProduct.length === productsPerPage &&
           currentPage * productsPerPage < totalProducts ? (
             <button
               type="button"
@@ -81,7 +82,7 @@ const PaginationContainer = ({
         </div>
       ) : (
         <></>
-      )}
+      )} */}
     </>
   );
 };
