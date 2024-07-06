@@ -30,59 +30,70 @@ const RecommendationSection = () => {
   return (
     <StyledRecommendationSection>
       <Container>
-      <h2 className="titleRecommendation">Рекомендації</h2>
-      <Swiper
-        className="swiperCustom"
-        modules={[Navigation, A11y, Grid]}
-        navigation={{
-          nextEl: ".nextProductBtn",
-          prevEl: ".prevProductBtn",
-        }}
-        spaceBetween={10}
-        slidesPerView={2}
-        grid={{
-          rows: 2,
-        }}
-        breakpoints={{
-          565: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-            grid: {
-              rows: 1,
-            },
-          },
-          768: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-            grid: {
-              rows: 1,
-            },
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 24,
-            grid: {
-              rows: 1,
-            },
-          },
-        }}
-      >
-        {recommendedProducts.map((product, index) => (
-          <SwiperSlide key={product.id} className="swiper-slideCustom">
-            {/* <ProductCard product={product} index={index} /> */}
-            <CardProductCatalog product={product} index={index} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <div className="buttonSwiper">
-        <button className="prevProductBtn" type="button">
-          <ArrowLeft />
-        </button>
-        <button className="nextProductBtn" type="button">
-          <ArrowRight />
-        </button>
+        <div className="wrapperTop">
+          <h2 className="titleRecommendation">Рекомендації</h2>
+          <div className="buttonSwiper">
+            <button className="prevProductBtn" type="button">
+              <ArrowLeft />
+            </button>
+            <button className="nextProductBtn" type="button">
+              <ArrowRight />
+            </button>
+          </div>
         </div>
-        </Container>
+
+        <Swiper
+          className="swiperCustom"
+          modules={[Navigation, A11y, Grid]}
+          navigation={{
+            nextEl: ".nextProductBtn",
+            prevEl: ".prevProductBtn",
+          }}
+          spaceBetween={10}
+          slidesPerView={2}
+          grid={{
+            rows: 2,
+          }}
+          breakpoints={{
+            565: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+              grid: {
+                rows: 1,
+              },
+            },
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+              grid: {
+                rows: 1,
+              },
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 46,
+              grid: {
+                rows: 1,
+              },
+            },
+          }}
+        >
+          {recommendedProducts.map((product, index) => (
+            <SwiperSlide key={product.id} className="swiper-slideCustom">
+              {/* <ProductCard product={product} index={index} /> */}
+              <CardProductCatalog product={product} index={index} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        {/* <div className="buttonSwiper">
+          <button className="prevProductBtn" type="button">
+            <ArrowLeft />
+          </button>
+          <button className="nextProductBtn" type="button">
+            <ArrowRight />
+          </button>
+        </div> */}
+      </Container>
     </StyledRecommendationSection>
   );
 };

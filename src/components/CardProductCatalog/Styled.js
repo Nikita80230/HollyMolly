@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const WrapperCard = styled.div`
   position: relative;
-  width: 300px;
+  width: 100%;
   /* height: 447px; */
   transition: transform ${({ theme }) => theme.animations.transition};
   overflow: hidden;
@@ -138,15 +138,15 @@ export const WrapperCard = styled.div`
 
   .wrapperPhoto {
     overflow: hidden;
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
     margin-bottom: 20px;
   }
 
   .productPhoto {
     width: 100%;
-    height: 100%;
+    height: 300px;
     border-radius: 10px;
     transition: transform ${({ theme }) => theme.animations.transition};
   }
@@ -163,7 +163,6 @@ export const WrapperCard = styled.div`
   .wrapperPrice {
     position: relative;
     margin-top: 15px;
-    
   }
 
   .price {

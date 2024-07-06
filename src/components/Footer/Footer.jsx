@@ -6,10 +6,10 @@ const Footer = () => {
   return (
     <StyledFooter>
       <Container>
-        <div className="wrapperFooter"> 
-        <FooterNavigation />
+        <div className="wrapperFooter">
+          <FooterNavigation />
           <p className="text">@ 2024 , All Rights Reserved</p>
-          </div>
+        </div>
       </Container>
     </StyledFooter>
   );
