@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const PhotoContainer = styled.div`
 
-  
+  height:582px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -47,15 +47,12 @@ export const PhotoContainer = styled.div`
     align-items: center;
     width: 100%;
     height: 100%;
-    background:red;
+   
     
   }
 
   .modalImg {
-    /* display: block;
     max-width: 100%;
-    height: auto; */
+    height: auto;
   }
-
- 
 `

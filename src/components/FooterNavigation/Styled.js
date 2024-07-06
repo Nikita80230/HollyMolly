@@ -2,18 +2,15 @@ import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const WrapperFooterNavigation = styled.div`
- 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   @media only screen and (min-width: 768px) {
-   
   }
 
   @media only screen and (min-width: 1440px) {
-  width: 1127px;
-height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1127px;
+    height: 125px;
   }
 `;
 

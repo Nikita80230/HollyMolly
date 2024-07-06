@@ -7,7 +7,7 @@ export const StyledFooter = styled.footer`
     display: flex;
     justify-content: space-between;
 
-    padding: 0 31px;
+    /* padding: 0 31px; */
   }
 
   .text {

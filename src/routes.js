@@ -13,7 +13,6 @@ export const routes = {
   SIZE_GUIDE: "/size-guide",
   FAVORITES: "/favorites",
   BASKET: "/basket",
-  FEEDBACK: "/feedback",
   PROFILE: "/profile",
   MY_ORDERS: "/profile/my-orders",
   MY_RETURNS: "/profile/returns",
