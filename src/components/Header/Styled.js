@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.header`
   position: fixed;
-  top: -1px;
+  top: 0;
   left: 0;
 
   z-index: 11;
@@ -13,7 +13,7 @@ export const StyledHeader = styled.header`
   align-items: center;
   flex-direction: row;
 
-  background: ${({theme})=>theme.colors.primaryBgColor};
+  background: ${({ theme }) => theme.colors.primaryBgColor};
 
   .header {
     position: relative;
@@ -24,7 +24,7 @@ export const StyledHeader = styled.header`
     flex-direction: row;
     min-height: 115px;
 
-    background: ${({theme})=>theme.colors.primaryBgColor};
+    background: ${({ theme }) => theme.colors.primaryBgColor};
   }
 
   .leftHeader {

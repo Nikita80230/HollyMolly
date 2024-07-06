@@ -4,6 +4,11 @@ export const StyledRecommendationSection = styled.section`
   position: relative;
   margin-bottom: 36px;
 
+  .wrapperTop {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .titleRecommendation {
     margin-bottom: 36px;
     font-weight: 500;
@@ -12,7 +17,7 @@ export const StyledRecommendationSection = styled.section`
   }
 
   .buttonSwiper {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     right: 81px;
 
@@ -31,7 +36,8 @@ export const StyledRecommendationSection = styled.section`
     align-items: center;
     background-color: transparent;
     border: transparent;
-    /* transition: background-color ${({ theme }) => theme.animations.transition}; */
+    /* transition: background-color ${({ theme }) =>
+      theme.animations.transition}; */
   }
   .nextProductBtn:focus {
     /* background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper}; */
@@ -108,10 +114,9 @@ export const StyledRecommendationSection = styled.section`
       font-size: 18px;
       background: #fff;
       height: calc((100% - 10px) / 2) !important;
-     
 
       /* Center slide text vertically */
-       display: flex;
+      display: flex;
       justify-content: center;
       align-items: center;
     }
