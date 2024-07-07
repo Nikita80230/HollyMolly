@@ -1,13 +1,8 @@
 import { WrapperCard } from "./Styled";
-import Feedback from "src/assets/images/feedback.svg?react";
 import HeartIcon from "src/assets/images/like.svg?react";
-
-// import HeartHoverIcon from "src/assets/images/heartBlueHover.svg?react";
-// import BasketHoverIcon from "src/assets/images/basketBlueHover.svg?react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  selectBasketProducts,
   selectFavoriteProducts,
   toggleFavoriteProducts,
 } from "src/redux/products/productsSlice";
@@ -37,9 +32,6 @@ const CardProductCatalog = ({ product, sortType, index, borderColor }) => {
   const [activeColorId, setActiveColorId] = useState(null);
   const [pictureProduct, setPictureProduct] = useState(null);
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
-
-  //  const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
-  //  const borderColor = colors[index % colors.length];
 
   const handleClick = (id) => {
     const selectedProductInstance = product.productsInstances.find(
@@ -120,14 +112,12 @@ const CardProductCatalog = ({ product, sortType, index, borderColor }) => {
         )}
 
         <div className="wrapperPrice">
-          
-            {price > priceAfterDiscount && (
-              <p className="price">{price ? `${price}₴` : ""}</p>
-            )}
-            <p className="priceAfterDiscount">
-              {priceAfterDiscount ? `${priceAfterDiscount}₴` : ""}
-            </p>
-          
+          {price > priceAfterDiscount && (
+            <p className="price">{price ? `${price}₴` : ""}</p>
+          )}
+          <p className="priceAfterDiscount">
+            {priceAfterDiscount ? `${priceAfterDiscount}₴` : ""}
+          </p>
         </div>
       </WrapperCard>
     </li>

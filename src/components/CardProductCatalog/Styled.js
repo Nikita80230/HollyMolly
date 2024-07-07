@@ -169,14 +169,23 @@ export const WrapperCard = styled.div`
     position: absolute;
     top: 10px;
     left: 65px;
-
     font-family: ${({ theme }) => theme.fonts.familyPacifico};
     font-weight: 400;
     font-size: 18px;
     line-height: 1.21429;
-    text-decoration: line-through;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
+
+   .price::after {
+  content: '';
+  position: absolute;
+  top: 58%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: ${({ theme }) => theme.colors.primaryTxtColor}; 
+  transform: translateY(-50%);
+}
 
   .priceAfterDiscount {
     font-family: ${({ theme }) => theme.fonts.familyPacifico};

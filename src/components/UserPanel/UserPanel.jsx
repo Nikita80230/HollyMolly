@@ -5,9 +5,13 @@ import UserIcon from "../../assets/images/account.svg?react";
 import { routes } from "../../routes";
 import { StyledUserPanel } from "./Styled";
 import { useAuth } from "src/hooks";
+import { useSelector } from "react-redux";
+import { selectBasket } from "src/redux/basket/selectors";
 
 const UserPanel = () => {
   const { isLoggedIn } = useAuth();
+  const basket = useSelector(selectBasket);
+
 
   return (
     <StyledUserPanel>
@@ -31,9 +35,11 @@ const UserPanel = () => {
         </NavLink>
       )}
        <NavLink className="userPanelLink" to={routes.BASKET}>
-        <button className="buttonIcon">
+        <button className="buttonIconBasket">
           <BasketIcon className="iconBasket" />
+           {basket.length >0 && <div className="containerProducts"><span className="styledSpan">{basket.length}</span></div>}
         </button>
+       
       </NavLink>
     </StyledUserPanel>
   );

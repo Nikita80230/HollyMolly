@@ -1,17 +1,17 @@
 import { useSelector } from "react-redux";
 import {
   selectAmountOrder,
-  selectBasketProducts,
+  
 } from "src/redux/products/productsSlice";
 
 const OrderCard = () => {
-  const basketProducts = useSelector(selectBasketProducts);
+  
 
   const amountOrder = useSelector(selectAmountOrder);
 
   return (
     <>
-      <ul>
+      {/* <ul>
         {basketProducts.map(
           ({ productInstanceId, productName, quantity, totalPrice }) => (
             <li key={productInstanceId}>
@@ -22,7 +22,7 @@ const OrderCard = () => {
           )
         )}
       </ul>
-      <p>Загальна сума: {amountOrder}</p>
+      <p>Загальна сума: {amountOrder}</p> */}
     </>
   );
 };
