@@ -57,6 +57,21 @@ export const StyledSectionProduct = styled.section`
     line-height: 1.2;
     color: ${({ theme }) => theme.colors.secondaryTxtColor};
   }
+
+  .wrapperRating{
+    margin-bottom: 20px;
+  display: flex;
+  gap: 60px;
+  }
+
+   .spanFeedback {
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+  }
+
   .description {
     margin-bottom: 20px;
     font-weight: 400;

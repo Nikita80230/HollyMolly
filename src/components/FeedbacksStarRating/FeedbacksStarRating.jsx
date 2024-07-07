@@ -13,8 +13,8 @@ const FeedbacksStarRating = ({ value, hoverItem, setHoverItem, onChange }) => {
       {stars.map((_, index) => {
         const color =
           index < (hoverItem !== null ? hoverItem + 1 : value)
-            ? "gold"
-            : "lightgrey";
+            ? "#e85a50"
+            : "#c4c4c4";
         return (
           <div
             key={index}

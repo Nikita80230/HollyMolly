@@ -4,7 +4,7 @@ import {
   selectCurrentProduct,
 } from "src/redux/products/productsSlice";
 import { addProductsToBasket } from "src/redux/basket/basketSlice";
-import StarRatingCard from "../StarRaitingCard/StarRaitindCard";
+import StarRatingCard from "../StarRatingCard/StarRatindCard";
 import { StyledSectionProduct } from "./Styled";
 import Loader from "../Loader/Loader";
 import ListSizes from "../ListSizes/ListSizes";
@@ -13,6 +13,7 @@ import ListColorsButtons from "../ListColorsButtons/ListColorsButtons";
 import FavoriteIcon from "../../assets/images/like.svg?react";
 import Counter from "../Counter/Counter";
 import ListProductPhotos from "../ListProductPhotos/ListProductPhotos";
+import { getFeedbackWord } from "src/utils/getFeedbackWord";
 
 const ProductOnPage = ({ instanceId }) => {
   const dispatch = useDispatch();
@@ -120,10 +121,18 @@ const ProductOnPage = ({ instanceId }) => {
       <div className="containerContent">
         <h3 className="titleProduct">{product?.name}</h3>
         <span className="styledSpan">ID {product.id}</span>
-        <StarRatingCard
-          rating={product?.rating}
-          feedbacks={product?.feedbacks.length}
-        />
+        <div className="wrapperRating">
+          <StarRatingCard rating={product?.rating} />
+          <div className="wrapperFeedback">
+            {!product?.feedbacks.length ? (
+              <span className="spanFeedback">Ще немає відгуків</span>
+            ) : (
+              <span className="spanFeedback">
+                {product?.feedbacks.length} {getFeedbackWord(product?.feedbacks.length)}
+              </span>
+            )}
+          </div>
+        </div>
         <p className="description">{product?.description}</p>
         <div>
           {availableSizes.length > 0 && activeSizeId !== null && (

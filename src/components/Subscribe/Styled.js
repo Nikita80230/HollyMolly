@@ -242,4 +242,6 @@ export const SubscribeWrapper = styled.section`
   .subscribeButtonDisabled:focus {
     background-color: ${({ theme }) => theme.colors.activeBgColor};
   }
+
+  
 `;

@@ -12,7 +12,7 @@ import {
   toggleFavoriteProducts,
 } from "src/redux/products/productsSlice";
 import ListColorsButtons from "../ListColorsButtons/ListColorsButtons";
-import StarRatingCard from "../StarRaitingCard/StarRaitindCard";
+import StarRatingCard from "../StarRatingCard/StarRatindCard";
 import { routes } from "src/routes";
 import { useEffect, useState } from "react";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
@@ -38,8 +38,8 @@ const CardProductCatalog = ({ product, sortType, index, borderColor }) => {
   const [pictureProduct, setPictureProduct] = useState(null);
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
 
-  // const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
-  // const borderColor = colors[index % colors.length];
+  //  const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
+  //  const borderColor = colors[index % colors.length];
 
   const handleClick = (id) => {
     const selectedProductInstance = product.productsInstances.find(
@@ -85,7 +85,8 @@ const CardProductCatalog = ({ product, sortType, index, borderColor }) => {
         >
           <div
             className="wrapperPhoto"
-             style={{ border: `3px solid ${borderColor}` }}
+            style={{ border: `3px solid ${borderColor}` }}
+            // style={{ backgroundColor: colors[index % colors.length] }}
           >
             <img
               className="productPhoto"

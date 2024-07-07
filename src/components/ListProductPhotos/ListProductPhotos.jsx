@@ -11,18 +11,12 @@ import { PhotoContainer } from "./Styled";
 const ListProductPhotos = ({ images }) => {
   const [selectedImage, setSelectedImage] = useState(defaultPhoto);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [initialSlideIndex, setInitialSlideIndex] = useState(0);
-console.log(images)
-  useEffect(() => {
-    if (images && images.length > 0) {
-      setSelectedImage(images[0]?.link || defaultPhoto);
-    }
-  }, [images]);
-
+  
+  
   const openModal = (index) => {
-    setInitialSlideIndex(index);
+    setSelectedImage(images[index]?.link || defaultPhoto);
     setIsOpen(true);
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
@@ -34,6 +28,14 @@ console.log(images)
   while (otherImages.length < 2) {
     otherImages.push({ link: defaultPhoto });
   }
+  
+
+  useEffect(() => {
+    if (images && images.length > 0) {
+      setSelectedImage(images[0]?.link || defaultPhoto);
+    }
+  }, [images]);
+
 
   return (
     <>
@@ -52,8 +54,7 @@ console.log(images)
                   className="otherImage"
                   src={defaultPhoto}
                   alt="Default product photo"
-                  width={700}
-                  height={400}
+                 
                 />
               ))}
             </div>
@@ -64,7 +65,7 @@ console.log(images)
           <div className="mainPhoto">
             <img
               className="mainImage"
-              src={selectedImage}
+              src={images[0]?.link || defaultPhoto}
               alt="Main product photo"
               onClick={() => openModal(0)}
             />
@@ -82,37 +83,45 @@ console.log(images)
           </div>
         </PhotoContainer>
       )}
-
-      <Modal
+          <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         className="modal-content"
         overlayClassName="modal-overlay"
         contentLabel="Modal Photo Product"
       >
-      <Swiper
-  initialSlide={initialSlideIndex}
-  spaceBetween={5}
-  slidesPerView={1}
-  effect="fade"
-  navigation={true}
-  modules={[EffectFade, Navigation]}
-  style={{
-    "--swiper-navigation-color": "#e85a50",
-  }}
-  className="mySwiper"
->
-  {images.map((image, index) => (
-    <SwiperSlide key={index} className="swiperSlide">
-      <img
-        className="modalImg"
-        src={image.link}
-        alt={`Product photo ${index + 1}`}
-      />
-    </SwiperSlide>
-  ))}
-</Swiper>
+        <img
+          className="modalImg"
+          src={selectedImage}
+          alt="Selected product photo"
+        />
+        {/* {modalIsOpen && (
+          <Swiper
+            initialSlide={initialSlideIndex}
+            slidesPerView={1}
+            effect="fade"
+            navigation={true}
+            modules={[EffectFade, Navigation]}
+            style={{
+              "--swiper-navigation-color": "#e85a50",
+            }}
+            className="mySwiper"
+          >
+            {images.map((image, index) => (
+              <SwiperSlide key={image.id} className="swiperSlide">
+                <div>
+                  <img
+                    className="modalImg"
+                    src={image.link}
+                    alt={`Product photo ${index + 1}`}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper> */}
+        {/* )} */}
       </Modal>
+
     </>
   );
 };

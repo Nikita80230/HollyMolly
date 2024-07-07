@@ -15,7 +15,7 @@ export const StyledCategoriesModal = styled.div`
     position: relative;
     z-index: 2;
 
-    top: 14%;
+    top: 12%;
     left: -1%;
 
     max-width: 882px;

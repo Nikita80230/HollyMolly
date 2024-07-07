@@ -93,6 +93,17 @@ button{
   border: transparent;
  
 }
+
+.content-modal-review{
+position: absolute;
+  top: 50%;
+  left: 80%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  border: transparent;
+}
 .modal-overlay {
   position: fixed;
   z-index:102;

@@ -22,6 +22,7 @@ import CardProductCatalog from "../CardProductCatalog/CardProductCatalog";
 const RecommendationSection = () => {
   const dispatch = useDispatch();
   const recommendedProducts = useSelector(selectRecommendedProducts);
+  const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
 
   useEffect(() => {
     dispatch(getRecommendedProducts());
@@ -81,21 +82,18 @@ const RecommendationSection = () => {
           {recommendedProducts.map((product, index) => (
             <SwiperSlide key={product.id} className="swiper-slideCustom">
               {/* <ProductCard product={product} index={index} /> */}
-              <CardProductCatalog product={product} index={index} />
+              <CardProductCatalog
+                product={product}
+                index={index}
+                borderColor={colors[index % colors.length]}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
-        {/* <div className="buttonSwiper">
-          <button className="prevProductBtn" type="button">
-            <ArrowLeft />
-          </button>
-          <button className="nextProductBtn" type="button">
-            <ArrowRight />
-          </button>
-        </div> */}
       </Container>
     </StyledRecommendationSection>
   );
 };
 
 export default RecommendationSection;
+

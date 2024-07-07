@@ -18,6 +18,7 @@ export const theme = {
     primaryTxtColor: "#100503",
     secondaryTxtColor: "#c4c4c4",
     whiteTxtColor: "#fff",
+    greyTxtColor:"#727273",
     placeholderTxtColor: "#c4c4c4",
     cardBorderColor: "#fff6e7",
     accentColor: "#e85a50",
@@ -37,6 +38,9 @@ export const theme = {
     colorError: "#c61a0e",
     colorSuccess: " #349920",
     borderProductPhoto: "#fff6e7",
+    placeholderReview: " #727273",
+    
+    
 
     colorLogo: "#6b5034",
     colorLink: "#4169e1",
@@ -175,5 +179,6 @@ export const theme = {
     boxShadowCategory: " 10px 10px 5px 0 #b8b7b7",
     boxShadowCategoryModal: "10px 10px 20px 0 #a88465",
     boxShadowButtonHover: "5px 5px 5px 0 #a5a4a4",
+    boxShadowLeaveReview:"5px 5px 10px 0 #c0bfbf",
   },
 };

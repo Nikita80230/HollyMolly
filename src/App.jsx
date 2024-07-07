@@ -28,7 +28,6 @@ import SizeGuidePage from "./pages/SizeGuidePage/SizeGuidePage";
 import { useAuth } from "./hooks";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import BasketPage from "./pages/BasketPage/BasketPage";
-import FeedbacksPage from "./pages/FeedbacksPage/FeedbacksPage";
 import AuthPageLayout from "./components/AuthPageLayout/AuthPageLayout";
 import ProfileOrdersPage from "./pages/ProfileOrdersPage/ProfileOrdersPage";
 import ProfileReturnsPage from "./pages/ProfileReturnsPage/ProfileReturnsPage";
@@ -112,10 +111,6 @@ const appRoutes = [
   {
     path: routes.BASKET,
     element: <BasketPage />,
-  },
-  {
-    path: `${routes.FEEDBACK}/:categoryId/:id`,
-    element: <FeedbacksPage />,
   },
   {
     path: routes.PROFILE,
