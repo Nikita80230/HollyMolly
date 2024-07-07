@@ -15,12 +15,12 @@ export const StyledCategoriesModal = styled.div`
     position: relative;
     z-index: 2;
 
-    top: 12%;
-    left: -1%;
+    top: 70px;
+    left: 0;
 
     max-width: 882px;
     width: 100%;
-    height: 281px;
+    height: 272px;
 
     padding: 30px 50px 50px 50px;
     border-radius: 10px;
