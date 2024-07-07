@@ -37,7 +37,7 @@ const Subscribe = () => {
       setSubmitting(false);
       setTimeout(() => {
         setMessage("");
-      }, 2000);
+      }, 4000);
     } catch (error) {
       console.error(error);
       setMessage("Упс! Щось пішло не так.");

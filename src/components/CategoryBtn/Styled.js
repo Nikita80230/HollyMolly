@@ -2,15 +2,14 @@ import styled from "styled-components";
 
 export const StyledCategoryBtn = styled.div`
   position: relative;
-
   margin-right: 40px;
 
   .openCategoryBtn {
+    padding:10px 0 10px 20px;
+
     display: flex;
     align-items: center;
-
-    padding: 10px 10px 10px 0;
-
+    justify-content:center;
     background-color: transparent;
     border: none;
   }
@@ -22,10 +21,12 @@ export const StyledCategoryBtn = styled.div`
     line-height: 1.22222;
     text-align: center;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
-    margin-right: 5px;
+    margin-right: 20px;
   }
 
   .openCategoryIcon {
+    width:32px;
+    height:32px;
     transition: ${({ theme }) => theme.animations.transition};
   }
 
@@ -33,7 +34,7 @@ export const StyledCategoryBtn = styled.div`
     transform: rotate(-180deg);
   }
 
-  @media (min-width: 768px) and (max-width: 1024px) {
+  /* @media (min-width: 768px) and (max-width: 1024px) {
     margin-right: 8px;
-  }
+  } */
 `;
