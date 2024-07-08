@@ -1,6 +1,5 @@
 import { loginGoogle } from "src/services/loginGoogle";
 import { ButtonGoogle } from "./Styled";
-import GoogleIcon from "src/assets/images/google.svg?react";
 
 const GoogleAuth = () => {
   const handleClick = async () => {
@@ -14,7 +13,7 @@ const GoogleAuth = () => {
   return (
     <>
       <ButtonGoogle onClick={handleClick}>
-        <GoogleIcon/>Увійдіть з Google</ ButtonGoogle>
+        Увійти з Google</ ButtonGoogle>
     </>
   );
 };

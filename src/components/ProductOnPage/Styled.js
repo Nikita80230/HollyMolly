@@ -82,7 +82,6 @@ export const StyledSectionProduct = styled.section`
     margin-bottom: 20px;
     display: flex;
     align-items: self-end;
-    width: 299px;
     height: 41px;
   }
 
@@ -185,5 +184,11 @@ export const StyledSectionProduct = styled.section`
         stroke: ${({ theme }) => theme.colors.accentColor};
       }
     }
+  }
+
+  .text{
+    font-weight: 400;
+font-size: 30px;
+
   }
 `;

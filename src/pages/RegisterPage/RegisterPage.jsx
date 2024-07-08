@@ -1,23 +1,44 @@
 import { Link } from "react-router-dom";
 import RegisterForm from "src/components/AuthForms/RegisterForm";
-import AuthPageLayout from "src/components/AuthPageLayout/AuthPageLayout";
 import { routes } from "src/routes";
-import {  WrapperRegister } from "./Styled";
+import { WrapperRegister } from "./Styled";
+import authDesktop1x from "src/assets/images/auth/auth-1x.webp";
+import authDesktop2x  from "src/assets/images/auth/auth-2x.webp";
 
 const RegisterPage = () => {
   return (
-    <AuthPageLayout>
-      <WrapperRegister>
-      <h1 className="titleAuth">Реєстрація</h1>
-      <p className="description">Введіть свої дані, щоб зареєструватися</p>
-      <RegisterForm />
-      <p className="textAuth">
-        Вже маєте аккаунт?
-        <Link className="linkAuth" to={routes.LOGIN}>  Увійдіть!</Link>
-        </p>
-        </WrapperRegister>
-    </AuthPageLayout>
+    <WrapperRegister>
+      <h1 className="titleAuth">Мій акаунт</h1>
+      <ul className="list">
+        <li>
+          <Link to={routes.LOGIN}>
+            <button type="button" className="buttonEnter">
+              {" "}
+              Увійти
+            </button>
+          </Link>
+        </li>
+        <li>
+          <button type="button" className="buttonActive">
+            {" "}
+            Реєстрація
+          </button>
+        </li>
+      </ul>
+      <div className="wrapperFormPhoto">
+        <RegisterForm />
+         <img 
+          className="authPhoto" 
+          src={authDesktop1x} 
+          srcSet={`${authDesktop1x} 1x, ${authDesktop2x} 2x`} 
+          alt="Auth Photo"
+        />
+      </div>
+    </WrapperRegister>
   );
 };
 
 export default RegisterPage;
+
+
+  

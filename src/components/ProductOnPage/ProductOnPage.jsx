@@ -15,12 +15,11 @@ import Counter from "../Counter/Counter";
 import ListProductPhotos from "../ListProductPhotos/ListProductPhotos";
 import { getFeedbackWord } from "src/utils/getFeedbackWord";
 
-
 const ProductOnPage = ({ instanceId }) => {
   const dispatch = useDispatch();
   const product = useSelector(selectCurrentProduct);
   const isLoading = useSelector(selectCurrentLoading);
-  
+
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
   const [activeSizeId, setActiveSizeId] = useState(null);
   const [activeColorId, setActiveColorId] = useState(null);
@@ -79,8 +78,6 @@ const ProductOnPage = ({ instanceId }) => {
         })
       );
     }
-
-   
   };
 
   useEffect(() => {
@@ -131,23 +128,25 @@ const ProductOnPage = ({ instanceId }) => {
               <span className="spanFeedback">Ще немає відгуків</span>
             ) : (
               <span className="spanFeedback">
-                {product?.feedbacks.length} {getFeedbackWord(product?.feedbacks.length)}
+                {product?.feedbacks.length}{" "}
+                {getFeedbackWord(product?.feedbacks.length)}
               </span>
             )}
           </div>
         </div>
         <p className="description">{product?.description}</p>
         <div>
-          {availableSizes.length > 0 && activeSizeId !== null && (
+        
             <div className="wrapperListSpan">
-              <span className="styledListSpan">Розмір:</span>
+            <span className="styledListSpan">Розмір:</span>
+              {availableSizes.length > 0 && activeSizeId !== null ? (
               <ListSizes
                 sizes={availableSizes}
                 activeSizeId={activeSizeId}
                 setActiveSizeId={setActiveSizeId}
-              />
+              /> ):(<p className="text">універсальний</p>)}
             </div>
-          )}
+         
           <div className="wrapperListSpan">
             <span className="styledListSpan">Матеріал:</span>
             <span className="styledListSpan">
