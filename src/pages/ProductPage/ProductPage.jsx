@@ -27,36 +27,36 @@ const ProductPage = () => {
   const recommendedProducts = useSelector(selectProductsByCurrentCategory);
   const allCategories = useSelector(selectCategories);
 
-  const productSubCategoryId = currentProduct?.categoryId;
+  const categoryId = currentProduct?.categoryId;
 
   const mainCategory = allCategories.find((category) => {
     return category?.categories.find((subCategory) => {
-      return subCategory?.id === productSubCategoryId;
+      return subCategory?.id === categoryId;
     });
   });
 
-  const mainCategoryId = mainCategory?.id;
+  const categoryGroupId = mainCategory?.id;
 
   const subCategory = mainCategory?.categories.find(
-    (subCategory) => subCategory?.id === productSubCategoryId
+    (subCategory) => subCategory?.id === categoryId
   );
 
   console.log("allCategories-->", allCategories);
-  console.log("productSubCategoryId-->", productSubCategoryId);
+  console.log("productSubCategoryId-->", categoryId);
   console.log("currentProduct-->", currentProduct);
   console.log("mainCategory-->", mainCategory);
-  console.log("mainCategoryId-->", mainCategoryId);
+  console.log("mainCategoryId-->", categoryGroupId);
   console.log("subCategory-->", subCategory);
   console.log("recommendedProducts-->", recommendedProducts);
 
   const structure = [
     { url: routes.HOME, text: "Головна" },
     {
-      url: `${routes.CATALOG_PAGE}/${mainCategoryId}`,
+      url: `${routes.CATALOG_PAGE}/${categoryGroupId}`,
       text: mainCategory?.name,
     },
     {
-      url: `${routes.CATALOG_PAGE}/${mainCategoryId}/${productSubCategoryId}`,
+      url: `${routes.CATALOG_PAGE}/${categoryGroupId}/${categoryId}`,
       text: subCategory?.name,
     },
     {
@@ -74,9 +74,12 @@ const ProductPage = () => {
   useEffect(() => {
     dispatch(getProductById(productId));
     dispatch(
-      getProductsByCurrentCategory({ mainCategoryId, productSubCategoryId })
+      getProductsByCurrentCategory({
+        categoryGroupId,
+        categoryId,
+      })
     );
-  }, [dispatch, productId, mainCategoryId, productSubCategoryId]);
+  }, [dispatch, productId, categoryGroupId, categoryId]);
 
   useEffect(() => {
     const fetchData = async () => {
