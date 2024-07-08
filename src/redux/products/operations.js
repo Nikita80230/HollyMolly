@@ -35,7 +35,10 @@ export const getRecommendedProducts = createAsyncThunk(
 
 export const getProductsByCurrentCategory = createAsyncThunk(
   "products/getProductsByCurrentCategory",
-  async ({ categoryGroupId, categoryId }, thunkApi) => {
+  async (
+    { mainCategoryId: categoryGroupId, productSubCategoryId: categoryId },
+    thunkApi
+  ) => {
     try {
       const { data } = await instance.get(
         categoryId

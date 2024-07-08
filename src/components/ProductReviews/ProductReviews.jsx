@@ -12,6 +12,7 @@ import { useState } from "react";
 import LeaveFeedback from "../LeaveFeedback/LeaveFeedback";
 import ListReviews from "../ListReviews/ListReviews";
 import CardReview from "../CardReview/CardReview";
+import Container from "../Container/Container";
 
 const ProductReviews = ({ reviews, productId }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -28,51 +29,52 @@ const ProductReviews = ({ reviews, productId }) => {
 
   return (
     <StyledSection>
-      <h2 className="titleReviews">Відгуки про продукт</h2>
+      <Container>
+        <h2 className="titleReviews">Відгуки про продукт</h2>
 
-      {!reviews.length ? (
-        <p className="textReviews">Немає відгуків</p>
-      ) : (
-        <>
-          <Swiper
-            className="swiperCustom"
-            modules={[Navigation, A11y]}
-            navigation={{
-              nextEl: ".nextProductBtn",
-              prevEl: ".prevProductBtn",
-            }}
-            spaceBetween={50}
-            slidesPerView={3}
-          >
-             {reviews.map((review, index) => (
-              <SwiperSlide key={index} className="swiper-slideCustom">
-                <CardReview review={review} index={index} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div className="buttonSwiper">
-            <button className="prevProductBtn" type="button">
-              <ArrowLeft />
-            </button>
-            <button className="nextProductBtn" type="button">
-              <ArrowRight />
-            </button>
-          </div>
-         
-        </>
-      )}
-      <button type="button" className="buttonReview" onClick={openModal}>
-        Залишити відгук
-      </button>
-       <Modal
-            isOpen={modalIsOpen}
-            onRequestClose={closeModal}
-            className="content-modal-review"
-            overlayClassName="modal-overlay"
-            contentLabel="Modal Subscription"
-          >
-            <LeaveFeedback onClose={closeModal} productId={productId} />
-          </Modal>
+        {!reviews.length ? (
+          <p className="textReviews">Немає відгуків</p>
+        ) : (
+          <>
+            <Swiper
+              className="swiperCustom"
+              modules={[Navigation, A11y]}
+              navigation={{
+                nextEl: ".nextProductBtn",
+                prevEl: ".prevProductBtn",
+              }}
+              spaceBetween={50}
+              slidesPerView={3}
+            >
+              {reviews.map((review, index) => (
+                <SwiperSlide key={index} className="swiper-slideCustom">
+                  <CardReview review={review} index={index} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div className="buttonSwiper">
+              <button className="prevProductBtn" type="button">
+                <ArrowLeft />
+              </button>
+              <button className="nextProductBtn" type="button">
+                <ArrowRight />
+              </button>
+            </div>
+          </>
+        )}
+        <button type="button" className="buttonReview" onClick={openModal}>
+          Залишити відгук
+        </button>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          className="content-modal-review"
+          overlayClassName="modal-overlay"
+          contentLabel="Modal Subscription"
+        >
+          <LeaveFeedback onClose={closeModal} productId={productId} />
+        </Modal>
+      </Container>
     </StyledSection>
   );
 };

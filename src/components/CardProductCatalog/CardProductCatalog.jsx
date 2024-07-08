@@ -1,6 +1,6 @@
 import { WrapperCard } from "./Styled";
 import HeartIcon from "src/assets/images/like.svg?react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectFavoriteProducts,
@@ -14,6 +14,8 @@ import defaultPhoto from "src/assets/images/defaultImg.webp";
 
 const CardProductCatalog = ({ product, sortType, index, borderColor }) => {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const params = useParams();
   const favoriteProducts = useSelector(selectFavoriteProducts);
 
   const isProductInFavorite = favoriteProducts.some(
@@ -74,6 +76,7 @@ const CardProductCatalog = ({ product, sortType, index, borderColor }) => {
       <WrapperCard>
         <Link
           to={`${routes.PRODUCT_PAGE}/${product.id}/${selectedProductInstance?.id}`}
+          state={{ location, params }}
         >
           <div
             className="wrapperPhoto"
