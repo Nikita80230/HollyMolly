@@ -1,19 +1,16 @@
 import { styled } from "styled-components";
 
 export const ButtonGoogle = styled.button`
-margin-bottom:24px;
-border-radius: 8px;
-padding: 14px;
-display:flex;
-justify-content:center;
-align-items:center;
-gap:4px;
-width: 100%;
-height: 56px;
-border:transparent;
-background-color:${({ theme }) => theme.colors.lightColorButton};
-font-family: "Nunito", sans-serif;
-font-weight: 500;
-font-size: 22px;
-color: ${({ theme }) => theme.colors.colorGoogleButton};
+margin-bottom:5px;
+margin-left:59px;
+border: 1px solid ${({theme})=>theme.colors.accentColor};
+border-radius: 5px;
+padding: 15px 5px;
+width: 310px;
+height: 60px;
+background: ${({ theme }) => theme.colors.primaryBgColor};
+font-weight: 400;
+font-size: 24px;
+line-height: 1.20833;
+
 `

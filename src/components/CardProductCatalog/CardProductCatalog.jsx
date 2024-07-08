@@ -81,7 +81,6 @@ const CardProductCatalog = ({ product, sortType, index, borderColor }) => {
           <div
             className="wrapperPhoto"
             style={{ border: `3px solid ${borderColor}` }}
-            // style={{ backgroundColor: colors[index % colors.length] }}
           >
             <img
               className="productPhoto"

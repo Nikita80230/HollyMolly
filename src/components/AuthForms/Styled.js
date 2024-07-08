@@ -1,43 +1,78 @@
 import { Field, Form } from "formik";
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 30px;
-  width: 100%;
+  border-radius: 10px 0 0 10px;
+  width: 430px;
+  height: 500px;
 
   .inputAuth {
-    padding: 18px 24px;
-    border: 2px solid ${({ theme }) => theme.colors.authBorderInput};
-    outline: none;
-    border-radius: 8px;
-    width: 100%;
-    height: 57px;
-    background-color: ${({ theme }) => theme.colors.authBgInput};
-    font-weight: 500;
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.authTextColor};
+    border: 1px solid ${({ theme }) => theme.colors.borderColor};
+    border-radius: 5px;
+    padding: 18px 0px 18px 15px;
+    width: 310px;
+    height: 60px;
+    outline: transparent;
+    outline-offset: -1px;
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+    transition: border-color ${({ theme }) => theme.animations.transition};
+
+    &:hover {
+      border: 1px solid ${({ theme }) => theme.colors.borderHoverColor};
+    }
+    &:focus {
+      border: 1px solid ${({ theme }) => theme.colors.borderFocusColor};
+    }
   }
 
   .inputAuth::placeholder {
-    font-weight: 500;
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.authTextColor};
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.borderColor};
   }
 
   .inputError {
-    padding: 18px 24px;
-    border: 1px solid ${({ theme }) => theme.colors.authBorderInput};
-    border-bottom: 2px solid ${({ theme }) => theme.colors.colorErrorAuth};
-    outline: none;
-    border-radius: 8px;
-    width: 100%;
-    height: 57px;
-    background-color: ${({ theme }) => theme.colors.authBgInput};
-    font-weight: 500;
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.authTextColor};
+    border: transparent;
+    border: 1px solid ${({ theme }) => theme.colors.colorError};
+    border-radius: 5px;
+    padding: 18px 0px 18px 15px;
+    width: 310px;
+    height: 60px;
+    outline: transparent;
+    outline-offset: -1px;
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+  }
+
+  .inputSuccess {
+    border: transparent;
+    border: 1px solid ${({ theme }) => theme.colors.colorSuccess};
+    border-radius: 5px;
+    padding: 18px 0px 18px 15px;
+    width: 310px;
+    height: 60px;
+    outline: transparent;
+    outline-offset: -1px;
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
   .styledLabel {
@@ -46,34 +81,42 @@ export const StyledForm = styled(Form)`
 
   .iconEye {
     position: absolute;
-    top: 20px;
-    right: 22px;
+    top: 18px;
+    right: 15px;
   }
 
   .errorMessage {
     position: absolute;
-    bottom: -24px;
+    top: 100%;
     left: 0;
-    font-weight: 500;
+    color: ${({ theme }) => theme.colors.colorError};
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
     font-size: 16px;
-    color: ${({ theme }) => theme.colors.colorErrorAuth};
+    line-height: 1.25;
   }
 
   .buttonAuth {
-    margin-bottom: 24px;
-    border-radius: 8px;
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 56px;
+    border-radius: 5px;
     border: transparent;
-    background-color: ${({ theme }) => theme.colors.authButtonBg};
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 500;
-    font-size: 22px;
-    color: ${({ theme }) => theme.colors.authTextColor};
+    padding: 15px 5px;
+    width: 310px;
+    height: 60px;
+    background: ${({ theme }) => theme.colors.accentColor};
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.20833;
+    color: ${({ theme }) => theme.colors.whiteTxtColor};
+    transition: background ${({ theme }) => theme.animations.transition},
+      box-shadows ${({ theme }) => theme.animations.transition};
+
+    &:hover {
+      box-shadow: ${({ theme }) => theme.shadows.boxShadowButtonHover};
+    }
+
+    &:focus {
+      background-color: ${({ theme }) => theme.colors.activeBgColor};
+    }
   }
 `;
 
@@ -81,50 +124,58 @@ export const LabelRegisterSubscribe = styled.label`
   display: flex;
   align-items: center;
   cursor: pointer;
-  gap: 12px;
-  font-family: ${({ theme }) => theme.fonts.familyRoboto};
+  gap: 10px;
+  width: 309px;
+  height: 40px;
+  font-family: ${({ theme }) => theme.fonts.familyDidact};
   font-weight: 400;
   font-size: 16px;
-  color: ${({ theme }) => theme.colors.authColorSecondaryText};
+  line-height: 1.25;
+  color: ${({ theme }) => theme.colors.primaryTxtColor};
 `;
 
 export const InputCheckbox = styled(Field)`
-  width: 20px;
-  height: 20px;
-  border-radius: 5px;
-  border: 2px solid ${({ theme }) => theme.colors.authBorderInput};
-  background-color: ${({ theme }) => theme.colors.authBgInput};
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  border: 1px solid ${({ theme }) => theme.colors.borderColor};
   cursor: pointer;
   position: relative;
   appearance: none;
   outline: none;
 
   &:checked {
-    background-color: ${({ theme }) => theme.colors.authBgInput};
+    background: ${({ theme }) => theme.colors.accentColor};
   }
 
   &:checked::after {
     content: "";
-    content: "";
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
-    width: 5px;
-    height: 10px;
-    border: solid ${({ theme }) => theme.colors.authColorSecondaryText};
-    border-width: 0 2px 2px 0;
-    transform: translate(-50%, -50%) rotate(45deg);
+    width: 8px;
+    height: 14px;
+    border: solid ${({ theme }) => theme.colors.whiteTxtColor};
+    border-width: 0 3px 3px 0;
+    transform: translate(-50%, -60%) rotate(45deg);
   }
 `;
 
 export const ContainerCheckboxLink = styled.div`
   display: flex;
   justify-content: space-between;
+`;
 
-  .linkForgotPassword {
-    font-family: "Nunito", sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    color: ${({ theme }) => theme.colors.authColorSecondaryText};
-  }
+export const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  
+`;
+export const StyledLink = styled(Link)`
+  margin-left: 59px;
+  font-family: ${({ theme }) => theme.fonts.familyDidact};
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: ${({ theme }) => theme.colors.primaryTxtColor};
 `;

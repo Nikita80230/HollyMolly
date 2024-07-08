@@ -1,14 +1,3 @@
-import { keyframes } from "styled-components";
-
-const slideInFromBottom = keyframes`
-from{
-  transform:translateY(100%);
-}
-to{
-  transform:translateY(0);
-}
-`;
-
 export const theme = {
   colors: {
     primaryBgColor: "#fff",
@@ -33,10 +22,10 @@ export const theme = {
     footerSubtitle: "#4c4c4d",
     colorBgSpanRating: "#e2edf4",
     colorBgSpanNovelty: "#f9eff5",
-    colorBgSpanDiscount: "##eff9f1",
+    colorBgSpanDiscount: "#eff9f1",
     headerSearchMenuList: "#000105",
     colorError: "#c61a0e",
-    colorSuccess: " #349920",
+    colorSuccess: "#349920",
     borderProductPhoto: "#fff6e7",
     placeholderReview: " #727273",
     
@@ -172,7 +161,7 @@ export const theme = {
 
   animations: {
     transition: "300ms cubic-bezier(0.4, 0, 0.2, 1)",
-    slideInFromBottom,
+    
   },
   shadows: {
     boxShadowAuth: "0 8px 32px 0 rgba(0, 0, 0, 0.32)",

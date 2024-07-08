@@ -5,9 +5,6 @@ export const StyledPageLayout = styled.div`
     margin-top: 115px;
     /* padding-top: 49px; */
   }
-<<<<<<< Updated upstream
-=======
-  
 
   @media only screen and (min-width: 768px) {
     .main {
@@ -25,5 +22,5 @@ export const StyledPageLayout = styled.div`
   }
 
   
->>>>>>> Stashed changes
+
 `;

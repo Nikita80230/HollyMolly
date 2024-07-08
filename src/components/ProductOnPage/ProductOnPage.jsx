@@ -116,7 +116,8 @@ const ProductOnPage = ({ instanceId }) => {
   }
 
   return (
-    <StyledSectionProduct>
+    
+  <StyledSectionProduct>
       <Container>
         <div className="sectionProduct">
           <ListProductPhotos images={selectedProductInstance?.images || []} />
@@ -191,6 +192,7 @@ const ProductOnPage = ({ instanceId }) => {
         </div>
       </Container>
     </StyledSectionProduct>
+   
   );
 };
 

@@ -8,10 +8,14 @@ import {
   ContainerCheckboxLink,
   InputCheckbox,
   LabelRegisterSubscribe,
+  StyledContainer,
   StyledForm,
+  StyledLink,
 } from "./Styled";
-import EyeSlashIcon from "src/assets/images/eye-slash.svg?react";
+import EyeIcon from "src/assets/images/eye.svg?react";
+import EyeSlashIcon from "src/assets/images/eye-closed.svg?react";
 import { useState } from "react";
+import GoogleAuth from "../GoogleAuth/GoogleAuth";
 
 const LoginForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -22,7 +26,7 @@ const LoginForm = () => {
     actions.resetForm();
   };
   return (
-    <>
+    <StyledContainer>
       <Formik
         initialValues={{
           email: "",
@@ -39,7 +43,7 @@ const LoginForm = () => {
                   className={(errors.email && touched.email ? "inputError " : "inputAuth")}
                 name="email"
                 type="text"
-                placeholder="E-mail"
+                placeholder="Твій email"
               />{" "}
               <ErrorMessage
                 className="errorMessage"
@@ -52,14 +56,19 @@ const LoginForm = () => {
                   className={(errors.password && touched.password ? "inputError " : "inputAuth")}
                 name="password"
                 type={passwordShown ? "text" : "password"}
-                placeholder="Пароль"
+                placeholder="Твій пароль"
               />
-              <EyeSlashIcon
-                className="iconEye"
-                onClick={() => {
-                  setPasswordShown(!passwordShown);
-                }}
-              />
+            {passwordShown ? (
+                <EyeIcon
+                  className="iconEye"
+                  onClick={() => setPasswordShown(false)}
+                />
+              ) : (
+                <EyeSlashIcon
+                  className="iconEye"
+                  onClick={() => setPasswordShown(true)}
+                />
+              )}
               <ErrorMessage
                 className="errorMessage"
                 name="password"
@@ -77,9 +86,7 @@ const LoginForm = () => {
                 />
                 Запам'ятати мене
               </LabelRegisterSubscribe>
-              <Link className="linkForgotPassword" to={routes.FORGOT_PASSWORD}>
-                Забули пароль?
-              </Link>
+             
             </ContainerCheckboxLink>
             <button className="buttonAuth" type="submit">
               LogIn
@@ -87,7 +94,11 @@ const LoginForm = () => {
           </StyledForm>
         )}
       </Formik>
-    </>
+      <GoogleAuth/>
+       <StyledLink to={routes.FORGOT_PASSWORD}>
+                Забули пароль?
+              </StyledLink>
+    </StyledContainer>
   );
 };
 
