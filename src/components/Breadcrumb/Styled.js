@@ -7,6 +7,14 @@ export const StyledBreadcrumb = styled.div`
 
   padding: 36px 0;
 
+  .breadcrumbs {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+    padding: 36px 0;
+  }
+
   .mainLink {
     position: relative;
     font-family: ${({ theme }) => theme.fonts.familyDidact};
