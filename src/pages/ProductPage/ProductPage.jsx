@@ -69,7 +69,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  }, [currentProduct]);
 
   useEffect(() => {
     dispatch(getProductById(productId));
