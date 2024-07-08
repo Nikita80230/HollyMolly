@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Grid } from "swiper/modules";
 
@@ -7,32 +5,28 @@ import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/navigation";
 
-import ProductCard from "../ProductCard/ProductCard";
-
-import { getRecommendedProducts } from "src/redux/products/operations";
+import Container from "../Container/Container";
+import CardProductCatalog from "../CardProductCatalog/CardProductCatalog";
 
 import ArrowLeft from "src/assets/images/arrowLeft.svg?react";
 import ArrowRight from "src/assets/images/arrowRight.svg?react";
 
 import { StyledRecommendationSection } from "./Styled";
-import { selectRecommendedProducts } from "src/redux/products/productsSlice";
-import Container from "../Container/Container";
-import CardProductCatalog from "../CardProductCatalog/CardProductCatalog";
 
-const RecommendationSection = () => {
-  const dispatch = useDispatch();
-  const recommendedProducts = useSelector(selectRecommendedProducts);
-  const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
-
-  useEffect(() => {
-    dispatch(getRecommendedProducts());
-  }, [dispatch]);
+const RecommendationSection = ({
+  recommendedProducts,
+  colors,
+  className,
+  title,
+}) => {
+  // const recommendedProducts = useSelector(selectRecommendedProducts);
+  // const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
 
   return (
-    <StyledRecommendationSection>
+    <StyledRecommendationSection className={className}>
       <Container>
         <div className="wrapperTop">
-          <h2 className="titleRecommendation">Рекомендації</h2>
+          <h2 className="titleRecommendation">{title}</h2>
           <div className="buttonSwiper">
             <button className="prevProductBtn" type="button">
               <ArrowLeft />
@@ -96,4 +90,3 @@ const RecommendationSection = () => {
 };
 
 export default RecommendationSection;
-

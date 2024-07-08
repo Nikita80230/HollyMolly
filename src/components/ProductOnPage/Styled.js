@@ -1,10 +1,12 @@
 import { styled } from "styled-components";
 
 export const StyledSectionProduct = styled.section`
-  padding-right: 138px;
-  margin-bottom: 40px;
-  display: flex;
-  gap: 50px;
+  .sectionProduct {
+    padding-right: 138px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 50px;
+  }
 
   /* .containerMainPhoto {
   margin-bottom: 8px;

@@ -1,6 +1,6 @@
 // import Container from "src/components/Container/Container";
 import { StyledCatalogPage } from "./Styled";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Breadcrumb from "src/components/Breadcrumb/Breadcrumb";
 import { routes } from "src/routes";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +9,7 @@ import SubcategoriesList from "src/components/SubcategoriesList/SubcategoriesLis
 import SortingPanel from "src/components/SortingPanel/SortingPanel";
 import FiltersPanel from "src/components/FiltersPanel/FiltersPanel";
 import ProductsGrid from "src/components/ProductsGrid/ProductsGrid";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { getProductsByCurrentCategory } from "src/redux/products/operations";
 import { selectFilters, toggleFilter } from "src/redux/filters/filtersSlice";
 import {
@@ -28,6 +28,7 @@ import { colorSchemes } from "src/utils/colorsScheme";
 
 const CatalogPage = () => {
   const location = useLocation();
+  // const prevLocation = useRef((prevLocation.current = location.pathname));
   const dispatch = useDispatch();
   const { categoryGroupId, categoryId } = useParams();
   const [sortType, setSortType] = useState({ value: "", label: "" });
@@ -55,7 +56,7 @@ const CatalogPage = () => {
   };
 
   const handlePaginationReset = () => {
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
 
   const filteredProducts = useMemo(
@@ -73,16 +74,6 @@ const CatalogPage = () => {
   const subCategoryName = mainCategory?.categories?.find(
     (subCat) => subCat.id === Number(categoryId)
   )?.name;
-
-  // const structure = [
-  //   { url: routes.HOME, text: "Головна" },
-  //   {
-  //     url: categoryId
-  //       ? `${routes.CATALOG_PAGE}/${categoryGroupId}/${categoryId}`
-  //       : `${routes.CATALOG_PAGE}/${categoryGroupId}`,
-  //     text: categoryId ? subCategoryName : categoryName,
-  //   },
-  // ];
 
   const structure = subCategoryName
     ? [
@@ -102,8 +93,8 @@ const CatalogPage = () => {
           url: `${routes.CATALOG_PAGE}/${categoryGroupId}`,
           text: categoryName,
         },
-    ];
-  
+      ];
+
   const colors = colorSchemes[categoryGroupId] || [
     "#fff6e7",
     "#e2edf4",
@@ -133,20 +124,12 @@ const CatalogPage = () => {
     });
   };
 
-  // const handleNextPage = () => {
-  //   setCurrentPage((prev) => prev + 1);
-  // };
-
-  // const handlePrevPage = () => {
-  //   setCurrentPage((prev) => prev - 1);
-  // };
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
-   useEffect(() => {
-    setCurrentPage(1); 
+  useEffect(() => {
+    setCurrentPage(1);
   }, [location]);
 
   // =======================================================================================
@@ -154,47 +137,48 @@ const CatalogPage = () => {
   return (
     <StyledCatalogPage>
       <Container>
-      <div className="navigation">
-        <Breadcrumb structure={structure} />
-        <SubcategoriesList
-          allCategories={allCategories}
-          categoryGroupId={categoryGroupId}
-        />
-      </div>
-      <div className="layout">
-        <SelectedFiltersList selectedFilters={filters} />
-        <SortingPanel
-          className="sorting"
-          handleSorting={handleSorting}
-          sortType={sortType}
-        />
-        <FiltersPanel className="filters" onPaginationReset={handlePaginationReset}/>
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <ProductsGrid
-            className="productsGrid"
-            filters={filters}
-            filteredProducts={currentProduct}
-                sortType={sortType}
-                colors={colors}
+        <div className="navigation">
+          <Breadcrumb structure={structure} />
+          <SubcategoriesList
+            allCategories={allCategories}
+            categoryGroupId={categoryGroupId}
           />
-        )}
+        </div>
+        <div className="layout">
+          <SelectedFiltersList selectedFilters={filters} />
+          <SortingPanel
+            className="sorting"
+            handleSorting={handleSorting}
+            sortType={sortType}
+          />
+          <FiltersPanel
+            className="filters"
+            onPaginationReset={handlePaginationReset}
+          />
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <ProductsGrid
+              className="productsGrid"
+              filters={filters}
+              filteredProducts={currentProduct}
+              sortType={sortType}
+              colors={colors}
+            />
+          )}
 
           <PaginationContainer
-          className="buttonsPagination"
-          productsPerPage={productsPerPage}
-          totalProducts={filteredProducts.length}
-          paginate={paginate}
-          currentPage={currentPage}
-          currentProduct={currentProduct}
-          filteredProducts={filteredProducts}
-          sortedFilteredProducts={sortedFilteredProducts}
-          // handlePrevPage={handlePrevPage}
-          // handleNextPage={handleNextPage}
-        />
+            className="buttonsPagination"
+            productsPerPage={productsPerPage}
+            totalProducts={filteredProducts.length}
+            paginate={paginate}
+            currentPage={currentPage}
+            currentProduct={currentProduct}
+            filteredProducts={filteredProducts}
+            sortedFilteredProducts={sortedFilteredProducts}
+          />
         </div>
-        </Container>
+      </Container>
     </StyledCatalogPage>
   );
 };
