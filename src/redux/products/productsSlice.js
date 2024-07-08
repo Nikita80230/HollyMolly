@@ -41,24 +41,6 @@ const productsSlice = createSlice({
       }
     },
 
-    // addProductsToBasket: (state, action) => {
-    //   const { productInstanceId, priceAfterDiscount } = action.payload;
-    //   const currentProduct = state.basketProducts.find(
-    //     (product) => product.productInstanceId === productInstanceId
-    //   );
-    //   if (currentProduct) {
-    //     currentProduct.quantity += 1;
-    //     currentProduct.totalPrice =
-    //       currentProduct.quantity * priceAfterDiscount;
-    //   } else {
-    //     state.basketProducts.push({
-    //       ...action.payload,
-    //       quantity: 1,
-    //       totalPrice: priceAfterDiscount,
-    //     });
-    //   }
-    // },
-
     deleteProduct: (state, action) => {
       const index = state.basketProducts.findIndex(
         (product) =>
@@ -150,7 +132,6 @@ const productsSlice = createSlice({
 
 export const {
   toggleFavoriteProducts,
-  addProductsToBasket,
   deleteProduct,
   updateProduct,
   calculateAmountOrder,
@@ -168,7 +149,6 @@ export const selectLoading = (state) => state.products.isLoading;
 export const selectCurrentProduct = (state) => state.products.currentProduct;
 export const selectCurrentLoading = (state) =>
   state.products.isCurrentProductLoading;
-export const selectBasketProducts = (state) => state.products.basketProducts;
 export const selectAmountOrder = (state) => state.products.amountOrder;
 
 // export const selectSortedProducts = (state) => state.products.sortedProducts;

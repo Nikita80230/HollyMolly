@@ -5,7 +5,7 @@ import BasketCard from "src/components/BasketCard/BasketCard";
 import {
   calculateAmountOrder,
   selectAmountOrder,
-  selectBasketProducts,
+  
   updateProduct,
 } from "src/redux/products/productsSlice";
 import { routes } from "src/routes";
@@ -13,41 +13,41 @@ import { routes } from "src/routes";
 import { WrapperBasketPage } from "./Styled";
 
 const BasketPage = () => {
-  const products = useSelector(selectBasketProducts);
-  const dispatch = useDispatch();
-  const totalPrice = useSelector(selectAmountOrder);
+  // const products = useSelector(selectBasketProducts);
+  // const dispatch = useDispatch();
+  // const totalPrice = useSelector(selectAmountOrder);
 
-  useEffect(() => {
-    dispatch(calculateAmountOrder());
-  }, [products, dispatch]);
+  // useEffect(() => {
+  //   dispatch(calculateAmountOrder());
+  // }, [products, dispatch]);
 
-  const handleClickAddCount = (productId) => {
-    const product = products.find((p) => p.productInstanceId === productId);
-    if (product) {
-      dispatch(
-        updateProduct({
-          productInstanceId: productId,
-          quantity: product.quantity + 1,
-        })
-      );
-    }
-  };
+  // const handleClickAddCount = (productId) => {
+  //   const product = products.find((p) => p.productInstanceId === productId);
+  //   if (product) {
+  //     dispatch(
+  //       updateProduct({
+  //         productInstanceId: productId,
+  //         quantity: product.quantity + 1,
+  //       })
+  //     );
+  //   }
+  // };
 
-  const handleClickCount = (productId) => {
-    const product = products.find((p) => p.productInstanceId === productId);
-    if (product && product.quantity > 1) {
-      dispatch(
-        updateProduct({
-          productInstanceId: productId,
-          quantity: product.quantity - 1,
-        })
-      );
-    }
-  };
+  // const handleClickCount = (productId) => {
+  //   const product = products.find((p) => p.productInstanceId === productId);
+  //   if (product && product.quantity > 1) {
+  //     dispatch(
+  //       updateProduct({
+  //         productInstanceId: productId,
+  //         quantity: product.quantity - 1,
+  //       })
+  //     );
+  //   }
+  // };
 
   return (
     <WrapperBasketPage>
-      <div>
+      {/* <div>
         <h1 className="titleBasket">Кошик</h1>
         <div className="wrapperBasket">
           <div className="wrapperList">
@@ -81,7 +81,7 @@ const BasketPage = () => {
                   <span>Загальна ціна </span>
                   <span>{totalPrice + 100}₴</span>
                 </div> */}
-              </div>
+              {/* </div>
 
               <Link to={routes.SUBMIT_ORDER}>Перейти до оформлення</Link>
             </div>
@@ -100,7 +100,7 @@ const BasketPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div>  */}
     </WrapperBasketPage>
   );
 };

@@ -1,9 +1,10 @@
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useRef, useState } from "react";
 import { sentFeedback } from "src/services/sentFeedback";
 import FeedbacksStarRating from "../FeedbacksStarRating/FeedbacksStarRating";
 import CloseIcon from "src/assets/images/close.svg?react";
 import { WrapperFeedback } from "./Styled";
+import { LeaveFeedbackSchema } from "src/schemas/LeaveFeedbackSchema";
 
 const LeaveFeedback = ({ productId, onClose }) => {
   const [hoverItem, setHoverItem] = useState();
@@ -20,6 +21,7 @@ const LeaveFeedback = ({ productId, onClose }) => {
           review: "",
           rating: 0,
         }}
+        validationSchema={LeaveFeedbackSchema}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           try {
             await sentFeedback(productId, values);
@@ -31,13 +33,22 @@ const LeaveFeedback = ({ productId, onClose }) => {
           }
         }}
       >
-        {({ values, setFieldValue, isSubmitting }) => (
+        {({ values, setFieldValue, isSubmitting, errors, touched }) => (
           <Form className="formFeedback">
-            <Field
-              name="authorName"
-              placeholder="Ваше ім'я"
-              className="inputName"
-            />
+            <label className="labelName">
+              <Field
+                name="authorName"
+                placeholder="Ваше ім'я"
+                className={`inputName ${
+                  errors.authorName && touched.authorName ? "inputError" : ""
+                }`}
+              />
+              <ErrorMessage
+                name="authorName"
+                component="p"
+                className="errorName"
+              />
+            </label>
             <label className="labelRating">
               Рейтинг:
               <Field
@@ -56,13 +67,27 @@ const LeaveFeedback = ({ productId, onClose }) => {
                 hoverItem={hoverItem}
                 setHoverItem={setHoverItem}
               />
+              <ErrorMessage
+                name="rating"
+                component="p"
+                className="errorRating"
+              />
             </label>
-            <Field
-              as="textarea"
-              name="review"
-              placeholder="Ваш відгук"
-              className="textarea"
-            ></Field>
+            <label className="labelReview">
+              <Field
+                as="textarea"
+                name="review"
+                placeholder="Ваш відгук"
+                className={`textarea ${
+                  errors.review && touched.review ? "inputError" : ""
+                }`}
+              />
+              <ErrorMessage
+                name="review"
+                component="p"
+                className="errorReview"
+              />
+            </label>
 
             <button
               type="submit"

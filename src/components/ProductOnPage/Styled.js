@@ -58,13 +58,13 @@ export const StyledSectionProduct = styled.section`
     color: ${({ theme }) => theme.colors.secondaryTxtColor};
   }
 
-  .wrapperRating{
+  .wrapperRating {
     margin-bottom: 20px;
-  display: flex;
-  gap: 60px;
+    display: flex;
+    gap: 60px;
   }
 
-   .spanFeedback {
+  .spanFeedback {
     font-family: ${({ theme }) => theme.fonts.familyDidact};
     font-weight: 400;
     font-size: 20px;
@@ -107,14 +107,24 @@ export const StyledSectionProduct = styled.section`
 
   .price {
     position: absolute;
-    top: 15px;
-    left: 95px;
+    top: 18px;
+    left: 105px;
     font-family: ${({ theme }) => theme.fonts.familyPacifico};
     font-weight: 400;
     font-size: 28px;
     line-height: 1.21429;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
-    text-decoration: line-through;
+  }
+
+  .price::after {
+    content: "";
+    position: absolute;
+    top: 57%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: ${({ theme }) => theme.colors.primaryTxtColor};
+    transform: translateY(-50%);
   }
 
   .priceAfterDiscount {

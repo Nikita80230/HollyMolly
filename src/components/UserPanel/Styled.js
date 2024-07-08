@@ -65,6 +65,52 @@ export const StyledUserPanel = styled.div`
     }
   }
 
+  .buttonIconBasket {
+    position: relative;
+    padding: 11px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: transparent;
+    background-color: transparent;
+
+    &:hover {
+      .icon {
+        path {
+          fill: ${({ theme }) => theme.colors.accentColor};
+        }
+      }
+      .iconBasket {
+        path {
+          stroke: ${({ theme }) => theme.colors.accentColor};
+        }
+      }
+    }
+  }
+
+  .containerProducts {
+    position: absolute;
+    top: 28px;
+    right: 12%;
+    z-index: 111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: ${({ theme }) => theme.colors.accentColor};
+  }
+
+  .styledSpan {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    color: ${({ theme }) => theme.colors.whiteTxtColor};
+  }
+
   /* ==================================@media (max-width: 768px)========================================= */
 
   @media (min-width: 768px) and (max-width: 1024px) {

@@ -47,8 +47,25 @@ export const WrapperFeedback = styled.div`
     align-items: center;
   }
 
-  .inputName {
+  .labelName {
+    position: relative;
     margin-bottom: 22px;
+    width: 100%;
+    height: 40px;
+  }
+
+  .errorName {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: ${({ theme }) => theme.colors.colorError};
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .inputName {
     outline: transparent;
     outline-offset: -1px;
     border: 1px solid ${({ theme }) => theme.colors.borderColor};
@@ -71,6 +88,7 @@ export const WrapperFeedback = styled.div`
   }
 
   .labelRating {
+    position: relative;
     margin-bottom: 24px;
     display: flex;
     justify-content: space-between;
@@ -82,12 +100,40 @@ export const WrapperFeedback = styled.div`
     line-height: 1.20833;
   }
 
+  .errorRating {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: ${({ theme }) => theme.colors.colorError};
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
   .inputRange {
     display: none;
   }
 
-  .textarea {
+  .labelReview {
+    position: relative;
     margin-bottom: 20px;
+    width: 100%;
+    height: 182px;
+  }
+
+  .errorReview {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: ${({ theme }) => theme.colors.colorError};
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .textarea {
     outline: transparent;
     outline-offset: -1px;
     border: 1px solid ${({ theme }) => theme.colors.borderColor};
@@ -141,5 +187,9 @@ export const WrapperFeedback = styled.div`
   .buttonReview:disabled {
     background-color: ${({ theme }) => theme.colors.buttonBgDisabled};
     cursor: not-allowed;
+  }
+
+  .inputError {
+    border: 1px solid ${({ theme }) => theme.colors.colorError};
   }
 `;

@@ -5,7 +5,7 @@ import { StyledContainer } from "./Styled";
 const CardReview = ({ review, index }) => {
   const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
   const backgroundColor = colors[index % colors.length];
-  console.log(review)
+ 
   const formattedDate = formatDate(review.created);
   
   return (
