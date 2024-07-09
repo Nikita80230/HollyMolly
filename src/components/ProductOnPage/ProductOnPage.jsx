@@ -14,7 +14,6 @@ import FavoriteIcon from "../../assets/images/like.svg?react";
 import Counter from "../Counter/Counter";
 import ListProductPhotos from "../ListProductPhotos/ListProductPhotos";
 import { getFeedbackWord } from "src/utils/getFeedbackWord";
-import Container from "../Container/Container";
 
 const ProductOnPage = ({ instanceId }) => {
   const dispatch = useDispatch();
@@ -117,82 +116,80 @@ const ProductOnPage = ({ instanceId }) => {
 
   return (
     <StyledSectionProduct>
-      <Container>
-        <div className="sectionProduct">
-          <ListProductPhotos images={selectedProductInstance?.images || []} />
+      <div className="sectionProduct">
+        <ListProductPhotos images={selectedProductInstance?.images || []} />
 
-          <div className="containerContent">
-            <h3 className="titleProduct">{product?.name}</h3>
-            <span className="styledSpan">ID {product.id}</span>
-            <div className="wrapperRating">
-              <StarRatingCard rating={product?.rating} />
-              <div className="wrapperFeedback">
-                {!product?.feedbacks.length ? (
-                  <span className="spanFeedback">Ще немає відгуків</span>
-                ) : (
-                  <span className="spanFeedback">
-                    {product?.feedbacks.length}{" "}
-                    {getFeedbackWord(product?.feedbacks.length)}
-                  </span>
-                )}
-              </div>
-            </div>
-            <p className="description">{product?.description}</p>
-            <div>
-              <div className="wrapperListSpan">
-                <span className="styledListSpan">Розмір:</span>
-                {availableSizes.length > 0 && activeSizeId !== null ? (
-                  <ListSizes
-                    sizes={availableSizes}
-                    activeSizeId={activeSizeId}
-                    setActiveSizeId={setActiveSizeId}
-                  />
-                ) : (
-                  <p className="text"> універсальний</p>
-                )}
-              </div>
-
-              <div className="wrapperListSpan">
-                <span className="styledListSpan">Матеріал:</span>
-                <span className="styledListSpan">
-                  {selectedProductInstance?.material}
+        <div className="containerContent">
+          <h3 className="titleProduct">{product?.name}</h3>
+          <span className="styledSpan">ID {product.id}</span>
+          <div className="wrapperRating">
+            <StarRatingCard rating={product?.rating} />
+            <div className="wrapperFeedback">
+              {!product?.feedbacks.length ? (
+                <span className="spanFeedback">Ще немає відгуків</span>
+              ) : (
+                <span className="spanFeedback">
+                  {product?.feedbacks.length}{" "}
+                  {getFeedbackWord(product?.feedbacks.length)}
                 </span>
-              </div>
-              <div className="wrapperListSpan">
-                <span className="styledListSpan">Колір:</span>
-                <ListColorsButtons
-                  colors={product.productsInstances}
-                  handleClick={handleClickColors}
-                  activeColorId={activeColorId}
-                />
-              </div>
-            </div>
-            <div className="containerCounterPrices">
-              <Counter quantity={quantity} setQuantity={setQuantity} />
-              <div className="containerPrices">
-                <p className="priceAfterDiscount">
-                  {priceAfterDiscount ? `${priceAfterDiscount}₴` : ""}
-                </p>
-                {price > priceAfterDiscount && (
-                  <p className="price">{price ? `${price}₴` : ""}</p>
-                )}
-              </div>
-            </div>
-            <div className="containerButtons">
-              <button
-                type="submit"
-                className="buttonAddBasket"
-                onClick={handleAddToBasket}
-              >
-                Додати в кошик
-              </button>
-              <button type="button" className="buttonFavorites">
-                <FavoriteIcon />
-              </button>
+              )}
             </div>
           </div>
+          <p className="description">{product?.description}</p>
+          <div>
+            <div className="wrapperListSpan">
+              <span className="styledListSpan">Розмір:</span>
+              {availableSizes.length > 0 && activeSizeId !== null ? (
+                <ListSizes
+                  sizes={availableSizes}
+                  activeSizeId={activeSizeId}
+                  setActiveSizeId={setActiveSizeId}
+                />
+              ) : (
+                <p className="text"> універсальний</p>
+              )}
+            </div>
+
+            <div className="wrapperListSpan">
+              <span className="styledListSpan">Матеріал:</span>
+              <span className="styledListSpan">
+                {selectedProductInstance?.material}
+              </span>
+            </div>
+            <div className="wrapperListSpan">
+              <span className="styledListSpan">Колір:</span>
+              <ListColorsButtons
+                colors={product.productsInstances}
+                handleClick={handleClickColors}
+                activeColorId={activeColorId}
+              />
+            </div>
+          </div>
+          <div className="containerCounterPrices">
+            <Counter quantity={quantity} setQuantity={setQuantity} />
+            <div className="containerPrices">
+              <p className="priceAfterDiscount">
+                {priceAfterDiscount ? `${priceAfterDiscount}₴` : ""}
+              </p>
+              {price > priceAfterDiscount && (
+                <p className="price">{price ? `${price}₴` : ""}</p>
+              )}
+            </div>
+          </div>
+          <div className="containerButtons">
+            <button
+              type="submit"
+              className="buttonAddBasket"
+              onClick={handleAddToBasket}
+            >
+              Додати в кошик
+            </button>
+            <button type="button" className="buttonFavorites">
+              <FavoriteIcon />
+            </button>
+          </div>
         </div>
-      </Container>
+      </div>
     </StyledSectionProduct>
   );
 };

@@ -99,15 +99,17 @@ const ProductPage = () => {
 
   return (
     <StyledProductPage>
-      <Breadcrumb structure={structure} />
-      <ProductOnPage instanceId={productInstanceId} />
-      <ProductReviews reviews={reviews} productId={productId} />
-      <RecommendationSection
-        className="productPageRecommendation"
-        recommendedProducts={recommendedProducts}
-        colors={colors}
-        title="Товари які можуть Вам сподобатись"
-      />
+      <Container>
+        <Breadcrumb structure={structure} />
+        <ProductOnPage instanceId={productInstanceId} />
+        <ProductReviews reviews={reviews} productId={productId} />
+        <RecommendationSection
+          className="productPageRecommendation"
+          recommendedProducts={recommendedProducts}
+          colors={colors}
+          title="Товари які можуть Вам сподобатись"
+        />
+      </Container>
     </StyledProductPage>
   );
 };
