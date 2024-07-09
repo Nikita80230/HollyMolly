@@ -2,15 +2,19 @@ import { Field, Form } from "formik";
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
+export const StyledContainer = styled.div`
+  padding-top: 43px;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
   border-radius: 10px 0 0 10px;
   width: 430px;
-  height: 500px;
 
   .inputAuth {
     border: 1px solid ${({ theme }) => theme.colors.borderColor};
@@ -76,7 +80,12 @@ export const StyledForm = styled(Form)`
   }
 
   .styledLabel {
+    margin-bottom: 23px;
+  }
+
+  .styledLabelPassword {
     position: relative;
+    margin-bottom: 35px;
   }
 
   .iconEye {
@@ -95,15 +104,19 @@ export const StyledForm = styled(Form)`
     font-size: 16px;
     line-height: 1.25;
   }
+`;
 
- 
+export const ContainerCheckboxLink = styled.div`
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const LabelRegisterSubscribe = styled.label`
   display: flex;
   align-items: center;
   cursor: pointer;
-  gap: 10px;
+  gap: 15px;
   width: 309px;
   height: 40px;
   font-family: ${({ theme }) => theme.fonts.familyDidact};
@@ -140,16 +153,6 @@ export const InputCheckbox = styled(Field)`
   }
 `;
 
-export const ContainerCheckboxLink = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  
-`;
 export const StyledLink = styled(Link)`
   margin-left: 59px;
   font-family: ${({ theme }) => theme.fonts.familyDidact};

@@ -4,9 +4,10 @@ import { useDispatch } from "react-redux";
 import { register } from "src/redux/auth/operations";
 import { RegisterSchema } from "src/schemas/RegisterSchema";
 import { subscribeSentEmail } from "src/services/subscribeSentEmail";
-import { InputCheckbox, LabelRegisterSubscribe, StyledForm } from "./Styled";
+import { InputCheckbox, LabelRegisterSubscribe, StyledForm } from "../AuthForms/Styled";
 import EyeIcon from "src/assets/images/eye.svg?react";
 import EyeSlashIcon from "src/assets/images/eye-closed.svg?react";
+import ButtonAuth from "../ButtonAuth/ButtonAuth";
 
 const RegisterForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -126,9 +127,7 @@ const RegisterForm = () => {
               />
               Отримувати повідомлення про акції,<br></br> знижки, новинки
             </LabelRegisterSubscribe>
-            <button className="buttonAuth" type="submit">
-              Зареєструватися
-            </button>
+            <ButtonAuth title={"Зареєструватися"} />
           </StyledForm>
         )}
       </Formik>

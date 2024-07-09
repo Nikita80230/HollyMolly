@@ -4,18 +4,19 @@ import { Link } from "react-router-dom";
 import { logIn } from "src/redux/auth/operations";
 import { routes } from "src/routes";
 import { FormSchema } from "src/schemas/FormSchema";
-import {
-  ContainerCheckboxLink,
-  InputCheckbox,
-  LabelRegisterSubscribe,
-  StyledContainer,
-  StyledForm,
-  StyledLink,
-} from "./Styled";
+// import {
+//   ContainerCheckboxLink,
+//   InputCheckbox,
+//   LabelRegisterSubscribe,
+//   StyledContainer,
+//   StyledLink,
+// } from "../AuthForms/Styled";
 import EyeIcon from "src/assets/images/eye.svg?react";
 import EyeSlashIcon from "src/assets/images/eye-closed.svg?react";
 import { useState } from "react";
 import GoogleAuth from "../GoogleAuth/GoogleAuth";
+import { ContainerCheckboxLink, InputCheckbox, LabelRegisterSubscribe, StyledContainer, StyledForm, StyledLink } from "./Styled";
+import ButtonAuth from "../ButtonAuth/ButtonAuth";
 
 const LoginForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -51,7 +52,7 @@ const LoginForm = () => {
                 component="p"
               />
             </label>
-            <label className="styledLabel">
+            <label className="styledLabelPassword">
               <Field
                   className={(errors.password && touched.password ? "inputError " : "inputAuth")}
                 name="password"
@@ -88,9 +89,7 @@ const LoginForm = () => {
               </LabelRegisterSubscribe>
              
             </ContainerCheckboxLink>
-            <button className="buttonAuth" type="submit">
-              LogIn
-            </button>
+            <ButtonAuth title={"Увійти"} />
           </StyledForm>
         )}
       </Formik>
