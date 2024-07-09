@@ -116,8 +116,7 @@ const ProductOnPage = ({ instanceId }) => {
   }
 
   return (
-    
-  <StyledSectionProduct>
+    <StyledSectionProduct>
       <Container>
         <div className="sectionProduct">
           <ListProductPhotos images={selectedProductInstance?.images || []} />
@@ -140,16 +139,19 @@ const ProductOnPage = ({ instanceId }) => {
             </div>
             <p className="description">{product?.description}</p>
             <div>
-              {availableSizes.length > 0 && activeSizeId !== null && (
-                <div className="wrapperListSpan">
-                  <span className="styledListSpan">Розмір:</span>
+              <div className="wrapperListSpan">
+                <span className="styledListSpan">Розмір:</span>
+                {availableSizes.length > 0 && activeSizeId !== null ? (
                   <ListSizes
                     sizes={availableSizes}
                     activeSizeId={activeSizeId}
                     setActiveSizeId={setActiveSizeId}
                   />
-                </div>
-              )}
+                ) : (
+                  <p className="text"> універсальний</p>
+                )}
+              </div>
+
               <div className="wrapperListSpan">
                 <span className="styledListSpan">Матеріал:</span>
                 <span className="styledListSpan">
@@ -192,7 +194,6 @@ const ProductOnPage = ({ instanceId }) => {
         </div>
       </Container>
     </StyledSectionProduct>
-   
   );
 };
 
