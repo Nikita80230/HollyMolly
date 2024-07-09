@@ -136,14 +136,15 @@ const CatalogPage = () => {
 
   return (
     <StyledCatalogPage>
-      <Container>
+     
         <div className="navigation">
           <Breadcrumb structure={structure} />
           <SubcategoriesList
             allCategories={allCategories}
             categoryGroupId={categoryGroupId}
           />
-        </div>
+      </div>
+       <Container>
         <div className="layout">
           <SelectedFiltersList selectedFilters={filters} />
           <SortingPanel

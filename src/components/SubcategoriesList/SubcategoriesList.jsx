@@ -3,6 +3,7 @@ import { StyledSubcategoriesList } from "./Styled";
 import { routes } from "src/routes";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
 import { colorSchemes } from "src/utils/colorsScheme";
+import Container from "../Container/Container";
 
 const SubcategoriesList = ({ allCategories, categoryGroupId }) => {
   
@@ -24,6 +25,7 @@ const SubcategoriesList = ({ allCategories, categoryGroupId }) => {
 
   return (
     <StyledSubcategoriesList>
+      <Container>
       <h2 className="title">Підкатегорії</h2>
       <ul className="subcategoriesList">
         {subCategoriesToRender.map((subCategory, index) => {
@@ -51,7 +53,8 @@ const SubcategoriesList = ({ allCategories, categoryGroupId }) => {
             </li>
           );
         })}
-      </ul>
+        </ul>
+        </Container>
     </StyledSubcategoriesList>
   );
 };
