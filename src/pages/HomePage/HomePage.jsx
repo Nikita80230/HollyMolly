@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CategoriesSection from "src/components/CategoriesSection/CategoriesSection";
+import Container from "src/components/Container/Container";
 import Hero from "src/components/Hero/Hero";
 import RecommendationSection from "src/components/RecommendationSection/RecommendationSection";
 import Subscribe from "src/components/Subscribe/Subscribe";
@@ -19,12 +20,14 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-      <CategoriesSection />
-      <RecommendationSection
-        recommendedProducts={recommendedProducts}
-        colors={colors}
-        title="Рекомендації"
-      />
+      <Container>
+        <CategoriesSection />
+        <RecommendationSection
+          recommendedProducts={recommendedProducts}
+          colors={colors}
+          title="Рекомендації"
+        />
+      </Container>
       <Subscribe />
     </>
   );

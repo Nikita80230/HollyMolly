@@ -44,7 +44,7 @@ export const getProductsByCurrentCategory = createAsyncThunk(
       );
       return data;
     } catch (error) {
-      toast.error(error.message);
+      console.error(error);
       return thunkApi.rejectWithValue(error.message);
     }
   }
