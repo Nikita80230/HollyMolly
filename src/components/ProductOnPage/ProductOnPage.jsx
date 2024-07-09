@@ -19,6 +19,7 @@ const ProductOnPage = ({ instanceId }) => {
   const dispatch = useDispatch();
   const product = useSelector(selectCurrentProduct);
   const isLoading = useSelector(selectCurrentLoading);
+  console.log(product)
 
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
   const [activeSizeId, setActiveSizeId] = useState(null);
@@ -29,22 +30,28 @@ const ProductOnPage = ({ instanceId }) => {
   const [isNewCollection, setIsNewCollection] = useState(false);
   const [availableSizes, setAvailableSizes] = useState([]);
   const [quantity, setQuantity] = useState(1);
-
+  
   const setSizesForColor = (color) => {
-    const selectedProductInstances = product?.productsInstances.filter(
-      (productInstance) => productInstance.color === color
-    );
+  const cleanedColor = color.trim().toLowerCase();
+  console.log('Cleaned Color:', cleanedColor);
+  const selectedProductInstances = product?.productsInstances.filter(
+    (productInstance) => productInstance.color.trim().toLowerCase() === cleanedColor
+  );
+  console.log('Selected Product Instances:', selectedProductInstances);
 
-    const sizes = [
-      ...new Set(
-        selectedProductInstances.map((productInstance) => productInstance.size)
-      ),
-    ];
+  const sizes = [
+    ...new Set(
+      selectedProductInstances.map((productInstance) => productInstance.size)
+    ),
+  ];
+  console.log('Sizes:', sizes);
 
-    setAvailableSizes(sizes);
-  };
+  setAvailableSizes(sizes);
+};
 
   const handleClickColors = (id, color) => {
+    console.log(id)
+    console.log(color)
     setSizesForColor(color);
 
     const selectedProductInstance = product?.productsInstances.find(
@@ -106,6 +113,7 @@ const ProductOnPage = ({ instanceId }) => {
         setActiveSizeId(initialProductInstance.size);
         setActiveColorId(initialProductInstance.id);
         setSizesForColor(initialProductInstance.color);
+        console.log(initialProductInstance.color);
       }
     }
   }, [product, instanceId]);

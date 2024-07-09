@@ -41,13 +41,13 @@ const ProductPage = () => {
     (subCategory) => subCategory?.id === categoryId
   );
 
-  console.log("allCategories-->", allCategories);
-  console.log("productSubCategoryId-->", categoryId);
-  console.log("currentProduct-->", currentProduct);
-  console.log("mainCategory-->", mainCategory);
-  console.log("mainCategoryId-->", categoryGroupId);
-  console.log("subCategory-->", subCategory);
-  console.log("recommendedProducts-->", recommendedProducts);
+  // console.log("allCategories-->", allCategories);
+  // console.log("productSubCategoryId-->", categoryId);
+  // console.log("currentProduct-->", currentProduct);
+  // console.log("mainCategory-->", mainCategory);
+  // console.log("mainCategoryId-->", categoryGroupId);
+  // console.log("subCategory-->", subCategory);
+  // console.log("recommendedProducts-->", recommendedProducts);
 
   const structure = [
     { url: routes.HOME, text: "Головна" },

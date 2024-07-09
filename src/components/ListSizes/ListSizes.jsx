@@ -1,8 +1,11 @@
+import { formatSize } from 'src/utils/formatSize';
 import { StyledList } from './Styled';
 
+const sizeOrder = ['S', 'M', 'L'];
+
 const ListSizes = ({ sizes, activeSizeId, setActiveSizeId }) => {
-  const uniqueSizes = sizes.filter(
-    (size, index) => index === sizes.findIndex((t) => t === size)
+  const uniqueSizes = [...new Set(sizes.map(formatSize))].sort(
+    (a, b) => sizeOrder.indexOf(a) - sizeOrder.indexOf(b)
   );
 
   return (
@@ -13,7 +16,6 @@ const ListSizes = ({ sizes, activeSizeId, setActiveSizeId }) => {
             type="button"
             className={`itemSizes ${size === activeSizeId ? 'active' : ''}`}
             onClick={() => {
-              console.log(`Clicked size: ${size}`);
               setActiveSizeId(size);
             }}
           >

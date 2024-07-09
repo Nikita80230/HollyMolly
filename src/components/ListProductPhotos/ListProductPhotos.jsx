@@ -2,21 +2,20 @@ import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
 import { Swiper, SwiperSlide } from "swiper/react";
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
-import { EffectFade, Navigation} from 'swiper/modules';
-import { PhotoContainer } from "./Styled";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import { EffectFade, Navigation } from "swiper/modules";
+import { ContainerModalPhoto, PhotoContainer } from "./Styled";
 
 const ListProductPhotos = ({ images }) => {
   const [selectedImage, setSelectedImage] = useState(defaultPhoto);
   const [modalIsOpen, setIsOpen] = useState(false);
-  
-  
+
   const openModal = (index) => {
     setSelectedImage(images[index]?.link || defaultPhoto);
     setIsOpen(true);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const closeModal = () => {
@@ -28,7 +27,6 @@ const ListProductPhotos = ({ images }) => {
   while (otherImages.length < 2) {
     otherImages.push({ link: defaultPhoto });
   }
-  
 
   useEffect(() => {
     if (images && images.length > 0) {
@@ -36,28 +34,26 @@ const ListProductPhotos = ({ images }) => {
     }
   }, [images]);
 
-
   return (
     <>
       {!images || images.length === 0 ? (
         <PhotoContainer>
           <div className="mainPhoto">
             <img
-              className=" mainImage"
+              className="mainImage"
               src={defaultPhoto}
               alt="Default product photo"
             />
-            <div className="otherPhotos">
-              {[...Array(2)].map((_, index) => (
-                <img
-                  key={index}
-                  className="otherImage"
-                  src={defaultPhoto}
-                  alt="Default product photo"
-                 
-                />
-              ))}
-            </div>
+          </div>
+          <div className="otherPhotos">
+            {[...Array(2)].map((_, index) => (
+              <img
+                key={index}
+                className="otherImage"
+                src={defaultPhoto}
+                alt="Default product photo"
+              />
+            ))}
           </div>
         </PhotoContainer>
       ) : (
@@ -83,18 +79,27 @@ const ListProductPhotos = ({ images }) => {
           </div>
         </PhotoContainer>
       )}
-          <Modal
+      <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         className="modal-content"
         overlayClassName="modal-overlay"
         contentLabel="Modal Photo Product"
       >
-        <img
-          className="modalImg"
-          src={selectedImage}
-          alt="Selected product photo"
-        />
+        <ContainerModalPhoto>
+          <img
+            className="modalImg"
+            src={selectedImage}
+            alt="Selected product photo"
+            width={500}
+          />
+        </ContainerModalPhoto>
+      </Modal>
+    </>
+  );
+};
+
+
         {/* {modalIsOpen && (
           <Swiper
             initialSlide={initialSlideIndex}
@@ -120,10 +125,6 @@ const ListProductPhotos = ({ images }) => {
             ))}
           </Swiper> */}
         {/* )} */}
-      </Modal>
-
-    </>
-  );
-};
+     
 
 export default ListProductPhotos;
