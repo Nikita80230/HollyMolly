@@ -1,5 +1,4 @@
 import { Field, Form } from "formik";
-import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const StyledForm = styled(Form)`
@@ -95,8 +94,6 @@ export const StyledForm = styled(Form)`
     font-size: 16px;
     line-height: 1.25;
   }
-
- 
 `;
 
 export const LabelRegisterSubscribe = styled.label`
@@ -138,23 +135,4 @@ export const InputCheckbox = styled(Field)`
     border-width: 0 3px 3px 0;
     transform: translate(-50%, -60%) rotate(45deg);
   }
-`;
-
-export const ContainerCheckboxLink = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  
-`;
-export const StyledLink = styled(Link)`
-  margin-left: 59px;
-  font-family: ${({ theme }) => theme.fonts.familyDidact};
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.25;
-  color: ${({ theme }) => theme.colors.primaryTxtColor};
 `;

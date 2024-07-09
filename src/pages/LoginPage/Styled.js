@@ -1,27 +1,13 @@
 import { styled } from "styled-components";
 
 export const WrapperLogin = styled.section`
- display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+ display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap:25px;
 
-
-  .titleLogin{
-    font-family:${({ theme }) => theme.fonts.familyPacifico};
-font-weight: 400;
-font-size: 48px;
-line-height: 1.16667;
-text-align: center;
-background: ${({ theme }) => theme.colors.gradientTitle};
-background-clip: text;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-height:76px;
-  }
-
-   .list {
+.list {
     display: flex;
     gap: 25px;
   }
