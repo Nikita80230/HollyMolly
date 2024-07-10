@@ -3,6 +3,7 @@ import { toast } from "react-hot-toast";
 
 import { ForgotPasswordSchema } from "src/schemas/ForgotPasswordSchema";
 import { forgotPassword } from "src/services/forgotPassword";
+import ButtonAuth from "../ButtonAuth/ButtonAuth";
 import { StyledForm } from "./Styled";
 
 const ForgotPasswordForm = () => {
@@ -44,21 +45,34 @@ const ForgotPasswordForm = () => {
         }}
         validationSchema={ForgotPasswordSchema}
         onSubmit={onSubmit}
+        validateOnBlur={true}
+        validateOnChange={true}
       >
-        <StyledForm>
-          <label className="styledLabel">
-            <Field
-              className="inputAuth"
-              name="email"
-              placeholder="Your email"
-              type="text"
-            />
-            <ErrorMessage className="errorMessage" component="p" name="email" />
-          </label>
-          <button className="buttonAuth" type="submit">
-            Надіслати
-          </button>
-        </StyledForm>
+        {({ errors, touched, handleSubmit }) => (
+          <StyledForm onSubmit={handleSubmit}>
+            <label className="styledLabel">
+              <Field
+                className={`inputAuth ${
+                  errors.email && touched.email
+                    ? "inputError"
+                    : touched.email
+                    ? "inputSuccess"
+                    : ""
+                }`}
+                name="email"
+                placeholder="Your email"
+                type="text"
+                autoComplete="off"
+              />
+              <ErrorMessage
+                className="errorMessage"
+                component="p"
+                name="email"
+              />
+            </label>
+            <ButtonAuth title={"Відправити"} width={"390px"} />
+          </StyledForm>
+        )}
       </Formik>
     </>
   );

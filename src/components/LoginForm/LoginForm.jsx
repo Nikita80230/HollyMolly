@@ -1,21 +1,20 @@
 import { ErrorMessage, Field, Formik } from "formik";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { logIn } from "src/redux/auth/operations";
 import { routes } from "src/routes";
 import { FormSchema } from "src/schemas/FormSchema";
-// import {
-//   ContainerCheckboxLink,
-//   InputCheckbox,
-//   LabelRegisterSubscribe,
-//   StyledContainer,
-//   StyledLink,
-// } from "../AuthForms/Styled";
 import EyeIcon from "src/assets/images/eye.svg?react";
 import EyeSlashIcon from "src/assets/images/eye-closed.svg?react";
 import { useState } from "react";
 import GoogleAuth from "../GoogleAuth/GoogleAuth";
-import { ContainerCheckboxLink, InputCheckbox, LabelRegisterSubscribe, StyledContainer, StyledForm, StyledLink } from "./Styled";
+import {
+  ContainerCheckboxLink,
+  InputCheckbox,
+  LabelRegisterSubscribe,
+  StyledContainer,
+  StyledForm,
+  StyledLink,
+} from "./Styled";
 import ButtonAuth from "../ButtonAuth/ButtonAuth";
 
 const LoginForm = () => {
@@ -41,7 +40,9 @@ const LoginForm = () => {
           <StyledForm>
             <label className="styledLabel">
               <Field
-                  className={(errors.email && touched.email ? "inputError " : "inputAuth")}
+                className={
+                  errors.email && touched.email ? "inputError " : "inputAuth"
+                }
                 name="email"
                 type="text"
                 placeholder="Твій email"
@@ -54,12 +55,16 @@ const LoginForm = () => {
             </label>
             <label className="styledLabelPassword">
               <Field
-                  className={(errors.password && touched.password ? "inputError " : "inputAuth")}
+                className={
+                  errors.password && touched.password
+                    ? "inputError "
+                    : "inputAuth"
+                }
                 name="password"
                 type={passwordShown ? "text" : "password"}
                 placeholder="Твій пароль"
               />
-            {passwordShown ? (
+              {passwordShown ? (
                 <EyeIcon
                   className="iconEye"
                   onClick={() => setPasswordShown(false)}
@@ -87,16 +92,13 @@ const LoginForm = () => {
                 />
                 Запам'ятати мене
               </LabelRegisterSubscribe>
-             
             </ContainerCheckboxLink>
-            <ButtonAuth title={"Увійти"} />
+            <ButtonAuth title={"Увійти"} width={"310px"} />
           </StyledForm>
         )}
       </Formik>
-      <GoogleAuth/>
-       <StyledLink to={routes.FORGOT_PASSWORD}>
-                Забули пароль?
-              </StyledLink>
+      <GoogleAuth />
+      <StyledLink to={routes.FORGOT_PASSWORD}>Забули пароль?</StyledLink>
     </StyledContainer>
   );
 };

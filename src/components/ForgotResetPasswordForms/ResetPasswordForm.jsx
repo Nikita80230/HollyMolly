@@ -1,11 +1,13 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Formik } from "formik";
 import { ResetPasswordSchema } from "src/schemas/ResetPasswordSchema";
 import { resetPassword } from "src/services/resetPassword";
 import { StyledForm } from "./Styled";
 import EyeIcon from "src/assets/images/eye.svg?react";
+import EyeSlashIcon from "src/assets/images/eye-closed.svg?react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { routes } from "src/routes";
+import ButtonAuth from "../ButtonAuth/ButtonAuth";
 
 const ResetPasswordForm = ({ token, userId }) => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -43,21 +45,24 @@ const ResetPasswordForm = ({ token, userId }) => {
                 placeholder="New password"
                 type={passwordShown ? "text" : "password"}
               />
-              <EyeIcon
-                className="iconEye"
-                onClick={() => {
-                  setPasswordShown(!passwordShown);
-                }}
-              />
+             {passwordShown ? (
+                <EyeIcon
+                  className="iconEye"
+                  onClick={() => setPasswordShown(false)}
+                />
+              ) : (
+                <EyeSlashIcon
+                  className="iconEye"
+                  onClick={() => setPasswordShown(true)}
+                />
+              )}
               <ErrorMessage
                 className="errorMessage"
                 component="p"
                 name="password"
               />
             </label>
-            <button className="buttonAuth" type="submit">
-              Змінити пароль
-            </button>
+            <ButtonAuth title={"Надіслати" } width={"390px"} />
           </StyledForm>
         )}
       </Formik>

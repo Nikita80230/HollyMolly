@@ -12,5 +12,5 @@ export const ResetPasswordSchema = yup.object().shape({
      .test('not-only-digits', '\u2716  Пароль не може бути лише з цифр', function(value) {
         return !/^\d+$/.test(value);
     })
-    .required(""),
+    .required("Це поле є обов'язковим"),
 });
