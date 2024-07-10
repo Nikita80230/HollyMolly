@@ -111,4 +111,19 @@ color:${({theme})=>theme.colors.greyTxtColor};
       color: ${({ theme }) => theme.colors.accentColor};
     }
   }
+
+ 
+`;
+
+export const WrapperModal = styled.div`
+display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 68px 20px 30px 20px;
+  width: 426px;
+  height: 517px;
+  box-shadow: ${({ theme }) => theme.shadows.boxShadowLeaveReview};
+  background: ${({ theme }) => theme.colors.primaryBgColor};
 `;

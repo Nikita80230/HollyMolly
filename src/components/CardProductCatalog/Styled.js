@@ -60,25 +60,7 @@ export const WrapperCard = styled.div`
     }
   }
 
-  .iconBasket {
-    opacity: 1;
-    pointer-events: all;
-    user-select: all;
-    transition: opacity ${({ theme }) => theme.animations.transition};
-
-    path {
-      fill: ${({ theme }) => theme.colors.iconAdd};
-    }
-  }
-
-  .iconBasket.added {
-    path {
-      fill: ${({ theme }) => theme.colors.iconAdd};
-    }
-    .selectedBasketPath {
-      opacity: 1;
-    }
-  }
+  
 
   .wrapperColorFavorite {
     display: flex;
@@ -149,6 +131,8 @@ export const WrapperCard = styled.div`
     height: 300px;
     border-radius: 10px;
     transition: transform ${({ theme }) => theme.animations.transition};
+    object-position: center center;
+    object-fit: contain;
   }
 
   .title {

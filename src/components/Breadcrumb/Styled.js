@@ -1,18 +1,14 @@
 import styled from "styled-components";
 
 export const StyledBreadcrumb = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-
-  padding: 36px 0;
 
   .breadcrumbs {
     display: flex;
     flex-direction: row;
     gap: 24px;
 
-    padding: 36px 0;
+    padding-top:36px;
+    margin-bottom:20px;
   }
 
   .mainLink {
