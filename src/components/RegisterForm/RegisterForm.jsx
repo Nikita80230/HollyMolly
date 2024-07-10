@@ -4,10 +4,10 @@ import { useDispatch } from "react-redux";
 import { register } from "src/redux/auth/operations";
 import { RegisterSchema } from "src/schemas/RegisterSchema";
 import { subscribeSentEmail } from "src/services/subscribeSentEmail";
-import { InputCheckbox, LabelRegisterSubscribe, StyledForm } from "../AuthForms/Styled";
 import EyeIcon from "src/assets/images/eye.svg?react";
 import EyeSlashIcon from "src/assets/images/eye-closed.svg?react";
 import ButtonAuth from "../ButtonAuth/ButtonAuth";
+import { InputCheckbox, LabelRegisterSubscribe, StyledForm } from "./Styled";
 
 const RegisterForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -29,9 +29,9 @@ const RegisterForm = () => {
     <>
       <Formik
         initialValues={{
-          password: '',
-          confirmPassword: '',
-          email: '',
+          password: "",
+          confirmPassword: "",
+          email: "",
         }}
         onSubmit={handleSubmit}
         validationSchema={RegisterSchema}
@@ -42,10 +42,10 @@ const RegisterForm = () => {
               <Field
                 className={`${
                   errors.email && touched.email
-                    ? 'inputError '
+                    ? "inputError "
                     : values.email && !errors.email
-                    ? 'inputSuccess'
-                    : 'inputAuth'
+                    ? "inputSuccess"
+                    : "inputAuth"
                 }`}
                 name="email"
                 type="text"
@@ -62,13 +62,13 @@ const RegisterForm = () => {
               <Field
                 className={`${
                   errors.password && touched.password
-                    ? 'inputError '
+                    ? "inputError "
                     : values.password && !errors.password
-                    ? 'inputSuccess'
-                    : 'inputAuth'
+                    ? "inputSuccess"
+                    : "inputAuth"
                 }`}
                 name="password"
-                type={passwordShown ? 'text' : 'password'}
+                type={passwordShown ? "text" : "password"}
                 placeholder="Введіть пароль"
               />
               {passwordShown ? (
@@ -90,15 +90,15 @@ const RegisterForm = () => {
             </label>
             <label className="styledLabel">
               <Field
-                 className={`${
+                className={`${
                   errors.confirmPassword && touched.confirmPassword
-                    ? 'inputError '
+                    ? "inputError "
                     : values.confirmPassword && !errors.confirmPassword
-                    ? 'inputSuccess'
-                    : 'inputAuth'
+                    ? "inputSuccess"
+                    : "inputAuth"
                 }`}
                 name="confirmPassword"
-                type={confirmPassword ? 'text' : 'password'}
+                type={confirmPassword ? "text" : "password"}
                 placeholder="Повторіть пароль"
               />
               {confirmPassword ? (
@@ -127,7 +127,7 @@ const RegisterForm = () => {
               />
               Отримувати повідомлення про акції,<br></br> знижки, новинки
             </LabelRegisterSubscribe>
-            <ButtonAuth title={"Зареєструватися"} />
+            <ButtonAuth title={"Зареєструватися"} width={"310px"} />
           </StyledForm>
         )}
       </Formik>

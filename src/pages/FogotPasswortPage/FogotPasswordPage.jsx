@@ -1,25 +1,20 @@
-import ForgotPasswordForm from "src/components/AuthForms/ForgotPasswordForm";
-import AuthPageLayout from "src/components/AuthPageLayout/AuthPageLayout";
+import ForgotPasswordForm from "src/components/ForgotResetPasswordForms/ForgotPasswordForm";
 import { WrapperForgotPassword } from "./Styled";
-import ArrowIcon from "src/assets/images/turnBack.svg?react";
-import { Link } from "react-router-dom";
-import { routes } from "src/routes";
+import Container from "src/components/Container/Container";
+import TitleAuth from "src/components/TitleAuth/TitleAuth";
 
 const ForgotPasswordPage = () => {
   return (
-    <AuthPageLayout>
+    <Container>
       <WrapperForgotPassword>
-        <Link to={routes.LOGIN}>
-          <ArrowIcon className="arrowIcon" />
-        </Link>
-        <h1 className="titleForgot">Відновлення паролю</h1>
+        <TitleAuth title={"Відновлення паролю"} />
         <p className="description">
-          Введіть свою електронну адресу, щоб отримати посилання для скидання
-          пароля
+          Введіть свою електронну адресу, щоб отримати посилання <br></br> для
+          скидання пароля
         </p>
         <ForgotPasswordForm />
       </WrapperForgotPassword>
-    </AuthPageLayout>
+    </Container>
   );
 };
 

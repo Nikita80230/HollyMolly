@@ -1,44 +1,25 @@
 import { styled } from "styled-components";
 
 export const WrapperForgotPassword = styled.div`
- position: fixed;
-  bottom: 0;
-  top: 30%;
-  left: 35%;
-  padding: 68px 40px;
-  border-radius: 32px;
-  width: 544px;
-  height: 412px;
+  
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: ${({ theme }) => theme.shadows.boxShadowAuth};
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px); /* Для підтримки в Safari */
-  background: ${({ theme }) => theme.colors.backgroundAuth};
 
-  animation: ${({ theme }) => theme.animations.slideInFromBottom} 0.5s ease-out;
+ .icon{
+  position:absolute;
+  top:0;
+  left:0;
+ }
 
-  .arrowIcon{
-position: absolute;
-top:32px;
-left:40px;
-  }
-
-  .titleForgot {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-size: 32px;
-    color: ${({ theme }) => theme.colors.colorAuth};
-  }
   .description {
+    margin-top: 10px;
     margin-bottom: 30px;
-    text-align:center;
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 500;
-    font-size: 18px;
-    color: ${({ theme }) => theme.colors.colorAuth};
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.20833;
+    text-align: center;
   }
-
-
-`
+`;

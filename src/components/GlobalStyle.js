@@ -113,20 +113,32 @@ position: absolute;
   height: 100vh;
   background:rgba(76, 76, 77, 0.5);
 }
+
+.modal-overlay-light {
+  position: fixed;
+  z-index:102;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background:rgba(0, 0, 0, 0);
+}
+
 .custom-toast {
-    padding: 74px 24px;
-    font-family: ${({ theme }) => theme.fonts.familyGaramond};
+    padding: 50px 24px;
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
     font-size: 20px;
-    background-color: #FFFFFF;
-    color: #323234;
-    border-radius: 23px;
+    background-color: ${({theme})=>theme.colors.primaryBgColor};
+    border-radius:10px;
+    border:1px solid ${({theme})=>theme.colors.borderColor};
+    color: ${({theme})=>theme.colors.primaryTxtColor};
     text-align: center;
     max-width: 500px;
-    height: 200px;
+    height: 150px;
     margin: 0 auto;
     position: fixed;
-    top: 400px;
-    left: 53%;
+    top: 200px;
+    left: 49%;
     transform: translate(-50%, -50%);
     z-index: 9999;
   }

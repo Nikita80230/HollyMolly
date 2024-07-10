@@ -72,7 +72,7 @@ const ProductReviews = ({ reviews, productId }) => {
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           className="content-modal-review"
-          overlayClassName="modal-overlay"
+          overlayClassName="modal-overlay-light"
           contentLabel="Modal Subscription"
         >
           <LeaveFeedback onClose={closeModal} productId={productId} />
@@ -82,7 +82,7 @@ const ProductReviews = ({ reviews, productId }) => {
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           className="content-modal-review"
-          overlayClassName="modal-overlay"
+          overlayClassName="modal-overlay-light"
           contentLabel="Modal Subscription"
           >
             <WrapperModal>

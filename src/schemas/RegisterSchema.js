@@ -8,7 +8,7 @@ export const RegisterSchema = yup.object().shape({
       /^[A-Za-z0-9-_.+]{1,50}@(?=.{4,50}$)[A-Za-z0-9][A-Za-z0-9-.]*\.[A-Za-z0-9]{2,}$/,
       "\u2716  Невірно вказано email"
     )
-    .required(""),
+    .required("Це поле є обов'язковим"),
   password: yup
     .string()
     .min(8, "\u2716 Мінімум 8 символів")
@@ -20,7 +20,7 @@ export const RegisterSchema = yup.object().shape({
      .test('not-only-digits', '\u2716  Пароль не може бути лише з цифр', function(value) {
         return !/^\d+$/.test(value);
     })
-    .required(""),
+    .required("Це поле є обов'язковим"),
   confirmPassword: yup
     .string()
     .test("passwords-match", "\u2716  Паролі мають співпадати", function (value) {

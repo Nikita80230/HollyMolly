@@ -4,7 +4,7 @@ export const StyledButton = styled.button`
  border-radius: 5px;
     border: transparent;
     padding: 15px 5px;
-    width: 310px;
+     width: ${(props) => props.width || 'auto'};
     height: 60px;
     background: ${({ theme }) => theme.colors.accentColor};
     font-weight: 400;
