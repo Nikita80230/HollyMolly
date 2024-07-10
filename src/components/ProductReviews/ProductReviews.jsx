@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import { StyledSection } from "./Styled";
+import { StyledSection, WrapperModal } from "./Styled";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 
@@ -11,9 +11,14 @@ import ArrowRight from "src/assets/images/arrowRight.svg?react";
 import { useState } from "react";
 import LeaveFeedback from "../LeaveFeedback/LeaveFeedback";
 import CardReview from "../CardReview/CardReview";
+import { useAuth } from "src/hooks";
+import { Link } from "react-router-dom";
+import { routes } from "src/routes";
 
 const ProductReviews = ({ reviews, productId }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const { isLoggedIn } = useAuth();
+  console.log(isLoggedIn);
 
   function openModal() {
     setIsOpen(true);
@@ -62,15 +67,32 @@ const ProductReviews = ({ reviews, productId }) => {
       <button type="button" className="buttonReview" onClick={openModal}>
         Залишити відгук
       </button>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        className="content-modal-review"
-        overlayClassName="modal-overlay"
-        contentLabel="Modal Subscription"
-      >
-        <LeaveFeedback onClose={closeModal} productId={productId} />
-      </Modal>
+      {isLoggedIn ? (
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          className="content-modal-review"
+          overlayClassName="modal-overlay"
+          contentLabel="Modal Subscription"
+        >
+          <LeaveFeedback onClose={closeModal} productId={productId} />
+        </Modal>
+      ) : (
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          className="content-modal-review"
+          overlayClassName="modal-overlay"
+          contentLabel="Modal Subscription"
+          >
+            <WrapperModal>
+          <h2>
+            Щоб залишити відгук <Link to={routes.REGISTER}>авторизуйтесь</Link>
+              </h2>
+            </WrapperModal>
+          
+        </Modal>
+      )}
     </StyledSection>
   );
 };

@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
 import CardProductCatalog from "src/components/CardProductCatalog/CardProductCatalog";
+import Container from "src/components/Container/Container";
 import { selectFavoriteProducts } from "src/redux/products/productsSlice";
 import { WrapperFavoritesPage } from "./Styled";
 
 const FavoritesPage = () => {
   const favoriteProducts = useSelector(selectFavoriteProducts);
 
-  return (
+  return (<Container>
     <WrapperFavoritesPage>
       {!favoriteProducts.length ? (
         <h1>Додайте ваші улюблені товари</h1>
@@ -18,6 +19,7 @@ const FavoritesPage = () => {
         </ul>
       )}
     </WrapperFavoritesPage>
+    </Container>
   );
 };
 

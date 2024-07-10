@@ -19,7 +19,7 @@ const ProductOnPage = ({ instanceId }) => {
   const dispatch = useDispatch();
   const product = useSelector(selectCurrentProduct);
   const isLoading = useSelector(selectCurrentLoading);
-  console.log(product)
+  console.log(product);
 
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
   const [activeSizeId, setActiveSizeId] = useState(null);
@@ -30,28 +30,24 @@ const ProductOnPage = ({ instanceId }) => {
   const [isNewCollection, setIsNewCollection] = useState(false);
   const [availableSizes, setAvailableSizes] = useState([]);
   const [quantity, setQuantity] = useState(1);
-  
+
   const setSizesForColor = (color) => {
-  const cleanedColor = color.trim().toLowerCase();
-  console.log('Cleaned Color:', cleanedColor);
-  const selectedProductInstances = product?.productsInstances.filter(
-    (productInstance) => productInstance.color.trim().toLowerCase() === cleanedColor
-  );
-  console.log('Selected Product Instances:', selectedProductInstances);
+    const cleanedColor = color.trim().toLowerCase();
+    const selectedProductInstances = product?.productsInstances.filter(
+      (productInstance) =>
+        productInstance.color.trim().toLowerCase() === cleanedColor
+    );
 
-  const sizes = [
-    ...new Set(
-      selectedProductInstances.map((productInstance) => productInstance.size)
-    ),
-  ];
-  console.log('Sizes:', sizes);
+    const sizes = [
+      ...new Set(
+        selectedProductInstances.map((productInstance) => productInstance.size)
+      ),
+    ];
 
-  setAvailableSizes(sizes);
-};
+    setAvailableSizes(sizes);
+  };
 
   const handleClickColors = (id, color) => {
-    console.log(id)
-    console.log(color)
     setSizesForColor(color);
 
     const selectedProductInstance = product?.productsInstances.find(
@@ -118,87 +114,91 @@ const ProductOnPage = ({ instanceId }) => {
     }
   }, [product, instanceId]);
 
-  if (isLoading || !product || !product.productsInstances) {
-    return <Loader />;
-  }
+ 
 
   return (
-    <StyledSectionProduct>
-      <div className="sectionProduct">
-        <ListProductPhotos images={selectedProductInstance?.images || []} />
+    <>
+      {isLoading || !product || !product.productsInstances ? (
+        <Loader />
+      ) : (
+        <StyledSectionProduct>
+          <div className="sectionProduct">
+            <ListProductPhotos images={selectedProductInstance?.images || []} />
 
-        <div className="containerContent">
-          <h3 className="titleProduct">{product?.name}</h3>
-          <span className="styledSpan">ID {product.id}</span>
-          <div className="wrapperRating">
-            <StarRatingCard rating={product?.rating} />
-            <div className="wrapperFeedback">
-              {!product?.feedbacks.length ? (
-                <span className="spanFeedback">Ще немає відгуків</span>
-              ) : (
-                <span className="spanFeedback">
-                  {product?.feedbacks.length}{" "}
-                  {getFeedbackWord(product?.feedbacks.length)}
-                </span>
-              )}
-            </div>
-          </div>
-          <p className="description">{product?.description}</p>
-          <div>
-            <div className="wrapperListSpan">
-              <span className="styledListSpan">Розмір:</span>
-              {availableSizes.length > 0 && activeSizeId !== null ? (
-                <ListSizes
-                  sizes={availableSizes}
-                  activeSizeId={activeSizeId}
-                  setActiveSizeId={setActiveSizeId}
-                />
-              ) : (
-                <p className="text"> універсальний</p>
-              )}
-            </div>
+            <div className="containerContent">
+              <h3 className="titleProduct">{product?.name}</h3>
+              <span className="styledSpan">ID {product.id}</span>
+              <div className="wrapperRating">
+                <StarRatingCard rating={product?.rating} />
+                <div className="wrapperFeedback">
+                  {!product?.feedbacks.length ? (
+                    <span className="spanFeedback">Ще немає відгуків</span>
+                  ) : (
+                    <span className="spanFeedback">
+                      {product?.feedbacks.length}{" "}
+                      {getFeedbackWord(product?.feedbacks.length)}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <p className="description">{product?.description}</p>
+              <div>
+                <div className="wrapperListSpan">
+                  <span className="styledListSpan">Розмір:</span>
+                  {availableSizes.length > 0 && activeSizeId !== null ? (
+                    <ListSizes
+                      sizes={availableSizes}
+                      activeSizeId={activeSizeId}
+                      setActiveSizeId={setActiveSizeId}
+                    />
+                  ) : (
+                    <p className="text"> універсальний</p>
+                  )}
+                </div>
 
-            <div className="wrapperListSpan">
-              <span className="styledListSpan">Матеріал:</span>
-              <span className="styledListSpan">
-                {selectedProductInstance?.material}
-              </span>
-            </div>
-            <div className="wrapperListSpan">
-              <span className="styledListSpan">Колір:</span>
-              <ListColorsButtons
-                colors={product.productsInstances}
-                handleClick={handleClickColors}
-                activeColorId={activeColorId}
-              />
+                <div className="wrapperListSpan">
+                  <span className="styledListSpan">Матеріал:</span>
+                  <span className="styledListSpan">
+                    {selectedProductInstance?.material}
+                  </span>
+                </div>
+                <div className="wrapperListSpan">
+                  <span className="styledListSpan">Колір:</span>
+                  <ListColorsButtons
+                    colors={product.productsInstances}
+                    handleClick={handleClickColors}
+                    activeColorId={activeColorId}
+                  />
+                </div>
+              </div>
+              <div className="containerCounterPrices">
+                <Counter quantity={quantity} setQuantity={setQuantity} />
+                <div className="containerPrices">
+                  <p className="priceAfterDiscount">
+                    {priceAfterDiscount ? `${priceAfterDiscount}₴` : ""}
+                  </p>
+                  {price > priceAfterDiscount && (
+                    <p className="price">{price ? `${price}₴` : ""}</p>
+                  )}
+                </div>
+              </div>
+              <div className="containerButtons">
+                <button
+                  type="submit"
+                  className="buttonAddBasket"
+                  onClick={handleAddToBasket}
+                >
+                  Додати в кошик
+                </button>
+                <button type="button" className="buttonFavorites">
+                  <FavoriteIcon />
+                </button>
+              </div>
             </div>
           </div>
-          <div className="containerCounterPrices">
-            <Counter quantity={quantity} setQuantity={setQuantity} />
-            <div className="containerPrices">
-              <p className="priceAfterDiscount">
-                {priceAfterDiscount ? `${priceAfterDiscount}₴` : ""}
-              </p>
-              {price > priceAfterDiscount && (
-                <p className="price">{price ? `${price}₴` : ""}</p>
-              )}
-            </div>
-          </div>
-          <div className="containerButtons">
-            <button
-              type="submit"
-              className="buttonAddBasket"
-              onClick={handleAddToBasket}
-            >
-              Додати в кошик
-            </button>
-            <button type="button" className="buttonFavorites">
-              <FavoriteIcon />
-            </button>
-          </div>
-        </div>
-      </div>
-    </StyledSectionProduct>
+        </StyledSectionProduct>
+      )}
+    </>
   );
 };
 

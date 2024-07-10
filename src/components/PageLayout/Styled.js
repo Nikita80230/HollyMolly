@@ -13,13 +13,7 @@ export const StyledPageLayout = styled.div`
     }
   }
 
-  @media only screen and (min-width: 1440px) {
-    .main {
-      margin-top: 108px;
-      /* padding-top: 49px; */
-      height:100%;
-    }
-  }
+  
 
   
 

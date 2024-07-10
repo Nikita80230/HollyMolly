@@ -30,22 +30,23 @@ export const PhotoContainer = styled.div`
     border-radius: 10px;
   }
 
-  .mainImage {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    border-radius: 10px;
-  }
 
-  .otherImage {
-    width: 295px;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    border: 5px solid ${({ theme }) => theme.colors.borderProductPhoto};
-    border-radius: 10px;
-  }
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  border: 5px solid ${({ theme }) => theme.colors.borderProductPhoto};
+  border-radius: 10px;
+}
+
+.otherImage {
+  width: 295px;
+  height: 200px;
+  object-position: center center;
+  border: 5px solid ${({ theme }) => theme.colors.borderProductPhoto};
+  border-radius: 10px;
+}
 
   .mySwiper {
     width: 80%;
