@@ -19,8 +19,7 @@ const ProductOnPage = ({ instanceId }) => {
   const dispatch = useDispatch();
   const product = useSelector(selectCurrentProduct);
   const isLoading = useSelector(selectCurrentLoading);
-  console.log(product);
-
+console.log(product)
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
   const [activeSizeId, setActiveSizeId] = useState(null);
   const [activeColorId, setActiveColorId] = useState(null);
@@ -34,8 +33,7 @@ const ProductOnPage = ({ instanceId }) => {
   const setSizesForColor = (color) => {
     const cleanedColor = color.trim().toLowerCase();
     const selectedProductInstances = product?.productsInstances.filter(
-      (productInstance) =>
-        productInstance.color.trim().toLowerCase() === cleanedColor
+      (productInstance) => productInstance.color.trim().toLowerCase() === cleanedColor
     );
 
     const sizes = [
@@ -66,11 +64,7 @@ const ProductOnPage = ({ instanceId }) => {
   };
 
   const handleAddToBasket = () => {
-    if (
-      selectedProductInstance &&
-      (activeSizeId || activeSizeId === null) &&
-      activeColorId
-    ) {
+    if (selectedProductInstance && activeColorId) {
       dispatch(
         addProductsToBasket({
           productInstanceId: selectedProductInstance.id,
@@ -102,19 +96,14 @@ const ProductOnPage = ({ instanceId }) => {
         setSelectedProductInstance(initialProductInstance);
         setPrice(initialProductInstance.price);
         setPriceAfterDiscount(initialProductInstance.priceAfterDiscount);
-        setPercentageDiscount(
-          initialProductInstance.percentageDiscount || null
-        );
+        setPercentageDiscount(initialProductInstance.percentageDiscount || null);
         setIsNewCollection(initialProductInstance.isNewCollection);
         setActiveSizeId(initialProductInstance.size);
         setActiveColorId(initialProductInstance.id);
         setSizesForColor(initialProductInstance.color);
-        console.log(initialProductInstance.color);
       }
     }
   }, [product, instanceId]);
-
- 
 
   return (
     <>
@@ -124,7 +113,6 @@ const ProductOnPage = ({ instanceId }) => {
         <StyledSectionProduct>
           <div className="sectionProduct">
             <ListProductPhotos images={selectedProductInstance?.images || []} />
-
             <div className="containerContent">
               <h3 className="titleProduct">{product?.name}</h3>
               <span className="styledSpan">ID {product.id}</span>
@@ -145,17 +133,12 @@ const ProductOnPage = ({ instanceId }) => {
               <div>
                 <div className="wrapperListSpan">
                   <span className="styledListSpan">Розмір:</span>
-                  {availableSizes.length > 0 && activeSizeId !== null ? (
-                    <ListSizes
-                      sizes={availableSizes}
-                      activeSizeId={activeSizeId}
-                      setActiveSizeId={setActiveSizeId}
-                    />
-                  ) : (
-                    <p className="text"> універсальний</p>
-                  )}
+                  <ListSizes
+                    sizes={availableSizes}
+                    activeSizeId={activeSizeId}
+                    setActiveSizeId={setActiveSizeId}
+                  />
                 </div>
-
                 <div className="wrapperListSpan">
                   <span className="styledListSpan">Матеріал:</span>
                   <span className="styledListSpan">

@@ -18,7 +18,6 @@ import { routes } from "src/routes";
 const ProductReviews = ({ reviews, productId }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const { isLoggedIn } = useAuth();
-  console.log(isLoggedIn);
 
   function openModal() {
     setIsOpen(true);
@@ -71,6 +70,7 @@ const ProductReviews = ({ reviews, productId }) => {
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
+          ariaHideApp={false}
           className="content-modal-review"
           overlayClassName="modal-overlay-light"
           contentLabel="Modal Subscription"

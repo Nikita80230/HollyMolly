@@ -93,6 +93,7 @@ const LeaveFeedback = ({ productId, onClose }) => {
               type="submit"
               disabled={isSubmitting}
               className="buttonReview"
+              onClick={onClose}
             >
               Надіслати
             </button>

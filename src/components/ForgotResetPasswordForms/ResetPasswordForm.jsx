@@ -11,6 +11,7 @@ import ButtonAuth from "../ButtonAuth/ButtonAuth";
 
 const ResetPasswordForm = ({ token, userId }) => {
   const [passwordShown, setPasswordShown] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
   const onSubmit = async (values, actions) => {
@@ -28,24 +29,27 @@ const ResetPasswordForm = ({ token, userId }) => {
       <Formik
         initialValues={{
           password: "",
+          confirmPassword: "",
         }}
         validationSchema={ResetPasswordSchema}
         onSubmit={onSubmit}
       >
-        {({ touched, errors }) => (
+        {({ values, touched, errors }) => (
           <StyledForm>
             <label className="styledLabel">
               <Field
-                className={
+                className={`${
                   errors.password && touched.password
                     ? "inputError "
+                    : values.password && !errors.password
+                    ? "inputSuccess"
                     : "inputAuth"
-                }
+                }`}
                 name="password"
-                placeholder="New password"
                 type={passwordShown ? "text" : "password"}
+                placeholder="Введіть пароль"
               />
-             {passwordShown ? (
+              {passwordShown ? (
                 <EyeIcon
                   className="iconEye"
                   onClick={() => setPasswordShown(false)}
@@ -58,11 +62,41 @@ const ResetPasswordForm = ({ token, userId }) => {
               )}
               <ErrorMessage
                 className="errorMessage"
-                component="p"
                 name="password"
+                component="p"
               />
             </label>
-            <ButtonAuth title={"Надіслати" } width={"390px"} />
+            <label className="styledLabel">
+              <Field
+                className={`${
+                  errors.confirmPassword && touched.confirmPassword
+                    ? "inputError "
+                    : values.confirmPassword && !errors.confirmPassword
+                    ? "inputSuccess"
+                    : "inputAuth"
+                }`}
+                name="confirmPassword"
+                type={confirmPassword ? "text" : "password"}
+                placeholder="Повторіть пароль"
+              />
+              {confirmPassword ? (
+                <EyeIcon
+                  className="iconEye"
+                  onClick={() => setConfirmPassword(false)}
+                />
+              ) : (
+                <EyeSlashIcon
+                  className="iconEye"
+                  onClick={() => setConfirmPassword(true)}
+                />
+              )}
+              <ErrorMessage
+                className="errorMessage"
+                name="confirmPassword"
+                component="p"
+              />
+            </label>
+            <ButtonAuth title={"Надіслати"} width={"390px"} />
           </StyledForm>
         )}
       </Formik>
