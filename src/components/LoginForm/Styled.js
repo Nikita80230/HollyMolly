@@ -80,6 +80,7 @@ export const StyledForm = styled(Form)`
   }
 
   .styledLabel {
+    position: relative;
     margin-bottom: 23px;
   }
 

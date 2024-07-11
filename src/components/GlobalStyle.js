@@ -91,6 +91,7 @@ button{
   transform: translate(-50%, -50%);
   padding: 0;
   border: transparent;
+  outline: none;
  
 }
 
@@ -103,6 +104,7 @@ position: absolute;
   transform: translate(-50%, -50%);
   padding: 0;
   border: transparent;
+  outline: none;
 }
 .modal-overlay {
   position: fixed;

@@ -30,48 +30,21 @@ export const PhotoContainer = styled.div`
     border-radius: 10px;
   }
 
-
-.mainImage {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center center;
-  border: 5px solid ${({ theme }) => theme.colors.borderProductPhoto};
-  border-radius: 10px;
-}
-
-.otherImage {
-  width: 295px;
-  height: 200px;
-  object-position: center center;
-  border: 5px solid ${({ theme }) => theme.colors.borderProductPhoto};
-  border-radius: 10px;
-}
-
-  .mySwiper {
-    width: 80%;
-    height: 80%;
-  }
-
-  .swiperSlide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .mainImage {
     width: 100%;
     height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    border-radius: 10px;
   }
 
-  .modalImg {
-    max-width: 100%;
-    height: auto;
+  .otherImage {
+    width: 295px;
+    height: 200px;
+    object-position: center center;
+    border: 5px solid ${({ theme }) => theme.colors.borderProductPhoto};
+    border-radius: 10px;
   }
 `;
 
-export const ContainerModalPhoto = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 700px;
-  height: 700px;
-  background-color: ${({ theme }) => theme.colors.primaryBgColor};
-`;
+

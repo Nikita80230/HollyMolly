@@ -11,8 +11,7 @@ padding: 57px 53px;
   gap:40px;
   border-radius: 10px;
   border:1px solid ${({theme})=>theme.colors.borderColor};
-  width: 497px;
-  height: 275px;
+  
   
    .styledLabel {
    position:relative;

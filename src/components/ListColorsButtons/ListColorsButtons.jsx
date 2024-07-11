@@ -19,7 +19,6 @@ const ListColorsButtons = ({ colors, handleClick, activeColorId }) => {
     (colorObj, index, self) =>
       index === self.findIndex((t) => t.color === colorObj.color)
   );
-
   return (
     <StyledList>
       {uniqueColors.map(({ id, color }) => (
@@ -38,6 +37,7 @@ const ListColorsButtons = ({ colors, handleClick, activeColorId }) => {
               }}
             ></div>
           </button>
+          
         </li>
       ))}
     </StyledList>

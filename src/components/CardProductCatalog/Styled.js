@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const WrapperCard = styled.div`
   position: relative;
   width: 100%;
-  /* height: 447px; */
+
   transition: transform ${({ theme }) => theme.animations.transition};
   overflow: hidden;
 
@@ -14,9 +14,6 @@ export const WrapperCard = styled.div`
   }
 
   .iconHeart {
-    /* opacity: 0;
-    pointer-events: none;
-    user-select: none; */
     width: 24px;
     height: 24px;
     transition: ${({ theme }) => theme.animations.transition};
@@ -26,34 +23,9 @@ export const WrapperCard = styled.div`
     }
   }
 
-  .iconBasket {
-    opacity: 0;
-    pointer-events: none;
-    user-select: none;
+ 
 
-    transition: ${({ theme }) => theme.animations.transition};
-
-    path {
-      transition: ${({ theme }) => theme.animations.transition};
-    }
-  }
-
-  .selectedBasketPath {
-    opacity: 0;
-    transition: ${({ theme }) => theme.animations.transition};
-  }
-
-  /* &:hover {
-    .iconHeart {
-      opacity: 1;
-      pointer-events: all;
-      user-select: all;
-      transition: opacity ${({ theme }) => theme.animations.transition};
-
-      path {
-        fill: transparent;
-      }
-    } */
+ 
   .iconHeart.added {
     path {
       fill: ${({ theme }) => theme.colors.accentColor};
@@ -211,3 +183,4 @@ export const WrapperCard = styled.div`
     border: transparent;
   }
 `;
+

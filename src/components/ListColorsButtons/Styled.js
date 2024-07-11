@@ -1,16 +1,18 @@
 import styled from "styled-components";
 
 export const StyledList = styled.ul`
-  /* margin-bottom: 15px; */
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
+  max-width: 132px;
+  max-height: 24px;
+  overflow: hidden;
 
   .buttonColor {
-    
-    padding:0;
+    padding: 0;
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     border-radius: 2px;
     border: 0.5px solid ${({ theme }) => theme.colors.borderColor};
     width: 24px;
