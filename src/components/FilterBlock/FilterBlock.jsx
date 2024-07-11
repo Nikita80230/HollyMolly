@@ -15,7 +15,7 @@ const FilterBlock = ({ title, options, onPaginationReset }) => {
     onPaginationReset();
   };
 
-  if (!options.values.length) return;
+  if (!options?.values.length) return;
 
   return (
     <StyledFilterBlock>
