@@ -28,30 +28,48 @@ const FiltersPanel = ({ className, onPaginationReset }) => {
     itemsByCategory?.forEach((item) => {
       item.productsInstances?.forEach((instance) => {
         setColors((prevState) =>
-          !prevState.values.includes(instance.color)
+          !prevState.values.includes(instance.color?.toLowerCase())
             ? {
                 filterName: "colors",
-                values: [...prevState.values, instance.color],
+                values: [...prevState.values, instance.color?.toLowerCase()],
               }
             : prevState
         );
         setFabricType((prevState) =>
-          !prevState.values.includes(instance.material) &&
+          !prevState.values.includes(instance.material?.toLowerCase()) &&
           instance.material !== null
             ? {
                 filterName: "materials",
-                values: [...prevState.values, instance.material],
+                values: [...prevState.values, instance.material?.toLowerCase()],
               }
             : prevState
         );
         setSizes((prevState) =>
-          !prevState.values.includes(instance.size) && instance.size !== null
+          // console.log("instance.size", instance.size);
+          !prevState.values.includes(instance?.size?.toLowerCase()) &&
+          instance.size !== null
             ? {
                 filterName: "sizes",
-                values: [...prevState.values, instance.size],
+                values: [...prevState.values, instance?.size?.toLowerCase()],
               }
             : prevState
         );
+
+        // prevState?.values.forEach((value) => {
+        //   console.log("sizes to lowerCase", value.toLowerCase());
+
+        //   if (
+        //     value.toLowerCase() !== instance.size.toLowerCase() &&
+        //     instance.size !== null
+        //   ) {
+        //     return {
+        //       filterName: "sizes",
+        //       values: [...prevState.values, instance.size],
+        //     };
+        //   } else {
+        //     return prevState;
+        //   }
+        // });
       });
     });
   }, [itemsByCategory, location]);
@@ -61,13 +79,11 @@ const FiltersPanel = ({ className, onPaginationReset }) => {
     setFabricType(INITIAL_FILTER_STATE);
     setSizes(INITIAL_FILTER_STATE);
     dispatch(resetFilters());
-           
-
   }, [location.pathname, dispatch]);
 
   const handleChangePrice = debounce((option) => {
     // setPriceRange(price);
-     dispatch(toggleFilter(option));
+    dispatch(toggleFilter(option));
     onPaginationReset();
   }, 500);
 
@@ -78,9 +94,21 @@ const FiltersPanel = ({ className, onPaginationReset }) => {
         <PriceRangeSlider handleChangePrice={handleChangePrice} />
       </div>
 
-      <FilterBlock title="Колір" options={colors} onPaginationReset={onPaginationReset} />
-      <FilterBlock title="Матеріал" options={material} onPaginationReset={onPaginationReset} />
-      <FilterBlock title="Розмір" options={sizes} onPaginationReset={onPaginationReset}/>
+      <FilterBlock
+        title="Колір"
+        options={colors}
+        onPaginationReset={onPaginationReset}
+      />
+      <FilterBlock
+        title="Матеріал"
+        options={material}
+        onPaginationReset={onPaginationReset}
+      />
+      <FilterBlock
+        title="Розмір"
+        options={sizes}
+        onPaginationReset={onPaginationReset}
+      />
     </StyledFiltersPanel>
   );
 };
