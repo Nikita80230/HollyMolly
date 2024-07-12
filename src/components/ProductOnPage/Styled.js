@@ -188,9 +188,8 @@ export const StyledSectionProduct = styled.section`
     }
   }
 
-  .text{
+  .text {
     font-weight: 400;
-font-size: 30px;
-
+    font-size: 30px;
   }
 `;

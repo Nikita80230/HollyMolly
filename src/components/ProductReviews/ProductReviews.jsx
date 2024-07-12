@@ -15,7 +15,7 @@ import { useAuth } from "src/hooks";
 import { Link } from "react-router-dom";
 import { routes } from "src/routes";
 
-const ProductReviews = ({ reviews, productId }) => {
+const ProductReviews = ({ reviews, productId, colors }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const { isLoggedIn } = useAuth();
 
@@ -49,7 +49,7 @@ const ProductReviews = ({ reviews, productId }) => {
           >
             {reviews.map((review, index) => (
               <SwiperSlide key={index} className="swiper-slideCustom">
-                <CardReview review={review} index={index} />
+                <CardReview review={review} index={index} colors={colors} />
               </SwiperSlide>
             ))}
           </Swiper>

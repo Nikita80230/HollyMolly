@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import pictureOrder1x from "src/assets/images/profile/order1x.webp";
 import pictureOrder2x from "src/assets/images/profile/order2x.webp";
-import TitleProfile from "src/components/TitleProfile/TitleProfile";
+import TitleProfile from "src/components/Title/Title";
 import { selectCategories } from "src/redux/categories/selectors";
 import { routes } from "src/routes";
 import { ContainerProfileOrder, WrapperSubtitleLink } from "./Styled";

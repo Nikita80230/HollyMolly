@@ -101,8 +101,8 @@ const ProductPage = () => {
     <StyledProductPage>
       <Container>
         <Breadcrumb structure={structure} />
-        <ProductOnPage instanceId={productInstanceId} />
-        <ProductReviews reviews={reviews} productId={productId} />
+        <ProductOnPage instanceId={productInstanceId} colors={colors} />
+        <ProductReviews reviews={reviews} productId={productId} colors={colors} />
         <RecommendationSection
           className="productPageRecommendation"
           recommendedProducts={recommendedProducts}
