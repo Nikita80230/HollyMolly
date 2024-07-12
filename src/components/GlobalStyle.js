@@ -126,6 +126,18 @@ position: absolute;
   background:rgba(0, 0, 0, 0);
 }
 
+.modal-content-basket{
+position: absolute;
+  top:47%;
+  left:82%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  border: transparent;
+  outline: none;
+}
+
 .custom-toast {
     padding: 50px 24px;
     font-family: ${({ theme }) => theme.fonts.familyDidact};
