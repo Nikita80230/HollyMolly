@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileForm from "src/components/ProfileForm/ProfileForm";
-import TitleProfile from "src/components/TitleProfile/TitleProfile";
+import TitleProfile from "src/components/Title/Title";
 import { getProfile } from "src/redux/user/operations";
 import { selectUserEmail } from "src/redux/user/selectors";
 

@@ -19,8 +19,6 @@ const initialProductsState = {
   favoriteProducts: [],
   productsByCurrentCategory: [],
   filteredProducts: [],
-  // basketProducts: [],
-  amountOrder: 0,
   currentProduct: null,
 };
 
@@ -39,40 +37,6 @@ const productsSlice = createSlice({
           (favoriteProduct) => favoriteProduct.id !== action.payload.id
         );
       }
-    },
-
-    deleteProduct: (state, action) => {
-      const index = state.basketProducts.findIndex(
-        (product) =>
-          product.productInstanceId === action.payload.productInstanceId
-      );
-
-      if (index !== -1) {
-        state.basketProducts.splice(index, 1);
-      }
-    },
-
-    updateProduct: (state, action) => {
-      const { productInstanceId, quantity } = action.payload;
-      const currentProduct = state.basketProducts.find(
-        (product) => product.productInstanceId === productInstanceId
-      );
-      if (currentProduct) {
-        currentProduct.quantity = quantity;
-        currentProduct.totalPrice =
-          quantity * currentProduct.priceAfterDiscount;
-      }
-    },
-
-    calculateAmountOrder: (state) => {
-      state.amountOrder = state.basketProducts.reduce((sum, product) => {
-        return sum + product.totalPrice;
-      }, 0);
-    },
-
-    clearBasket: (state) => {
-      state.basketProducts = [];
-      state.amountOrder = 0;
     },
   },
   extraReducers: (builder) => {
@@ -132,10 +96,6 @@ const productsSlice = createSlice({
 
 export const {
   toggleFavoriteProducts,
-  deleteProduct,
-  updateProduct,
-  calculateAmountOrder,
-  clearBasket,
 } = productsSlice.actions;
 
 export const selectAllProducts = (state) => state.products.allProducts;
@@ -149,7 +109,7 @@ export const selectLoading = (state) => state.products.isLoading;
 export const selectCurrentProduct = (state) => state.products.currentProduct;
 export const selectCurrentLoading = (state) =>
   state.products.isCurrentProductLoading;
-export const selectAmountOrder = (state) => state.products.amountOrder;
+
 
 // export const selectSortedProducts = (state) => state.products.sortedProducts;
 

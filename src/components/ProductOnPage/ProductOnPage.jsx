@@ -29,6 +29,7 @@ console.log(product)
   const [isNewCollection, setIsNewCollection] = useState(false);
   const [availableSizes, setAvailableSizes] = useState([]);
   const [quantity, setQuantity] = useState(1);
+  const [stockQuantity, setStockQuantity] = useState(null); // новий state
 
   const setSizesForColor = (color) => {
     const cleanedColor = color.trim().toLowerCase();
@@ -60,6 +61,7 @@ console.log(product)
       setPercentageDiscount(selectedProductInstance.percentageDiscount || null);
       setIsNewCollection(selectedProductInstance.isNewCollection);
       setActiveSizeId(selectedProductInstance.size);
+      setStockQuantity(selectedProductInstance.stockQuantity); // оновлення stockQuantity
     }
   };
 
@@ -67,11 +69,15 @@ console.log(product)
     if (selectedProductInstance && activeColorId) {
       dispatch(
         addProductsToBasket({
+          productId: product.id,
+          productName: product.name,
+          productImage: selectedProductInstance.images[0].link,
           productInstanceId: selectedProductInstance.id,
           priceAfterDiscount: selectedProductInstance.priceAfterDiscount,
           size: activeSizeId,
-          color: activeColorId,
+          color: selectedProductInstance.color,
           quantity,
+          stockQuantity: selectedProductInstance.stockQuantity,
         })
       );
     }
@@ -86,6 +92,7 @@ console.log(product)
     setPercentageDiscount(null);
     setIsNewCollection(false);
     setAvailableSizes([]);
+    setStockQuantity(null); 
 
     if (product?.productsInstances && product.productsInstances.length > 0) {
       const initialProductInstance = product.productsInstances.find(
@@ -101,6 +108,7 @@ console.log(product)
         setActiveSizeId(initialProductInstance.size);
         setActiveColorId(initialProductInstance.id);
         setSizesForColor(initialProductInstance.color);
+        setStockQuantity(initialProductInstance.stockQuantity);
       }
     }
   }, [product, instanceId]);
@@ -155,7 +163,7 @@ console.log(product)
                 </div>
               </div>
               <div className="containerCounterPrices">
-                <Counter quantity={quantity} setQuantity={setQuantity} />
+                <Counter quantity={quantity} setQuantity={setQuantity} stockQuantity={stockQuantity} />
                 <div className="containerPrices">
                   <p className="priceAfterDiscount">
                     {priceAfterDiscount ? `${priceAfterDiscount}₴` : ""}

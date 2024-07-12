@@ -3,10 +3,10 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AsyncSelect from "react-select/async";
 import { createOrder } from "src/redux/orders/operations";
-import {
-  clearBasket,
+// import {
+//   clearBasket,
   
-} from "src/redux/products/productsSlice";
+// } from "src/redux/products/productsSlice";
 import { selectProfiles } from "src/redux/user/selectors";
 import { SubmitOrderSchema } from "src/schemas/SubmitOrderSchema";
 import { getNewPostCities } from "src/services/getNewPostCities";

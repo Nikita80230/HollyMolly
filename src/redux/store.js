@@ -33,12 +33,22 @@ const authPersistConfig = {
   whitelist: ["token", "refreshToken", "rememberMe"],
 };
 
+const basketPersistConfig = {
+  key: "basket",
+  storage,
+};
+
 const persistedProductsReducer = persistReducer(
   productsPersistConfig,
   productsReducer
 );
 
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
+
+const persistedBasketReducer = persistReducer(
+  basketPersistConfig,
+  basketReducer
+);
 
 export const store = configureStore({
   reducer: {
@@ -48,7 +58,7 @@ export const store = configureStore({
     filters: filtersReducer,
     user: userReducer,
     orders: ordersReducer,
-    basket: basketReducer,
+    basket: persistedBasketReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

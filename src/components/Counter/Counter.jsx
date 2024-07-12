@@ -3,23 +3,27 @@ import { WrapperCounter } from "./Styled";
 import PlusIcon from "src/assets/images/plus.svg?react";
 import MinusIcon from "src/assets/images/minus.svg?react";
 
-
-const Counter = ({ quantity, setQuantity }) => {
-  const handleClickPlus = () => {
-    setQuantity(prevQuantity => prevQuantity + 1);
+const Counter = ({ quantity, setQuantity, stockQuantity }) => {
+  
+  const handleIncrement = () => {
+    if (quantity < stockQuantity) {
+      setQuantity(quantity + 1);
+    }
   };
 
-  const handleClickMinus = () => {
-    setQuantity(prevQuantity => Math.max(prevQuantity - 1, 1));
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
   };
 
   return (
     <WrapperCounter>
       <button
         type="button"
-        onClick={handleClickMinus}
-        disabled={quantity <= 1}
         className="buttonCounter"
+        onClick={handleDecrement}
+        disabled={quantity <= 1}
       >
         <MinusIcon />
       </button>
@@ -28,8 +32,9 @@ const Counter = ({ quantity, setQuantity }) => {
 
       <button
         type="button"
-        onClick={handleClickPlus}
         className="buttonCounter"
+        onClick={handleIncrement}
+        disabled={quantity >= stockQuantity}
       >
         <PlusIcon />
       </button>

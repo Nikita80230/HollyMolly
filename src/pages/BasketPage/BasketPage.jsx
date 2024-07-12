@@ -2,106 +2,107 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import BasketCard from "src/components/BasketCard/BasketCard";
+import Container from "src/components/Container/Container";
+import Title from "src/components/Title/Title";
+import { useAuth } from "src/hooks";
 import {
   calculateAmountOrder,
-  selectAmountOrder,
-  
   updateProduct,
-} from "src/redux/products/productsSlice";
+} from "src/redux/basket/basketSlice";
+
+import { selectAmountOrder, selectBasket } from "src/redux/basket/selectors";
+
 import { routes } from "src/routes";
 
 import { WrapperBasketPage } from "./Styled";
 
 const BasketPage = () => {
-  // const products = useSelector(selectBasketProducts);
-  // const dispatch = useDispatch();
-  // const totalPrice = useSelector(selectAmountOrder);
+  const productsBasket = useSelector(selectBasket);
+  console.log(productsBasket);
+  const dispatch = useDispatch();
+  const totalPrice = useSelector(selectAmountOrder);
+  const { isLoggedIn } = useAuth();
 
-  // useEffect(() => {
-  //   dispatch(calculateAmountOrder());
-  // }, [products, dispatch]);
+  useEffect(() => {
+    dispatch(calculateAmountOrder());
+  }, [productsBasket, dispatch]);
 
-  // const handleClickAddCount = (productId) => {
-  //   const product = products.find((p) => p.productInstanceId === productId);
-  //   if (product) {
-  //     dispatch(
-  //       updateProduct({
-  //         productInstanceId: productId,
-  //         quantity: product.quantity + 1,
-  //       })
-  //     );
-  //   }
-  // };
+  const handleClickAddCount = (productId) => {
+    const product = productsBasket.find(
+      (p) => p.productInstanceId === productId
+    );
+    if (product) {
+      dispatch(
+        updateProduct({
+          productInstanceId: productId,
+          quantity: product.quantity + 1,
+        })
+      );
+    }
+  };
 
-  // const handleClickCount = (productId) => {
-  //   const product = products.find((p) => p.productInstanceId === productId);
-  //   if (product && product.quantity > 1) {
-  //     dispatch(
-  //       updateProduct({
-  //         productInstanceId: productId,
-  //         quantity: product.quantity - 1,
-  //       })
-  //     );
-  //   }
-  // };
+  const handleClickCount = (productId) => {
+    const product = productsBasket.find(
+      (p) => p.productInstanceId === productId
+    );
+    if (product && product.quantity > 1) {
+      dispatch(
+        updateProduct({
+          productInstanceId: productId,
+          quantity: product.quantity - 1,
+        })
+      );
+    }
+  };
 
   return (
-    <WrapperBasketPage>
-      {/* <div>
-        <h1 className="titleBasket">Кошик</h1>
+    <Container>
+      <WrapperBasketPage>
+        <Title title={"Твій кошик"} />
         <div className="wrapperBasket">
           <div className="wrapperList">
             <ul>
-              {products.map((product) => (
+              {productsBasket.map((product) => (
                 <BasketCard
                   product={product}
-                  key={product.productInstanceId} 
-                   handleClickCount={() =>
-                     handleClickCount(product.productInstanceId)
-                   }
-                   handleClickAddCount={() =>
-                     handleClickAddCount(product.productInstanceId)
-                   }
+                  key={product.productInstanceId}
+                  handleClickCount={() =>
+                    handleClickCount(product.productInstanceId)
+                  }
+                  handleClickAddCount={() =>
+                    handleClickAddCount(product.productInstanceId)
+                  }
                 />
               ))}
             </ul>
           </div>
-          <div>
-            <div className="containerPrices">
-              <div className="wrapperPrices">
-                <div className="containerSpan">
-                  <span>Ціна товарів </span>
-                  <span>{totalPrice}₴</span>
-                </div>
-                {/* <div className="containerSpan">
-                  <span>Доставка </span>
-                  <span>від 100₴</span>
-                </div>
-                <div className="containerSpan">
-                  <span>Загальна ціна </span>
-                  <span>{totalPrice + 100}₴</span>
-                </div> */}
-              {/* </div>
-
-              <Link to={routes.SUBMIT_ORDER}>Перейти до оформлення</Link>
+          <div className="containerPrices">
+            <div className="wrapperPrice">
+              <span className="span">Ціна товарів </span>
+              <span className="price">{totalPrice}₴</span>
             </div>
-            <div>
-              <span>Способи оплати:</span>
-              <Link>
-                <div>
-                  <span>Умови та деталі повернення</span>
-                </div>
-              </Link>
-              <Link>
-                <div>
-                  <span>Детальна інформація про доставку</span>
-                </div>
-              </Link>
+            <div className="wrapper">
+              <span className="span">Доставка </span>
+              <span className="price">від 100₴</span>
             </div>
+            <div className="containerTotalPrice">
+              <span className="spanTotalPrice">Загальна ціна </span>
+              <span className="numberTotalPrice">{totalPrice + 100}₴</span>
+            </div>
+            {isLoggedIn ? (
+              <Link to={routes.SUBMIT_ORDER}>
+                <button className="buttonOrder">Перейти до оформлення</button>
+              </Link>
+            ) : (
+              <p className="order">
+                Щоб оформити замовлення потрібно{" "}
+                <Link to={routes.REGISTER} className="link">авторизуватись</Link>
+              </p>
+            )}
           </div>
         </div>
-      </div>  */}
-    </WrapperBasketPage>
+      </WrapperBasketPage>
+    </Container>
   );
 };
 

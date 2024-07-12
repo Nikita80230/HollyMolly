@@ -21,7 +21,7 @@ color:${({theme})=>theme.colors.greyTxtColor};
   .buttonSwiper {
     position: absolute;
     top: 0;
-    right: 81px;
+    right: 0;
 
     display: flex;
     align-items: center;

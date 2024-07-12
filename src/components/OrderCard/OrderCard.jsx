@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
-import {
-  selectAmountOrder,
+// import {
+//   selectAmountOrder,
   
-} from "src/redux/products/productsSlice";
+// } from "src/redux/products/productsSlice";
 
 const OrderCard = () => {
   
 
-  const amountOrder = useSelector(selectAmountOrder);
+  // const amountOrder = useSelector(selectAmountOrder);
 
   return (
     <>

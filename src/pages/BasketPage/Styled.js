@@ -1,51 +1,105 @@
 import { styled } from "styled-components";
 
 export const WrapperBasketPage = styled.section`
-  /* margin-top: 48px; */
-  /* height: 100vh; */
-
-  .titleBasket {
-    margin-bottom: 40px;
-  }
+  padding-top: 36px;
+  margin-bottom: 44px;
 
   .wrapperBasket {
+    margin-top: 36px;
     display: flex;
-    gap: 136px;
+    gap: 75px;
   }
 
   .wrapperList {
-    width: 755px;
+    padding: 46px 39px;
+    border: 1px solid ${({ theme }) => theme.colors.borderColor};
+    border-radius: 10px;
+    width: 807px;
   }
 
   .containerPrices {
-    margin-bottom: 64px;
-    border-radius: 16px;
-    padding: 32px 24px;
-    width: 421px;
-    height: 370px;
-    background: #f3f4fc;
+    width: 372px;
   }
 
-  .wrapperPrices {
-    margin-bottom: 32px;
+  .wrapperPrice {
+    margin-bottom: 20px;
     display: flex;
-    flex-direction: column;
-    
+    justify-content: space-between;
+    align-items: self-end;
   }
 
-  .containerSpan{
-    display:flex;
-justify-content:space-between;
- width: 100%;
+  .span {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.20833;
   }
 
-  .wrapperPromoCode {
-    margin-bottom: 64px;
+  .price {
+    font-family: ${({ theme }) => theme.fonts.familyPacifico};
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.21429;
+  }
+
+  .wrapper {
+    margin-bottom: 25px;
     display: flex;
-    gap: 24px;
-    border-top: 1px solid #c6c6c6;
-    padding: 20px 0px 0px 0px;
-    width: 360px;
-    height: 64px;
+    justify-content: space-between;
+    align-items: self-end;
+  }
+
+  .containerTotalPrice {
+    margin-bottom: 39px;
+    display: flex;
+    justify-content: space-between;
+    align-items: self-end;
+  }
+
+  .spanTotalPrice {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .numberTotalPrice {
+    font-family: ${({ theme }) => theme.fonts.familyPacifico};
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 1.2;
+
+    color: ${({ theme }) => theme.colors.accentColor};
+  }
+
+  .buttonOrder {
+    border: transparent;
+    background: ${({ theme }) => theme.colors.accentColor};
+    border-radius: 5px;
+    width: 373px;
+    height: 60px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.20833;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.whiteTxtColor};
+    transition: background ${({ theme }) => theme.animations.transition},
+      box-shadows ${({ theme }) => theme.animations.transition};
+
+    &:hover {
+      box-shadow: ${({ theme }) => theme.shadows.boxShadowButtonHover};
+    }
+
+    &:focus {
+      background-color: ${({ theme }) => theme.colors.activeBgColor};
+    }
+  }
+
+  .order {
+    font-family: ${({ theme }) => theme.fonts.familyPacifico};
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.21429;
+  }
+  .link {
+    color: ${({ theme }) => theme.colors.accentColor};
   }
 `;

@@ -2,8 +2,8 @@ import { formatDate } from "src/utils/formatDate";
 import StarRatingCard from "../StarRatingCard/StarRatindCard";
 import { StyledContainer } from "./Styled";
 
-const CardReview = ({ review, index }) => {
-  const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
+const CardReview = ({ review, index, colors }) => {
+  
   const backgroundColor = colors[index % colors.length];
  
   const formattedDate = formatDate(review.created);

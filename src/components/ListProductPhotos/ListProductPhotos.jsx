@@ -5,7 +5,6 @@ import {PhotoContainer } from "./Styled";
 import ModalSwiperPhoto from "../ModalSwiperPhoto/ModalSwiperPhoto";
 
 const ListProductPhotos = ({ images }) => {
-
   const [selectedImage, setSelectedImage] = useState(defaultPhoto);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState(0); 
