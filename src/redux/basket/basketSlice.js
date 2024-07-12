@@ -71,6 +71,7 @@ const basketSlice = createSlice({
         currentProduct.quantity = quantity;
         currentProduct.totalPrice = quantity * currentProduct.priceAfterDiscount;
       }
+     
     },
        calculateAmountOrder: (state) => {
       state.amountOrder = state.basketProducts.reduce((sum, product) => {
