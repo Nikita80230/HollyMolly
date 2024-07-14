@@ -75,7 +75,7 @@ const BasketCard = ({ product, handleClickCount, handleClickAddCount }) => {
             </div>
             <div>
 
-              <p className="price">{totalPrice}₴</p>
+              <p className="priceBasket">{totalPrice}₴</p>
             </div>
           </div>
         </div>

@@ -156,25 +156,20 @@ export const WrapperFeedback = styled.div`
   }
 
   .buttonReview {
-    @media only screen and (min-width: 768px) {
-    }
-
-    @media only screen and (min-width: 1440px) {
-      border-radius: 5px;
-      border: transparent;
-      padding: 5px 8px;
-      width: 136px;
-      height: 40px;
-      font-family: ${({ theme }) => theme.fonts.familyGaramond};
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 1.20833;
-      text-align: center;
-      color: ${({ theme }) => theme.colors.whiteTxtColor};
-      background-color: ${({ theme }) => theme.colors.accentColor};
-      transition: background-color ${({ theme }) => theme.animations.transition},
-        box-shadow ${({ theme }) => theme.animations.transition};
-    }
+    border-radius: 5px;
+    border: transparent;
+    padding: 5px 8px;
+    width: 136px;
+    height: 40px;
+    font-family: ${({ theme }) => theme.fonts.familyGaramond};
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.20833;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.whiteTxtColor};
+    background-color: ${({ theme }) => theme.colors.accentColor};
+    transition: background-color ${({ theme }) => theme.animations.transition},
+      box-shadow ${({ theme }) => theme.animations.transition};
   }
 
   .buttonReview:hover {

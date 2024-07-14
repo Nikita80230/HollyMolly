@@ -99,10 +99,11 @@ export const WrapperBasketPage = styled.section`
   }
 
   .order {
-    font-family: ${({ theme }) => theme.fonts.familyPacifico};
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 1.21429;
+font-weight: 400;
+font-size: 22px;
+line-height: 1.20833;
+
+
   }
   .link {
     color: ${({ theme }) => theme.colors.accentColor};

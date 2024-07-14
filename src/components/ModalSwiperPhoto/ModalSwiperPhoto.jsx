@@ -4,6 +4,8 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import { EffectFade, Navigation } from 'swiper/modules';
 import { WrapperModal } from "./Styled";
+import ArrowLeft from "src/assets/images/arrowLeft.svg?react";
+import ArrowRight from "src/assets/images/arrowRight.svg?react";
 
 const ModalSwiperPhoto = ({ images, activeIndex }) => {
   return (
@@ -11,13 +13,13 @@ const ModalSwiperPhoto = ({ images, activeIndex }) => {
       <Swiper
         slidesPerView={1}
         effect={'fade'}
-        navigation={true}
         modules={[EffectFade, Navigation]}
         className="mySwiper"
         initialSlide={activeIndex} 
-        style={{
-          '--swiper-navigation-color': '#e85a50',
-        }}
+        navigation={{
+              nextEl: ".nextProductBtn",
+              prevEl: ".prevProductBtn",
+            }}
       >
         {images.map((image, index) => (
           <SwiperSlide key={image.id} className="swiperSlide">
@@ -31,6 +33,14 @@ const ModalSwiperPhoto = ({ images, activeIndex }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+         <div className="buttonSwiper">
+            <button className="prevProductBtn" type="button">
+              <ArrowLeft className="iconSwiper"/>
+            </button>
+            <button className="nextProductBtn" type="button">
+              <ArrowRight className="iconSwiper"/>
+            </button>
+          </div>
     </WrapperModal>
   );
 };

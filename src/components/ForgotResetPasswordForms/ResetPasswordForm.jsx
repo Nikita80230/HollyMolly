@@ -96,7 +96,7 @@ const ResetPasswordForm = ({ token, userId }) => {
                 component="p"
               />
             </label>
-            <ButtonAuth title={"Надіслати"} width={"390px"} />
+            <ButtonAuth title={"Оновити"} width={"390px"} />
           </StyledForm>
         )}
       </Formik>

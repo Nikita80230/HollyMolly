@@ -6,8 +6,14 @@ import authDesktop1x from "src/assets/images/auth/auth-1x.webp";
 import authDesktop2x from "src/assets/images/auth/auth-2x.webp";
 import Container from "src/components/Container/Container";
 import TitleAuth from "src/components/TitleAuth/TitleAuth";
+import { useEffect } from "react";
 
 const RegisterPage = () => {
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <Container>
       <WrapperRegister>

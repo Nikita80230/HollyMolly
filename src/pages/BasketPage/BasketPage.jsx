@@ -95,7 +95,7 @@ const BasketPage = () => {
               </Link>
             ) : (
               <p className="order">
-                Щоб оформити замовлення потрібно{" "}
+                Щоб оформити замовлення потрібно<br></br>
                 <Link to={routes.REGISTER} className="link">авторизуватись</Link>
               </p>
             )}

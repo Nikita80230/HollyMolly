@@ -6,6 +6,6 @@ export const forgotPassword = async (values) => {
     return res;
    
   } catch (error) {
-    throw new Error("Щось пішло не так.");
+    throw new Error(error.message);
   }
 };

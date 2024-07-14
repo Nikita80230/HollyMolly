@@ -3,23 +3,22 @@ import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const StyledForm = styled(Form)`
-padding: 57px 53px;
+  padding: 57px 53px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:40px;
+  gap: 40px;
   border-radius: 10px;
-  border:1px solid ${({theme})=>theme.colors.borderColor};
-  
-  
-   .styledLabel {
-   position:relative;
+  border: 1px solid ${({ theme }) => theme.colors.borderColor};
+
+  .styledLabel {
+    position: relative;
   }
 
-  .iconEye{
-    position:absolute;
-    top:20px;
+  .iconEye {
+    position: absolute;
+    top: 20px;
     right: 15px;
   }
 
@@ -28,7 +27,7 @@ padding: 57px 53px;
     border-radius: 5px;
     padding: 18px 0px 18px 15px;
     width: 390px;
-height: 60px;
+    height: 60px;
     outline: transparent;
     outline-offset: -1px;
     font-family: ${({ theme }) => theme.fonts.familyDidact};
@@ -86,7 +85,6 @@ height: 60px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
- 
   .errorMessage {
     position: absolute;
     top: 100%;
@@ -97,7 +95,39 @@ height: 60px;
     font-size: 16px;
     line-height: 1.25;
   }
-
- 
 `;
 
+export const WrapperModal = styled.div`
+  position: relative;
+  padding: 42px 30px;
+  border-radius: 10px;
+  width: 443px;
+  height: 149px;
+  background-color: ${({ theme }) => theme.colors.primaryBgColor};
+  box-shadow: 5px 5px 10px 0 #c0bfbf;
+
+  .buttonModal {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    background-color: transparent;
+    border: transparent;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .iconClose {
+    width: 24px;
+    height: 24px;
+    path {
+      stroke: ${({ theme }) => theme.colors.accentColor};
+    }
+  }
+
+  .description {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.20833;
+    text-align: center;
+  }
+`;

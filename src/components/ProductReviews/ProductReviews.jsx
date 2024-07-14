@@ -14,6 +14,7 @@ import CardReview from "../CardReview/CardReview";
 import { useAuth } from "src/hooks";
 import { Link } from "react-router-dom";
 import { routes } from "src/routes";
+import IconClose from "src/assets/images/close.svg?react";
 
 const ProductReviews = ({ reviews, productId, colors }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -86,9 +87,12 @@ const ProductReviews = ({ reviews, productId, colors }) => {
           contentLabel="Modal Subscription"
           >
             <WrapperModal>
-          <h2>
-            Щоб залишити відгук <Link to={routes.REGISTER}>авторизуйтесь</Link>
-              </h2>
+              <button type="button" className="buttonClose"><IconClose/></button>
+          <p className="descriptionModal">
+            Щоб залишити відгук 
+              </p>
+              <Link to={routes.REGISTER}>
+                <button type="button" className="button">Авторизуйтесь</button></Link>
             </WrapperModal>
           
         </Modal>

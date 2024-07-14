@@ -16,7 +16,7 @@ const ResetPasswordPage = () => {
     <Container>
       <WrapperResetPassword>
         <TitleAuth title={"Оновлення паролю"} />
-      <p className="description">Введіть ваш новий пароль</p>
+      <p className="description">Введіть свій новий пароль</p>
         <ResetPasswordForm token={token} userId={userId} />
         </WrapperResetPassword>
     </Container>

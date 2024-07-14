@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-hot-toast";
+
 
 axios.defaults.baseURL = "https://teamchallenge-001-site1.ktempurl.com";
 
@@ -19,7 +19,6 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      toast.error("Такий користувач вже існує");
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -33,8 +32,8 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return { ...res.data, rememberMe };
     } catch (error) {
-      toast("Невірний логін чи пароль");
-      return thunkAPI.rejectWithValue(error.message);
+      
+    return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
