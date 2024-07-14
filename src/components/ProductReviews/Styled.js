@@ -11,11 +11,11 @@ export const StyledSection = styled.section`
     line-height: 1.22222;
   }
 
-  .textReviews{
-font-weight: 400;
-font-size: 30px;
-line-height: 1.2;
-color:${({theme})=>theme.colors.greyTxtColor};
+  .textReviews {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.greyTxtColor};
   }
 
   .buttonSwiper {
@@ -77,7 +77,6 @@ color:${({theme})=>theme.colors.greyTxtColor};
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 25px;
-    
   }
 
   .swiper-slideCustom {
@@ -88,7 +87,7 @@ color:${({theme})=>theme.colors.greyTxtColor};
   }
 
   .buttonReview {
-    margin-left: 1060px;
+    margin-left: 970px;
     border: 1px solid ${({ theme }) => theme.colors.accentColor};
     border-radius: 5px;
     /* padding: 15px 8px; */
@@ -111,19 +110,54 @@ color:${({theme})=>theme.colors.greyTxtColor};
       color: ${({ theme }) => theme.colors.accentColor};
     }
   }
-
- 
 `;
 
 export const WrapperModal = styled.div`
-display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   border-radius: 10px;
-  padding: 68px 20px 30px 20px;
-  width: 426px;
-  height: 517px;
+  padding: 65px 38px;
+  width: 440px;
+  height: 252px;
   box-shadow: ${({ theme }) => theme.shadows.boxShadowLeaveReview};
   background: ${({ theme }) => theme.colors.primaryBgColor};
+
+  .buttonClose {
+    position: absolute;
+    top: 25px;
+    right: 23px;
+    background-color: transparent;
+    border: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .descriptionModal {
+    margin-bottom: 25px;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .button {
+    border: 1px solid ${({ theme }) => theme.colors.accentColor};
+    border-radius: 5px;
+    padding: 15px 5px;
+    width: 195px;
+    height: 60px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.20833;
+    background-color: transparent;
+    transition: box-shadow ${({ theme }) => theme.animations.transition},
+      color ${({ theme }) => theme.animations.transition};
+
+    &:hover {
+      box-shadow: ${({ theme }) => theme.shadows.boxShadowButtonHover};
+    }
+
+    &:focus {
+      color: ${({ theme }) => theme.colors.accentColor};
+    }
+  }
 `;

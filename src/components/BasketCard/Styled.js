@@ -127,7 +127,7 @@ height: 160px;
     line-height: 1.25;
   }
 
-  .price {
+  .priceBasket {
     font-family: ${({ theme }) => theme.fonts.familyPacifico};
     font-weight: 400;
     font-size: 28px;

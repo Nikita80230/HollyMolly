@@ -8,6 +8,8 @@ import EyeIcon from "src/assets/images/eye.svg?react";
 import EyeSlashIcon from "src/assets/images/eye-closed.svg?react";
 import ButtonAuth from "../ButtonAuth/ButtonAuth";
 import { InputCheckbox, LabelRegisterSubscribe, StyledForm } from "./Styled";
+import { toast } from "react-hot-toast";
+import NotificationCustom from "../NotificationCustom/NotificationCustom";
 
 const RegisterForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -15,14 +17,36 @@ const RegisterForm = () => {
   const [isSubscribe, setIsSubscribe] = useState(false);
   const dispatch = useDispatch();
 
-  const handleSubmit = (values, actions) => {
-    dispatch(register(values));
+  const handleSubmit = async (values, actions) => {
+    try {
+      const result = await dispatch(register(values)).unwrap();
 
-    if (isSubscribe) {
-      subscribeSentEmail(values);
+      if (isSubscribe) {
+        subscribeSentEmail(values);
+      }
+
+      actions.resetForm();
+    } catch (error) {
+      if (error === "Request failed with status code 400") {
+        toast.custom(
+          <div className="custom-toast">
+            <NotificationCustom title={"Такий користувач вже існує"} />
+          </div>,
+          {
+            duration: 5000,
+          }
+        );
+      } else {
+        toast.custom(
+          <div className="custom-toast">
+            <NotificationCustom title={"Сталася помилка при реєстрації"} />
+          </div>,
+          {
+            duration: 5000,
+          }
+        );
+      }
     }
-
-    actions.resetForm();
   };
 
   return (

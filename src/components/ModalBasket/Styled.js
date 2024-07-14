@@ -79,7 +79,7 @@ export const ContainerModal = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 1.21429;
-    text-transform:capitalize;
+    text-transform: capitalize;
   }
 
   .containerCounterPrice {
@@ -127,7 +127,7 @@ export const ContainerModal = styled.div`
 
   .containerPriceLink {
     position: absolute;
-    top: 356px;
+    top: 75%;
     left: 0;
 
     padding: 16px 30px;

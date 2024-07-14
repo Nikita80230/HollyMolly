@@ -16,15 +16,42 @@ import {
   StyledLink,
 } from "./Styled";
 import ButtonAuth from "../ButtonAuth/ButtonAuth";
+import { toast } from "react-hot-toast";
+import NotificationCustom from "../NotificationCustom/NotificationCustom";
 
 const LoginForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const dispatch = useDispatch();
 
-  const handleSubmit = (values, actions) => {
-    dispatch(logIn(values));
-    actions.resetForm();
+  const handleSubmit = async (values, actions) => {
+    try {
+      const result = await dispatch(logIn(values)).unwrap();
+
+      actions.resetForm();
+    } catch (error) {
+      
+      if (error === "Request failed with status code 400") {
+        toast.custom(
+          <div className="custom-toast">
+            <NotificationCustom title={"Невірний логін чи пароль"} />
+          </div>,
+          {
+            duration: 5000,
+          }
+        );
+      } else {
+        toast.custom(
+          <div className="custom-toast">
+            <NotificationCustom title={"Сталася помилка при авторизації"} />
+          </div>,
+          {
+            duration: 5000,
+          }
+        );
+      }
+    }
   };
+
   return (
     <StyledContainer>
       <Formik
@@ -46,6 +73,7 @@ const LoginForm = () => {
                 name="email"
                 type="text"
                 placeholder="Твій email"
+                autoComplete="off"
               />{" "}
               <ErrorMessage
                 className="errorMessage"

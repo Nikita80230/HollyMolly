@@ -95,6 +95,19 @@ button{
  
 }
 
+.modal-content-forgot {
+  position: absolute;
+  top:75%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  border: transparent;
+  outline: none;
+ 
+}
+
 .content-modal-review{
 position: absolute;
   top: 50%;
@@ -128,7 +141,7 @@ position: absolute;
 
 .modal-content-basket{
 position: absolute;
-  top:47%;
+  top:50%;
   left:82%;
   right: auto;
   bottom: auto;
@@ -139,21 +152,12 @@ position: absolute;
 }
 
 .custom-toast {
-    padding: 50px 24px;
-    font-family: ${({ theme }) => theme.fonts.familyDidact};
-    font-size: 20px;
-    background-color: ${({theme})=>theme.colors.primaryBgColor};
-    border-radius:10px;
-    border:1px solid ${({theme})=>theme.colors.borderColor};
-    color: ${({theme})=>theme.colors.primaryTxtColor};
-    text-align: center;
-    max-width: 500px;
-    height: 150px;
     margin: 0 auto;
     position: fixed;
-    top: 200px;
-    left: 49%;
+    top: 130px;
+    left: 87%;
     transform: translate(-50%, -50%);
     z-index: 9999;
   }
+  
 `;

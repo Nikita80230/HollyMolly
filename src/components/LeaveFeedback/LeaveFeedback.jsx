@@ -27,6 +27,7 @@ const LeaveFeedback = ({ productId, onClose }) => {
             await sentFeedback(productId, values);
             setSubmitting(false);
             resetForm();
+            onClose();
           } catch (error) {
             console.error(error);
             setSubmitting(false);
@@ -93,7 +94,6 @@ const LeaveFeedback = ({ productId, onClose }) => {
               type="submit"
               disabled={isSubmitting}
               className="buttonReview"
-              onClick={onClose}
             >
               Надіслати
             </button>

@@ -31,7 +31,7 @@ const LoginPage = () => {
         </ul>
         <div className="wrapperFormPhoto">
           <LoginForm />
-          {/* <GoogleAuth /> */}
+
           <img
             className="authPhoto"
             src={authDesktop1x}

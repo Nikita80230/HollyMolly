@@ -176,6 +176,8 @@ export const App = () => {
   const { isRefreshing } = useAuth();
   const pathname = location.pathname;
   const userId = urlParams.get("userId");
+   
+
 
   useEffect(() => {
     dispatch(refreshUser());
