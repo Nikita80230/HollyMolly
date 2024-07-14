@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 
 export const WrapperLogin = styled.section`
+padding-top:38px;
  display: flex;
   flex-direction: column;
   justify-content: center;

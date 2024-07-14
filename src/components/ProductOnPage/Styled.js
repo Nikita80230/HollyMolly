@@ -93,6 +93,7 @@ export const StyledSectionProduct = styled.section`
     font-size: 30px;
     width: 120px;
     white-space: nowrap;
+    
   }
 
   .containerCounterPrices {

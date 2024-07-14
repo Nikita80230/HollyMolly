@@ -1,12 +1,18 @@
 import styled from "styled-components";
 
 export const StyledList = styled.ul`
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   gap: 12px;
   max-width: 132px;
+  max-height: 24px; */
+  /* overflow: hidden; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  max-width: 396px; 
   max-height: 24px;
-  overflow: hidden;
+
 
   .buttonColor {
     padding: 0;
