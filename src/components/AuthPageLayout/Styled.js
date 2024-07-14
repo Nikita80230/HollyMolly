@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 export const StyledAuthPageLayout = styled.div`
    .styledMain {
       margin-top: 115px;
-      padding-top: 36px;
+      padding-top: 40px;
       height:100%;
     }
   

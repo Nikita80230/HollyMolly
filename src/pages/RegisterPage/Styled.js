@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 
-export const WrapperRegister = styled.div`
+export const WrapperRegister = styled.section`
+padding-top:38px;
   display: flex;
   flex-direction: column;
   justify-content: center;

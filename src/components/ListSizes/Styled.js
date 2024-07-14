@@ -9,7 +9,7 @@ gap:1px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 36px;
+  /* width: 36px; */
   height: 40px;
   border: 1px solid transparent;
   background-color: transparent;
@@ -21,7 +21,7 @@ gap:1px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 36px;
+  /* width: 36px; */
   height: 40px;
   background-color: transparent;
 }
@@ -29,7 +29,8 @@ gap:1px;
 .sizeSpan{
 font-weight: 400;
 font-size: 30px;
-text-transform:capitalize;
+/* text-transform:capitalize; */
+white-space:nowrap;
 }
 
 `;

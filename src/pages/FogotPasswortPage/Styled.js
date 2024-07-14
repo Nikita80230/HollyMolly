@@ -1,5 +1,22 @@
 import { styled } from "styled-components";
 
+export const WrapperLinkBack = styled.div`
+margin-bottom:120px;
+display:flex;
+gap:10px;
+align-items:center;
+
+.spanBack{
+  font-family: ${({theme})=>theme.fonts.familyDidact};
+font-weight: 400;
+font-size: 20px;
+line-height: 1.2;
+text-align: center;
+
+}
+
+`
+
 export const WrapperForgotPassword = styled.div`
   
   position: relative;

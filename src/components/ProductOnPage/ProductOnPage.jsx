@@ -19,7 +19,7 @@ const ProductOnPage = ({ instanceId }) => {
   const dispatch = useDispatch();
   const product = useSelector(selectCurrentProduct);
   const isLoading = useSelector(selectCurrentLoading);
-console.log(product)
+
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
   const [activeSizeId, setActiveSizeId] = useState(null);
   const [activeColorId, setActiveColorId] = useState(null);
@@ -29,17 +29,20 @@ console.log(product)
   const [isNewCollection, setIsNewCollection] = useState(false);
   const [availableSizes, setAvailableSizes] = useState([]);
   const [quantity, setQuantity] = useState(1);
-  const [stockQuantity, setStockQuantity] = useState(null); // новий state
+  const [stockQuantity, setStockQuantity] = useState(null);
 
   const setSizesForColor = (color) => {
     const cleanedColor = color.trim().toLowerCase();
-    const selectedProductInstances = product?.productsInstances.filter(
-      (productInstance) => productInstance.color.trim().toLowerCase() === cleanedColor
+    const selectedProductInstances = product.productsInstances.filter(
+      (productInstance) =>
+        productInstance.color.trim().toLowerCase() === cleanedColor
     );
 
     const sizes = [
       ...new Set(
-        selectedProductInstances.map((productInstance) => productInstance.size)
+        selectedProductInstances
+          .map((productInstance) => productInstance.size)
+          .filter((size) => size !== null)
       ),
     ];
 
@@ -49,7 +52,7 @@ console.log(product)
   const handleClickColors = (id, color) => {
     setSizesForColor(color);
 
-    const selectedProductInstance = product?.productsInstances.find(
+    const selectedProductInstance = product.productsInstances.find(
       (productInstance) => productInstance.id === id
     );
 
@@ -61,7 +64,7 @@ console.log(product)
       setPercentageDiscount(selectedProductInstance.percentageDiscount || null);
       setIsNewCollection(selectedProductInstance.isNewCollection);
       setActiveSizeId(selectedProductInstance.size);
-      setStockQuantity(selectedProductInstance.stockQuantity); // оновлення stockQuantity
+      setStockQuantity(selectedProductInstance.stockQuantity);
     }
   };
 
@@ -84,6 +87,17 @@ console.log(product)
   };
 
   useEffect(() => {
+    if (activeColorId) {
+      const color = product.productsInstances.find(
+        (instance) => instance.id === activeColorId
+      )?.color;
+      if (color) {
+        setSizesForColor(color);
+      }
+    }
+  }, [activeColorId, product]);
+
+  useEffect(() => {
     setSelectedProductInstance(null);
     setActiveSizeId(null);
     setActiveColorId(null);
@@ -92,7 +106,7 @@ console.log(product)
     setPercentageDiscount(null);
     setIsNewCollection(false);
     setAvailableSizes([]);
-    setStockQuantity(null); 
+    setStockQuantity(null);
 
     if (product?.productsInstances && product.productsInstances.length > 0) {
       const initialProductInstance = product.productsInstances.find(
@@ -103,7 +117,9 @@ console.log(product)
         setSelectedProductInstance(initialProductInstance);
         setPrice(initialProductInstance.price);
         setPriceAfterDiscount(initialProductInstance.priceAfterDiscount);
-        setPercentageDiscount(initialProductInstance.percentageDiscount || null);
+        setPercentageDiscount(
+          initialProductInstance.percentageDiscount || null
+        );
         setIsNewCollection(initialProductInstance.isNewCollection);
         setActiveSizeId(initialProductInstance.size);
         setActiveColorId(initialProductInstance.id);
@@ -163,7 +179,11 @@ console.log(product)
                 </div>
               </div>
               <div className="containerCounterPrices">
-                <Counter quantity={quantity} setQuantity={setQuantity} stockQuantity={stockQuantity} />
+                <Counter
+                  quantity={quantity}
+                  setQuantity={setQuantity}
+                  stockQuantity={stockQuantity}
+                />
                 <div className="containerPrices">
                   <p className="priceAfterDiscount">
                     {priceAfterDiscount ? `${priceAfterDiscount}₴` : ""}

@@ -11,7 +11,6 @@ import { calculateAmountOrder } from "src/redux/basket/basketSlice";
 
 const ModalBasket = ({ closeModal }) => {
   const productBasket = useSelector(selectBasket);
-  console.log(productBasket);
   const amountOrder = useSelector(selectAmountOrder);
   const dispatch = useDispatch();
 
