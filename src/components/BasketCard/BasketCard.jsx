@@ -31,9 +31,8 @@ const BasketCard = ({ product, handleClickCount, handleClickAddCount }) => {
   return (
     <BasketItem key={productInstanceId}>
       <div className="wrapperCardBasket">
-        {/* <div className="wrapperPhoto"> */}
         <img src={productImage} alt={productName} className="basketPhoto" />
-        {/* </div> */}
+
         <div className="wrapperBox">
           <div className="boxNameDelete">
             <h3 className="nameProduct">{productName}</h3>
@@ -61,7 +60,7 @@ const BasketCard = ({ product, handleClickCount, handleClickAddCount }) => {
                 disabled={quantity <= 1}
                 className="buttonCount"
               >
-               <IconMinus className="icon"/>
+                <IconMinus className="icon" />
               </button>
               <span className="countQuantity">{quantity}</span>
               <button
@@ -70,11 +69,10 @@ const BasketCard = ({ product, handleClickCount, handleClickAddCount }) => {
                 disabled={quantity >= stockQuantity}
                 className="buttonCount"
               >
-                <IconPlus className="icon"/>
+                <IconPlus className="icon" />
               </button>
             </div>
             <div>
-
               <p className="priceBasket">{totalPrice}₴</p>
             </div>
           </div>

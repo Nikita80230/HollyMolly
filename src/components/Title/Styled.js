@@ -1,6 +1,9 @@
 import { styled } from "styled-components";
 
-export const StyledTitle = styled.h1`
+export const StyledTitle = styled.h2`
+/* margin-top:36px;
+margin-bottom:36px; */
+margin-right:400px;
   font-family: ${({ theme }) => theme.fonts.familyPacifico};
   font-weight: 400;
   font-size: 45px;
@@ -9,5 +12,6 @@ export const StyledTitle = styled.h1`
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  width: 220px;
+  width: 270px;
+  height:74px;
 `;

@@ -11,8 +11,10 @@ import StarRatingCard from "../StarRatingCard/StarRatindCard";
 import { routes } from "src/routes";
 import { useEffect, useState } from "react";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
+import { useAuth } from "src/hooks";
 
 const CardProductCatalog = ({ product, sortType, index, borderColor }) => {
+   const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   const location = useLocation();
   const params = useParams();
@@ -97,11 +99,12 @@ const CardProductCatalog = ({ product, sortType, index, borderColor }) => {
             handleClick={handleClick}
             activeColorId={activeColorId}
           />
-          <button className="buttonIcon" onClick={handleAddToFavorite}>
-            <HeartIcon
-              className={`iconHeart ${isProductInFavorite ? "added" : ""} `}
-            />
-          </button>
+          {isLoggedIn &&
+            <button className="buttonIcon" onClick={handleAddToFavorite}>
+              <HeartIcon
+                className={`iconHeart ${isProductInFavorite ? "added" : ""} `}
+              />
+            </button>}
         </div>
 
         {percentageDiscount && (
