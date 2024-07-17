@@ -44,11 +44,12 @@ const UserPanel = () => {
 
   return (
     <StyledUserPanel>
-      <NavLink className="userPanelLink" to={routes.FAVORITES}>
-        <button className="buttonIcon">
-          <FavoriteIcon className="icon" />
-        </button>
-      </NavLink>
+      {isLoggedIn &&
+        <NavLink className="userPanelLink" to={routes.FAVORITES}>
+          <button className="buttonIcon">
+            <FavoriteIcon className="icon" />
+          </button>
+        </NavLink>}
 
       {isLoggedIn ? (
         <NavLink className="userPanelLink" to={routes.PROFILE}>

@@ -14,8 +14,10 @@ import FavoriteIcon from "../../assets/images/like.svg?react";
 import Counter from "../Counter/Counter";
 import ListProductPhotos from "../ListProductPhotos/ListProductPhotos";
 import { getFeedbackWord } from "src/utils/getFeedbackWord";
+import { useAuth } from "src/hooks";
 
 const ProductOnPage = ({ instanceId }) => {
+   const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   const product = useSelector(selectCurrentProduct);
   const isLoading = useSelector(selectCurrentLoading);
@@ -200,10 +202,11 @@ const ProductOnPage = ({ instanceId }) => {
                   onClick={handleAddToBasket}
                 >
                   Додати в кошик
-                </button>
-                <button type="button" className="buttonFavorites">
-                  <FavoriteIcon />
-                </button>
+                  </button>
+                  {isLoggedIn &&
+                    <button type="button" className="buttonFavorites">
+                      <FavoriteIcon />
+                    </button>}
               </div>
             </div>
           </div>
