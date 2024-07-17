@@ -7,15 +7,33 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAmountOrder, selectBasket } from "src/redux/basket/selectors";
 import { useEffect } from "react";
 import { calculateAmountOrder } from "src/redux/basket/basketSlice";
+import { getProfile } from "src/redux/user/operations";
+import { useLocation } from "react-router-dom";
 
 const SubmitOrderPage = () => {
   const productBasket = useSelector(selectBasket);
   const totalPrice = useSelector(selectAmountOrder);
   const dispatch = useDispatch();
+  const location = useLocation();
+
+  //  useEffect(() => {
+  //   const queryParams = new URLSearchParams(location.search);
+  //   const status = queryParams.get('status');
+
+  //   if (paymentSucceeded=true) {
+  //     openModal();
+  //   } else if (paymentSucceeded=false) {
+  //     openModal();
+  //   }
+  // }, [location]);
 
   useEffect(() => {
     dispatch(calculateAmountOrder());
   }, [productBasket, dispatch]);
+
+  useEffect(() => {
+    dispatch(getProfile());
+  }, [dispatch]);
 
   return (
     <Container>
@@ -25,7 +43,8 @@ const SubmitOrderPage = () => {
           <OrderForm />
           <div className="basketContainer">
             <div className="containerList">
-            <ListBasketLittle productBasket={productBasket} /></div>
+              <ListBasketLittle productBasket={productBasket} />
+            </div>
             <div className="containerSpan">
               <div className="wrapperSpan">
                 <span className="spanText">Ціна товарів</span>

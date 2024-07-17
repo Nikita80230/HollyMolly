@@ -22,7 +22,7 @@ export const createOrder = createAsyncThunk(
     try {
       const res = await axios.post("/api/Orders?sendEmail=true", credentials);
 //  toast.success("Замовлення успішно створено");
-      console.log(res.data);
+      
       return res.data;
      
     } catch (error) {

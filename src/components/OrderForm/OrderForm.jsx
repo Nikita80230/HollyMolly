@@ -3,10 +3,6 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AsyncSelect from "react-select/async";
 import { createOrder } from "src/redux/orders/operations";
-// import {
-//   clearBasket,
-
-// } from "src/redux/products/productsSlice";
 import { selectProfiles } from "src/redux/user/selectors";
 import { SubmitOrderSchema } from "src/schemas/SubmitOrderSchema";
 import { getNewPostCities } from "src/services/getNewPostCities";
@@ -17,6 +13,11 @@ import Loader from "../Loader/Loader";
 import Title from "../Title/Title";
 import { WrapperFormOrder } from "./Styled";
 import IconSearch from "src/assets/images/search.svg?react";
+import { selectBasket } from "src/redux/basket/selectors";
+import { updateProfile } from "src/redux/user/operations";
+import { ProfileSchema } from "src/schemas/ProfileSchema";
+import { clearBasket } from "src/redux/basket/basketSlice";
+import { checkout } from "src/services/checkout";
 
 const customStyles = {
   control: (provided, state) => ({
@@ -79,9 +80,13 @@ const customStyles = {
 
 const OrderForm = () => {
   const user = useSelector(selectProfiles);
+  
+  const basketProducts = useSelector(selectBasket);
   const dispatch = useDispatch();
   const [city, setCity] = useState(null);
   const [warehouse, setWarehouse] = useState(null);
+  const [saveProfile, setSaveProfile] = useState(false);
+  
 
   const initialValues =
     user && user.length > 0
@@ -132,6 +137,16 @@ const OrderForm = () => {
     }
   };
 
+  const handleSaveProfile = (values) => {
+    if (user && user.length > 0) {
+      const profileId = user[0]?.id;
+      dispatch(updateProfile({ user: values, profileId }));
+    }
+    setSaveProfile(false);
+  };
+
+ 
+
   const handleSubmit = async (values) => {
     const order = {
       customer: {
@@ -148,9 +163,10 @@ const OrderForm = () => {
     };
 
     try {
-      dispatch(createOrder(order)).unwrap();
-      onSuccess();
-      dispatch(clearBasket());
+      const response = await dispatch(createOrder(order)).unwrap();
+    const orderId = response.id;
+    checkout(orderId);
+    // dispatch(clearBasket());
     } catch (error) {
       console.error("Помилка при створенні замовлення:", error);
     }
@@ -158,21 +174,21 @@ const OrderForm = () => {
 
   return (
     <WrapperFormOrder>
-      {" "}
       <Formik
         initialValues={initialValues}
-        validationSchema={SubmitOrderSchema}
+        enableReinitialize={true}
+        validationSchema={ SubmitOrderSchema}
         onSubmit={handleSubmit}
       >
-        {({ setFieldValue, values }) => (
+        {({ setFieldValue, values, resetForm }) => (
           <Form className="styledForm">
             <label className="styledLabel">
               <Input
                 name={"firstName"}
                 type={"text"}
                 placeholder={"Ваше ім'я"}
+                
               />
-
               <ErrorMessage
                 name="firstName"
                 component="p"
@@ -184,8 +200,8 @@ const OrderForm = () => {
                 name={"lastName"}
                 type={"text"}
                 placeholder={"Ваше прізвище"}
+                
               />
-
               <ErrorMessage
                 name="lastName"
                 component="p"
@@ -196,18 +212,33 @@ const OrderForm = () => {
               <Input
                 name={"phoneNumber"}
                 type={"text"}
-                placeholder={"Ваше номер телефону"}
+                placeholder={"Ваш номер телефону"}
+                
               />
-
               <ErrorMessage
                 name="phoneNumber"
                 component="p"
                 className="errorMessage"
               />
             </label>
-            <button type="button" className="buttonSave">
-              Зберегти контактну інформацію
-            </button>
+            {user ? (
+              <button
+                type="button"
+                className="buttonSave"
+                // onClick={handleEditProfile}
+              >
+                Змінити контактну інформацію
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="buttonSave"
+                // onClick={() => handleSaveProfile(values)}
+              >
+                Зберегти контактну інформацію
+              </button>
+            )}
+
             <Title title={"Доставка"} />
             <div className="containerIconSpan">
               <div className="circle">
