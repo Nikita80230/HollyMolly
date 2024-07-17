@@ -75,10 +75,8 @@ const appRoutes = [
     ),
   },
   {
-      path: `${routes.PRODUCT_PAGE}/:productId/:productInstanceId`,
-    element:  <ProductPage />
-     
-    ,  
+    path: `${routes.PRODUCT_PAGE}/:productId/:productInstanceId`,
+    element: <ProductPage />,
   },
   {
     path: routes.SUPPORT,
@@ -106,7 +104,12 @@ const appRoutes = [
   },
   {
     path: routes.FAVORITES,
-    element: <FavoritesPage />,
+
+    element: (
+      <PrivateRoute>
+        <FavoritesPage />
+      </PrivateRoute>
+    ),
   },
   {
     path: routes.BASKET,
@@ -145,7 +148,7 @@ const appRoutes = [
     ),
   },
   {
- path: routes.SUBMIT_ORDER,
+    path: routes.SUBMIT_ORDER,
     element: (
       <PrivateRoute>
         <SubmitOrderPage />
@@ -176,8 +179,6 @@ export const App = () => {
   const { isRefreshing } = useAuth();
   const pathname = location.pathname;
   const userId = urlParams.get("userId");
-   
-
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -186,9 +187,9 @@ export const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-   if (token && !pathname.includes('password-reset') && !userId) {
+    if (token && !pathname.includes("password-reset") && !userId) {
       dispatch(authGoogle({ token }));
-    } 
+    }
   }, [dispatch, token, pathname, userId]);
 
   const isAuthPage = authPaths.includes(location.pathname);
