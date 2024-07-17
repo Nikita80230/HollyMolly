@@ -36,7 +36,7 @@ export const SubmitOrderSchema = yup.object().shape({
     .string()
     .matches(
       phoneRegex,
-      "\u2716 Номер телефону повинен відповідати формату +00000-000-00-00"
+      "\u2716 Формат +00000-000-00-00"
     )
     .required("Це поле обов'язкове"),
   city: yup.string().required("Це поле обов'язкове"),

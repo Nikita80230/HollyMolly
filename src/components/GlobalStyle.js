@@ -119,6 +119,7 @@ position: absolute;
   border: transparent;
   outline: none;
 }
+
 .modal-overlay {
   position: fixed;
   z-index:102;
@@ -140,8 +141,8 @@ position: absolute;
 }
 
 .modal-content-basket{
-position: absolute;
-  top:50%;
+  position: absolute;
+  top:49%;
   left:82%;
   right: auto;
   bottom: auto;

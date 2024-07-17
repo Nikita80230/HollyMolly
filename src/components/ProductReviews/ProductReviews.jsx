@@ -85,16 +85,18 @@ const ProductReviews = ({ reviews, productId, colors }) => {
           className="content-modal-review"
           overlayClassName="modal-overlay-light"
           contentLabel="Modal Subscription"
-          >
-            <WrapperModal>
-              <button type="button" className="buttonClose"><IconClose/></button>
-          <p className="descriptionModal">
-            Щоб залишити відгук 
-              </p>
-              <Link to={routes.REGISTER}>
-                <button type="button" className="button">Авторизуйтесь</button></Link>
-            </WrapperModal>
-          
+        >
+          <WrapperModal>
+            <button type="button" className="buttonClose" onClick={closeModal}>
+              <IconClose />
+            </button>
+            <p className="descriptionModal">Щоб залишити відгук</p>
+            <Link to={routes.REGISTER}>
+              <button type="button" className="button">
+                Авторизуйтесь
+              </button>
+            </Link>
+          </WrapperModal>
         </Modal>
       )}
     </StyledSection>

@@ -1,7 +1,9 @@
 import { styled } from "styled-components";
 
 export const WrapperFavoritesPage = styled.div`
+padding-top:36px;
 margin-bottom:100px;
+height:100vh;
 
   .gridFavorites {
     display: grid;
