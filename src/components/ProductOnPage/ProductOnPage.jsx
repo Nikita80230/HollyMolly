@@ -16,12 +16,11 @@ import ListProductPhotos from "../ListProductPhotos/ListProductPhotos";
 import { getFeedbackWord } from "src/utils/getFeedbackWord";
 import { useAuth } from "src/hooks";
 
-const ProductOnPage = ({ instanceId }) => {
-   const { isLoggedIn } = useAuth();
+const ProductOnPage = ({ instanceId, colorBorder }) => {
+  const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   const product = useSelector(selectCurrentProduct);
   const isLoading = useSelector(selectCurrentLoading);
-
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
   const [activeSizeId, setActiveSizeId] = useState(null);
   const [activeColorId, setActiveColorId] = useState(null);
@@ -83,6 +82,7 @@ const ProductOnPage = ({ instanceId }) => {
           color: selectedProductInstance.color,
           quantity,
           stockQuantity: selectedProductInstance.stockQuantity,
+          colorBorder: colorBorder,
         })
       );
     }
@@ -138,7 +138,10 @@ const ProductOnPage = ({ instanceId }) => {
       ) : (
         <StyledSectionProduct>
           <div className="sectionProduct">
-            <ListProductPhotos images={selectedProductInstance?.images || []} />
+            <ListProductPhotos
+              images={selectedProductInstance?.images || []}
+              border={colorBorder}
+            />
             <div className="containerContent">
               <h3 className="titleProduct">{product?.name}</h3>
               <span className="styledSpan">ID {product.id}</span>
@@ -186,27 +189,33 @@ const ProductOnPage = ({ instanceId }) => {
                   setQuantity={setQuantity}
                   stockQuantity={stockQuantity}
                 />
-                <div className="containerPrices">
-                  <p className="priceAfterDiscount">
-                    {priceAfterDiscount ? `${priceAfterDiscount}₴` : ""}
-                  </p>
-                  {price > priceAfterDiscount && (
-                    <p className="price">{price ? `${price}₴` : ""}</p>
-                  )}
-                </div>
+                {stockQuantity === 0 ? (
+                  <span className="styledListSpan">Товар відсутній</span>
+                ) : (
+                  <div className="containerPrices">
+                    <p className="priceAfterDiscount">
+                      {priceAfterDiscount ? `${priceAfterDiscount}₴` : ""}
+                    </p>
+                    {price > priceAfterDiscount && (
+                      <p className="price">{price ? `${price}₴` : ""}</p>
+                    )}
+                  </div>
+                )}
               </div>
               <div className="containerButtons">
                 <button
                   type="submit"
                   className="buttonAddBasket"
                   onClick={handleAddToBasket}
+                  disabled={stockQuantity === 0}
                 >
                   Додати в кошик
+                </button>
+                {isLoggedIn && (
+                  <button type="button" className="buttonFavorites">
+                    <FavoriteIcon />
                   </button>
-                  {isLoggedIn &&
-                    <button type="button" className="buttonFavorites">
-                      <FavoriteIcon />
-                    </button>}
+                )}
               </div>
             </div>
           </div>

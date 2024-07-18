@@ -164,6 +164,10 @@ export const StyledSectionProduct = styled.section`
     &:focus {
       background-color: ${({ theme }) => theme.colors.activeBgColor};
     }
+    
+    &:disabled {
+      background-color: ${({ theme }) => theme.colors.buttonBgDisabled};
+    }
   }
 
   .buttonFavorites {

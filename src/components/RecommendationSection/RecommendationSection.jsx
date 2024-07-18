@@ -17,9 +17,9 @@ const RecommendationSection = ({
   colors,
   className,
   title,
+  isHomePage,
 }) => {
   // const recommendedProducts = useSelector(selectRecommendedProducts);
-  // const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
 
   return (
     <StyledRecommendationSection className={className}>
@@ -71,16 +71,20 @@ const RecommendationSection = ({
           },
         }}
       >
-        {recommendedProducts.map((product, index) => (
-          <SwiperSlide key={product.id} className="swiper-slideCustom">
-            {/* <ProductCard product={product} index={index} /> */}
-            <CardProductCatalog
-              product={product}
-              index={index}
-              borderColor={colors[index % colors.length]}
-            />
-          </SwiperSlide>
-        ))}
+        {recommendedProducts.map((product, index) => {
+          const borderColor = isHomePage
+            ? colors[index % colors.length]
+            : colors;
+          return (
+            <SwiperSlide key={product.id} className="swiper-slideCustom">
+              <CardProductCatalog
+                product={product}
+                index={index}
+                borderColor={borderColor}
+              />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </StyledRecommendationSection>
   );

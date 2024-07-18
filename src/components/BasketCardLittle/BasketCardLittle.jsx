@@ -14,9 +14,10 @@ const BasketCardLittle = ({
     size,
     totalPrice,
     quantity,
+    borderColor,
   } = product;
   return (
-    <BasketItem key={productInstanceId}>
+    <BasketItem key={productInstanceId} $borderColor={borderColor}>
       <img src={productImage} alt="product image" className="image" />
       <div className="wrapperContent">
         <span className="productName">{productName}</span>

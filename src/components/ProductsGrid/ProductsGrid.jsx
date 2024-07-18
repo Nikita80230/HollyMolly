@@ -17,7 +17,7 @@ const ProductsGrid = ({
             product={product}
             sortType={sortType}
             index={index}
-            borderColor={colors[index % colors.length]}
+            borderColor={colors}
           />
         );
       })}

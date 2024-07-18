@@ -12,6 +12,7 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const recommendedProducts = useSelector(selectRecommendedProducts);
   const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
+ 
 
   useEffect(() => {
     dispatch(getRecommendedProducts());
@@ -26,6 +27,7 @@ const HomePage = () => {
           recommendedProducts={recommendedProducts}
           colors={colors}
           title="Рекомендації"
+           isHomePage={true}
         />
       </Container>
       <Subscribe />
