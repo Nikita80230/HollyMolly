@@ -2,12 +2,12 @@ import { formatDate } from "src/utils/formatDate";
 import StarRatingCard from "../StarRatingCard/StarRatindCard";
 import { StyledContainer } from "./Styled";
 
-const CardReview = ({ review, index, colors }) => {
-  
+const CardReview = ({ review, index }) => {
+  const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
   const backgroundColor = colors[index % colors.length];
- 
+
   const formattedDate = formatDate(review.created);
-  
+
   return (
     <StyledContainer key={index} style={{ backgroundColor }}>
       <div className="wrapperNameStars">
@@ -18,7 +18,6 @@ const CardReview = ({ review, index, colors }) => {
       <span className="dateCreated">{formattedDate}</span>
     </StyledContainer>
   );
-}
-
+};
 
 export default CardReview;

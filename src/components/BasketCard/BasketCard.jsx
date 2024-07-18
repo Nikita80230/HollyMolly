@@ -20,6 +20,7 @@ const BasketCard = ({ product, handleClickCount, handleClickAddCount }) => {
     quantity,
     size,
     totalPrice,
+    borderColor,
   } = product;
 
   const translatedColor = colorTranslations[color] || color;
@@ -29,7 +30,7 @@ const BasketCard = ({ product, handleClickCount, handleClickAddCount }) => {
   };
 
   return (
-    <BasketItem key={productInstanceId}>
+    <BasketItem key={productInstanceId} $borderColor={borderColor}>
       <div className="wrapperCardBasket">
         <img src={productImage} alt={productName} className="basketPhoto" />
 

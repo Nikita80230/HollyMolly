@@ -7,7 +7,7 @@ width: 316px;
     gap: 14px;
 
      .image {
-    border: 1px solid #e2edf4;
+     border: 1px solid ${({ $borderColor }) => $borderColor || ""};
     border-radius: 10px;
     width: 100px;
     height: 100px;

@@ -18,9 +18,10 @@ const basketSlice = createSlice({
         color,
         quantity,
         stockQuantity,
+        colorBorder,
       } = action.payload;
 
-         const currentProductIndex = state.basketProducts.findIndex(
+      const currentProductIndex = state.basketProducts.findIndex(
         (product) =>
           product.productId === productId &&
           product.size === size &&
@@ -29,14 +30,16 @@ const basketSlice = createSlice({
       );
 
       if (currentProductIndex !== -1) {
-        const newQuantity = state.basketProducts[currentProductIndex].quantity + quantity;
+        const newQuantity =
+          state.basketProducts[currentProductIndex].quantity + quantity;
         if (newQuantity > stockQuantity) {
           state.basketProducts[currentProductIndex].quantity = stockQuantity;
         } else {
           state.basketProducts[currentProductIndex].quantity = newQuantity;
         }
         state.basketProducts[currentProductIndex].totalPrice =
-          state.basketProducts[currentProductIndex].quantity * priceAfterDiscount;
+          state.basketProducts[currentProductIndex].quantity *
+          priceAfterDiscount;
       } else {
         state.basketProducts.push({
           productId,
@@ -48,7 +51,10 @@ const basketSlice = createSlice({
           color,
           quantity: quantity > stockQuantity ? stockQuantity : quantity,
           stockQuantity,
-          totalPrice: (quantity > stockQuantity ? stockQuantity : quantity) * priceAfterDiscount,
+          totalPrice:
+            (quantity > stockQuantity ? stockQuantity : quantity) *
+            priceAfterDiscount,
+          colorBorder,
         });
       }
     },
@@ -69,11 +75,11 @@ const basketSlice = createSlice({
       );
       if (currentProduct) {
         currentProduct.quantity = quantity;
-        currentProduct.totalPrice = quantity * currentProduct.priceAfterDiscount;
+        currentProduct.totalPrice =
+          quantity * currentProduct.priceAfterDiscount;
       }
-     
     },
-       calculateAmountOrder: (state) => {
+    calculateAmountOrder: (state) => {
       state.amountOrder = state.basketProducts.reduce((sum, product) => {
         return sum + product.totalPrice;
       }, 0);
@@ -84,6 +90,12 @@ const basketSlice = createSlice({
   },
 });
 
-export const { addProductsToBasket, deleteProduct, updateProduct, calculateAmountOrder, clearBasket } = basketSlice.actions;
+export const {
+  addProductsToBasket,
+  deleteProduct,
+  updateProduct,
+  calculateAmountOrder,
+  clearBasket,
+} = basketSlice.actions;
 
 export const basketReducer = basketSlice.reducer;

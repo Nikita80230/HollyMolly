@@ -2,20 +2,15 @@ import { styled } from "styled-components";
 
 export const BasketItem = styled.li`
   margin-bottom: 31px;
+
   .wrapperCardBasket {
     display: flex;
-    width: 729px;
+    /* width: 729px; */
   }
-  /* .wrapperPhoto {
-    border: 2px solid #e2edf4;
-border-radius: 10px;
-width: 160px;
-height: 160px;
-  } */
 
   .basketPhoto {
     margin-right: 28px;
-    border: 2px solid #e2edf4;
+    border: 2px solid ${({ $borderColor }) => $borderColor || ""};
     border-radius: 10px;
     width: 160px;
     height: 160px;
@@ -62,7 +57,7 @@ height: 160px;
     font-size: 20px;
     line-height: 1.2;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
-    text-transform:capitalize;
+    text-transform: capitalize;
   }
 
   .containerColor {

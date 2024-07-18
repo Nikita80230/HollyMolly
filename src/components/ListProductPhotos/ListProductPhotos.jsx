@@ -4,7 +4,7 @@ import defaultPhoto from "src/assets/images/defaultImg.webp";
 import {PhotoContainer } from "./Styled";
 import ModalSwiperPhoto from "../ModalSwiperPhoto/ModalSwiperPhoto";
 
-const ListProductPhotos = ({ images }) => {
+const ListProductPhotos = ({ images, border }) => {
   const [selectedImage, setSelectedImage] = useState(defaultPhoto);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState(0); 
@@ -35,7 +35,7 @@ const ListProductPhotos = ({ images }) => {
   return (
     <>
       {!images || images.length === 0 ? (
-        <PhotoContainer>
+        <PhotoContainer $border={border}>
           <div className="mainPhoto">
             <img
               className="mainImage"
@@ -50,13 +50,14 @@ const ListProductPhotos = ({ images }) => {
                 className="otherImage"
                 src={defaultPhoto}
                 alt="Default product photo"
+                
               />
             ))}
           </div>
         </PhotoContainer>
       ) : (
-        <PhotoContainer>
-          <div className="mainPhoto">
+        <PhotoContainer $border={border}>
+          <div className="mainPhoto" >
             <img
               className="mainImage"
               src={images[0]?.link || defaultPhoto}
@@ -72,6 +73,7 @@ const ListProductPhotos = ({ images }) => {
                 src={image.link}
                 alt={`Product photo ${index + 1}`}
                 onClick={() => openModal(index + 1)} 
+                
               />
             ))}
           </div>

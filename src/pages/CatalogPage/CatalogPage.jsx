@@ -13,6 +13,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { getProductsByCurrentCategory } from "src/redux/products/operations";
 import { selectFilters, toggleFilter } from "src/redux/filters/filtersSlice";
 import {
+  selectCategoryColors,
   selectLoading,
   selectProductsByCurrentCategory,
 } from "src/redux/products/productsSlice";
@@ -35,6 +36,7 @@ const CatalogPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(12);
   const isLoading = useSelector(selectLoading);
+  const categoryColors = useSelector(selectCategoryColors);
 
   const productsByCurrentCategory = useSelector(
     selectProductsByCurrentCategory
@@ -95,13 +97,13 @@ const CatalogPage = () => {
         },
       ];
 
-  const colors = colorSchemes[categoryGroupId] || [
+  const colors = categoryColors[`category${categoryGroupId}`] || [
     "#fff6e7",
     "#e2edf4",
     "#eff9f1",
     "#f9eff5",
   ];
-
+  
   useEffect(() => {
     dispatch(getProductsByCurrentCategory({ categoryGroupId, categoryId }));
     setCurrentPage(1);

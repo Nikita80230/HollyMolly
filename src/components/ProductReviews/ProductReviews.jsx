@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import { routes } from "src/routes";
 import IconClose from "src/assets/images/close.svg?react";
 
-const ProductReviews = ({ reviews, productId, colors }) => {
+const ProductReviews = ({ reviews, productId }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const { isLoggedIn } = useAuth();
 
@@ -50,7 +50,7 @@ const ProductReviews = ({ reviews, productId, colors }) => {
           >
             {reviews.map((review, index) => (
               <SwiperSlide key={index} className="swiper-slideCustom">
-                <CardReview review={review} index={index} colors={colors} />
+                <CardReview review={review} index={index} />
               </SwiperSlide>
             ))}
           </Swiper>

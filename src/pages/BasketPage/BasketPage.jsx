@@ -18,6 +18,7 @@ import { WrapperBasketPage } from "./Styled";
 
 const BasketPage = () => {
   const productsBasket = useSelector(selectBasket);
+
   const dispatch = useDispatch();
   const totalPrice = useSelector(selectAmountOrder);
   const { isLoggedIn } = useAuth();
@@ -95,7 +96,9 @@ const BasketPage = () => {
             ) : (
               <p className="order">
                 Щоб оформити замовлення потрібно<br></br>
-                <Link to={routes.REGISTER} className="link">авторизуватись</Link>
+                <Link to={routes.REGISTER} className="link">
+                  авторизуватись
+                </Link>
               </p>
             )}
           </div>
