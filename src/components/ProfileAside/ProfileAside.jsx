@@ -2,14 +2,24 @@ import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { logOutAllDevices } from "src/redux/auth/operations";
 import { routes } from "src/routes";
+import TitleAuth from "../TitleAuth/TitleAuth";
 import { StyledAside } from "./Styled";
 
 const ProfileAside = () => {
   const dispatch = useDispatch();
   return (
     <StyledAside>
+      <TitleAuth title={"Мій акаунт"} />
       <nav>
-        <ul>
+        <ul className="listNavLinks">
+          <li>
+            {" "}
+            <NavLink className="linkAside" to={routes.PROFILE} end>
+              <div className="wrapperLink">
+                <span>Особисті дані</span>
+              </div>
+            </NavLink>
+          </li>
           <li>
             {" "}
             <NavLink className="linkAside" to={routes.MY_ORDERS} end>
@@ -18,30 +28,15 @@ const ProfileAside = () => {
               </div>
             </NavLink>
           </li>
-          <li>
-            {" "}
-            <NavLink className="linkAside" to={routes.MY_RETURNS} end>
-              <div className="wrapperLink">
-                <span>Мої повернення</span>
-              </div>
-            </NavLink>
-          </li>
-          <li>
-            {" "}
-            <NavLink className="linkAside" to={routes.PROFILE} end>
-              <div className="wrapperLink">
-                <span>Мої дані</span>
-              </div>
-            </NavLink>
-          </li>
-          <li>
+
+          {/* <li>
             {" "}
             <NavLink className="linkAside" to={routes.SHIPPING_ADDRESSES} end>
               <div className="wrapperLink">
                 <span>Адреси доставки</span>
               </div>
             </NavLink>
-          </li>
+          </li> */}
           <li>
             {" "}
             <NavLink

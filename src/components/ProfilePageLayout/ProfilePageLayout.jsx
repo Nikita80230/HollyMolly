@@ -1,15 +1,22 @@
+import Container from "../Container/Container";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import ProfileAside from "../ProfileAside/ProfileAside";
-import { ContainerProfile, StyledProfilePageLayout } from "./Styled";
+import {
+  ContainerProfile,
+  StyledProfilePageLayout,
+  WrapperProfileForms,
+} from "./Styled";
 
 const ProfilePageLayout = ({ children }) => {
   return (
     <StyledProfilePageLayout>
       <Header />
       <main className="main">
-        <ProfileAside />
-        <ContainerProfile>{children}</ContainerProfile>
+        <ContainerProfile>
+          <ProfileAside />
+          <WrapperProfileForms>{children}</WrapperProfileForms>
+        </ContainerProfile>
       </main>
       <Footer />
     </StyledProfilePageLayout>

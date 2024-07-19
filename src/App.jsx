@@ -167,7 +167,6 @@ const authPaths = [
 const profilePaths = [
   routes.PROFILE,
   routes.MY_ORDERS,
-  routes.MY_RETURNS,
   routes.SHIPPING_ADDRESSES,
 ];
 

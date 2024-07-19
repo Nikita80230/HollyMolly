@@ -2,21 +2,15 @@ import { Form } from "formik";
 import { styled } from "styled-components";
 
 export const StyledForm = styled(Form)`
-  /* width: 852px; 
-   height: 576px; */
   display: flex;
   flex-wrap: wrap;
+  gap:33px 50px;
 
   .labelProfile {
-    margin-bottom: 80px;
-    margin-right: 184px;
+   width: 390px;
+   height: 60px;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    font-weight: 500;
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.colorLabelProfile};
+    
   }
 
   .errorMessageProfile {
@@ -29,7 +23,7 @@ export const StyledForm = styled(Form)`
     width: 334px;
   }
 
-  .inputProfile {
+  /* .inputProfile {
     border: transparent;
     border-bottom: 1px solid ${({ theme }) => theme.colors.colorLabelProfile};
     padding: 12px;
@@ -218,7 +212,7 @@ export const StyledForm = styled(Form)`
     width: 124px;
     height: 35px;
     background-color: transparent;
-  }
+  } */
 `;
 
 export const DatePickerWrapper = styled.div`

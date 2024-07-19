@@ -1,24 +1,40 @@
 import { styled } from "styled-components";
 
 export const StyledAside = styled.aside`
+display:flex;
+flex-direction:column;
+gap:31px;
+width:268px;
+
+.listNavLinks{
+    display:flex;
+    flex-direction:column;
+    gap:31px;
+}
 
 .linkAside{
-font-weight: 500;
-font-size: 18px;
-color: ${({ theme }) => theme.colors.profileColorPrimary}; 
+
+font-weight: 400;
+font-size: 30px;
+line-height: 1.2;
+text-align: center;
+color: ${({ theme }) => theme.colors.primaryTxtColor}; 
+
 &.active{
-   color: ${({ theme }) => theme.colors.profileColorSecondary};
+   color: ${({ theme }) => theme.colors.whiteTxtColor};
     .wrapperLink{
-        background-color:${({ theme }) => theme.colors.profileBgColorAccent};
+        background-color:${({ theme }) => theme.colors.accentColor};
     }
 }
 }
 
 .wrapperLink{
-border-radius: 0 16px 16px 0;
-padding: 16px 64px;
-width: 263px;
-height: 60px;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius: 10px;
+width: 268px;
+height: 71px;
 white-space:nowrap;
 
 }
