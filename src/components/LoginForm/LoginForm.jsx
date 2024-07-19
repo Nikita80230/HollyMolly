@@ -65,32 +65,38 @@ const LoginForm = () => {
       >
         {({ values, handleChange, handleBlur, errors, touched }) => (
           <StyledForm>
-            <label className="styledLabel">
+              <label className="styledLabel">
               <Field
-                className={
-                  errors.email && touched.email ? "inputError " : "inputAuth"
-                }
+                className={`${
+                  errors.email && touched.email
+                    ? "inputError "
+                    : values.email && !errors.email
+                    ? "inputSuccess"
+                    : "inputAuth"
+                }`}
                 name="email"
                 type="text"
                 placeholder="Твій email"
                 autoComplete="off"
-              />{" "}
+              />
               <ErrorMessage
                 className="errorMessage"
                 name="email"
                 component="p"
               />
             </label>
-            <label className="styledLabelPassword">
+            <label className="styledLabel">
               <Field
-                className={
+                className={`${
                   errors.password && touched.password
                     ? "inputError "
+                    : values.password && !errors.password
+                    ? "inputSuccess"
                     : "inputAuth"
-                }
+                }`}
                 name="password"
                 type={passwordShown ? "text" : "password"}
-                placeholder="Твій пароль"
+                placeholder="Введіть пароль"
               />
               {passwordShown ? (
                 <EyeIcon

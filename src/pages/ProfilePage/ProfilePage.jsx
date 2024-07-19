@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileForm from "src/components/ProfileForm/ProfileForm";
-import TitleProfile from "src/components/Title/Title";
 import { getProfile } from "src/redux/user/operations";
 import { selectUserEmail } from "src/redux/user/selectors";
+import { StyledSection } from "./Styled";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -15,11 +15,9 @@ const ProfilePage = () => {
   }, [dispatch]);
 
   return (
-    <section>
-      <TitleProfile />
-      <h4>Мої дані</h4>
+    <StyledSection>
       <ProfileForm userEmail={userEmail} />
-    </section>
+    </StyledSection>
   );
 };
 

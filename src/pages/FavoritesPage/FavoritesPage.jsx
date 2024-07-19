@@ -6,6 +6,7 @@ import { WrapperFavoritesPage } from "./Styled";
 
 const FavoritesPage = () => {
   const favoriteProducts = useSelector(selectFavoriteProducts);
+  console.log(favoriteProducts)
 
   return (<Container>
     <WrapperFavoritesPage>

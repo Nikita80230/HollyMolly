@@ -10,7 +10,15 @@ export const StyledProfilePageLayout = styled.div`
   }
 `;
 export const ContainerProfile = styled.div`
-  padding-left: 135px;
-  padding-right:65px;
+ max-width: 1440px;
   width: 100%;
+  padding:0 50px;
+  margin: 0 auto;
+  display:flex;
+  gap:153px;
+
 `;
+
+export const WrapperProfileForms = styled.div`
+width: 926px;
+`
