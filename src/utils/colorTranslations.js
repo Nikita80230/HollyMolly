@@ -13,7 +13,7 @@ const colorTranslations = {
     коричневий: "brown",
     сірий: "gray",
     блакитний: "blue",
-    бежевий :" beige",
+    бежевий :"beige",
 };
   
 export default colorTranslations;

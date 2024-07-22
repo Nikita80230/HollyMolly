@@ -20,17 +20,18 @@ const BasketCard = ({ product, handleClickCount, handleClickAddCount }) => {
     quantity,
     size,
     totalPrice,
-    borderColor,
+    colorBorder,
   } = product;
 
-  const translatedColor = colorTranslations[color] || color;
-
+  const translatedColor =
+    colorTranslations[color.trim().toLowerCase()] || color;
+ 
   const handleClick = () => {
     dispatch(deleteProduct({ productInstanceId }));
   };
 
   return (
-    <BasketItem key={productInstanceId} $borderColor={borderColor}>
+    <BasketItem key={productInstanceId} $borderColor={colorBorder}>
       <div className="wrapperCardBasket">
         <img src={productImage} alt={productName} className="basketPhoto" />
 

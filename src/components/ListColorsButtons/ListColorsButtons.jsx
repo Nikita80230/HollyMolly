@@ -3,7 +3,7 @@ import { StyledList } from "./Styled";
 
 const translateColor = (color) => {
   if (!color) return color;
-  return colorTranslations[color.toLowerCase()] || color;
+   return colorTranslations[color.trim().toLowerCase()] || color;
 };
 
 const ListColorsButtons = ({ colors, handleClick, activeColorId }) => {
