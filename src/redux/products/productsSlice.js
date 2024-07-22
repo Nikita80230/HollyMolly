@@ -33,6 +33,7 @@ const productsSlice = createSlice({
   initialState: initialProductsState,
   reducers: {
     toggleFavoriteProducts: (state, action) => {
+      
       const isProductInFavorite = state.favoriteProducts.some(
         (favoriteProduct) => favoriteProduct.id === action.payload.id
       );

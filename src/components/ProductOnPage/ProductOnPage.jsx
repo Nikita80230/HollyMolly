@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   selectCurrentLoading,
   selectCurrentProduct,
+  selectFavoriteProducts,
+  toggleFavoriteProducts,
 } from "src/redux/products/productsSlice";
 import { addProductsToBasket } from "src/redux/basket/basketSlice";
 import StarRatingCard from "../StarRatingCard/StarRatindCard";
@@ -16,21 +18,31 @@ import ListProductPhotos from "../ListProductPhotos/ListProductPhotos";
 import { getFeedbackWord } from "src/utils/getFeedbackWord";
 import { useAuth } from "src/hooks";
 
-const ProductOnPage = ({ instanceId, colorBorder }) => {
+const ProductOnPage = ({ instanceId, borderColor }) => {
   const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   const product = useSelector(selectCurrentProduct);
+
   const isLoading = useSelector(selectCurrentLoading);
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
   const [activeSizeId, setActiveSizeId] = useState(null);
   const [activeColorId, setActiveColorId] = useState(null);
   const [price, setPrice] = useState(null);
   const [priceAfterDiscount, setPriceAfterDiscount] = useState(null);
-  const [percentageDiscount, setPercentageDiscount] = useState(null);
-  const [isNewCollection, setIsNewCollection] = useState(false);
+  // const [percentageDiscount, setPercentageDiscount] = useState(null);
+  // const [isNewCollection, setIsNewCollection] = useState(false);
   const [availableSizes, setAvailableSizes] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [stockQuantity, setStockQuantity] = useState(null);
+  const favoriteProducts = useSelector(selectFavoriteProducts);
+
+  const isProductInFavorite = favoriteProducts?.some(
+    (favoriteProduct) => favoriteProduct && favoriteProduct.id === product?.id
+  );
+
+  const handleAddToFavorite = () => {
+    dispatch(toggleFavoriteProducts({ ...product, borderColor }));
+  };
 
   const setSizesForColor = (color) => {
     const cleanedColor = color.trim().toLowerCase();
@@ -62,8 +74,8 @@ const ProductOnPage = ({ instanceId, colorBorder }) => {
       setSelectedProductInstance(selectedProductInstance);
       setPrice(selectedProductInstance.price);
       setPriceAfterDiscount(selectedProductInstance.priceAfterDiscount);
-      setPercentageDiscount(selectedProductInstance.percentageDiscount || null);
-      setIsNewCollection(selectedProductInstance.isNewCollection);
+      // setPercentageDiscount(selectedProductInstance.percentageDiscount || null);
+      // setIsNewCollection(selectedProductInstance.isNewCollection);
       setActiveSizeId(selectedProductInstance.size);
       setStockQuantity(selectedProductInstance.stockQuantity);
     }
@@ -82,7 +94,7 @@ const ProductOnPage = ({ instanceId, colorBorder }) => {
           color: selectedProductInstance.color,
           quantity,
           stockQuantity: selectedProductInstance.stockQuantity,
-          colorBorder: colorBorder,
+          borderColor: borderColor,
         })
       );
     }
@@ -105,8 +117,8 @@ const ProductOnPage = ({ instanceId, colorBorder }) => {
     setActiveColorId(null);
     setPrice(null);
     setPriceAfterDiscount(null);
-    setPercentageDiscount(null);
-    setIsNewCollection(false);
+    // setPercentageDiscount(null);
+    // setIsNewCollection(false);
     setAvailableSizes([]);
     setStockQuantity(null);
 
@@ -119,10 +131,10 @@ const ProductOnPage = ({ instanceId, colorBorder }) => {
         setSelectedProductInstance(initialProductInstance);
         setPrice(initialProductInstance.price);
         setPriceAfterDiscount(initialProductInstance.priceAfterDiscount);
-        setPercentageDiscount(
-          initialProductInstance.percentageDiscount || null
-        );
-        setIsNewCollection(initialProductInstance.isNewCollection);
+        // setPercentageDiscount(
+        //   initialProductInstance.percentageDiscount || null
+        // );
+        // setIsNewCollection(initialProductInstance.isNewCollection);
         setActiveSizeId(initialProductInstance.size);
         setActiveColorId(initialProductInstance.id);
         setSizesForColor(initialProductInstance.color);
@@ -140,7 +152,7 @@ const ProductOnPage = ({ instanceId, colorBorder }) => {
           <div className="sectionProduct">
             <ListProductPhotos
               images={selectedProductInstance?.images || []}
-              border={colorBorder}
+              border={borderColor}
             />
             <div className="containerContent">
               <h3 className="titleProduct">{product?.name}</h3>
@@ -212,8 +224,16 @@ const ProductOnPage = ({ instanceId, colorBorder }) => {
                   Додати в кошик
                 </button>
                 {isLoggedIn && (
-                  <button type="button" className="buttonFavorites">
-                    <FavoriteIcon />
+                  <button
+                    type="button"
+                    className="buttonFavorites"
+                    onClick={handleAddToFavorite}
+                  >
+                    <FavoriteIcon
+                      className={`iconHeart ${
+                        isProductInFavorite ? "added" : ""
+                      } `}
+                    />
                   </button>
                 )}
               </div>

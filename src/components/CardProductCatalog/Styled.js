@@ -23,10 +23,7 @@ export const WrapperCard = styled.div`
     }
   }
 
- 
-
- 
-  .iconHeart.added {
+ .iconHeart.added {
     path {
       fill: ${({ theme }) => theme.colors.accentColor};
     }

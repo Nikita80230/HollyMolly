@@ -186,12 +186,26 @@ export const StyledSectionProduct = styled.section`
       box-shadow: ${({ theme }) => theme.shadows.boxShadowButtonHover};
     }
 
-    &:focus {
-      svg {
-        stroke: ${({ theme }) => theme.colors.accentColor};
-      }
+   
+  }
+
+   .iconHeart {
+    width: 24px;
+    height: 24px;
+    transition: ${({ theme }) => theme.animations.transition};
+    path {
+      fill: ${({ theme }) => theme.colors.primaryTxtColor};
+      transition: ${({ theme }) => theme.animations.transition};
     }
   }
+
+ .iconHeart.added {
+    path {
+      fill: ${({ theme }) => theme.colors.accentColor};
+    }
+  }
+
+  
 
   .text {
     font-weight: 400;

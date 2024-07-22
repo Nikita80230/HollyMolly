@@ -87,12 +87,7 @@ const ProfileForm = ({ userEmail }) => {
               />
             </label>
             <label className="labelProfile">
-              <Input
-                name={"city"}
-                type={"text"}
-                placeholder="Місто"
-                // readOnly
-              />
+              <Input name={"city"} type={"text"} placeholder="Місто" />
 
               <ErrorMessage
                 className="errorMessageProfile"
@@ -107,7 +102,6 @@ const ProfileForm = ({ userEmail }) => {
                 name={"phoneNumber"}
                 type={"text"}
                 placeholder="Номер телефону"
-                // readOnly
               />
 
               <ErrorMessage
@@ -119,11 +113,9 @@ const ProfileForm = ({ userEmail }) => {
 
             <label className="labelProfile">
               <Input
-                // className="phoneCode"
                 name={"warehouse"}
                 type={"text"}
                 placeholder="Відділення"
-                // readOnly
               />
 
               <ErrorMessage
