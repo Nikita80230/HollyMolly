@@ -80,13 +80,12 @@ const customStyles = {
 
 const OrderForm = () => {
   const user = useSelector(selectProfiles);
-  
+
   const basketProducts = useSelector(selectBasket);
   const dispatch = useDispatch();
   const [city, setCity] = useState(null);
   const [warehouse, setWarehouse] = useState(null);
   const [saveProfile, setSaveProfile] = useState(false);
-  
 
   const initialValues =
     user && user.length > 0
@@ -145,8 +144,6 @@ const OrderForm = () => {
     setSaveProfile(false);
   };
 
- 
-
   const handleSubmit = async (values) => {
     const order = {
       customer: {
@@ -164,9 +161,9 @@ const OrderForm = () => {
 
     try {
       const response = await dispatch(createOrder(order)).unwrap();
-    const orderId = response.id;
-    checkout(orderId);
-    // dispatch(clearBasket());
+      const orderId = response.id;
+      checkout(orderId);
+      // dispatch(clearBasket());
     } catch (error) {
       console.error("Помилка при створенні замовлення:", error);
     }
@@ -177,7 +174,7 @@ const OrderForm = () => {
       <Formik
         initialValues={initialValues}
         enableReinitialize={true}
-        validationSchema={ SubmitOrderSchema}
+        validationSchema={SubmitOrderSchema}
         onSubmit={handleSubmit}
       >
         {({ setFieldValue, values, resetForm }) => (
@@ -187,7 +184,6 @@ const OrderForm = () => {
                 name={"firstName"}
                 type={"text"}
                 placeholder={"Ваше ім'я"}
-                
               />
               <ErrorMessage
                 name="firstName"
@@ -200,7 +196,6 @@ const OrderForm = () => {
                 name={"lastName"}
                 type={"text"}
                 placeholder={"Ваше прізвище"}
-                
               />
               <ErrorMessage
                 name="lastName"
@@ -213,7 +208,6 @@ const OrderForm = () => {
                 name={"phoneNumber"}
                 type={"text"}
                 placeholder={"Ваш номер телефону"}
-                
               />
               <ErrorMessage
                 name="phoneNumber"
