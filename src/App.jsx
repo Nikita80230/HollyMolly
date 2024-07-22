@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 
 import { routes } from "./routes";
 
@@ -30,11 +30,8 @@ import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import BasketPage from "./pages/BasketPage/BasketPage";
 import AuthPageLayout from "./components/AuthPageLayout/AuthPageLayout";
 import ProfileOrdersPage from "./pages/ProfileOrdersPage/ProfileOrdersPage";
-import ProfileReturnsPage from "./pages/ProfileReturnsPage/ProfileReturnsPage";
 import ProfileShippingAdressesPage from "./pages/ProfileShippingAdressesPage/ProfileShippingAdressesPage";
 import ProfilePageLayout from "./components/ProfilePageLayout/ProfilePageLayout";
-import { logOut } from "./redux/auth/authSlice";
-import { selectAuth } from "./redux/auth/selectors";
 import SubmitOrderPage from "./pages/SubmitOrderPage/SubmitOrderPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 
@@ -68,11 +65,7 @@ const appRoutes = [
   },
   {
     path: `${routes.CATALOG_PAGE}/:categoryGroupId/:categoryId?`,
-    element: (
-      // <PrivateRoute>
-      <CatalogPage />
-      // </PrivateRoute>
-    ),
+    element: <CatalogPage />,
   },
   {
     path: `${routes.PRODUCT_PAGE}/:productId/:productInstanceId`,
@@ -131,14 +124,7 @@ const appRoutes = [
       </PrivateRoute>
     ),
   },
-  {
-    path: routes.MY_RETURNS,
-    element: (
-      <PrivateRoute>
-        <ProfileReturnsPage />
-      </PrivateRoute>
-    ),
-  },
+
   {
     path: routes.SHIPPING_ADDRESSES,
     element: (

@@ -20,7 +20,7 @@ const initialProductsState = {
   productsByCurrentCategory: [],
   filteredProducts: [],
   currentProduct: null,
-   categoryColors: {
+  categoryColors: {
     category1: "#fff6e7",
     category2: "#e2edf4",
     category3: "#eff9f1",
@@ -100,9 +100,7 @@ const productsSlice = createSlice({
   },
 });
 
-export const {
-  toggleFavoriteProducts,
-} = productsSlice.actions;
+export const { toggleFavoriteProducts } = productsSlice.actions;
 
 export const selectAllProducts = (state) => state.products.allProducts;
 export const selectRecommendedProducts = (state) =>
@@ -115,8 +113,7 @@ export const selectLoading = (state) => state.products.isLoading;
 export const selectCurrentProduct = (state) => state.products.currentProduct;
 export const selectCurrentLoading = (state) =>
   state.products.isCurrentProductLoading;
-  export const selectCategoryColors = (state) => state.products.categoryColors;
-
+export const selectCategoryColors = (state) => state.products.categoryColors;
 
 // export const selectSortedProducts = (state) => state.products.sortedProducts;
 
