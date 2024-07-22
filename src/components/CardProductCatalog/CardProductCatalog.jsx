@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
 import { useAuth } from "src/hooks";
 
-const CardProductCatalog = ({ product, sortType, index, borderColor }) => {
+const CardProductCatalog = ({ product, sortType, borderColor }) => {
    const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   const location = useLocation();
@@ -25,7 +25,8 @@ const CardProductCatalog = ({ product, sortType, index, borderColor }) => {
   );
 
   const handleAddToFavorite = () => {
-    dispatch(toggleFavoriteProducts(product));
+   
+    dispatch(toggleFavoriteProducts({ ...product, borderColor }));
   };
 
   //===================================================================
