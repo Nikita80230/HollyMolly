@@ -7,9 +7,7 @@ export const getMyOrders = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await axios.get("/api/Orders/myOrders");
-
-      console.log(res.data);
-      return res.data;
+       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -21,10 +19,9 @@ export const createOrder = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post("/api/Orders?sendEmail=true", credentials);
-//  toast.success("Замовлення успішно створено");
-      
+      //  toast.success("Замовлення успішно створено");
+
       return res.data;
-     
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
       // toast.error("Не вдалося створити замовлення.");
