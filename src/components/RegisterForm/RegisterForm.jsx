@@ -7,20 +7,41 @@ import { subscribeSentEmail } from "src/services/subscribeSentEmail";
 import EyeIcon from "src/assets/images/eye.svg?react";
 import EyeSlashIcon from "src/assets/images/eye-closed.svg?react";
 import ButtonAuth from "../ButtonAuth/ButtonAuth";
-import { InputCheckbox, LabelRegisterSubscribe, StyledForm } from "./Styled";
+import {
+  InputCheckbox,
+  LabelRegisterSubscribe,
+  StyledForm,
+  WrapperModal,
+} from "./Styled";
 import { toast } from "react-hot-toast";
 import NotificationCustom from "../NotificationCustom/NotificationCustom";
+import Modal from "react-modal";
+import IconClose from "src/assets/images/close.svg?react";
 
 const RegisterForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState(false);
   const [isSubscribe, setIsSubscribe] = useState(false);
   const dispatch = useDispatch();
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+    document.body.style.overflow = "";
+  }
 
   const handleSubmit = async (values, actions) => {
     try {
       const result = await dispatch(register(values)).unwrap();
-
+      console.log(result);
+      if (result) {
+        openModal();
+      }
       if (isSubscribe) {
         subscribeSentEmail(values);
       }
@@ -155,6 +176,24 @@ const RegisterForm = () => {
           </StyledForm>
         )}
       </Formik>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        ariaHideApp={false}
+        className="modal-content-register"
+        overlayClassName="modal-overlay"
+        contentLabel="Modal Register"
+      >
+        <WrapperModal>
+          <button className="buttonModal" type="button" onClick={closeModal}>
+            <IconClose className="iconClose" />
+          </button>
+          <p className="description">
+            Щоб підтвердити реєстрацію перейдіть за посиланням з поштової
+            скриньки
+          </p>
+        </WrapperModal>
+      </Modal>
     </>
   );
 };

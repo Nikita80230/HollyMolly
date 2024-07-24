@@ -108,6 +108,20 @@ button{
  
 }
 
+.modal-content-register {
+  position: absolute;
+  top:50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  border: transparent;
+  outline: none;
+ 
+}
+
+
 .content-modal-review{
 position: absolute;
   top: 50%;
