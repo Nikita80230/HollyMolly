@@ -45,11 +45,11 @@ const appRoutes = [
 
   {
     path: routes.REGISTER,
-    element: (
-      <RestrictedRoute>
+    element: 
+      // <RestrictedRoute>
         <RegisterPage />
-      </RestrictedRoute>
-    ),
+      // </RestrictedRoute>
+    ,
   },
   {
     path: routes.CONFIRM_EMAIL,
