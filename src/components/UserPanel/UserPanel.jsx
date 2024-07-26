@@ -13,27 +13,27 @@ import ModalBasket from "../ModalBasket/ModalBasket";
 import IconClose from "src/assets/images/close.svg?react";
 import { toast } from "react-hot-toast";
 
-
 const UserPanel = () => {
   const { isLoggedIn } = useAuth();
   const basket = useSelector(selectBasket);
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
-    if(basket.length >0){
-    setIsOpen(true);
+    if (basket.length > 0) {
+      setIsOpen(true);
       document.body.style.overflow = "hidden";
     } else {
-       toast.custom(
-         <div className="custom-toast">
-            <ContainerEmptyBasket>
+      toast.custom(
+        <div className="custom-toast">
+          <ContainerEmptyBasket>
             <IconClose className="iconClose" />
-          <p className="textBasket">Ваш кошик порожній</p></ContainerEmptyBasket>
-          </div>,
-          {
-            duration: 1000,
-          }
-        );
+            <p className="textBasket">Ваш кошик порожній</p>
+          </ContainerEmptyBasket>
+        </div>,
+        {
+          duration: 1000,
+        }
+      );
     }
   }
 
@@ -44,12 +44,13 @@ const UserPanel = () => {
 
   return (
     <StyledUserPanel>
-      {isLoggedIn &&
+      {isLoggedIn && (
         <NavLink className="userPanelLink" to={routes.FAVORITES}>
           <button className="buttonIcon">
             <FavoriteIcon className="icon" />
           </button>
-        </NavLink>}
+        </NavLink>
+      )}
 
       {isLoggedIn ? (
         <NavLink className="userPanelLink" to={routes.PROFILE}>
@@ -81,7 +82,7 @@ const UserPanel = () => {
         overlayClassName="modal-overlay-light"
         contentLabel="Modal Basket"
       >
-     <ModalBasket closeModal={closeModal} />
+        <ModalBasket closeModal={closeModal} />
       </Modal>
     </StyledUserPanel>
   );

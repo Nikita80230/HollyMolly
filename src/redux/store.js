@@ -30,7 +30,7 @@ const productsPersistConfig = {
 const authPersistConfig = {
   key: "auth",
   storage,
-  whitelist: ["token", "refreshToken", "rememberMe"],
+  whitelist: ["token", "refreshToken", "rememberMe", "isLoggedIn"],
 };
 
 const basketPersistConfig = {

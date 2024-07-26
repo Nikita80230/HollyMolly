@@ -15,8 +15,6 @@ import { WrapperFormOrder } from "./Styled";
 import IconSearch from "src/assets/images/search.svg?react";
 import { selectBasket } from "src/redux/basket/selectors";
 import { updateProfile } from "src/redux/user/operations";
-import { ProfileSchema } from "src/schemas/ProfileSchema";
-import { clearBasket } from "src/redux/basket/basketSlice";
 import { checkout } from "src/services/checkout";
 
 const customStyles = {
@@ -80,12 +78,18 @@ const customStyles = {
 
 const OrderForm = () => {
   const user = useSelector(selectProfiles);
-
   const basketProducts = useSelector(selectBasket);
   const dispatch = useDispatch();
-  const [city, setCity] = useState(null);
-  const [warehouse, setWarehouse] = useState(null);
+  const initialCity = user?.[0]?.city
+    ? { value: user[0].city, label: user[0].city }
+    : null;
+  const initialWarehouse = user?.[0]?.deliveryAddress
+    ? { value: user[0].deliveryAddress, label: user[0].deliveryAddress }
+    : null;
+  const [city, setCity] = useState(initialCity);
+  const [warehouse, setWarehouse] = useState(initialWarehouse);
   const [saveProfile, setSaveProfile] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const initialValues =
     user && user.length > 0
@@ -93,8 +97,8 @@ const OrderForm = () => {
           firstName: user[0]?.firstName || "",
           lastName: user[0]?.lastName || "",
           phoneNumber: user[0]?.phoneNumber || "",
-          city: "",
-          deliveryAddress: "",
+          city: user[0]?.city || null,
+          deliveryAddress: user[0]?.deliveryAddress || null,
         }
       : {
           firstName: "",
@@ -145,6 +149,7 @@ const OrderForm = () => {
   };
 
   const handleSubmit = async (values) => {
+    setIsLoading(true);
     const order = {
       customer: {
         firstName: values.firstName,
@@ -163,21 +168,24 @@ const OrderForm = () => {
       const response = await dispatch(createOrder(order)).unwrap();
       const orderId = response.id;
       checkout(orderId);
-      // dispatch(clearBasket());
     } catch (error) {
       console.error("Помилка при створенні замовлення:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
+  console.log(isLoading)
 
   return (
     <WrapperFormOrder>
+      {isLoading && <Loader/>}
       <Formik
         initialValues={initialValues}
-        enableReinitialize={true}
+        // enableReinitialize={true}
         validationSchema={SubmitOrderSchema}
         onSubmit={handleSubmit}
       >
-        {({ setFieldValue, values, resetForm }) => (
+        {({ setFieldValue, values }) => (
           <Form className="styledForm">
             <label className="styledLabel">
               <Input
@@ -219,7 +227,7 @@ const OrderForm = () => {
               <button
                 type="button"
                 className="buttonSave"
-                // onClick={handleEditProfile}
+                onClick={() => handleSaveProfile(values)}
               >
                 Змінити контактну інформацію
               </button>
@@ -227,7 +235,7 @@ const OrderForm = () => {
               <button
                 type="button"
                 className="buttonSave"
-                // onClick={() => handleSaveProfile(values)}
+                onClick={() => handleSaveProfile(values)}
               >
                 Зберегти контактну інформацію
               </button>
@@ -289,9 +297,24 @@ const OrderForm = () => {
                 className="errorMessage"
               />
             </label>
-            <button type="button" className="buttonSave">
-              Зберегти адресу
-            </button>
+            {user ? (
+              <button
+                type="button"
+                className="buttonSave"
+                onClick={() => handleSaveProfile(values)}
+              >
+                Змінити адресу
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="buttonSave"
+                onClick={() => handleSaveProfile(values)}
+              >
+                Зберегти адресу
+              </button>
+            )}
+
             <Title title={"Оплата"} />
             <div className="containerIconSpan">
               <div className="circle">

@@ -13,6 +13,7 @@ import ButtonLight from "../ButtonLight/ButtonLight";
 const ProfileForm = ({ userEmail }) => {
   const dispatch = useDispatch();
   const profiles = useSelector(selectProfiles);
+ 
 
   const initialValues =
     profiles && profiles.length > 0
@@ -20,8 +21,11 @@ const ProfileForm = ({ userEmail }) => {
           firstName: profiles[0]?.firstName || "",
           lastName: profiles[0]?.lastName || "",
           email: userEmail || "",
-          phoneCode: profiles[0]?.phoneNumber?.slice(0, 4) || "+380",
-          phoneNumber: profiles[0]?.phoneNumber?.slice(4) || "",
+          // phoneCode: profiles[0]?.phoneNumber?.slice(0, 4) || "+380",
+          // phoneNumber: profiles[0]?.phoneNumber?.slice(4) || "",
+        phoneNumber: profiles[0]?.phoneNumber || "",
+        city: profiles[0]?.city || null,
+          warehouse: profiles[0]?.deliveryAddress || null,
           dateOfBirth: profiles[0]?.dateOfBirth
             ? new Date(profiles[0].dateOfBirth)
             : null,
@@ -30,32 +34,34 @@ const ProfileForm = ({ userEmail }) => {
           firstName: "",
           lastName: "",
           email: userEmail || "",
-
-          phoneNumber: "",
-          // dateOfBirth: null,
+          // phoneCode:"+380",
+        phoneNumber: "",
+          city: null,
+          warehouse: null,
+          dateOfBirth: null,
         };
 
   const handleSubmit = (values) => {
-    console.log(values);
-    // const updatedValues = {
-    //   ...values,
-    //   phoneNumber: `${values.phoneCode}${values.phoneNumber}`,
-    //   dateOfBirth: values.dateOfBirth
-    //     ? values.dateOfBirth.toISOString().split("T")[0]
-    //     : null,
-    // };
+   
+    const updatedValues = {
+      ...values,
+      // phoneNumber: `${values.phoneCode}${values.phoneNumber}`,
+      dateOfBirth: values.dateOfBirth
+        ? values.dateOfBirth.toISOString().split("T")[0]
+        : null,
+    };
 
-    // if (profiles && profiles.length > 0) {
-    //   dispatch(
-    //     updateProfile({ user: updatedValues, profileId: profiles[0].id })
-    //   );
-    // }
+    if (profiles && profiles.length > 0) {
+      dispatch(
+        updateProfile({ user: updatedValues, profileId: profiles[0].id })
+      );
+    }
   };
 
   return (
     <>
       <Formik
-        enableReinitialize
+         enableReinitialize
         initialValues={initialValues}
         validationSchema={ProfileSchema}
         onSubmit={handleSubmit}
@@ -71,7 +77,7 @@ const ProfileForm = ({ userEmail }) => {
               />
             </label>
             <label className="labelProfile">
-              <Input name={"email"} type={"email"} readOnly />
+              <Input name={"email"} type={"email"} readOnly={true} />
               <ErrorMessage
                 className="errorMessageProfile"
                 name="email"
@@ -95,10 +101,16 @@ const ProfileForm = ({ userEmail }) => {
                 component="div"
               />
             </label>
+            
 
             <label className="labelProfile">
-              <Input
+               {/* <Input
                 // className="phoneCode"
+                name={"phoneCode"}
+                type={"text"}
+                placeholder="+380"
+              /> */}
+              <Input
                 name={"phoneNumber"}
                 type={"text"}
                 placeholder="Номер телефону"
@@ -124,7 +136,7 @@ const ProfileForm = ({ userEmail }) => {
                 component="div"
               />
             </label>
-            {/* <label className="labelCalendar">
+            <label className="labelCalendar">
               Дата народження
               <div className="borderBox"></div>
               <DatePickerWrapper>
@@ -139,13 +151,13 @@ const ProfileForm = ({ userEmail }) => {
                   icon={<CalendarIcon className="calendar" />}
                   onBlur={handleBlur}
                 />
-              </DatePickerWrapper> */}
-            {/* <ErrorMessage
+              </DatePickerWrapper>
+            <ErrorMessage
                 className="errorMessageDate"
                 name="dateOfBirth"
                 component="div"
-              /> */}
-            {/* </label> */}
+              />
+            </label>
 
             <ButtonLight title={"Зберегти зміни"} width={"390px"} />
           </StyledForm>

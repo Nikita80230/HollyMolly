@@ -4,17 +4,15 @@ import ListOrders from "src/components/ListOrders/ListOrders";
 import { getMyOrders } from "src/redux/orders/operations";
 import { WrapperProfileOrdersPage } from "./Styled";
 
-
 const ProfileOrdersPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getMyOrders());
-
-   },[dispatch])
+  }, [dispatch]);
   return (
     <WrapperProfileOrdersPage>
-<ListOrders/>
+      <ListOrders />
     </WrapperProfileOrdersPage>
   );
 };

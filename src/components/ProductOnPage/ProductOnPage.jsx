@@ -94,7 +94,7 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
           color: selectedProductInstance.color,
           quantity,
           stockQuantity: selectedProductInstance.stockQuantity,
-          borderColor: borderColor,
+          colorBorder: borderColor,
         })
       );
     }

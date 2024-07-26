@@ -15,12 +15,14 @@ export const StyledForm = styled(Form)`
 
   .errorMessageProfile {
     position: absolute;
-    top: 100px;
+   top: 100%;
     left: 0;
-    font-weight: 500;
-    font-size: 16px;
+    z-index:1;
     color: ${({ theme }) => theme.colors.colorError};
-    width: 334px;
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
   }
 
   /* .inputProfile {
