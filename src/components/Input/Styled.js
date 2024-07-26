@@ -4,19 +4,19 @@ import { Field } from "formik";
 export const StyledField = styled(Field)`
   background: ${({ theme }) => theme.colors.primaryBgColor};
   font-family: ${({ theme }) => theme.fonts.familyDidact};
-  border:1px solid ${({ theme }) => theme.colors.borderColor};
-  /* border: 1px solid
-    ${({ theme, isError, isValid }) =>
-      isError
+  /* border:1px solid ${({ theme }) => theme.colors.borderColor}; */
+  border: 1px solid
+    ${({ theme, iserror, isvalid }) =>
+      iserror === "true"
         ? theme.colors.colorError
-        : isValid
+        : isvalid === "true"
         ? theme.colors.colorSuccess
-        : theme.colors.borderColor}; */
+        : theme.colors.borderColor};
   color: ${({ theme }) => theme.colors.primaryTxtColor};
   font-weight: 400;
   font-size: 20px;
   border-radius: 5px;
-  padding: 18px 0px 18px 15px;
+  padding: 16px 0px 16px 15px;
   width: 100%;
   outline: transparent;
   outline-offset: -1px;

@@ -26,6 +26,7 @@ const handelLogOutAllDevicesFulfilled = (state) => {
 
 const handelRefreshUserPending = (state) => {
   state.isRefreshing = true;
+
 };
 
 const handelRefreshUserFulfilled = (state, action) => {

@@ -5,7 +5,6 @@ import { StyledListBasket } from "./Styled";
 
 const ListBasketLittle = ({ productBasket }) => {
   const dispatch = useDispatch();
-
   const handleClickAddCount = (productId) => {
     const product = productBasket.find(
       (p) => p.productInstanceId === productId

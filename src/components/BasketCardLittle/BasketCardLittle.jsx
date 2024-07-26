@@ -17,6 +17,7 @@ const BasketCardLittle = ({
     quantity,
     colorBorder,
   } = product;
+
   return (
     <BasketItem key={productInstanceId} $borderColor={colorBorder}>
       <img src={productImage} alt="product image" className="image" />

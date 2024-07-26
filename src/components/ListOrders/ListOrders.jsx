@@ -7,7 +7,7 @@ import { StyledListOrders } from "./Styled";
 
 const ListOrders = () => {
   const orders = useSelector(selectMyOrders);
-
+  console.log(orders);
   return (
     <>
       {!orders.length ? (
@@ -17,13 +17,23 @@ const ListOrders = () => {
           {orders.map((order) => (
             <li key={order.id} className="orderItem">
               <div className="containerSpans">
-                      <span className="orderNumber">Замовлення № {order.id}</span>
-                       {order.status === "Created" && (
-                <div className="wrapperStatus" style={{background: "100503"}}>
-                 
-                    <span className="spanStatus" >{order.status}</span>
-                 
-                </div> )}
+                <span className="orderNumber">Замовлення № {order.id}</span>
+                {order.status === "Created" && (
+                  <div
+                    className="wrapperStatus"
+                    style={{ background: "#fff6e7" }}
+                  >
+                    <span className="spanStatus">Очікує оплату</span>
+                  </div>
+                )}
+                {order.status === "Payment Received" && (
+                  <div
+                    className="wrapperStatus"
+                    style={{ background: "#e2edf4" }}
+                  >
+                    <span className="spanStatus">Сплачено</span>
+                  </div>
+                )}
               </div>
               <span className="date">
                 {format(parseISO(order.orderDate), "dd.MM.yyyy")}

@@ -7,16 +7,10 @@ import { subscribeSentEmail } from "src/services/subscribeSentEmail";
 import EyeIcon from "src/assets/images/eye.svg?react";
 import EyeSlashIcon from "src/assets/images/eye-closed.svg?react";
 import ButtonAuth from "../ButtonAuth/ButtonAuth";
-import {
-  InputCheckbox,
-  LabelRegisterSubscribe,
-  StyledForm,
-  WrapperModal,
-} from "./Styled";
+import { InputCheckbox, LabelRegisterSubscribe, StyledForm } from "./Styled";
 import { toast } from "react-hot-toast";
 import NotificationCustom from "../NotificationCustom/NotificationCustom";
 import Modal from "react-modal";
-import IconClose from "src/assets/images/close.svg?react";
 
 const RegisterForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -184,15 +178,12 @@ const RegisterForm = () => {
         overlayClassName="modal-overlay"
         contentLabel="Modal Register"
       >
-        <WrapperModal>
-          <button className="buttonModal" type="button" onClick={closeModal}>
-            <IconClose className="iconClose" />
-          </button>
-          <p className="description">
-            Щоб підтвердити реєстрацію перейдіть за посиланням з поштової
-            скриньки
-          </p>
-        </WrapperModal>
+        <ModalNotification
+          message={
+            "Щоб підтвердити реєстрацію, перейдіть за посиланням з поштової скриньки."
+          }
+          closeModal={closeModal}
+        />
       </Modal>
     </>
   );

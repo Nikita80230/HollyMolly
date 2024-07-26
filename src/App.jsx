@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { routes } from "./routes";
 
@@ -45,11 +45,11 @@ const appRoutes = [
 
   {
     path: routes.REGISTER,
-    element: 
+    element: (
       // <RestrictedRoute>
-        <RegisterPage />
-      // </RestrictedRoute>
-    ,
+      <RegisterPage />
+    ),
+    // </RestrictedRoute>
   },
   {
     path: routes.CONFIRM_EMAIL,
