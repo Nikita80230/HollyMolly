@@ -1,5 +1,5 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
-import { useState } from "react";
+import { ErrorMessage, Form, Formik } from "formik";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AsyncSelect from "react-select/async";
 import { createOrder } from "src/redux/orders/operations";
@@ -14,7 +14,7 @@ import Title from "../Title/Title";
 import { WrapperFormOrder } from "./Styled";
 import IconSearch from "src/assets/images/search.svg?react";
 import { selectBasket } from "src/redux/basket/selectors";
-import { updateProfile } from "src/redux/user/operations";
+import { createProfile, updateProfile } from "src/redux/user/operations";
 import { checkout } from "src/services/checkout";
 
 const customStyles = {
@@ -88,25 +88,35 @@ const OrderForm = () => {
     : null;
   const [city, setCity] = useState(initialCity);
   const [warehouse, setWarehouse] = useState(initialWarehouse);
-  const [saveProfile, setSaveProfile] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
-  const initialValues =
-    user && user.length > 0
-      ? {
-          firstName: user[0]?.firstName || "",
-          lastName: user[0]?.lastName || "",
-          phoneNumber: user[0]?.phoneNumber || "",
-          city: user[0]?.city || null,
-          deliveryAddress: user[0]?.deliveryAddress || null,
-        }
-      : {
-          firstName: "",
-          lastName: "",
-          phoneNumber: "",
-          city: "",
-          deliveryAddress: "",
-        };
+  useEffect(() => {
+    if (user && user.length > 0) {
+      const userInfo = user[0];
+      setFirstName(userInfo.firstName || "");
+      setLastName(userInfo.lastName || "");
+      setPhoneNumber(userInfo.phoneNumber || "");
+      setCity(
+        userInfo.city ? { value: userInfo.city, label: userInfo.city } : null
+      );
+      setWarehouse(
+        userInfo.deliveryAddress
+          ? { value: userInfo.deliveryAddress, label: userInfo.deliveryAddress }
+          : null
+      );
+    }
+  }, [user]);
+
+  const initialValues = {
+    firstName,
+    lastName,
+    phoneNumber,
+    city: city ? city.value : "",
+    deliveryAddress: warehouse ? warehouse.value : "",
+  };
 
   const loadOptions = async (inputValue) => {
     try {
@@ -141,11 +151,24 @@ const OrderForm = () => {
   };
 
   const handleSaveProfile = (values) => {
-    if (user && user.length > 0) {
-      const profileId = user[0]?.id;
-      dispatch(updateProfile({ user: values, profileId }));
-    }
-    setSaveProfile(false);
+    const profileData = {
+      ...values,
+      deliveryAddress:
+        values.deliveryAddress.trim() === "" ? null : values.deliveryAddress,
+      city: values.city.trim() === "" ? null : values.city,
+    };
+    const profileId = user[0]?.id;
+    dispatch(updateProfile({ user: profileData, profileId }));
+  };
+
+  const handleCreateProfile = (values) => {
+    const profileData = {
+      ...values,
+      deliveryAddress:
+        values.deliveryAddress.trim() === "" ? null : values.deliveryAddress,
+      city: values.city.trim() === "" ? null : values.city,
+    };
+    dispatch(createProfile(profileData));
   };
 
   const handleSubmit = async (values) => {
@@ -174,14 +197,13 @@ const OrderForm = () => {
       setIsLoading(false);
     }
   };
-  console.log(isLoading)
 
   return (
     <WrapperFormOrder>
-      {isLoading && <Loader/>}
+      {isLoading && <Loader />}
       <Formik
         initialValues={initialValues}
-        // enableReinitialize={true}
+        enableReinitialize={true}
         validationSchema={SubmitOrderSchema}
         onSubmit={handleSubmit}
       >
@@ -223,7 +245,7 @@ const OrderForm = () => {
                 className="errorMessage"
               />
             </label>
-            {user ? (
+            {user.length > 0 ? (
               <button
                 type="button"
                 className="buttonSave"
@@ -235,7 +257,7 @@ const OrderForm = () => {
               <button
                 type="button"
                 className="buttonSave"
-                onClick={() => handleSaveProfile(values)}
+                onClick={() => handleCreateProfile(values)}
               >
                 Зберегти контактну інформацію
               </button>
@@ -297,7 +319,7 @@ const OrderForm = () => {
                 className="errorMessage"
               />
             </label>
-            {user ? (
+            {user.length > 0 && user[0].deliveryAddress ? (
               <button
                 type="button"
                 className="buttonSave"
@@ -309,7 +331,7 @@ const OrderForm = () => {
               <button
                 type="button"
                 className="buttonSave"
-                onClick={() => handleSaveProfile(values)}
+                onClick={() => handleCreateProfile(values)}
               >
                 Зберегти адресу
               </button>

@@ -33,10 +33,33 @@ export const updateProfile = createAsyncThunk(
       const res = await axios.put(`/api/Account/profiles/${profileId}`, user);
       return res.data;
     } catch (error) {
-      toast("Щось пішло не такю Впевніться, що всі дані вірні та спробуйте ще раз", {
-        duration: 4000,
-        position: 'top-center'
-      })
+      toast(
+        "Щось пішло не так. Впевніться, що всі дані вірні та спробуйте ще раз",
+        {
+          duration: 4000,
+          position: "top-center",
+        }
+      );
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const createProfile = createAsyncThunk(
+  "user/createProfile",
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.post("/api/Account/profiles", credentials);
+
+      return res.data;
+    } catch (error) {
+      toast(
+        "Щось пішло не так. Впевніться, що всі дані вірні та спробуйте ще раз",
+        {
+          duration: 4000,
+          position: "top-center",
+        }
+      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }

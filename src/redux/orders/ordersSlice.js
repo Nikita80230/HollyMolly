@@ -27,6 +27,7 @@ const initialState = {
     deliveryAddress:''
   },
   orderRecords: [],
+  orderId:"",
   myOrders:[],
   isLoading: false,
    error: "",
@@ -38,9 +39,12 @@ const ordersSlice = createSlice({
  
   extraReducers: (builder) => {
     builder
-      .addCase(createOrder.fulfilled, ((state, action) =>{
+      .addCase(createOrder.fulfilled, ((state, action) => {
+        console.log(action.payload)
         state.customer = action.payload.customer
-      state.orderRecords = action.payload.orderRecords}))
+        state.orderRecords = action.payload.orderRecords
+         state.orderId = action.payload.id
+       }))
       .addCase(getMyOrders.pending, handleGetMyOrdersPending)
       .addCase(getMyOrders.fulfilled, handleGetMyOrdersFulfilled)
     .addCase(getMyOrders.rejected, handleGetMyOrdersRejected)

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getProfile, updateProfile } from "./operations";
+import { createProfile, getProfile, updateProfile } from "./operations";
 
 const handleGetProfileFulfilled = (state, action) => {
   state.user.email = action.payload.email;
@@ -10,6 +10,11 @@ const handleGetProfileFulfilled = (state, action) => {
 const handleUpdateProfile = (state, action) => {
   state.profiles = { ...state.profiles, ...action.payload.profile };
 };
+
+const handleCreateProfile = (state, action) => {
+  state.profiles = action.payload;
+  
+}
 
 const initialState = {
   user: {
@@ -25,7 +30,8 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getProfile.fulfilled, handleGetProfileFulfilled)
-      .addCase(updateProfile.fulfilled, handleUpdateProfile);
+      .addCase(updateProfile.fulfilled, handleUpdateProfile)
+    .addCase(createProfile.fulfilled, handleCreateProfile);
   },
 });
 
