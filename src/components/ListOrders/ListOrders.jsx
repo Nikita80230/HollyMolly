@@ -7,7 +7,7 @@ import { StyledListOrders } from "./Styled";
 
 const ListOrders = () => {
   const orders = useSelector(selectMyOrders);
-  console.log(orders);
+
   return (
     <>
       {!orders.length ? (

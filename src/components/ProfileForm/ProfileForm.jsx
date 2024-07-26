@@ -13,7 +13,7 @@ import ButtonLight from "../ButtonLight/ButtonLight";
 const ProfileForm = ({ userEmail }) => {
   const dispatch = useDispatch();
   const profiles = useSelector(selectProfiles);
- 
+ console.log(profiles)
 
   const initialValues =
     profiles && profiles.length > 0

@@ -14,10 +14,13 @@ import { getProfile } from "src/redux/user/operations";
 import { useLocation, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import ModalNotification from "src/components/ModalNotification/ModalNotification";
+import { routes } from "src/routes";
+import { selectOrderId } from "src/redux/orders/selectors";
 
 const SubmitOrderPage = () => {
   const productBasket = useSelector(selectBasket);
   const totalPrice = useSelector(selectAmountOrder);
+  const orderId = useSelector(selectOrderId);
   const dispatch = useDispatch();
   const location = useLocation();
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -38,9 +41,9 @@ const SubmitOrderPage = () => {
   }
 
   useEffect(() => {
-    if (status && status === true) {
+    if (status && status === "true") {
       openModal();
-    } else if (status && status === false) {
+    } else if (status && status === "false") {
       openModal();
     }
   }, [location]);
@@ -87,16 +90,16 @@ const SubmitOrderPage = () => {
           overlayClassName="modal-overlay"
           contentLabel="Modal Payment"
         >
-          {status === true && (
+          {status === "true" && (
             <ModalNotification
               message={[
                 "Ваше замовлення сплачено.",
-                "Номер замовлення № 134564.",
+                `Номер замовлення № ${orderId}.`,
               ]}
               closeModal={closeModal}
             />
-          )}
-          {status === false && (
+           )} 
+          {status === "false" && (
             <ModalNotification
               message={[
                 "На жаль, замовлення не сплачено.",
@@ -104,7 +107,7 @@ const SubmitOrderPage = () => {
               ]}
               closeModal={closeModal}
             />
-          )}
+          )} 
         </Modal>
       </WrapperPage>
     </Container>
