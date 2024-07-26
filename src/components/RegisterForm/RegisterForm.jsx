@@ -11,6 +11,7 @@ import { InputCheckbox, LabelRegisterSubscribe, StyledForm } from "./Styled";
 import { toast } from "react-hot-toast";
 import NotificationCustom from "../NotificationCustom/NotificationCustom";
 import Modal from "react-modal";
+import ModalNotification from "../ModalNotification/ModalNotification";
 
 const RegisterForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
