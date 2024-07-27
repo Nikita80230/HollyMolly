@@ -33,7 +33,7 @@ const handelRefreshUserFulfilled = (state, action) => {
   state.user = action.payload.userEmail;
   state.token = action.payload.accessToken;
   state.refreshToken = action.payload.refreshToken;
-  state.isLoggedIn = true;
+  // state.isLoggedIn = true;
   state.isRefreshing = false;
 };
 
