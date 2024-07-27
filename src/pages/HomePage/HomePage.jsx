@@ -6,6 +6,7 @@ import Container from "src/components/Container/Container";
 import Hero from "src/components/Hero/Hero";
 import RecommendationSection from "src/components/RecommendationSection/RecommendationSection";
 import Subscribe from "src/components/Subscribe/Subscribe";
+import { useAuth } from "src/hooks";
 import { authGoogle } from "src/redux/auth/operations";
 import { fetchCategories } from "src/redux/categories/operations";
 import { getRecommendedProducts } from "src/redux/products/operations";
@@ -17,6 +18,8 @@ const HomePage = () => {
   const token = urlParams.get("token");
   const pathname = location.pathname;
   const userId = urlParams.get("userId");
+  const { isLoggedIn } = useAuth();
+  console.log(isLoggedIn);
 
   const dispatch = useDispatch();
   const recommendedProducts = useSelector(selectRecommendedProducts);
