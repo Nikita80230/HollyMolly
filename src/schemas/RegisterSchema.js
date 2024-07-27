@@ -15,7 +15,7 @@ export const RegisterSchema = yup.object().shape({
     .max(25, "\u2716 Не більше 25 символів")
     .matches(
       /^[A-Za-z0-9~`!@#$%^&*()_\-+={[}\]|:;'<,>.?/]*$/,
-      "\u2716  Пароль може містити лише літери, цифри або наступні символи ~`!@#$%^&*()_-+={[}]|:;'<,>.?/"
+      "\u2716 Лише латинські літери, цифри або символи"
     )
     .test(
       "not-only-digits",
@@ -24,7 +24,7 @@ export const RegisterSchema = yup.object().shape({
         return !/^\d+$/.test(value);
       }
     )
-    .required("Це поле є обов'язковим"),
+    .required("\u2716 Це поле є обов'язковим"),
   confirmPassword: yup
     .string()
     .test(

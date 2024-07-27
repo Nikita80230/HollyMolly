@@ -136,9 +136,9 @@ const CatalogPage = () => {
 
   // =======================================================================================
 
-  useEffect(() => {
-        dispatch(getAllProducts());
-   },[dispatch])
+  // useEffect(() => {
+  //       dispatch(getAllProducts());
+  //  },[dispatch])
 
   return (
     <StyledCatalogPage>
