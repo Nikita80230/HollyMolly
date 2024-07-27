@@ -91,7 +91,7 @@ export const StyledForm = styled(Form)`
     color: ${({ theme }) => theme.colors.colorError};
     font-family: ${({ theme }) => theme.fonts.familyDidact};
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.25;
   }
 `;

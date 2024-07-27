@@ -31,11 +31,11 @@ const HomePage = () => {
      dispatch(fetchCategories());
   }, [dispatch]);
 
-   useEffect(() => {
-    if (token && !pathname.includes("password-reset") && !userId) {
-      dispatch(authGoogle({ token }));
-    }
-   }, [dispatch, token, pathname, userId]);
+  //  useEffect(() => {
+  //   if (token && !pathname.includes("password-reset") && !userId) {
+  //     dispatch(authGoogle({ token }));
+  //   }
+  //  }, [dispatch, token, pathname, userId]);
   
   return (
     <>

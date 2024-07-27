@@ -99,9 +99,9 @@ const appRoutes = [
     path: routes.FAVORITES,
 
     element: (
-      // <PrivateRoute>
+       <PrivateRoute>
         <FavoritesPage />
-      // </PrivateRoute>
+       </PrivateRoute>
     ),
   },
   {
@@ -159,11 +159,11 @@ const profilePaths = [
 export const App = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  // const urlParams = new URLSearchParams(location.search);
-  // const token = urlParams.get("token");
+   const urlParams = new URLSearchParams(location.search);
+   const token = urlParams.get("token");
   const { isRefreshing } = useAuth();
-  // const pathname = location.pathname;
-  // const userId = urlParams.get("userId");
+   const pathname = location.pathname;
+   const userId = urlParams.get("userId");
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -171,11 +171,11 @@ export const App = () => {
     // dispatch(getAllProducts());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (token && !pathname.includes("password-reset") && !userId) {
-  //     dispatch(authGoogle({ token }));
-  //   }
-  // }, [dispatch, token, pathname, userId]);
+  useEffect(() => {
+    if (token && !pathname.includes("password-reset") && !userId) {
+      dispatch(authGoogle({ token }));
+    }
+  }, [dispatch, token, pathname, userId]);
 
   const isAuthPage = authPaths.includes(location.pathname);
   const isProfilePage = profilePaths.includes(location.pathname);
