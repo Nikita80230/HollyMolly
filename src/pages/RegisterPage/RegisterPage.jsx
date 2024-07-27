@@ -7,8 +7,11 @@ import authDesktop2x from "src/assets/images/auth/auth-2x.webp";
 import Container from "src/components/Container/Container";
 import TitleAuth from "src/components/TitleAuth/TitleAuth";
 import { useEffect } from "react";
+import { useAuth } from "src/hooks";
 
 const RegisterPage = () => {
+  const { isLoggedIn } = useAuth();
+  console.log(isLoggedIn);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });

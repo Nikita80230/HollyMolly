@@ -99,9 +99,9 @@ const appRoutes = [
     path: routes.FAVORITES,
 
     element: (
-      <PrivateRoute>
+      // <PrivateRoute>
         <FavoritesPage />
-      </PrivateRoute>
+      // </PrivateRoute>
     ),
   },
   {
@@ -159,11 +159,11 @@ const profilePaths = [
 export const App = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const urlParams = new URLSearchParams(location.search);
-  const token = urlParams.get("token");
+  // const urlParams = new URLSearchParams(location.search);
+  // const token = urlParams.get("token");
   const { isRefreshing } = useAuth();
-  const pathname = location.pathname;
-  const userId = urlParams.get("userId");
+  // const pathname = location.pathname;
+  // const userId = urlParams.get("userId");
 
   useEffect(() => {
     dispatch(refreshUser());
