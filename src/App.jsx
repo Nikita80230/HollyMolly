@@ -167,15 +167,15 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(refreshUser());
-    dispatch(fetchCategories());
-    dispatch(getAllProducts());
+    // dispatch(fetchCategories());
+    // dispatch(getAllProducts());
   }, [dispatch]);
 
-  useEffect(() => {
-    if (token && !pathname.includes("password-reset") && !userId) {
-      dispatch(authGoogle({ token }));
-    }
-  }, [dispatch, token, pathname, userId]);
+  // useEffect(() => {
+  //   if (token && !pathname.includes("password-reset") && !userId) {
+  //     dispatch(authGoogle({ token }));
+  //   }
+  // }, [dispatch, token, pathname, userId]);
 
   const isAuthPage = authPaths.includes(location.pathname);
   const isProfilePage = profilePaths.includes(location.pathname);
