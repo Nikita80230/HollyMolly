@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import RegisterForm from "src/components/RegisterForm/RegisterForm";
 import { routes } from "src/routes";
 import { WrapperRegister } from "./Styled";
@@ -12,6 +12,13 @@ import { useAuth } from "src/hooks";
 const RegisterPage = () => {
   const { isLoggedIn } = useAuth();
   console.log(isLoggedIn);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+  if (isLoggedIn) {
+    navigate(routes.HOME);
+  }
+}, [isLoggedIn]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });

@@ -157,6 +157,8 @@ const profilePaths = [
 ];
 
 export const App = () => {
+  const { isLoggedIn } = useAuth()
+  console.log(isLoggedIn)
   const dispatch = useDispatch();
   const location = useLocation();
    const urlParams = new URLSearchParams(location.search);
