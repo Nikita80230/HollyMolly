@@ -1,13 +1,13 @@
 import axios from "axios";
 
-export const getNewPostWarehouses = async (cityKoatuu) => {
+export const getNewPostWarehouses = async (inputValue, city) => {
   try {
     const res = await axios.get(
-      `/api/NewPost/warehouses?cityKoatuu=${cityKoatuu}`
+      `/api/NewPost/warehouses?cityName=${city}&findByString=${inputValue}`
     );
 
     return res.data;
   } catch (error) {
-    throw new Error("Щось пішло не так.");
+    throw new Error(error.message);
   }
 };

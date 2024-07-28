@@ -33,7 +33,7 @@ const RegisterForm = () => {
   const handleSubmit = async (values, actions) => {
     try {
       const result = await dispatch(register(values)).unwrap();
-      console.log(result);
+
       if (result) {
         openModal();
       }

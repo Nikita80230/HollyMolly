@@ -16,6 +16,8 @@ import IconSearch from "src/assets/images/search.svg?react";
 import { selectBasket } from "src/redux/basket/selectors";
 import { createProfile, updateProfile } from "src/redux/user/operations";
 import { checkout } from "src/services/checkout";
+import { useAuth } from "src/hooks";
+import { selectUser } from "src/redux/auth/selectors";
 
 const customStyles = {
   control: (provided, state) => ({
@@ -78,6 +80,7 @@ const customStyles = {
 
 const OrderForm = () => {
   const user = useSelector(selectProfiles);
+  const emailUser = useSelector(selectUser);
   const basketProducts = useSelector(selectBasket);
   const dispatch = useDispatch();
   const initialCity = user?.[0]?.city
@@ -92,6 +95,7 @@ const OrderForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [userEmail, setUserEmail] = useState("");
 
   useEffect(() => {
     if (user && user.length > 0) {
@@ -99,6 +103,7 @@ const OrderForm = () => {
       setFirstName(userInfo.firstName || "");
       setLastName(userInfo.lastName || "");
       setPhoneNumber(userInfo.phoneNumber || "");
+      setUserEmail(emailUser);
       setCity(
         userInfo.city ? { value: userInfo.city, label: userInfo.city } : null
       );
@@ -114,6 +119,7 @@ const OrderForm = () => {
     firstName,
     lastName,
     phoneNumber,
+    email: emailUser,
     city: city ? city.value : "",
     deliveryAddress: warehouse ? warehouse.value : "",
   };
@@ -121,11 +127,12 @@ const OrderForm = () => {
   const loadOptions = async (inputValue) => {
     try {
       const response = await getNewPostCities(inputValue);
+
       const cityOptions = response.map((city) => ({
-        value: city.text,
-        label: city.text,
-        koatuu: city.koatuu,
+        value: city.Description,
+        label: city.Description,
       }));
+
       return cityOptions;
     } catch (error) {
       console.error(error);
@@ -133,15 +140,16 @@ const OrderForm = () => {
     }
   };
 
-  const loadOptionsWarehouses = async (inputValue) => {
+  const loadOptionsWarehouses = async (inputValue, city) => {
     if (!city) {
       return [];
     }
     try {
-      const response = await getNewPostWarehouses(city.koatuu);
+      const response = await getNewPostWarehouses(inputValue, city);
+
       const warehouseOptions = response.map((warehouse) => ({
-        value: warehouse.text,
-        label: warehouse.text,
+        value: warehouse.Description,
+        label: warehouse.Description,
       }));
       return warehouseOptions;
     } catch (error) {
@@ -151,8 +159,11 @@ const OrderForm = () => {
   };
 
   const handleSaveProfile = (values) => {
+    const currentUser = user[0];
+    const dateOfBirth = currentUser.dateOfBirth;
     const profileData = {
       ...values,
+      dateOfBirth,
       deliveryAddress:
         values.deliveryAddress.trim() === "" ? null : values.deliveryAddress,
       city: values.city.trim() === "" ? null : values.city,
@@ -209,42 +220,59 @@ const OrderForm = () => {
       >
         {({ setFieldValue, values }) => (
           <Form className="styledForm">
-            <label className="styledLabel">
-              <Input
-                name={"firstName"}
-                type={"text"}
-                placeholder={"Ваше ім'я"}
-              />
-              <ErrorMessage
-                name="firstName"
-                component="p"
-                className="errorMessage"
-              />
-            </label>
-            <label className="styledLabel">
-              <Input
-                name={"lastName"}
-                type={"text"}
-                placeholder={"Ваше прізвище"}
-              />
-              <ErrorMessage
-                name="lastName"
-                component="p"
-                className="errorMessage"
-              />
-            </label>
-            <label className="styledLabel">
-              <Input
-                name={"phoneNumber"}
-                type={"text"}
-                placeholder={"Ваш номер телефону"}
-              />
-              <ErrorMessage
-                name="phoneNumber"
-                component="p"
-                className="errorMessage"
-              />
-            </label>
+            <div className="wrapperFields">
+              <div className="containerLeft">
+                {" "}
+                <label className="styledLabel">
+                  <Input
+                    name={"firstName"}
+                    type={"text"}
+                    placeholder={"Ваше ім'я"}
+                  />
+                  <ErrorMessage
+                    name="firstName"
+                    component="p"
+                    className="errorMessage"
+                  />
+                </label>
+                <label className="styledLabel">
+                  <Input
+                    name={"lastName"}
+                    type={"text"}
+                    placeholder={"Ваше прізвище"}
+                  />
+                  <ErrorMessage
+                    name="lastName"
+                    component="p"
+                    className="errorMessage"
+                  />
+                </label>
+              </div>
+              <div className="containerRight">
+                {" "}
+                <label className="styledLabel">
+                  <Input name={"email"} type={"email"} readOnly={true} />
+                  <ErrorMessage
+                    className="errorMessage"
+                    name="email"
+                    component="p"
+                  />
+                </label>
+                <label className="styledLabel">
+                  <Input
+                    name={"phoneNumber"}
+                    type={"text"}
+                    placeholder={"Ваш номер телефону"}
+                  />
+                  <ErrorMessage
+                    name="phoneNumber"
+                    component="p"
+                    className="errorMessage"
+                  />
+                </label>
+              </div>
+            </div>
+
             {user.length > 0 ? (
               <button
                 type="button"
@@ -299,7 +327,9 @@ const OrderForm = () => {
                 name="warehouse"
                 id="warehouse"
                 placeholder="Відділення"
-                loadOptions={loadOptionsWarehouses}
+                loadOptions={(inputValue) =>
+                  loadOptionsWarehouses(inputValue, city ? city.value : "")
+                }
                 onChange={(option) => {
                   setWarehouse(option);
                   setFieldValue("deliveryAddress", option ? option.value : "");
@@ -319,7 +349,7 @@ const OrderForm = () => {
                 className="errorMessage"
               />
             </label>
-            {user.length > 0 && user[0].deliveryAddress ? (
+            {user.length > 0 ? (
               <button
                 type="button"
                 className="buttonSave"

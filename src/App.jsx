@@ -1,22 +1,15 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import { useDispatch } from "react-redux";
-
 import { routes } from "./routes";
-
 import PageLayout from "./components/PageLayout/PageLayout";
 import Loader from "./components/Loader/Loader";
 import RestrictedRoute from "./components/RestrictedRoute";
 import PrivateRoute from "./components/PrivateRoute";
-
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
-
-import { fetchCategories } from "./redux/categories/operations";
-import { getAllProducts } from "./redux/products/operations";
-
 import { authGoogle, refreshUser } from "./redux/auth/operations";
 import SupportPage from "./pages/SupportPage/SupportPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
@@ -99,9 +92,9 @@ const appRoutes = [
     path: routes.FAVORITES,
 
     element: (
-       <PrivateRoute>
+      <PrivateRoute>
         <FavoritesPage />
-       </PrivateRoute>
+      </PrivateRoute>
     ),
   },
   {
@@ -157,20 +150,16 @@ const profilePaths = [
 ];
 
 export const App = () => {
-  const { isLoggedIn } = useAuth()
-  console.log(isLoggedIn)
   const dispatch = useDispatch();
   const location = useLocation();
-   const urlParams = new URLSearchParams(location.search);
-   const token = urlParams.get("token");
+  const urlParams = new URLSearchParams(location.search);
+  const token = urlParams.get("token");
   const { isRefreshing } = useAuth();
-   const pathname = location.pathname;
-   const userId = urlParams.get("userId");
+  const pathname = location.pathname;
+  const userId = urlParams.get("userId");
 
   useEffect(() => {
     dispatch(refreshUser());
-    // dispatch(fetchCategories());
-    // dispatch(getAllProducts());
   }, [dispatch]);
 
   useEffect(() => {

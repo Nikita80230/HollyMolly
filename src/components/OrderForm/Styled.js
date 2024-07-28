@@ -12,6 +12,24 @@ width:830px;
     width:100%;
 }
 
+.wrapperFields{
+    /* margin-bottom:12px; */
+    display:flex;
+    gap:50px;
+}
+
+.containerLeft{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.containerRight{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
 .styledLabel{
 position:relative;
 width: 390px;
@@ -30,6 +48,7 @@ width: 390px;
 }
 
 .buttonSave{
+    
     border:transparent;
     background-color:transparent;
     
