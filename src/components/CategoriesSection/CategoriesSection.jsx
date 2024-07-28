@@ -7,10 +7,8 @@ import { Link } from "react-router-dom";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
 import { routes } from "src/routes";
 
-const CategoriesSection = () => {
+const CategoriesSection = ({ colors }) => {
   const categories = useSelector(selectCategories);
-
-  const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
 
   return (
     <StyledCategoriesSection>

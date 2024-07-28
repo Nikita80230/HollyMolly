@@ -82,7 +82,8 @@ export const authGoogle = createAsyncThunk(
       const res = await axios.post("/api/Account/login/google", credentials);
 
       setAuthHeader(res.data.token);
-      return res.data;
+      console.log("res.data authGoogleRedux", res.data);
+       return res.data;
     } catch (error) {
       toast.error("Потрібно авторизуватись");
       return thunkAPI.rejectWithValue(error.message);

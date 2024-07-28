@@ -168,6 +168,7 @@ export const theme = {
     boxShadowCategory: " 10px 10px 5px 0 #b8b7b7",
     boxShadowCategoryModal: "10px 10px 20px 0 #a88465",
     boxShadowButtonHover: "5px 5px 5px 0 #a5a4a4",
-    boxShadowLeaveReview:"5px 5px 10px 0 #c0bfbf",
+    boxShadowLeaveReview: "5px 5px 10px 0 #c0bfbf",
+    boxShadowCalendar:"0 1px 4px 0 rgba(0, 0, 0, 0.25)",
   },
 };

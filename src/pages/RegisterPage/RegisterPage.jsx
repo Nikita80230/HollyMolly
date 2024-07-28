@@ -11,14 +11,13 @@ import { useAuth } from "src/hooks";
 
 const RegisterPage = () => {
   const { isLoggedIn } = useAuth();
-  console.log(isLoggedIn);
   const navigate = useNavigate();
 
   useEffect(() => {
-  if (isLoggedIn) {
-    navigate(routes.HOME);
-  }
-}, [isLoggedIn]);
+    if (isLoggedIn) {
+      navigate(routes.HOME);
+    }
+  }, [isLoggedIn]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
