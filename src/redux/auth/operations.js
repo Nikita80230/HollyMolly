@@ -1,7 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-
 axios.defaults.baseURL = "https://teamchallenge-001-site1.ktempurl.com";
 
 const setAuthHeader = (token) => {
@@ -15,7 +14,10 @@ export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post("/api/Account/registration?sendEmail=true", credentials);
+      const res = await axios.post(
+        "/api/Account/registration?sendEmail=true",
+        credentials
+      );
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
@@ -32,8 +34,7 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return { ...res.data, rememberMe };
     } catch (error) {
-      
-    return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -81,7 +82,8 @@ export const authGoogle = createAsyncThunk(
       const res = await axios.post("/api/Account/login/google", credentials);
 
       setAuthHeader(res.data.token);
-      return res.data;
+      console.log("res.data authGoogleRedux", res.data);
+       return res.data;
     } catch (error) {
       toast.error("Потрібно авторизуватись");
       return thunkAPI.rejectWithValue(error.message);

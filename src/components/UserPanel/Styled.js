@@ -26,18 +26,25 @@ export const StyledUserPanel = styled.div`
     transition: stroke ${({ theme }) => theme.animations.transition};
   }
 
-  /* .userPanelLink.active {
+  .iconBasket.active {
+    width: 40px;
+    height: 40px;
+
+    path {
+      stroke: ${({ theme }) => theme.colors.accentColor};
+    }
+  }
+
+  .userPanelLink.active {
     .icon {
+      width: 40px;
+      height: 40px;
+
       path {
         fill: ${({ theme }) => theme.colors.accentColor};
       }
     }
-    .iconBasket{
-      path {
-        stroke: ${({ theme }) => theme.colors.accentColor};
-      }
-    }
-  } */
+  }
 
   .buttonIcon {
     /* border-radius: 8px; */
@@ -92,7 +99,7 @@ export const StyledUserPanel = styled.div`
 
   .containerProducts {
     position: absolute;
-    top: 28px;
+    top: 53%;
     right: 12%;
     z-index: 111;
     display: flex;
@@ -137,33 +144,31 @@ export const StyledUserPanel = styled.div`
   }
 `;
 
-
 export const ContainerEmptyBasket = styled.div`
-padding:25px 30px;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:10px;
-border-radius: 10px;
-width: 277px;
-height: 74px;
-box-shadow: ${({ theme }) => theme.shadows.boxShadowLeaveReview};
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  width: 277px;
+  height: 74px;
+  box-shadow: ${({ theme }) => theme.shadows.boxShadowLeaveReview};
   background: ${({ theme }) => theme.colors.primaryBgColor};
 
-  .iconClose{
-    width:24px;
-    height:24px;
-    path{
-    stroke:${({ theme }) => theme.colors.accentColor};}
+  .iconClose {
+    width: 24px;
+    height: 24px;
+    path {
+      stroke: ${({ theme }) => theme.colors.accentColor};
+    }
   }
 
-  .textBasket{
-    font-family:${({ theme }) => theme.fonts.familyDidact};
-font-weight: 400;
-font-size: 20px;
-line-height: 1.2;
-white-space:nowrap;
-
+  .textBasket {
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    white-space: nowrap;
   }
-
-`
+`;

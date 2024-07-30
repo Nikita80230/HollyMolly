@@ -25,11 +25,10 @@ const LoginForm = () => {
 
   const handleSubmit = async (values, actions) => {
     try {
-      const result = await dispatch(logIn(values)).unwrap();
+      await dispatch(logIn(values)).unwrap();
 
       actions.resetForm();
     } catch (error) {
-      
       if (error === "Request failed with status code 400") {
         toast.custom(
           <div className="custom-toast">
@@ -65,7 +64,7 @@ const LoginForm = () => {
       >
         {({ values, handleChange, handleBlur, errors, touched }) => (
           <StyledForm>
-              <label className="styledLabel">
+            <label className="styledLabel">
               <Field
                 className={`${
                   errors.email && touched.email

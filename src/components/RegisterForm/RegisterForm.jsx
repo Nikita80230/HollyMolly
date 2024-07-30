@@ -10,17 +10,33 @@ import ButtonAuth from "../ButtonAuth/ButtonAuth";
 import { InputCheckbox, LabelRegisterSubscribe, StyledForm } from "./Styled";
 import { toast } from "react-hot-toast";
 import NotificationCustom from "../NotificationCustom/NotificationCustom";
+import Modal from "react-modal";
+import ModalNotification from "../ModalNotification/ModalNotification";
 
 const RegisterForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState(false);
   const [isSubscribe, setIsSubscribe] = useState(false);
   const dispatch = useDispatch();
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+    document.body.style.overflow = "";
+  }
 
   const handleSubmit = async (values, actions) => {
     try {
       const result = await dispatch(register(values)).unwrap();
 
+      if (result) {
+        openModal();
+      }
       if (isSubscribe) {
         subscribeSentEmail(values);
       }
@@ -155,6 +171,21 @@ const RegisterForm = () => {
           </StyledForm>
         )}
       </Formik>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        ariaHideApp={false}
+        className="modal-content-register"
+        overlayClassName="modal-overlay"
+        contentLabel="Modal Register"
+      >
+        <ModalNotification
+          message={
+            "Щоб підтвердити реєстрацію, перейдіть за посиланням з поштової скриньки."
+          }
+          closeModal={closeModal}
+        />
+      </Modal>
     </>
   );
 };

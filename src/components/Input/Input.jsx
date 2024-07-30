@@ -1,23 +1,21 @@
 import { StyledField } from "./Styled";
 import { Field, useField } from "formik";
 
-// const filterProps = (props) => {
-//   const { isError, isValid, ...rest } = props;
-//   return rest;
-// };
-
-const Input = ({ name, type, placeholder }) => {
-  // const [field, meta] = useField(name);
+const Input = ({ name, type, placeholder, readOnly = false }) => {
+  const [field, meta] = useField(name);
+  const isError = meta.touched && meta.error ? true : false;
+  const isValid = meta.touched && !meta.error ? true : false;
 
   return (
     <StyledField
-      // as={Field}
-      // {...filterProps(field)}
+      as={Field}
+      {...field}
       name={name}
       type={type}
       placeholder={placeholder}
-      // isError={meta.touched && meta.error}
-      // isValid={meta.touched && !meta.error}
+      readOnly={readOnly}
+     iserror={isError.toString()}
+      isvalid={isValid.toString()}
     />
   );
 };

@@ -12,6 +12,24 @@ width:830px;
     width:100%;
 }
 
+.wrapperFields{
+    /* margin-bottom:12px; */
+    display:flex;
+    gap:50px;
+}
+
+.containerLeft{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.containerRight{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
 .styledLabel{
 position:relative;
 width: 390px;
@@ -25,11 +43,12 @@ width: 390px;
     color: ${({ theme }) => theme.colors.colorError};
     font-family: ${({ theme }) => theme.fonts.familyDidact};
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.25;
 }
 
 .buttonSave{
+    
     border:transparent;
     background-color:transparent;
     

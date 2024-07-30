@@ -19,12 +19,11 @@ export const createOrder = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post("/api/Orders?sendEmail=true", credentials);
-      //  toast.success("Замовлення успішно створено");
+      return res.data;
 
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
-      // toast.error("Не вдалося створити замовлення.");
     }
   }
 );

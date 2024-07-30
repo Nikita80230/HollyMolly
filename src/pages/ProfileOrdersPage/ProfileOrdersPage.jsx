@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import ListOrders from "src/components/ListOrders/ListOrders";
 import { getMyOrders } from "src/redux/orders/operations";
 import { WrapperProfileOrdersPage } from "./Styled";
+
 import SearchOrderInput from "src/components/SearchOrderInput/SearchOrderInput";
 import { selectMyOrders } from "src/redux/orders/selectors";
 import SortOrdersPanel from "src/components/SortOrdersPanel/SortOrdersPanel";
+
 
 const ProfileOrdersPage = () => {
   const dispatch = useDispatch();
@@ -88,6 +90,7 @@ const ProfileOrdersPage = () => {
         selectedSortCriteria={selectedSortCriteria}
       />
       <ListOrders orders={sortedOrders} />
+
     </WrapperProfileOrdersPage>
   );
 };

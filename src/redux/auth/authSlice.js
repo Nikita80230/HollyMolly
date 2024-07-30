@@ -3,8 +3,7 @@ import { register, logIn, logOutAllDevices, refreshUser, authGoogle } from "./op
 
 const handelRegisterFulfilled = (state, action) => {
   state.user = action.payload.userEmail;
-  // state.token = action.payload.accessToken;
-  state.isLoggedIn = true;
+  
 };
 
 const handelLoginFulfilled = (state, action) => {
@@ -27,13 +26,14 @@ const handelLogOutAllDevicesFulfilled = (state) => {
 
 const handelRefreshUserPending = (state) => {
   state.isRefreshing = true;
+
 };
 
 const handelRefreshUserFulfilled = (state, action) => {
   state.user = action.payload.userEmail;
   state.token = action.payload.accessToken;
   state.refreshToken = action.payload.refreshToken;
-  state.isLoggedIn = true;
+  // state.isLoggedIn = true;
   state.isRefreshing = false;
 };
 
@@ -69,6 +69,7 @@ const authSlice = createSlice({
   state.rememberMe = false; 
       
     },
+   
   },
   extraReducers: (builder) => {
     builder

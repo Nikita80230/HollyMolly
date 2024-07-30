@@ -1,22 +1,15 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
-import { useDispatch} from "react-redux";
-
+import { useDispatch } from "react-redux";
 import { routes } from "./routes";
-
 import PageLayout from "./components/PageLayout/PageLayout";
 import Loader from "./components/Loader/Loader";
 import RestrictedRoute from "./components/RestrictedRoute";
 import PrivateRoute from "./components/PrivateRoute";
-
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
-
-import { fetchCategories } from "./redux/categories/operations";
-import { getAllProducts } from "./redux/products/operations";
-
 import { authGoogle, refreshUser } from "./redux/auth/operations";
 import SupportPage from "./pages/SupportPage/SupportPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
@@ -46,10 +39,10 @@ const appRoutes = [
   {
     path: routes.REGISTER,
     element: (
-      <RestrictedRoute>
-        <RegisterPage />
-      </RestrictedRoute>
+      // <RestrictedRoute>
+      <RegisterPage />
     ),
+    // </RestrictedRoute>
   },
   {
     path: routes.CONFIRM_EMAIL,
@@ -167,8 +160,6 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(refreshUser());
-    dispatch(fetchCategories());
-    dispatch(getAllProducts());
   }, [dispatch]);
 
   useEffect(() => {

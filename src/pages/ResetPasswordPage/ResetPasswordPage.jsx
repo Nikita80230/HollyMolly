@@ -1,6 +1,5 @@
-import { useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import ResetPasswordForm from "src/components/ForgotResetPasswordForms/ResetPasswordForm";
-import AuthPageLayout from "src/components/AuthPageLayout/AuthPageLayout";
 
 import { WrapperResetPassword } from "./Styled";
 import Container from "src/components/Container/Container";
@@ -16,11 +15,10 @@ const ResetPasswordPage = () => {
     <Container>
       <WrapperResetPassword>
         <TitleAuth title={"Оновлення паролю"} />
-      <p className="description">Введіть свій новий пароль</p>
+        <p className="description">Введіть свій новий пароль</p>
         <ResetPasswordForm token={token} userId={userId} />
-        </WrapperResetPassword>
+      </WrapperResetPassword>
     </Container>
-    
   );
 };
 

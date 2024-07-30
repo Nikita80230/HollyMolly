@@ -93,4 +93,6 @@ export const ContainerModal = styled.div`
       background-color: ${({ theme }) => theme.colors.activeBgColor};
     }
   }
+
+
 `;

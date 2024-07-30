@@ -19,9 +19,19 @@ const ListOrders = ({ orders }) => {
                 {order.status === "Created" && (
                   <div
                     className="wrapperStatus"
-                    style={{ background: "100503" }}
+
+                    style={{ background: "#fff6e7" }}
                   >
-                    <span className="spanStatus">{order.status}</span>
+                    <span className="spanStatus">Очікує оплату</span>
+                  </div>
+                )}
+                {order.status === "Payment Received" && (
+                  <div
+                    className="wrapperStatus"
+                    style={{ background: "#e2edf4" }}
+                  >
+                    <span className="spanStatus">Сплачено</span>
+
                   </div>
                 )}
               </div>
