@@ -1,13 +1,14 @@
 import { styled } from "styled-components";
 import backgroundSubscribe1x from "src/assets/images/subscribe/background-subscribe1x.webp";
 import backgroundSubscribe2x from "src/assets/images/subscribe/backgroundSubscribe2x.webp";
+import backgroundSubscribe3x from "src/assets/images/subscribe/background-subscribe3x.jpg";
 
 export const SubscribeWrapper = styled.section`
   margin-bottom: 40px;
   width: 100%;
   height: 470px;
   background-color: ${({ theme }) => theme.colors.heroBgColor};
-  background: url(${backgroundSubscribe1x});
+  background: url(${backgroundSubscribe2x});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -15,7 +16,7 @@ export const SubscribeWrapper = styled.section`
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background: url(${backgroundSubscribe2x});
+    background: url(${backgroundSubscribe3x});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -162,7 +163,6 @@ export const SubscribeWrapper = styled.section`
     text-align: center;
     color: ${({ theme }) => theme.colors.whiteTxtColor};
     background-color: ${({ theme }) => theme.colors.accentColor};
-    
   }
 
   .subscribeButtonDisabled {
