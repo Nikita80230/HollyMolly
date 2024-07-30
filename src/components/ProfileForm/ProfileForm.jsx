@@ -1,8 +1,8 @@
 import { ErrorMessage, Field, Formik } from "formik";
 import { DatePickerWrapper, StyledForm } from "./Styled";
 import DatePicker from "react-datepicker";
+import { uk } from 'date-fns/locale';
 import "react-datepicker/dist/react-datepicker.css";
-import CalendarIcon from "src/assets/images/calendar.svg?react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateProfile } from "src/redux/user/operations";
 import { selectProfiles } from "src/redux/user/selectors";
@@ -155,7 +155,8 @@ const ProfileForm = ({ userEmail }) => {
                       name="dateOfBirth"
                       onBlur={handleBlur}
                       placeholderText="Дата народження"
-                      showYearDropdown
+                      // showYearDropdown
+                       locale={uk}
                     />
                   </DatePickerWrapper>
                   <ErrorMessage

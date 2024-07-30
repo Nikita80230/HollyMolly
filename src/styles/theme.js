@@ -28,6 +28,7 @@ export const theme = {
     colorSuccess: "#349920",
     borderProductPhoto: "#fff6e7",
     placeholderReview: " #727273",
+    hoverCalendar:"#fff6e7",
     
     
 

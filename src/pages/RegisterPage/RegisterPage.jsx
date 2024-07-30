@@ -4,7 +4,6 @@ import { routes } from "src/routes";
 import { WrapperRegister } from "./Styled";
 import authDesktop1x from "src/assets/images/auth/auth-1x.webp";
 import authDesktop2x from "src/assets/images/auth/auth-2x.webp";
-import Container from "src/components/Container/Container";
 import TitleAuth from "src/components/TitleAuth/TitleAuth";
 import { useEffect } from "react";
 import { useAuth } from "src/hooks";
@@ -24,7 +23,6 @@ const RegisterPage = () => {
   }, []);
 
   return (
-    <Container>
       <WrapperRegister>
         <TitleAuth title={"Мій акаунт"} />
         <ul className="list">
@@ -53,7 +51,6 @@ const RegisterPage = () => {
           />
         </div>
       </WrapperRegister>
-    </Container>
   );
 };
 
