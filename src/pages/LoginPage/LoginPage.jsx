@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 import LoginForm from "src/components/LoginForm/LoginForm";
-import GoogleAuth from "src/components/GoogleAuth/GoogleAuth";
 import { routes } from "src/routes";
 import { WrapperLogin } from "./Styled";
 import authDesktop1x from "src/assets/images/auth/auth-1x.webp";
 import authDesktop2x from "src/assets/images/auth/auth-2x.webp";
 import TitleAuth from "src/components/TitleAuth/TitleAuth";
-import Container from "src/components/Container/Container";
+
 
 const LoginPage = () => {
   return (
-    <Container>
       <WrapperLogin>
         <TitleAuth title={"Мій акаунт"} />
         <ul className="list">
@@ -40,7 +38,6 @@ const LoginPage = () => {
           />
         </div>
       </WrapperLogin>
-    </Container>
   );
 };
 

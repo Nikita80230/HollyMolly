@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import FavoriteIcon from "../../assets/images/like.svg?react";
 import BasketIcon from "../../assets/images/shopping-bag.svg?react";
 import UserIcon from "../../assets/images/account.svg?react";
@@ -16,7 +16,12 @@ import { toast } from "react-hot-toast";
 const UserPanel = () => {
   const { isLoggedIn } = useAuth();
   const basket = useSelector(selectBasket);
+  const location = useLocation();
   const [modalIsOpen, setIsOpen] = useState(false);
+  const isAuthPage =
+    location.pathname === routes.LOGIN ||
+    location.pathname === routes.FORGOT_PASSWORD ||
+    location.pathname === routes.RESET_PASSWORD;
 
   function openModal() {
     if (basket.length > 0) {
@@ -52,8 +57,8 @@ const UserPanel = () => {
         </NavLink>
       )}
 
-      {isLoggedIn ? (
-        <NavLink className="userPanelLink" to={routes.PROFILE}>
+      {isLoggedIn || isAuthPage ?(
+        <NavLink className={`userPanelLink ${isAuthPage ? 'active' : ''}`} to={routes.PROFILE}>
           <button className="buttonIcon">
             <UserIcon className="icon" />
           </button>
@@ -66,7 +71,7 @@ const UserPanel = () => {
         </NavLink>
       )}
       <button className="buttonIconBasket" onClick={openModal}>
-        <BasketIcon className="iconBasket" />
+        <BasketIcon className={`iconBasket ${location.pathname === routes.BASKET ? 'active' : ''}`}  />
         {basket.length > 0 && (
           <div className="containerProducts">
             <span className="styledSpan">{basket.length}</span>
