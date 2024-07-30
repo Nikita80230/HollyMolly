@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 import backgroundDesktop1x from "src/assets/images/hero/background-hero-desktop-1x.webp";
 import backgroundDesktop2x from "src/assets/images/hero/background-hero-desktop-2x.webp";
+import backgroundDesktop3x from "src/assets/images/hero/backgroundDesktop3x.jpg";
+import heroBackgroundForDesktopMaxSize from "src/assets/images/hero/heroBackgroundForDesktopMaxSize.jpg";
 
 export const StyledHero = styled.section`
   position: relative;
@@ -10,7 +12,9 @@ export const StyledHero = styled.section`
   width: 100%;
   height: 795px;
   background-color: ${({ theme }) => theme.colors.heroBgColor};
-  background-image: url(${backgroundDesktop1x});
+
+  background: url(${backgroundDesktop2x});
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -18,7 +22,9 @@ export const StyledHero = styled.section`
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url(${backgroundDesktop2x});
+
+    background: url(${backgroundDesktop3x});
+
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

@@ -1,12 +1,10 @@
 import { parseISO } from "date-fns";
 import { format } from "date-fns";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { selectMyOrders } from "src/redux/orders/selectors";
 import { StyledListOrders } from "./Styled";
 
-const ListOrders = () => {
-  const orders = useSelector(selectMyOrders);
+const ListOrders = ({ orders }) => {
+  // const orders = useSelector(selectMyOrders);
 
   return (
     <>
@@ -21,6 +19,7 @@ const ListOrders = () => {
                 {order.status === "Created" && (
                   <div
                     className="wrapperStatus"
+
                     style={{ background: "#fff6e7" }}
                   >
                     <span className="spanStatus">Очікує оплату</span>
@@ -32,6 +31,7 @@ const ListOrders = () => {
                     style={{ background: "#e2edf4" }}
                   >
                     <span className="spanStatus">Сплачено</span>
+
                   </div>
                 )}
               </div>
