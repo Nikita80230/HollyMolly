@@ -10,6 +10,69 @@ import { ProfileSchema } from "src/schemas/ProfileSchema";
 import Input from "../Input/Input";
 import ButtonLight from "../ButtonLight/ButtonLight";
 import { useEffect, useState } from "react";
+import AsyncSelect from "react-select/async";
+import IconSearch from "src/assets/images/search.svg?react";
+import { getNewPostCities } from "src/services/getNewPostCities";
+import { getNewPostWarehouses } from "src/services/getNewPostWarehouses";
+
+const customStyles = {
+  control: (provided, state) => ({
+    ...provided,
+    paddingRight: 15,
+    paddingLeft: 15,
+    backgroundColor: "#fff",
+    borderColor: state.isFocused ? "#000" : "#c4c4c4",
+    "&:hover": {
+      borderColor: state.isFocused ? "#000" : "#a1a1a2",
+    },
+    width: 390,
+    height: 60,
+    boxShadow: "none",
+  }),
+  placeholder: (provided) => ({
+    ...provided,
+    color: "#c4c4c4",
+    fontFamily: "Didact Gothic",
+    fontWeight: 400,
+    fontSize: 20,
+    lineHeight: 1.2,
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    color: "#100503",
+    fontFamily: "Didact Gothic",
+    fontWeight: 400,
+    fontSize: 20,
+    lineHeight: 1.2,
+  }),
+  input: (provided) => ({
+    ...provided,
+    fontFamily: "Didact Gothic",
+    fontWeight: 400,
+    fontSize: 20,
+    lineHeight: 1.2,
+    color: "#100503",
+  }),
+  menu: (provided) => ({
+    ...provided,
+    zIndex: 9999,
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    backgroundColor: state.isFocused ? "lightgray" : "white",
+    color: "black",
+    "&:hover": {
+      backgroundColor: "lightgray",
+    },
+    fontFamily: "Didact Gothic",
+    fontWeight: 400,
+    fontSize: 20,
+    lineHeight: 1.2,
+  }),
+  indicatorSeparator: () => ({
+    display: "none",
+  }),
+};
 
 const ProfileForm = ({ userEmail }) => {
   const dispatch = useDispatch();
@@ -49,7 +112,42 @@ const ProfileForm = ({ userEmail }) => {
           city: "",
           warehouse: "",
           dateOfBirth: "",
-        };
+      };
+  
+  const loadOptions = async (inputValue) => {
+    try {
+      const response = await getNewPostCities(inputValue);
+
+      const cityOptions = response.map((city) => ({
+        value: city.Description,
+        label: city.Description,
+      }));
+
+      return cityOptions;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+
+  const loadOptionsWarehouses = async (inputValue, city) => {
+    if (!city) {
+      return [];
+    }
+    try {
+      const response = await getNewPostWarehouses(inputValue, city);
+
+      const warehouseOptions = response.map((warehouse) => ({
+        value: warehouse.Description,
+        label: warehouse.Description,
+      }));
+      return warehouseOptions;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+
 
   const handleSubmit = (values) => {
     const updatedValues = {
@@ -106,7 +204,7 @@ const ProfileForm = ({ userEmail }) => {
                   <ErrorMessage
                     className="errorMessageProfile"
                     name="firstName"
-                    component="div"
+                    component="p"
                   />
                 </label>
                 <label className="labelProfile">
@@ -118,7 +216,7 @@ const ProfileForm = ({ userEmail }) => {
                   <ErrorMessage
                     className="errorMessageProfile"
                     name="lastName"
-                    component="div"
+                    component="p"
                   />
                 </label>
                 <label className="labelProfile">
@@ -131,7 +229,7 @@ const ProfileForm = ({ userEmail }) => {
                   <ErrorMessage
                     className="errorMessageProfile"
                     name="phoneNumber"
-                    component="div"
+                    component="p"
                   />
                 </label>
                 <label className="labelProfile">
@@ -139,7 +237,7 @@ const ProfileForm = ({ userEmail }) => {
                   <ErrorMessage
                     className="errorMessageProfile"
                     name="email"
-                    component="div"
+                    component="p"
                   />
                 </label>
               </div>
@@ -162,11 +260,62 @@ const ProfileForm = ({ userEmail }) => {
                   <ErrorMessage
                     className="errorMessageDate"
                     name="dateOfBirth"
-                    component="div"
+                    component="p"
                   />
                 </label>
+                 <label className="labelProfile">
+              <AsyncSelect
+                name="city"
+                id="city"
+                placeholder="Місто"
+                loadOptions={loadOptions}
+                onChange={(option) => {
+                  setCity(option);
+                  setFieldValue("city", option ? option.value : "");
+                }}
+                value={city}
+                isClearable
+                styles={customStyles}
+                components={{
+                  IndicatorSeparator: null,
+                  DropdownIndicator: () => <IconSearch />,
+                }}
+              />
+              <ErrorMessage
+                name="city"
+                component="p"
+                className="errorMessage"
+              />
+            </label>
+            <label className="labelProfile">
+              <AsyncSelect
+                name="warehouse"
+                id="warehouse"
+                placeholder="Відділення"
+                loadOptions={(inputValue) =>
+                  loadOptionsWarehouses(inputValue, city ? city.value : "")
+                }
+                onChange={(option) => {
+                  setWarehouse(option);
+                  setFieldValue("deliveryAddress", option ? option.value : "");
+                }}
+                value={warehouse}
+                isClearable
+                isDisabled={!city}
+                styles={customStyles}
+                components={{
+                  IndicatorSeparator: null,
+                  DropdownIndicator: () => <IconSearch />,
+                }}
+              />
+              <ErrorMessage
+                name="deliveryAddress"
+                component="p"
+                className="errorMessage"
+              />
+            </label>
 
-                <label className="labelProfile">
+                {/* <label className="labelProfile">
                   <Input name={"city"} type={"text"} placeholder="Місто" />
 
                   <ErrorMessage
@@ -188,7 +337,7 @@ const ProfileForm = ({ userEmail }) => {
                     name="warehouse"
                     component="div"
                   />
-                </label>
+                </label> */}
               </div>
             </div>
 
