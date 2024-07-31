@@ -1,9 +1,10 @@
 import Modal from "react-modal";
 import { NavLink, useLocation } from "react-router-dom";
-import FavoriteIcon from "../../assets/images/like.svg?react";
-import BasketIcon from "../../assets/images/shopping-bag.svg?react";
-import UserIcon from "../../assets/images/account.svg?react";
-import { routes } from "../../routes";
+import FavoriteIcon from "src/assets/images/like.svg?react";
+import BasketIcon from "src/assets/images/shopping-bag.svg?react";
+import UserIcon from "src/assets/images/account.svg?react";
+import UserIconLoggedIn from "src/assets/images/userLoggedIn.svg?react";
+import { routes } from "src/routes";
 import { ContainerEmptyBasket, StyledUserPanel } from "./Styled";
 import { useAuth } from "src/hooks";
 import { useSelector } from "react-redux";
@@ -57,14 +58,14 @@ const UserPanel = () => {
         </NavLink>
       )}
 
-      {isLoggedIn || isAuthPage ?(
+      {isLoggedIn ? (
         <NavLink className={`userPanelLink ${isAuthPage ? 'active' : ''}`} to={routes.PROFILE}>
           <button className="buttonIcon">
-            <UserIcon className="icon" />
+            <UserIconLoggedIn className="icon" />
           </button>
         </NavLink>
       ) : (
-        <NavLink className="userPanelLink" to={routes.REGISTER}>
+        <NavLink className={`userPanelLink ${isAuthPage ? 'active' : ''}`} to={routes.REGISTER}>
           <button className="buttonIcon">
             <UserIcon className="icon" />
           </button>

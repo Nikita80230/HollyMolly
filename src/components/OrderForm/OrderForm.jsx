@@ -273,7 +273,7 @@ const OrderForm = () => {
               </div>
             </div>
 
-            {user.length > 0 ? (
+            {/* {user.length > 0 ? ( */}
               <button
                 type="button"
                 className="buttonSave"
@@ -281,7 +281,7 @@ const OrderForm = () => {
               >
                 Змінити контактну інформацію
               </button>
-            ) : (
+            {/* ) : (
               <button
                 type="button"
                 className="buttonSave"
@@ -289,7 +289,7 @@ const OrderForm = () => {
               >
                 Зберегти контактну інформацію
               </button>
-            )}
+            )}  */}
 
             <Title title={"Доставка"} />
             <div className="containerIconSpan">
@@ -349,7 +349,7 @@ const OrderForm = () => {
                 className="errorMessage"
               />
             </label>
-            {user.length > 0 ? (
+            {/* {user.length > 0 ? ( */}
               <button
                 type="button"
                 className="buttonSave"
@@ -357,7 +357,7 @@ const OrderForm = () => {
               >
                 Змінити адресу
               </button>
-            ) : (
+            {/* ) : (
               <button
                 type="button"
                 className="buttonSave"
@@ -365,7 +365,7 @@ const OrderForm = () => {
               >
                 Зберегти адресу
               </button>
-            )}
+            )} */}
 
             <Title title={"Оплата"} />
             <div className="containerIconSpan">
