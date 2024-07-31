@@ -20,12 +20,12 @@ export const StyledCategoriesModal = styled.div`
 
     max-width: 882px;
     width: 100%;
-    height: 272px;
+    height: 288px;
 
     padding: 30px 50px 50px 50px;
     border-radius: 10px;
-    box-shadow: ${({theme})=>theme.shadows.boxShadowCategoryModal};
-    background:${({theme})=>theme.colors.primaryBgColor};
+    box-shadow: ${({ theme }) => theme.shadows.boxShadowCategoryModal};
+    background: ${({ theme }) => theme.colors.primaryBgColor};
   }
 
   .categoriesList {
@@ -40,9 +40,9 @@ export const StyledCategoriesModal = styled.div`
     display: flex;
     flex-direction: column;
 
-    max-width: 120px;
+    max-width: 168px;
     width: 100%;
-    height: 162px;
+    height: 208px;
   }
 
   .categoryGroupTitle {
@@ -59,10 +59,7 @@ export const StyledCategoriesModal = styled.div`
   .categoryGroupList {
     display: flex;
     flex-direction: column;
-
-    /* max-height: 89px; */
     height: 100%;
-
     width: 100%;
   }
 
@@ -71,15 +68,21 @@ export const StyledCategoriesModal = styled.div`
     font-size: 30px;
     text-align: center;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
-    transition: font-weight ${({ theme }) => theme.animations.transition};
   }
 
   .subCategoryLink:not(:last-child) {
-    margin-bottom: 15px;
+    margin-bottom: 8px;
   }
 
-  .subCategoryLink:hover,
-  .subCategoryLink:focus {
-    font-weight: 600;
+  .subCategoryLinkContent {
+    border-radius: 8px;
+    padding: 5px 10px;
+    width: 168px;
+    height: 46px;
+    transition: box-shadow ${({ theme }) => theme.animations.transition};
+    &:hover,
+    &:focus {
+      box-shadow: ${({ theme }) => theme.shadows.boxShadowButtonHover};
+    }
   }
 `;
