@@ -14,6 +14,7 @@ import AsyncSelect from "react-select/async";
 import IconSearch from "src/assets/images/search.svg?react";
 import { getNewPostCities } from "src/services/getNewPostCities";
 import { getNewPostWarehouses } from "src/services/getNewPostWarehouses";
+import Calendar from "../Calendar/Calendar";
 
 const customStyles = {
   control: (provided, state) => ({
@@ -243,7 +244,9 @@ const ProfileForm = ({ userEmail }) => {
               </div>
               <div className="containerRight">
                 <label className="labelProfile">
-                  <DatePickerWrapper>
+
+                  <Calendar values={values.dateOfBirth} onBlur={handleBlur} setFieldValue={setFieldValue} />
+                  {/* <DatePickerWrapper>
                     <DatePicker
                       className="styledDatePicker"
                       selected={values.dateOfBirth}
@@ -252,16 +255,16 @@ const ProfileForm = ({ userEmail }) => {
                       id="dateOfBirth"
                       name="dateOfBirth"
                       onBlur={handleBlur}
-                      placeholderText="Дата народження"
-                      // showYearDropdown
-                       locale={uk}
+                      placeholderText="Дата народження" */}
+                     
+                       {/* locale={uk}
                     />
                   </DatePickerWrapper>
                   <ErrorMessage
                     className="errorMessageDate"
                     name="dateOfBirth"
                     component="p"
-                  />
+                  /> */}
                 </label>
                  <label className="labelProfile">
               <AsyncSelect
