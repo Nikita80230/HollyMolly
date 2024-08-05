@@ -15,7 +15,6 @@ import SupportPage from "./pages/SupportPage/SupportPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import ForgotPasswordPage from "./pages/FogotPasswortPage/FogotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage/ResetPasswordPage";
-import ConfirmEmail from "./pages/ConfirmEmailPage/ConfirmEmailPage";
 import TrackingPage from "./pages/TrackingPage/TrackingPage";
 import SizeGuidePage from "./pages/SizeGuidePage/SizeGuidePage";
 import { useAuth } from "./hooks";
@@ -27,6 +26,7 @@ import ProfileShippingAdressesPage from "./pages/ProfileShippingAdressesPage/Pro
 import ProfilePageLayout from "./components/ProfilePageLayout/ProfilePageLayout";
 import SubmitOrderPage from "./pages/SubmitOrderPage/SubmitOrderPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
+import ConfirmEmailPage from "./pages/ConfirmEmailPage/ConfirmEmailPage";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -46,7 +46,7 @@ const appRoutes = [
   },
   {
     path: routes.CONFIRM_EMAIL,
-    element: <ConfirmEmail />,
+    element: <ConfirmEmailPage />,
   },
   {
     path: routes.LOGIN,
@@ -141,6 +141,7 @@ const authPaths = [
   routes.LOGIN,
   routes.FORGOT_PASSWORD,
   routes.RESET_PASSWORD,
+  routes.CONFIRM_EMAIL,
 ];
 
 const profilePaths = [

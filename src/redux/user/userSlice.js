@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createProfile, getProfile, updateProfile } from "./operations";
+import { createProfile, getProfile, updateProfile, updateUserEmail } from "./operations";
 
 const handleGetProfileFulfilled = (state, action) => {
   state.user.email = action.payload.email;
@@ -14,6 +14,11 @@ const handleUpdateProfile = (state, action) => {
 const handleCreateProfile = (state, action) => {
   state.profiles = action.payload;
   
+}
+
+const handleUpdateEmailFulfilled = (state, action) => {
+  console.log(action.payload);
+   state.user = {...state.user, ...action.payload}
 }
 
 const initialState = {
@@ -31,7 +36,11 @@ const userSlice = createSlice({
     builder
       .addCase(getProfile.fulfilled, handleGetProfileFulfilled)
       .addCase(updateProfile.fulfilled, handleUpdateProfile)
-    .addCase(createProfile.fulfilled, handleCreateProfile);
+      .addCase(createProfile.fulfilled, handleCreateProfile)
+      .addCase(updateUserEmail.fulfilled, handleUpdateEmailFulfilled)
+     .addCase(updateUserEmail.rejected, (state, action) => {
+        console.error("Помилка при оновленні електронної пошти:", action.payload);
+      });
   },
 });
 

@@ -33,13 +33,7 @@ export const updateProfile = createAsyncThunk(
       const res = await axios.put(`/api/Account/profiles/${profileId}`, user);
       return res.data;
     } catch (error) {
-      toast(
-        "Щось пішло не так. Впевніться, що всі дані вірні та спробуйте ще раз",
-        {
-          duration: 4000,
-          position: "top-center",
-        }
-      );
+      
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -53,14 +47,22 @@ export const createProfile = createAsyncThunk(
 
       return res.data;
     } catch (error) {
-      toast(
-        "Щось пішло не так. Впевніться, що всі дані вірні та спробуйте ще раз",
-        {
-          duration: 4000,
-          position: "top-center",
-        }
-      );
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateUserEmail = createAsyncThunk(
+  "user/updateUserEmail",
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.put("/api/Account/profile/email?sendEmail=true", {
+        email: credentials.email,
+      });
+
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response?.data || error.message);
     }
   }
 );
