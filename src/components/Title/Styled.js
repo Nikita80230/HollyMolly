@@ -1,8 +1,6 @@
 import { styled } from "styled-components";
 
 export const StyledTitle = styled.h2`
-/* margin-top:36px;
-margin-bottom:36px; */
 margin-right:400px;
   font-family: ${({ theme }) => theme.fonts.familyPacifico};
   font-weight: 400;

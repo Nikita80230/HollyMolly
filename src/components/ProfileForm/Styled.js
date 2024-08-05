@@ -29,7 +29,7 @@ export const StyledForm = styled(Form)`
   .labelProfile {
     /* width: 390px; */
     height: 60px;
-    /* position: relative; */
+    position: relative;
   }
 
   .errorMessageProfile {

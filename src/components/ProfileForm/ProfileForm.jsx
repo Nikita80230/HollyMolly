@@ -1,10 +1,10 @@
 import { ErrorMessage, Field, Formik } from "formik";
 import { DatePickerWrapper, StyledForm } from "./Styled";
 import DatePicker from "react-datepicker";
-import { uk } from 'date-fns/locale';
+import { uk } from "date-fns/locale";
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from "react-redux";
-import { updateProfile } from "src/redux/user/operations";
+import { updateProfile, updateUserEmail } from "src/redux/user/operations";
 import { selectProfiles } from "src/redux/user/selectors";
 import { ProfileSchema } from "src/schemas/ProfileSchema";
 import Input from "../Input/Input";
@@ -15,6 +15,10 @@ import IconSearch from "src/assets/images/search.svg?react";
 import { getNewPostCities } from "src/services/getNewPostCities";
 import { getNewPostWarehouses } from "src/services/getNewPostWarehouses";
 import Calendar from "../Calendar/Calendar";
+import { toast } from "react-hot-toast";
+import NotificationCustom from "../NotificationCustom/NotificationCustom";
+import Modal from "react-modal";
+import ModalNotification from "../ModalNotification/ModalNotification";
 
 const customStyles = {
   control: (provided, state) => ({
@@ -78,7 +82,7 @@ const customStyles = {
 const ProfileForm = ({ userEmail }) => {
   const dispatch = useDispatch();
   const profiles = useSelector(selectProfiles);
-  
+
   const initialCity = profiles?.[0]?.city
     ? { value: profiles[0].city, label: profiles[0].city }
     : null;
@@ -113,8 +117,20 @@ const ProfileForm = ({ userEmail }) => {
           city: "",
           warehouse: "",
           dateOfBirth: "",
-      };
-  
+        };
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+    document.body.style.overflow = "";
+  }
+
   const loadOptions = async (inputValue) => {
     try {
       const response = await getNewPostCities(inputValue);
@@ -149,19 +165,76 @@ const ProfileForm = ({ userEmail }) => {
     }
   };
 
+  const handleSubmit = async (values) => {
+    try {
+      const updatedValues = {
+        ...values,
+        dateOfBirth: values.dateOfBirth
+          ? values.dateOfBirth.toISOString().split("T")[0]
+          : null,
+      };
 
-  const handleSubmit = (values) => {
-    const updatedValues = {
-      ...values,
+      if (profiles && profiles.length > 0) {
+        const profileUpdateResult = await dispatch(
+          updateProfile({ user: updatedValues, profileId: profiles[0].id })
+        );
 
-      dateOfBirth: values.dateOfBirth
-        ? values.dateOfBirth.toISOString().split("T")[0]
-        : null,
-    };
+        if (profileUpdateResult.payload) {
+          toast.custom(
+            <div className="custom-toast">
+              <NotificationCustom title={"Дані збережено."} />
+            </div>,
+            {
+              duration: 2000,
+            }
+          );
+        } else if (profileUpdateResult.error) {
+          toast.custom(
+            <div className="custom-toast">
+              <NotificationCustom title={"Сталася помилка"} />
+            </div>,
+            {
+              duration: 5000,
+            }
+          );
+          throw new Error(
+            profileUpdateResult.error.message || "Failed to update profile"
+          );
+        }
+      }
 
-    if (profiles && profiles.length > 0) {
-      dispatch(
-        updateProfile({ user: updatedValues, profileId: profiles[0].id })
+      let emailUpdateResult;
+      if (values.email !== initialValues.email) {
+        emailUpdateResult = await dispatch(
+          updateUserEmail({ email: values.email })
+        );
+
+        if (emailUpdateResult.payload === "") {
+          openModal();
+        } else if (emailUpdateResult.error) {
+          toast.custom(
+            <div className="custom-toast">
+              <NotificationCustom
+                title={"Користувач з таким email вже існує"}
+              />
+            </div>,
+            {
+              duration: 5000,
+            }
+          );
+          throw new Error(
+            emailUpdateResult.error.message || "Failed to update email"
+          );
+        }
+      }
+    } catch (error) {
+      toast.custom(
+        <div className="custom-toast">
+          <NotificationCustom title={"Сталася помилка"} />
+        </div>,
+        {
+          duration: 5000,
+        }
       );
     }
   };
@@ -234,7 +307,7 @@ const ProfileForm = ({ userEmail }) => {
                   />
                 </label>
                 <label className="labelProfile">
-                  <Input name={"email"} type={"email"} readOnly={true} />
+                  <Input name={"email"} type={"email"} />
                   <ErrorMessage
                     className="errorMessageProfile"
                     name="email"
@@ -244,8 +317,11 @@ const ProfileForm = ({ userEmail }) => {
               </div>
               <div className="containerRight">
                 <label className="labelProfile">
-
-                  <Calendar values={values.dateOfBirth} onBlur={handleBlur} setFieldValue={setFieldValue} />
+                  <Calendar
+                    values={values.dateOfBirth}
+                    onBlur={handleBlur}
+                    setFieldValue={setFieldValue}
+                  />
                   {/* <DatePickerWrapper>
                     <DatePicker
                       className="styledDatePicker"
@@ -255,68 +331,70 @@ const ProfileForm = ({ userEmail }) => {
                       id="dateOfBirth"
                       name="dateOfBirth"
                       onBlur={handleBlur}
-                      placeholderText="Дата народження" */}
-                     
-                       {/* locale={uk}
+                      placeholderText="Дата народження"
+                      locale={uk}
                     />
-                  </DatePickerWrapper>
+                  </DatePickerWrapper> */}
                   <ErrorMessage
                     className="errorMessageDate"
                     name="dateOfBirth"
                     component="p"
-                  /> */}
+                  />
                 </label>
-                 <label className="labelProfile">
-              <AsyncSelect
-                name="city"
-                id="city"
-                placeholder="Місто"
-                loadOptions={loadOptions}
-                onChange={(option) => {
-                  setCity(option);
-                  setFieldValue("city", option ? option.value : "");
-                }}
-                value={city}
-                isClearable
-                styles={customStyles}
-                components={{
-                  IndicatorSeparator: null,
-                  DropdownIndicator: () => <IconSearch />,
-                }}
-              />
-              <ErrorMessage
-                name="city"
-                component="p"
-                className="errorMessage"
-              />
-            </label>
-            <label className="labelProfile">
-              <AsyncSelect
-                name="warehouse"
-                id="warehouse"
-                placeholder="Відділення"
-                loadOptions={(inputValue) =>
-                  loadOptionsWarehouses(inputValue, city ? city.value : "")
-                }
-                onChange={(option) => {
-                  setWarehouse(option);
-                  setFieldValue("deliveryAddress", option ? option.value : "");
-                }}
-                value={warehouse}
-                isClearable
-                isDisabled={!city}
-                styles={customStyles}
-                components={{
-                  IndicatorSeparator: null,
-                  DropdownIndicator: () => <IconSearch />,
-                }}
-              />
-              <ErrorMessage
-                name="deliveryAddress"
-                component="p"
-                className="errorMessage"
-              />
-            </label>
+                <label className="labelProfile">
+                  <AsyncSelect
+                    name="city"
+                    id="city"
+                    placeholder="Місто"
+                    loadOptions={loadOptions}
+                    onChange={(option) => {
+                      setCity(option);
+                      setFieldValue("city", option ? option.value : "");
+                    }}
+                    value={city}
+                    isClearable
+                    styles={customStyles}
+                    components={{
+                      IndicatorSeparator: null,
+                      DropdownIndicator: () => <IconSearch />,
+                    }}
+                  />
+                  <ErrorMessage
+                    name="city"
+                    component="p"
+                    className="errorMessage"
+                  />
+                </label>
+                <label className="labelProfile">
+                  <AsyncSelect
+                    name="warehouse"
+                    id="warehouse"
+                    placeholder="Відділення"
+                    loadOptions={(inputValue) =>
+                      loadOptionsWarehouses(inputValue, city ? city.value : "")
+                    }
+                    onChange={(option) => {
+                      setWarehouse(option);
+                      setFieldValue(
+                        "deliveryAddress",
+                        option ? option.value : ""
+                      );
+                    }}
+                    value={warehouse}
+                    isClearable
+                    isDisabled={!city}
+                    styles={customStyles}
+                    components={{
+                      IndicatorSeparator: null,
+                      DropdownIndicator: () => <IconSearch />,
+                    }}
+                  />
+                  <ErrorMessage
+                    name="deliveryAddress"
+                    component="p"
+                    className="errorMessage"
+                  />
+                </label>
 
                 {/* <label className="labelProfile">
                   <Input name={"city"} type={"text"} placeholder="Місто" />
@@ -348,6 +426,21 @@ const ProfileForm = ({ userEmail }) => {
           </StyledForm>
         )}
       </Formik>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        ariaHideApp={false}
+        className="modal-content-register"
+        overlayClassName="modal-overlay"
+        contentLabel="Modal"
+      >
+        <ModalNotification
+          message={
+            "Щоб підтвердити зміну email, перейдіть за посиланням з поштової скриньки."
+          }
+          closeModal={closeModal}
+        />
+      </Modal>
     </>
   );
 };

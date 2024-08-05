@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom";
+import TitleAuth from "src/components/TitleAuth/TitleAuth";
 import { routes } from "src/routes";
 import { WrapperConfirm } from "./Styled";
 
-const ConfirmEmail = () => {
+const ConfirmEmailPage = () => {
   return (
     <WrapperConfirm>
-      <h1>Ваша пошта підтверджена</h1>
-      <p>
-        Щоб продовжити <Link to={routes.LOGIN}>Авторизуйтесь, будь ласка</Link>
+      <TitleAuth title={"Ваша пошта підтверджена"} />
+      <p className="description">
+        Щоб продовжити{" "}
+        <Link to={routes.LOGIN} className="link">
+          Авторизуйтесь
+        </Link>
+        , будь ласка
       </p>
     </WrapperConfirm>
   );
 };
 
-export default ConfirmEmail;
+export default ConfirmEmailPage;

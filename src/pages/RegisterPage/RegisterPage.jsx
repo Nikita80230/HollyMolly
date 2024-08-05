@@ -12,11 +12,11 @@ const RegisterPage = () => {
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate(routes.HOME);
-    }
-  }, [isLoggedIn]);
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     navigate(routes.HOME);
+  //   }
+  // }, [isLoggedIn]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
