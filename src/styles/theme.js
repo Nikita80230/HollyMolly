@@ -7,7 +7,7 @@ export const theme = {
     primaryTxtColor: "#100503",
     secondaryTxtColor: "#c4c4c4",
     whiteTxtColor: "#fff",
-    greyTxtColor:"#727273",
+    greyTxtColor: "#727273",
     placeholderTxtColor: "#c4c4c4",
     cardBorderColor: "#fff6e7",
     accentColor: "#e85a50",
@@ -28,9 +28,7 @@ export const theme = {
     colorSuccess: "#349920",
     borderProductPhoto: "#fff6e7",
     placeholderReview: " #727273",
-    hoverCalendar:"#fff6e7",
-    
-    
+    hoverCalendar: "#fff6e7",
 
     colorLogo: "#6b5034",
     colorLink: "#4169e1",
@@ -156,13 +154,12 @@ export const theme = {
 
   fonts: {
     familyPacifico: "Pacifico",
-    familyGaramond: "EBGaramond-Variable",
+    familyGaramond: "EB Garamond",
     familyDidact: "Didact Gothic",
   },
 
   animations: {
     transition: "300ms cubic-bezier(0.4, 0, 0.2, 1)",
-    
   },
   shadows: {
     boxShadowAuth: "0 8px 32px 0 rgba(0, 0, 0, 0.32)",
@@ -170,6 +167,6 @@ export const theme = {
     boxShadowCategoryModal: "10px 10px 20px 0 #a88465",
     boxShadowButtonHover: "5px 5px 5px 0 #a5a4a4",
     boxShadowLeaveReview: "5px 5px 10px 0 #c0bfbf",
-    boxShadowCalendar:"0 1px 4px 0 rgba(0, 0, 0, 0.25)",
+    boxShadowCalendar: "0 1px 4px 0 rgba(0, 0, 0, 0.25)",
   },
 };

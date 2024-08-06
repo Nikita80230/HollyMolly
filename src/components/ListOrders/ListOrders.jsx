@@ -2,6 +2,7 @@ import { parseISO } from "date-fns";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import { StyledListOrders } from "./Styled";
+import { routes } from "src/routes";
 
 const ListOrders = ({ orders }) => {
   // const orders = useSelector(selectMyOrders);
@@ -19,7 +20,6 @@ const ListOrders = ({ orders }) => {
                 {order.status === "Created" && (
                   <div
                     className="wrapperStatus"
-
                     style={{ background: "#fff6e7" }}
                   >
                     <span className="spanStatus">Очікує оплату</span>
@@ -31,7 +31,6 @@ const ListOrders = ({ orders }) => {
                     style={{ background: "#e2edf4" }}
                   >
                     <span className="spanStatus">Сплачено</span>
-
                   </div>
                 )}
               </div>
@@ -42,7 +41,13 @@ const ListOrders = ({ orders }) => {
                 <span className="price">
                   Загальна сума: {order.totalCost} ₴
                 </span>
-                <Link className="link">Деталі замовлення</Link>
+                <Link
+                  className="detailsButton link"
+                  to={`${routes.ORDER_DETAILS}/${order.id}`}
+                  // onClick={() => handleOpenOrderDetails(order)}
+                >
+                  Деталі замовлення
+                </Link>
               </div>
             </li>
           ))}

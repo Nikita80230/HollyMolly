@@ -23,13 +23,11 @@ export const WrapperCard = styled.div`
     }
   }
 
- .iconHeart.added {
+  .iconHeart.added {
     path {
       fill: ${({ theme }) => theme.colors.accentColor};
     }
   }
-
-  
 
   .wrapperColorFavorite {
     display: flex;
@@ -129,16 +127,16 @@ export const WrapperCard = styled.div`
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
-   .price::after {
-  content: '';
-  position: absolute;
-  top: 58%;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: ${({ theme }) => theme.colors.primaryTxtColor}; 
-  transform: translateY(-50%);
-}
+  .price::after {
+    content: "";
+    position: absolute;
+    top: 58%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: ${({ theme }) => theme.colors.primaryTxtColor};
+    transform: translateY(-50%);
+  }
 
   .priceAfterDiscount {
     font-family: ${({ theme }) => theme.fonts.familyPacifico};
@@ -180,4 +178,3 @@ export const WrapperCard = styled.div`
     border: transparent;
   }
 `;
-

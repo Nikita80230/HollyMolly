@@ -7,7 +7,7 @@ export const getMyOrders = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await axios.get("/api/Orders/myOrders");
-       return res.data;
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -21,7 +21,7 @@ export const createOrder = createAsyncThunk(
       const res = await axios.post("/api/Orders?sendEmail=true", credentials);
       return res.data;
 
-      return res.data;
+      // return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

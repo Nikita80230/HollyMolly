@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { routes } from "./routes";
 import PageLayout from "./components/PageLayout/PageLayout";
 import Loader from "./components/Loader/Loader";
@@ -26,7 +26,13 @@ import ProfileShippingAdressesPage from "./pages/ProfileShippingAdressesPage/Pro
 import ProfilePageLayout from "./components/ProfilePageLayout/ProfilePageLayout";
 import SubmitOrderPage from "./pages/SubmitOrderPage/SubmitOrderPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
+
+import OrderDetailsPage from "./pages/OrderDetailsPage/OrderDetailsPage";
+import { selectIsLoggedIn } from "./redux/auth/selectors";
+import { getMyOrders } from "./redux/orders/operations";
+
 import ConfirmEmailPage from "./pages/ConfirmEmailPage/ConfirmEmailPage";
+
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -134,6 +140,14 @@ const appRoutes = [
       </PrivateRoute>
     ),
   },
+  {
+    path: `${routes.ORDER_DETAILS}/:id`,
+    element: (
+      <PrivateRoute>
+        <OrderDetailsPage />
+      </PrivateRoute>
+    ),
+  },
 ];
 
 const authPaths = [
@@ -148,11 +162,13 @@ const profilePaths = [
   routes.PROFILE,
   routes.MY_ORDERS,
   routes.SHIPPING_ADDRESSES,
+  routes.ORDER_DETAILS,
 ];
 
 export const App = () => {
   const dispatch = useDispatch();
   const location = useLocation();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const urlParams = new URLSearchParams(location.search);
   const token = urlParams.get("token");
   const { isRefreshing } = useAuth();
@@ -164,61 +180,68 @@ export const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
+    if (isLoggedIn) dispatch(getMyOrders());
+  }, [dispatch, isLoggedIn]);
+
+  useEffect(() => {
     if (token && !pathname.includes("password-reset") && !userId) {
       dispatch(authGoogle({ token }));
     }
   }, [dispatch, token, pathname, userId]);
 
   const isAuthPage = authPaths.includes(location.pathname);
-  const isProfilePage = profilePaths.includes(location.pathname);
+  const isProfilePage = profilePaths.some((profilePath) =>
+    location.pathname.includes(profilePath)
+  );
+
+  if (isRefreshing) {
+    return <Loader />;
+  }
+  if (isAuthPage) {
+    return (
+      <AuthPageLayout>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            {appRoutes.map((route) => (
+              <Route
+                path={route.path}
+                element={route.element}
+                key={route.path}
+              />
+            ))}
+          </Routes>
+        </Suspense>
+      </AuthPageLayout>
+    );
+  }
+
+  if (isProfilePage) {
+    return (
+      <ProfilePageLayout>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            {appRoutes.map((route) => (
+              <Route
+                path={route.path}
+                element={route.element}
+                key={route.path}
+              />
+            ))}
+          </Routes>
+        </Suspense>
+      </ProfilePageLayout>
+    );
+  }
 
   return (
-    <>
-      {isRefreshing ? (
-        <Loader />
-      ) : isAuthPage ? (
-        <AuthPageLayout>
-          <Suspense fallback={<Loader />}>
-            <Routes>
-              {appRoutes.map((route) => (
-                <Route
-                  path={route.path}
-                  element={route.element}
-                  key={route.path}
-                />
-              ))}
-            </Routes>
-          </Suspense>
-        </AuthPageLayout>
-      ) : isProfilePage ? (
-        <ProfilePageLayout>
-          <Suspense fallback={<Loader />}>
-            <Routes>
-              {appRoutes.map((route) => (
-                <Route
-                  path={route.path}
-                  element={route.element}
-                  key={route.path}
-                />
-              ))}
-            </Routes>
-          </Suspense>
-        </ProfilePageLayout>
-      ) : (
-        <PageLayout>
-          <Suspense fallback={<Loader />}>
-            <Routes>
-              {appRoutes.map((route) => (
-                <Route
-                  path={route.path}
-                  element={route.element}
-                  key={route.path}
-                />
-              ))}
-            </Routes>
-          </Suspense>
-        </PageLayout>
-      )}
-    </>
+    <PageLayout>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          {appRoutes.map((route) => (
+            <Route path={route.path} element={route.element} key={route.path} />
+          ))}
+        </Routes>
+      </Suspense>
+    </PageLayout>
   );
 };
