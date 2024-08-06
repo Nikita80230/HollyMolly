@@ -36,8 +36,8 @@ export const ProfileSchema = yup.object().shape({
     .matches(
       /^[A-Za-z0-9-_.+]{1,50}@(?=.{4,50}$)[A-Za-z0-9][A-Za-z0-9-.]*\.[A-Za-z0-9]{2,}$/,
       "\u2716 Невірно вказано email"
-    ),
-    // .required("\u2716 Це поле обов'язкове"),
+    )
+    .required("\u2716 Це поле обов'язкове"),
   phoneNumber: yup
     .string()
     .matches(
