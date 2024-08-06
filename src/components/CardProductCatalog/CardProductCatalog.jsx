@@ -14,7 +14,7 @@ import defaultPhoto from "src/assets/images/defaultImg.webp";
 import { useAuth } from "src/hooks";
 
 const CardProductCatalog = ({ product, sortType, borderColor }) => {
-   const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   const location = useLocation();
   const params = useParams();
@@ -25,7 +25,6 @@ const CardProductCatalog = ({ product, sortType, borderColor }) => {
   );
 
   const handleAddToFavorite = () => {
-   
     dispatch(toggleFavoriteProducts({ ...product, borderColor }));
   };
 
@@ -100,12 +99,13 @@ const CardProductCatalog = ({ product, sortType, borderColor }) => {
             handleClick={handleClick}
             activeColorId={activeColorId}
           />
-          {isLoggedIn &&
+          {isLoggedIn && (
             <button className="buttonIcon" onClick={handleAddToFavorite}>
               <HeartIcon
                 className={`iconHeart ${isProductInFavorite ? "added" : ""} `}
               />
-            </button>}
+            </button>
+          )}
         </div>
 
         {percentageDiscount && (

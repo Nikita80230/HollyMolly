@@ -22,7 +22,7 @@ const ProfileAside = () => {
           </li>
           <li>
             {" "}
-            <NavLink className="linkAside" to={routes.MY_ORDERS} end>
+            <NavLink className="linkAside" to={routes.MY_ORDERS}>
               <div className="wrapperLink">
                 <span>Мої замовлення</span>
               </div>

@@ -7,7 +7,7 @@ import { WrapperProfileOrdersPage } from "./Styled";
 import SearchOrderInput from "src/components/SearchOrderInput/SearchOrderInput";
 import { selectMyOrders } from "src/redux/orders/selectors";
 import SortOrdersPanel from "src/components/SortOrdersPanel/SortOrdersPanel";
-
+import { useLocation } from "react-router-dom";
 
 const ProfileOrdersPage = () => {
   const dispatch = useDispatch();
@@ -70,27 +70,23 @@ const ProfileOrdersPage = () => {
 
   const sortedOrders = handleSorting(selectedSortCriteria, filteredOrdersArray);
 
-  console.log(
-    "handleSorting(selectedSortCriteria, filteredOrdersArray)->>",
-    handleSorting(selectedSortCriteria)
-  );
-
   useEffect(() => {
     dispatch(getMyOrders());
   }, [dispatch]);
 
   return (
     <WrapperProfileOrdersPage>
-      <SearchOrderInput
-        onSearchInputChange={onSearchInputChange}
-        searchInputValue={searchInputValue}
-      />
-      <SortOrdersPanel
-        handleSelectCriteria={handleSelectCriteria}
-        selectedSortCriteria={selectedSortCriteria}
-      />
-      <ListOrders orders={sortedOrders} />
-
+      <div className="ordersList">
+        <SearchOrderInput
+          onSearchInputChange={onSearchInputChange}
+          searchInputValue={searchInputValue}
+        />
+        <SortOrdersPanel
+          handleSelectCriteria={handleSelectCriteria}
+          selectedSortCriteria={selectedSortCriteria}
+        />
+        <ListOrders orders={sortedOrders} />
+      </div>
     </WrapperProfileOrdersPage>
   );
 };

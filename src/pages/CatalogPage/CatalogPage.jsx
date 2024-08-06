@@ -10,7 +10,10 @@ import SortingPanel from "src/components/SortingPanel/SortingPanel";
 import FiltersPanel from "src/components/FiltersPanel/FiltersPanel";
 import ProductsGrid from "src/components/ProductsGrid/ProductsGrid";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { getAllProducts, getProductsByCurrentCategory } from "src/redux/products/operations";
+import {
+  getAllProducts,
+  getProductsByCurrentCategory,
+} from "src/redux/products/operations";
 import { selectFilters, toggleFilter } from "src/redux/filters/filtersSlice";
 import {
   selectCategoryColors,
@@ -103,7 +106,7 @@ const CatalogPage = () => {
     "#eff9f1",
     "#f9eff5",
   ];
-  
+
   useEffect(() => {
     dispatch(getProductsByCurrentCategory({ categoryGroupId, categoryId }));
     setCurrentPage(1);
@@ -134,7 +137,7 @@ const CatalogPage = () => {
     setCurrentPage(1);
   }, [location]);
 
-  // =======================================================================================
+  // ========================================z===============================================
 
   // useEffect(() => {
   //       dispatch(getAllProducts());

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 
 axios.defaults.baseURL = "https://teamchallenge-001-site1.ktempurl.com";
 
@@ -83,7 +84,7 @@ export const authGoogle = createAsyncThunk(
 
       setAuthHeader(res.data.token);
       console.log("res.data authGoogleRedux", res.data);
-       return res.data;
+      return res.data;
     } catch (error) {
       toast.error("Потрібно авторизуватись");
       return thunkAPI.rejectWithValue(error.message);

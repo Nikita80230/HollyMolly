@@ -27,15 +27,20 @@ const ProductCard = ({ product, index }) => {
     dispatch(toggleFavoriteProducts(product));
   };
 
-  const colors = ['#fff6e7', '#e2edf4', '#eff9f1', '#f9eff5'];
+  const colors = ["#fff6e7", "#e2edf4", "#eff9f1", "#f9eff5"];
   const borderColor = colors[index % colors.length];
 
   return (
     <StyledProductCard>
-      <img className="productImg" src={cardImg} alt="product's photo" style={{ border: `3px solid ${borderColor}` }} />
-        <h4 className="productTitle">{product.name}</h4>
+      <img
+        className="productImg"
+        src={cardImg}
+        alt="product's photo"
+        style={{ border: `3px solid ${borderColor}` }}
+      />
+      <h4 className="productTitle">{product.name}</h4>
       <div className="productInfoWrapper">
-         <ColorSwitcher />
+        <ColorSwitcher />
         <button
           className="addToFavoriteButton"
           type="button"
@@ -47,10 +52,10 @@ const ProductCard = ({ product, index }) => {
             }`}
           />
         </button>
-</div>
-        <span className="productPrice">
-          {product.productsInstances[0].price}₴
-        </span>
+      </div>
+      <span className="productPrice">
+        {product.productsInstances[0].price}₴
+      </span>
     </StyledProductCard>
   );
 };
