@@ -1,9 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { register, logIn, logOutAllDevices, refreshUser, authGoogle } from "./operations";
+import {
+  register,
+  logIn,
+  logOutAllDevices,
+  refreshUser,
+  authGoogle,
+  updateUserEmail,
+} from "./operations";
 
 const handelRegisterFulfilled = (state, action) => {
   state.user = action.payload.userEmail;
-  
 };
 
 const handelLoginFulfilled = (state, action) => {
@@ -11,8 +17,7 @@ const handelLoginFulfilled = (state, action) => {
   state.token = action.payload.accessToken;
   state.refreshToken = action.payload.refreshToken;
   state.isLoggedIn = true;
-  state.rememberMe = action.payload.rememberMe; 
-  
+  state.rememberMe = action.payload.rememberMe;
 };
 
 const handelLogOutAllDevicesFulfilled = (state) => {
@@ -20,20 +25,17 @@ const handelLogOutAllDevicesFulfilled = (state) => {
   state.token = null;
   state.refreshToken = null;
   state.isLoggedIn = false;
-  state.rememberMe = false; 
-   
+  state.rememberMe = false;
 };
 
 const handelRefreshUserPending = (state) => {
   state.isRefreshing = true;
-
 };
 
 const handelRefreshUserFulfilled = (state, action) => {
   state.user = action.payload.userEmail;
   state.token = action.payload.accessToken;
   state.refreshToken = action.payload.refreshToken;
-  // state.isLoggedIn = true;
   state.isRefreshing = false;
 };
 
@@ -46,7 +48,11 @@ const handleAuthGoogleFulfilled = (state, action) => {
   state.token = action.payload.accessToken;
   state.refreshToken = action.payload.refreshToken;
   state.isLoggedIn = true;
- state.rememberMe = action.payload.rememberMe; 
+  state.rememberMe = action.payload.rememberMe;
+};
+
+const handleUpdateEmailFulfilled = (state, action) => {
+  state.user = { ...state.user, ...action.payload };
 };
 
 const initialState = {
@@ -55,21 +61,19 @@ const initialState = {
   refreshToken: null,
   isLoggedIn: false,
   isRefreshing: false,
-  rememberMe:false,
+  rememberMe: false,
 };
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-     logOut: (state) => {
+    logOut: (state) => {
       state.token = null;
-  state.refreshToken = null;
-  state.isLoggedIn = false;
-  state.rememberMe = false; 
-      
+      state.refreshToken = null;
+      state.isLoggedIn = false;
+      state.rememberMe = false;
     },
-   
   },
   extraReducers: (builder) => {
     builder
@@ -79,7 +83,8 @@ const authSlice = createSlice({
       .addCase(refreshUser.pending, handelRefreshUserPending)
       .addCase(refreshUser.fulfilled, handelRefreshUserFulfilled)
       .addCase(refreshUser.rejected, handelRefreshUserRejected)
-      .addCase(authGoogle.fulfilled, handleAuthGoogleFulfilled);
+      .addCase(authGoogle.fulfilled, handleAuthGoogleFulfilled)
+      .addCase(updateUserEmail.fulfilled, handleUpdateEmailFulfilled);
   },
 });
 

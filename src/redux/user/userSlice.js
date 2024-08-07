@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createProfile, getProfile, updateProfile, updateUserEmail } from "./operations";
+import { createProfile, getProfile, updateProfile } from "./operations";
 
 const handleGetProfileFulfilled = (state, action) => {
   state.user.email = action.payload.email;
@@ -8,18 +8,15 @@ const handleGetProfileFulfilled = (state, action) => {
 };
 
 const handleUpdateProfile = (state, action) => {
-  state.profiles = { ...state.profiles, ...action.payload.profile };
+  const updatedProfile = action.payload;
+  state.profiles = state.profiles.map((profile) =>
+    profile.id === updatedProfile.id ? updatedProfile : profile
+  );
 };
 
 const handleCreateProfile = (state, action) => {
   state.profiles = action.payload;
-  
-}
-
-const handleUpdateEmailFulfilled = (state, action) => {
-  console.log(action.payload);
-   state.user = {...state.user, ...action.payload}
-}
+};
 
 const initialState = {
   user: {
@@ -36,11 +33,7 @@ const userSlice = createSlice({
     builder
       .addCase(getProfile.fulfilled, handleGetProfileFulfilled)
       .addCase(updateProfile.fulfilled, handleUpdateProfile)
-      .addCase(createProfile.fulfilled, handleCreateProfile)
-      .addCase(updateUserEmail.fulfilled, handleUpdateEmailFulfilled)
-     .addCase(updateUserEmail.rejected, (state, action) => {
-        console.error("Помилка при оновленні електронної пошти:", action.payload);
-      });
+      .addCase(createProfile.fulfilled, handleCreateProfile);
   },
 });
 

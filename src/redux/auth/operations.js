@@ -83,11 +83,28 @@ export const authGoogle = createAsyncThunk(
       const res = await axios.post("/api/Account/login/google", credentials);
 
       setAuthHeader(res.data.token);
-      console.log("res.data authGoogleRedux", res.data);
+
+     
+       return res.data;
+
+    } catch (error) {
+     
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateUserEmail = createAsyncThunk(
+  "auth/updateUserEmail",
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.put("/api/Account/profile/email?sendEmail=true", {
+        email: credentials.email,
+      });
+
       return res.data;
     } catch (error) {
-      toast.error("Потрібно авторизуватись");
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response?.data || error.message);
     }
   }
 );
