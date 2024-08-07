@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 
 axios.defaults.baseURL = "https://teamchallenge-001-site1.ktempurl.com";
 
@@ -82,8 +83,10 @@ export const authGoogle = createAsyncThunk(
       const res = await axios.post("/api/Account/login/google", credentials);
 
       setAuthHeader(res.data.token);
+
      
        return res.data;
+
     } catch (error) {
      
       return thunkAPI.rejectWithValue(error.message);

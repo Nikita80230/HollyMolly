@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
          url("/fonts/EBGaramond-Regular.woff") format("woff"),
          url("/fonts/EBGaramond-Regular.woff2") format("woff2");
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  /* font-weight: <weight>; */
   font-style: normal;
 } 
 

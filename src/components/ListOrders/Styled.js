@@ -9,7 +9,7 @@ export const StyledListOrders = styled.ul`
     padding: 28px 30px;
     border: 1px solid ${({ theme }) => theme.colors.borderColor};
     border-radius: 10px;
-    width: 926px;
+    width: 100%;
     height: 184px;
     display: flex;
     flex-direction: column;
