@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import { uk } from "date-fns/locale";
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from "react-redux";
-import { updateProfile, updateUserEmail } from "src/redux/user/operations";
+import { createProfile, updateProfile } from "src/redux/user/operations";
 import { selectProfiles } from "src/redux/user/selectors";
 import { ProfileSchema } from "src/schemas/ProfileSchema";
 import Input from "../Input/Input";
@@ -19,6 +19,10 @@ import { toast } from "react-hot-toast";
 import NotificationCustom from "../NotificationCustom/NotificationCustom";
 import Modal from "react-modal";
 import ModalNotification from "../ModalNotification/ModalNotification";
+import { useNavigate } from "react-router-dom";
+import { routes } from "src/routes";
+import { updateUserEmail } from "src/redux/auth/operations";
+import { logOut } from "src/redux/auth/authSlice";
 
 const customStyles = {
   control: (provided, state) => ({
@@ -82,6 +86,8 @@ const customStyles = {
 const ProfileForm = ({ userEmail }) => {
   const dispatch = useDispatch();
   const profiles = useSelector(selectProfiles);
+  const navigate = useNavigate();
+  console.log(profiles);
 
   const initialCity = profiles?.[0]?.city
     ? { value: profiles[0].city, label: profiles[0].city }
@@ -129,6 +135,8 @@ const ProfileForm = ({ userEmail }) => {
   function closeModal() {
     setIsOpen(false);
     document.body.style.overflow = "";
+    dispatch(logOut());
+    navigate(routes.LOGIN);
   }
 
   const loadOptions = async (inputValue) => {
@@ -174,37 +182,42 @@ const ProfileForm = ({ userEmail }) => {
           : null,
       };
 
+      if (!profiles || !profiles.length) {
+        await dispatch(createProfile(updatedValues));
+      }
+
       if (profiles && profiles.length > 0) {
-        const profileUpdateResult = await dispatch(
+        await dispatch(
           updateProfile({ user: updatedValues, profileId: profiles[0].id })
         );
 
-        if (profileUpdateResult.payload) {
-          toast.custom(
-            <div className="custom-toast">
-              <NotificationCustom title={"Дані збережено."} />
-            </div>,
-            {
-              duration: 2000,
-            }
-          );
-        } else if (profileUpdateResult.error) {
-          toast.custom(
-            <div className="custom-toast">
-              <NotificationCustom title={"Сталася помилка"} />
-            </div>,
-            {
-              duration: 5000,
-            }
-          );
-          throw new Error(
-            profileUpdateResult.error.message || "Failed to update profile"
-          );
-        }
+        //   if (profileUpdateResult.payload) {
+        //     toast.custom(
+        //       <div className="custom-toast">
+        //         <NotificationCustom title={"Дані збережено."} />
+        //       </div>,
+        //       {
+        //         duration: 2000,
+        //       }
+        //     );
+        //   } else if (profileUpdateResult.error) {
+        //     toast.custom(
+        //       <div className="custom-toast">
+        //         <NotificationCustom title={"Сталася помилка"} />
+        //       </div>,
+        //       {
+        //         duration: 5000,
+        //       }
+        //     );
+        //     throw new Error(
+        //       profileUpdateResult.error.message || "Failed to update profile"
+        //     );
+        //   }
       }
 
       let emailUpdateResult;
       if (values.email !== initialValues.email) {
+        // if (!isOnlyEmailChanged) {
         emailUpdateResult = await dispatch(
           updateUserEmail({ email: values.email })
         );
@@ -255,7 +268,7 @@ const ProfileForm = ({ userEmail }) => {
           : null
       );
     }
-  }, [profiles]);
+  }, [profiles, userEmail]);
 
   return (
     <>
@@ -266,7 +279,7 @@ const ProfileForm = ({ userEmail }) => {
         onSubmit={handleSubmit}
       >
         {({ setFieldValue, values, handleBlur }) => (
-          <StyledForm>
+          <StyledForm autoComplete="off">
             <div className="wrapperFields">
               <div className="containerLeft">
                 <label className="labelProfile">
@@ -274,6 +287,8 @@ const ProfileForm = ({ userEmail }) => {
                     name={"firstName"}
                     type={"text"}
                     placeholder={"Ім'я"}
+                    value={values.firstName}
+                    onChange={(e) => setFieldValue("firstName", e.target.value)}
                   />
                   <ErrorMessage
                     className="errorMessageProfile"
@@ -286,6 +301,8 @@ const ProfileForm = ({ userEmail }) => {
                     name={"lastName"}
                     type={"text"}
                     placeholder={"Прізвище"}
+                    value={values.lastName}
+                    onChange={(e) => setFieldValue("lastName", e.target.value)}
                   />
                   <ErrorMessage
                     className="errorMessageProfile"
@@ -298,6 +315,10 @@ const ProfileForm = ({ userEmail }) => {
                     name={"phoneNumber"}
                     type={"text"}
                     placeholder="Номер телефону"
+                    value={values.phoneNumber}
+                    onChange={(e) =>
+                      setFieldValue("phoneNumber", e.target.value)
+                    }
                   />
 
                   <ErrorMessage
@@ -307,7 +328,12 @@ const ProfileForm = ({ userEmail }) => {
                   />
                 </label>
                 <label className="labelProfile">
-                  <Input name={"email"} type={"email"} />
+                  <Input
+                    name={"email"}
+                    type={"email"}
+                    value={values.email}
+                    onChange={(e) => setFieldValue("email", e.target.value)}
+                  />
                   <ErrorMessage
                     className="errorMessageProfile"
                     name="email"
@@ -316,7 +342,7 @@ const ProfileForm = ({ userEmail }) => {
                 </label>
               </div>
               <div className="containerRight">
-                <label className="labelProfile">
+                <label className="labelProfile" autoComplete="off">
                   <Calendar
                     values={values.dateOfBirth}
                     onBlur={handleBlur}
@@ -395,30 +421,6 @@ const ProfileForm = ({ userEmail }) => {
                     className="errorMessage"
                   />
                 </label>
-
-                {/* <label className="labelProfile">
-                  <Input name={"city"} type={"text"} placeholder="Місто" />
-
-                  <ErrorMessage
-                    className="errorMessageProfile"
-                    name="city"
-                    component="div"
-                  />
-                </label>
-
-                <label className="labelProfile">
-                  <Input
-                    name={"warehouse"}
-                    type={"text"}
-                    placeholder="Відділення"
-                  />
-
-                  <ErrorMessage
-                    className="errorMessageProfile"
-                    name="warehouse"
-                    component="div"
-                  />
-                </label> */}
               </div>
             </div>
 

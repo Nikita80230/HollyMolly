@@ -1,14 +1,13 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import ProfileForm from "src/components/ProfileForm/ProfileForm";
+import { useAuth } from "src/hooks";
 import { getProfile } from "src/redux/user/operations";
-import { selectUserEmail } from "src/redux/user/selectors";
 import { StyledSection } from "./Styled";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
-
-  const userEmail = useSelector(selectUserEmail);
+  const { user } = useAuth();
 
   useEffect(() => {
     dispatch(getProfile());
@@ -16,7 +15,7 @@ const ProfilePage = () => {
 
   return (
     <StyledSection>
-      <ProfileForm userEmail={userEmail} />
+      <ProfileForm userEmail={user} />
     </StyledSection>
   );
 };
