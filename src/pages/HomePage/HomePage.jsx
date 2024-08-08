@@ -15,7 +15,6 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getRecommendedProducts());
-    dispatch(fetchCategories());
 
   }, [dispatch]);
 
