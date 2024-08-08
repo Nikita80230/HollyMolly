@@ -5,7 +5,6 @@ import Container from "src/components/Container/Container";
 import Hero from "src/components/Hero/Hero";
 import RecommendationSection from "src/components/RecommendationSection/RecommendationSection";
 import Subscribe from "src/components/Subscribe/Subscribe";
-import { fetchCategories } from "src/redux/categories/operations";
 import { getRecommendedProducts } from "src/redux/products/operations";
 import { selectRecommendedProducts } from "src/redux/products/productsSlice";
 
@@ -16,7 +15,8 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getRecommendedProducts());
-    // dispatch(fetchCategories());
+    dispatch(fetchCategories());
+
   }, [dispatch]);
 
   return (

@@ -98,7 +98,7 @@ const SubmitOrderPage = () => {
               ]}
               closeModal={closeModal}
             />
-           )} 
+          )}
           {status === "false" && (
             <ModalNotification
               message={[
@@ -107,7 +107,7 @@ const SubmitOrderPage = () => {
               ]}
               closeModal={closeModal}
             />
-          )} 
+          )}
         </Modal>
       </WrapperPage>
     </Container>

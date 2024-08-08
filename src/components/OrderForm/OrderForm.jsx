@@ -16,8 +16,9 @@ import IconSearch from "src/assets/images/search.svg?react";
 import { selectBasket } from "src/redux/basket/selectors";
 import { createProfile, updateProfile } from "src/redux/user/operations";
 import { checkout } from "src/services/checkout";
-import { useAuth } from "src/hooks";
 import { selectUser } from "src/redux/auth/selectors";
+import NotificationCustom from "../NotificationCustom/NotificationCustom";
+import { toast } from "react-hot-toast";
 
 const customStyles = {
   control: (provided, state) => ({
@@ -158,28 +159,76 @@ const OrderForm = () => {
     }
   };
 
-  const handleSaveProfile = (values) => {
-    const currentUser = user[0];
-    const dateOfBirth = currentUser.dateOfBirth;
-    const profileData = {
-      ...values,
-      dateOfBirth,
-      deliveryAddress:
-        values.deliveryAddress.trim() === "" ? null : values.deliveryAddress,
-      city: values.city.trim() === "" ? null : values.city,
-    };
-    const profileId = user[0]?.id;
-    dispatch(updateProfile({ user: profileData, profileId }));
+  const handleUpdateProfile = async (values) => {
+    try {
+      const currentUser = user[0];
+      const dateOfBirth = currentUser.dateOfBirth;
+      const profileData = {
+        ...values,
+        dateOfBirth,
+        deliveryAddress:
+          values.deliveryAddress.trim() === "" ? null : values.deliveryAddress,
+        city: values.city.trim() === "" ? null : values.city,
+      };
+      const profileId = user[0]?.id;
+      const result = await dispatch(
+        updateProfile({ user: profileData, profileId })
+      );
+
+      if (result.payload === 200) {
+        toast.custom(
+          <div className="custom-toast">
+            <NotificationCustom title={"Дані оновлено."} />
+          </div>,
+          {
+            duration: 2000,
+          }
+        );
+      }
+    } catch (error) {
+      toast.custom(
+        <div className="custom-toast">
+          <NotificationCustom title={"Сталася помилка."} />
+        </div>,
+        {
+          duration: 2000,
+        }
+      );
+      throw new Error(result.error.message || "Failed to update profile");
+    }
   };
 
-  const handleCreateProfile = (values) => {
-    const profileData = {
-      ...values,
-      deliveryAddress:
-        values.deliveryAddress.trim() === "" ? null : values.deliveryAddress,
-      city: values.city.trim() === "" ? null : values.city,
-    };
-    dispatch(createProfile(profileData));
+  const handleCreateProfile = async (values) => {
+    try {
+      const profileData = {
+        ...values,
+        deliveryAddress:
+          values.deliveryAddress.trim() === "" ? null : values.deliveryAddress,
+        city: values.city.trim() === "" ? null : values.city,
+      };
+      const result = await dispatch(createProfile(profileData));
+
+      if (result.payload === 200) {
+        toast.custom(
+          <div className="custom-toast">
+            <NotificationCustom title={"Дані збережено."} />
+          </div>,
+          {
+            duration: 2000,
+          }
+        );
+      }
+    } catch (error) {
+      toast.custom(
+        <div className="custom-toast">
+          <NotificationCustom title={"Сталася помилка."} />
+        </div>,
+        {
+          duration: 2000,
+        }
+      );
+      throw new Error(result.error.message || "Failed to create profile");
+    }
   };
 
   const handleSubmit = async (values) => {
@@ -273,15 +322,15 @@ const OrderForm = () => {
               </div>
             </div>
 
-            {/* {user.length > 0 ? ( */}
+            {user && user.length > 0 ? (
               <button
                 type="button"
                 className="buttonSave"
-                onClick={() => handleSaveProfile(values)}
+                onClick={() => handleUpdateProfile(values)}
               >
                 Змінити контактну інформацію
               </button>
-            {/* ) : (
+            ) : (
               <button
                 type="button"
                 className="buttonSave"
@@ -289,7 +338,7 @@ const OrderForm = () => {
               >
                 Зберегти контактну інформацію
               </button>
-            )}  */}
+            )}
 
             <Title title={"Доставка"} />
             <div className="containerIconSpan">
@@ -349,15 +398,15 @@ const OrderForm = () => {
                 className="errorMessage"
               />
             </label>
-            {/* {user.length > 0 ? ( */}
+            {user && user.length > 0 ? (
               <button
                 type="button"
                 className="buttonSave"
-                onClick={() => handleSaveProfile(values)}
+                onClick={() => handleUpdateProfile(values)}
               >
                 Змінити адресу
               </button>
-            {/* ) : (
+            ) : (
               <button
                 type="button"
                 className="buttonSave"
@@ -365,7 +414,7 @@ const OrderForm = () => {
               >
                 Зберегти адресу
               </button>
-            )} */}
+            )}
 
             <Title title={"Оплата"} />
             <div className="containerIconSpan">
