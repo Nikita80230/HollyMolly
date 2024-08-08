@@ -7,13 +7,12 @@ const GoogleAuth = () => {
       const loginUrl = await loginGoogle();
       window.location.href = loginUrl;
     } catch (error) {
-      console.log(error);
+      throw new Error(error.message || "Failed");
     }
   };
   return (
     <>
-      <ButtonGoogle onClick={handleClick}>
-        Увійти з Google</ ButtonGoogle>
+      <ButtonGoogle onClick={handleClick}>Увійти з Google</ButtonGoogle>
     </>
   );
 };
