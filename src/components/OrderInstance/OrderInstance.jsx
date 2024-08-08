@@ -22,7 +22,7 @@ const OrderInstance = ({
       <div className="instanceData">
         <div className="instanceInfo">
           <h3 className="instanceInfoTitle">{productName}</h3>
-          <span className="instanceInfoId text">ID: {productInstanceId}</span>
+          <span className="instanceInfoId">ID: {productInstanceId}</span>
 
           <span className="instanceInfoSize text">
             Розмір: {size ? size : "Універсальний"}

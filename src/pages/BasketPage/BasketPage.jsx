@@ -66,20 +66,27 @@ const BasketPage = () => {
         <Title title={"Твій кошик"} />
         <div className="wrapperBasket">
           <div className="wrapperList">
-            <ul>
-              {productsBasket.map((product) => (
-                <BasketCard
-                  product={product}
-                  key={product.productInstanceId}
-                  handleClickCount={() =>
-                    handleClickCount(product.productInstanceId)
-                  }
-                  handleClickAddCount={() =>
-                    handleClickAddCount(product.productInstanceId)
-                  }
-                />
-              ))}
-            </ul>
+            {productsBasket.length === 0 ? (
+              <p className="emptyBasketText">
+                Ваш кошик порожній для перегляду товарів перейдіть на{" "}
+                <Link to={routes.HOME}>домашню сторінку</Link>
+              </p>
+            ) : (
+              <ul>
+                {productsBasket.map((product) => (
+                  <BasketCard
+                    product={product}
+                    key={product.productInstanceId}
+                    handleClickCount={() =>
+                      handleClickCount(product.productInstanceId)
+                    }
+                    handleClickAddCount={() =>
+                      handleClickAddCount(product.productInstanceId)
+                    }
+                  />
+                ))}
+              </ul>
+            )}
           </div>
           <div className="containerPrices">
             <div className="wrapperPrice">
