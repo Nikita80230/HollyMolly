@@ -70,7 +70,7 @@ export const StyledOrderMetaData = styled.div`
     align-items: center;
     justify-content: center;
 
-    max-width: 158px;
+    max-width: 200px;
     width: 100%;
     min-height: 43px;
 

@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 import { StyledOrderMetaData } from "./Styled";
 import { routes } from "src/routes";
 import { format } from "date-fns";
-import { translateStatus } from "src/utils/translateStatus";
+import {
+  statusesToColorsVocabulary,
+  translateStatusVocabulary,
+} from "src/utils/statuses";
 
 const OrderMetaData = ({ currentOrder }) => {
   console.log("current order from order details-->", currentOrder);
@@ -29,8 +32,13 @@ const OrderMetaData = ({ currentOrder }) => {
           <span className="orderDate">{formattedDate}</span>
         </div>
 
-        <span className="orderStatus">
-          {translateStatus(currentOrder.status)}
+        <span
+          className="orderStatus"
+          style={{
+            background: statusesToColorsVocabulary[currentOrder.status],
+          }}
+        >
+          {translateStatusVocabulary[currentOrder.status]}
         </span>
       </div>
     </StyledOrderMetaData>

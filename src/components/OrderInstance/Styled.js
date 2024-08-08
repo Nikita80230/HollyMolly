@@ -62,6 +62,11 @@ export const StyledOrderInstance = styled.li`
       color: ${({ theme }) => theme.colors.accentColor};
     }
     .instanceInfoId {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.21429;
+
+      font-family: ${({ theme }) => theme.fonts.familyDidact};
       color: ${({ theme }) => theme.colors.secondaryTxtColor};
     }
 

@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const StyledOrderDeliveryAddress = styled.div`
   display: flex;
   flex-direction: column;
+  /* align-items: center; */
 
-  max-width: 190px;
+  width: max-content;
 
   .deliverAddressTitle {
     margin-bottom: 20px;

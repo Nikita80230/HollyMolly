@@ -7,7 +7,7 @@ export const StyleOrderInstancesList = styled.div`
   .ordersList {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 23px;
 
     max-width: 929px;
     width: 100%;
@@ -16,7 +16,7 @@ export const StyleOrderInstancesList = styled.div`
     overflow-y: auto;
 
     margin-bottom: 20px;
-    padding: 27px;
+    padding: 30px 35px;
 
     border-radius: 10px;
 
