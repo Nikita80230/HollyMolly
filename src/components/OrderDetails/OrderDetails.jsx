@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { StyledOrderDetails } from "./Styled";
 import { routes } from "src/routes";
 import { format } from "date-fns";
-import { translateStatus } from "src/utils/translateStatus";
+// import { translateStatus } from "src/utils/translateStatus";
 
 const OrderDetails = ({ currentOrder }) => {
   console.log("current order from order details-->", currentOrder);

@@ -2,31 +2,9 @@ import { format } from "date-fns";
 import CheckIcon from "../../assets/images/checkStatusIcon.svg?react";
 
 import { StyledOrderStatus } from "./Styled";
-import { translateStatus } from "src/utils/translateStatus";
+import { translateStatusVocabulary } from "src/utils/statuses";
 
 const OrderStatus = ({ currentOrder }) => {
-  // const translateStatus = (status) => {
-  //   switch (status) {
-  //     case "Created":
-  //       return "Очікує на оплату";
-  //     case "Payment Received":
-  //       return "Оплачено";
-  //     case "Processing":
-  //       return "У процесі";
-  //     case "Shipped":
-  //       return "Відправлено";
-  //     case "Delivered":
-  //       return "Доставлено";
-  //     case "Cancelled":
-  //       return "Скасовано";
-
-  //     default:
-  //       break;
-  //   }
-  // };
-
-  // console.log("translatedStatus-->", translateStatus());
-
   return (
     <StyledOrderStatus>
       <h3 className="orderStatusTitle">Статус замовлення</h3>
@@ -38,7 +16,7 @@ const OrderStatus = ({ currentOrder }) => {
                 <CheckIcon />
               </div>
               <p className="statusText">
-                {translateStatus(status.status)}
+                {translateStatusVocabulary[status.status]}
                 <span className="statusData">
                   {format(status.date, "dd.MM.yyyy")}
                 </span>
