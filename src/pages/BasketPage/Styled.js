@@ -17,6 +17,14 @@ export const WrapperBasketPage = styled.section`
     width: 807px;
   }
 
+  .emptyBasketText {
+    font-family: ${({ theme }) => theme.fonts.familyPacifico};
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.20833;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+  }
+
   .containerPrices {
     width: 372px;
   }
@@ -29,11 +37,11 @@ export const WrapperBasketPage = styled.section`
   }
 
   .span {
-    font-family:  ${({theme})=>theme.fonts.familyGaramond}; 
+    font-family: ${({ theme }) => theme.fonts.familyGaramond};
     font-weight: 400;
     font-size: 24px;
     line-height: 1.20833;
-    color:${({ theme }) => theme.colors.primaryTxtColor};
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
   .price {
@@ -41,7 +49,7 @@ export const WrapperBasketPage = styled.section`
     font-weight: 400;
     font-size: 28px;
     line-height: 1.21429;
-    color:${({ theme }) => theme.colors.primaryTxtColor};
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
   .wrapper {
@@ -59,11 +67,11 @@ export const WrapperBasketPage = styled.section`
   }
 
   .spanTotalPrice {
-    font-family:  ${({theme})=>theme.fonts.familyGaramond}; 
+    font-family: ${({ theme }) => theme.fonts.familyGaramond};
     font-weight: 500;
     font-size: 30px;
     line-height: 1.2;
-    color:${({ theme }) => theme.colors.primaryTxtColor};
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
   .numberTotalPrice {
@@ -99,11 +107,9 @@ export const WrapperBasketPage = styled.section`
   }
 
   .order {
-font-weight: 400;
-font-size: 22px;
-line-height: 1.20833;
-
-
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.20833;
   }
   .link {
     color: ${({ theme }) => theme.colors.accentColor};

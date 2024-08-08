@@ -32,7 +32,7 @@ import { selectIsLoggedIn } from "./redux/auth/selectors";
 import { getMyOrders } from "./redux/orders/operations";
 
 import ConfirmEmailPage from "./pages/ConfirmEmailPage/ConfirmEmailPage";
-
+import { fetchCategories } from "./redux/categories/operations";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -177,6 +177,7 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(refreshUser());
+    dispatch(fetchCategories());
   }, [dispatch]);
 
   useEffect(() => {

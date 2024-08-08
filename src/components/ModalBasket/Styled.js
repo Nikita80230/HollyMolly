@@ -33,8 +33,6 @@ export const ContainerModal = styled.div`
     border-radius: 10px;
   }
 
-  
-
   .containerPriceLink {
     position: absolute;
     top: 75%;
@@ -82,8 +80,8 @@ export const ContainerModal = styled.div`
     line-height: 1.20833;
     text-align: center;
     color: ${({ theme }) => theme.colors.whiteTxtColor};
-    transition: background ${({ theme }) => theme.animations.transition},
-      box-shadows ${({ theme }) => theme.animations.transition};
+    transition: background-color ${({ theme }) => theme.animations.transition},
+      box-shadow ${({ theme }) => theme.animations.transition};
 
     &:hover {
       box-shadow: ${({ theme }) => theme.shadows.boxShadowButtonHover};
@@ -93,6 +91,4 @@ export const ContainerModal = styled.div`
       background-color: ${({ theme }) => theme.colors.activeBgColor};
     }
   }
-
-
 `;
