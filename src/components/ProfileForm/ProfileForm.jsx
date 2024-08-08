@@ -87,7 +87,6 @@ const ProfileForm = ({ userEmail }) => {
   const dispatch = useDispatch();
   const profiles = useSelector(selectProfiles);
   const navigate = useNavigate();
-  console.log(profiles);
 
   const initialCity = profiles?.[0]?.city
     ? { value: profiles[0].city, label: profiles[0].city }
@@ -190,39 +189,15 @@ const ProfileForm = ({ userEmail }) => {
         await dispatch(
           updateProfile({ user: updatedValues, profileId: profiles[0].id })
         );
-
-        //   if (profileUpdateResult.payload) {
-        //     toast.custom(
-        //       <div className="custom-toast">
-        //         <NotificationCustom title={"Дані збережено."} />
-        //       </div>,
-        //       {
-        //         duration: 2000,
-        //       }
-        //     );
-        //   } else if (profileUpdateResult.error) {
-        //     toast.custom(
-        //       <div className="custom-toast">
-        //         <NotificationCustom title={"Сталася помилка"} />
-        //       </div>,
-        //       {
-        //         duration: 5000,
-        //       }
-        //     );
-        //     throw new Error(
-        //       profileUpdateResult.error.message || "Failed to update profile"
-        //     );
-        //   }
       }
 
       let emailUpdateResult;
       if (values.email !== initialValues.email) {
-        // if (!isOnlyEmailChanged) {
         emailUpdateResult = await dispatch(
           updateUserEmail({ email: values.email })
         );
 
-        if (emailUpdateResult.payload === "") {
+        if (emailUpdateResult.payload === 204) {
           openModal();
         } else if (emailUpdateResult.error) {
           toast.custom(
@@ -248,6 +223,9 @@ const ProfileForm = ({ userEmail }) => {
         {
           duration: 5000,
         }
+      );
+      throw new Error(
+        emailUpdateResult.error.message || "Failed to update email"
       );
     }
   };

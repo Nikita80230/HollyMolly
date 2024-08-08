@@ -84,11 +84,8 @@ export const authGoogle = createAsyncThunk(
 
       setAuthHeader(res.data.token);
 
-     
-       return res.data;
-
+      return res.data;
     } catch (error) {
-     
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -101,8 +98,7 @@ export const updateUserEmail = createAsyncThunk(
       const res = await axios.put("/api/Account/profile/email?sendEmail=true", {
         email: credentials.email,
       });
-
-      return res.data;
+      return res.status;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data || error.message);
     }

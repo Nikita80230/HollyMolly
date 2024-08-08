@@ -12,8 +12,11 @@ import { toast } from "react-hot-toast";
 import NotificationCustom from "../NotificationCustom/NotificationCustom";
 import Modal from "react-modal";
 import ModalNotification from "../ModalNotification/ModalNotification";
+import { useNavigate } from "react-router-dom";
+import { routes } from "src/routes";
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
   const [passwordShown, setPasswordShown] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState(false);
   const [isSubscribe, setIsSubscribe] = useState(false);
@@ -28,6 +31,7 @@ const RegisterForm = () => {
   function closeModal() {
     setIsOpen(false);
     document.body.style.overflow = "";
+    navigate(routes.LOGIN);
   }
 
   const handleSubmit = async (values, actions) => {

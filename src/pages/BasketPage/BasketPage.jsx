@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BasketCard from "src/components/BasketCard/BasketCard";
 import Container from "src/components/Container/Container";
 import Title from "src/components/Title/Title";
@@ -22,10 +22,7 @@ const BasketPage = () => {
   const dispatch = useDispatch();
   const totalPrice = useSelector(selectAmountOrder);
   const { isLoggedIn } = useAuth();
-
-  useEffect(() => {
-    dispatch(calculateAmountOrder());
-  }, [productsBasket, dispatch]);
+  const navigate = useNavigate();
 
   const handleClickAddCount = (productId) => {
     const product = productsBasket.find(
@@ -54,6 +51,14 @@ const BasketPage = () => {
       );
     }
   };
+
+  useEffect(() => {
+    dispatch(calculateAmountOrder());
+  }, [productsBasket, dispatch]);
+
+  useEffect(() => {
+    if (!productsBasket.length) navigate(routes.HOME);
+  }, [productsBasket]);
 
   return (
     <Container>

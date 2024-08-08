@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-hot-toast";
 
 export const getMyOrders = createAsyncThunk(
   "orders/getMyOrders",
@@ -21,7 +20,6 @@ export const createOrder = createAsyncThunk(
       const res = await axios.post("/api/Orders?sendEmail=true", credentials);
       return res.data;
 
-      // return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
