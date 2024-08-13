@@ -21,7 +21,20 @@
 
 <ul>
   <li>
+  <p>Header</p>
+
+![Image product]()
+
+  </li>
+  <li>
+  <p>Footer</p>
+
+![Image product]()
+
+  </li>
+  <li>
     <p>Home page</p>
+    
 
 ![Image product]()
 
