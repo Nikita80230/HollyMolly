@@ -21,7 +21,13 @@
 
 <ul>
   <li>
-  <p>Header</p>
+  <h2>Header</h2>
+  <p>-drop-down list of categories</p>
+  <p>-search by product name</p>
+  <p>-logo</p>
+  <p>- if the user is already logged in , navigate to Favorites page</p>
+  <p>-navigate to Register page or Profile page(if the user is already logged in)</p>
+  <p>-navigate to Basket page</p>
 
 ![Image product]()
 
