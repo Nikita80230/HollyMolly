@@ -3,7 +3,7 @@
   <h1 align="center">HollyMolly</h1>
 
   <p align="center">
-    This is a pet project.</p>
+    This is a pet project. Online accessories shop.</p>
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -71,12 +71,14 @@ Technical task
 
 Figma layout
 
+Backend documentation  
+https://teamchallenge-001-site1.ktempurl.com/swagger/index.html
 
 ## Technologies  
 <ul>
   <li><p>React.js - for frontend implementation</p></li>
-  <li><p>Backend</p></li>
-  <li><p>Database</p></li>
+  <li><p>ASP.NET 8 - backend</p></li>
+  <li><p>SQL Server - database</p></li>
   <li><p>Redux Toolkit - to store the state of the components</p></li>
   <li><p>Styled Components- application styling</p></li>
   <li><p>Redux-persist - data storage of the current user</p></li>
