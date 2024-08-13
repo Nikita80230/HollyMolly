@@ -1,11 +1,110 @@
-# React + Vite
+<a name="readme-top"></a>
 
-This template provides a minimal setup to get React working in Vite with HMR and
-some ESLint rules.
+  <h1 align="center">HollyMolly</h1>
 
-Currently, two official plugins are available:
+  <p align="center">
+    This is a pet project.</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md)
-  uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc)
-  uses [SWC](https://swc.rs/) for Fast Refresh
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ul>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#technologies">Technologies</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#installation">Installation</a></li>
+                                                        
+  </ul>
+  </details>
+  ## Features
+
+<ul>
+  <li>
+    <p>Home page</p>
+
+![Image product]()
+
+  </li>
+  <li>
+  <p>Catalog page</p>
+
+![Image product]()
+
+  </li>
+   <li>
+  <p>Authentication pages</p>
+  
+![Image product]()
+  </li>
+   <li>
+  <p>Product page</p>
+  
+![Image product]()
+  </li>
+  <li>
+    <p>Basket page</p>
+  </li>
+  <li>
+    <p>Submit Order page </p>
+
+![Image product]()
+
+  </li>
+    <li><p>Favorites page</p>
+  
+![Image product](./src/assets/img/filtering.png)
+  </li>
+   <li>
+  <p>Me profile page</p>
+  
+![Image product]()
+  </li>
+   <li>
+  <p>My orders page</p>
+  
+![Image product]()
+  </li>
+</ul>
+
+Technical task
+
+Figma layout
+
+
+## Technologies  
+<ul>
+  <li><p>React.js - for frontend implementation</p></li>
+  <li><p>Backend</p></li>
+  <li><p>Database</p></li>
+  <li><p>Redux Toolkit - to store the state of the components</p></li>
+  <li><p>Styled Components- application styling</p></li>
+  <li><p>Redux-persist - data storage of the current user</p></li>
+  <li><p>Formik & Yup- forms and validation</p></li>
+  <li><p>React-hot-toast - pop-up messages</p></li>
+  <li><p>React-modal - modal windows</p></li>
+  <li><p>Axios -processing requests to the server</p></li>
+</ul>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## Getting Started
+
+To get started with this project, follow installation instructions below
+
+## Installation
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Nikita80230/HollyMolly
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Start the development server
+   ```sh
+   npm run dev
+   ```
+4. Open https://https://holly-molly.vercel.app/ to view in the browser
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
