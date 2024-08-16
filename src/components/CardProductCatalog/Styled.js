@@ -91,6 +91,10 @@ export const WrapperCard = styled.div`
     height: 100%;
     border-radius: 10px;
     margin-bottom: 20px;
+
+     @media (max-width: 375px) {
+      margin-bottom: 10px;
+     }
   }
 
   .productPhoto {
@@ -100,6 +104,10 @@ export const WrapperCard = styled.div`
     transition: transform ${({ theme }) => theme.animations.transition};
     object-position: center center;
     object-fit: contain;
+
+     @media (max-width: 375px) {
+      height: 150px;
+     }
   }
 
   .title {
@@ -109,11 +117,20 @@ export const WrapperCard = styled.div`
     text-align: center;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
     white-space: nowrap;
+
+     @media (max-width: 375px) {
+       margin-bottom: 10px;
+       font-size: 18px;
+line-height: 1.22222;
+     }
   }
 
   .wrapperPrice {
     position: relative;
     margin-top: 15px;
+     @media (max-width: 375px) {
+      margin-top: 10px;
+     }
   }
 
   .price {
@@ -125,6 +142,9 @@ export const WrapperCard = styled.div`
     font-size: 18px;
     line-height: 1.21429;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
+     @media (max-width: 375px) {
+ font-size: 16px;
+     }
   }
 
   .price::after {
@@ -144,6 +164,10 @@ export const WrapperCard = styled.div`
     font-size: 28px;
     line-height: 1.21429;
     color: ${({ theme }) => theme.colors.accentColor};
+    @media (max-width: 375px) {
+      font-size: 20px;
+line-height: 1.2;
+     }
   }
 
   .buttonsFeedback {

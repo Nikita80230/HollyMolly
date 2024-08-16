@@ -42,15 +42,15 @@ const RecommendationSection = ({
           nextEl: ".nextProductBtn",
           prevEl: ".prevProductBtn",
         }}
-        spaceBetween={10}
+        spaceBetween={15}
         slidesPerView={2}
         grid={{
-          rows: 2,
+          rows: 1,
         }}
         breakpoints={{
           565: {
-            slidesPerView: 3,
-            spaceBetween: 20,
+            slidesPerView: 2,
+            spaceBetween: 15,
             grid: {
               rows: 1,
             },
