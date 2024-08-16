@@ -3,7 +3,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from "react";
 import { SubscribeSchema } from "src/schemas/SubscribeSchema";
 import { subscribeSentEmail } from "src/services/subscribeSentEmail";
-import { SubscribeWrapper } from "./Styled";
+import { SubscribeSection, WrapperSubscribe } from "./Styled";
 import ModalSubscribe from "../ModalSubscribe/ModalSubscribe";
 import Container from "../Container/Container";
 
@@ -45,14 +45,15 @@ const Subscribe = () => {
   };
 
   return (
-    <SubscribeWrapper>
+    <SubscribeSection>
+      <WrapperSubscribe></WrapperSubscribe>
       <Container>
         <div className="containerSubscribe">
           <h2 className="title">Підпишись на наші оновлення:</h2>
           <p className="description">
-            Так ти завжди будеш в курсі останніх новин, отримувати <br></br>
-            спеціальні пропозиції та першою дізнаватися про акції та нові{" "}
-            <br></br> товари
+            Так ти завжди будеш в курсі останніх новин, отримувати <br />
+            спеціальні пропозиції та першою дізнаватися про акції та <br /> нові{" "}
+            товари
           </p>
 
           <Formik
@@ -64,30 +65,32 @@ const Subscribe = () => {
           >
             {({ values, touched, errors, isSubmitting }) => (
               <Form className="subscribeEmailForm">
-                <Field
-                  className={
-                    (errors.email && touched.email
-                      ? " subscribeInputError "
-                      : "") +
-                    (values.email && !errors.email
-                      ? "subscribeInputSuccess"
-                      : "subscribeInput")
-                  }
-                  name="email"
-                  placeholder="Your email"
-                  type="text"
-                  autoComplete="off"
-                />
-                <ErrorMessage
-                  className="errorMessage"
-                  component="p"
-                  name="email"
-                />
-                {!errors.email ? (
-                  <p className="successMessage">{message}</p>
-                ) : (
-                  <p className="errorMessage">{message}</p>
-                )}
+                <label className="styledLabel">
+                  <Field
+                    className={
+                      (errors.email && touched.email
+                        ? " subscribeInputError "
+                        : "") +
+                      (values.email && !errors.email
+                        ? "subscribeInputSuccess"
+                        : "subscribeInput")
+                    }
+                    name="email"
+                    placeholder="Your email"
+                    type="text"
+                    autoComplete="off"
+                  />
+                  <ErrorMessage
+                    className="errorMessage"
+                    component="p"
+                    name="email"
+                  />
+                  {!errors.email ? (
+                    <p className="successMessage">{message}</p>
+                  ) : (
+                    <p className="errorMessage">{message}</p>
+                  )}
+                </label>
                 {values.email === "" ? (
                   <button
                     className="subscribeButtonDisabled"
@@ -120,7 +123,7 @@ const Subscribe = () => {
           <ModalSubscribe onClose={closeModal} />
         </Modal>
       </Container>
-    </SubscribeWrapper>
+    </SubscribeSection>
   );
 };
 

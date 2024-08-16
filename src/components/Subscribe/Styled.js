@@ -2,57 +2,77 @@ import { styled } from "styled-components";
 import backgroundSubscribe1x from "src/assets/images/subscribe/background-subscribe1x.webp";
 import backgroundSubscribe2x from "src/assets/images/subscribe/backgroundSubscribe2x.webp";
 import backgroundSubscribe3x from "src/assets/images/subscribe/background-subscribe3x.jpg";
+import subscribeMobile1x from "src/assets/images/subscribe/subscribeMobile1x.jpg";
+import subscribeMobile2x from "src/assets/images/subscribe/subscribeMobile2x.jpg";
 
-export const SubscribeWrapper = styled.section`
+export const SubscribeSection = styled.section`
+  position: relative;
   margin-bottom: 40px;
   width: 100%;
-  height: 470px;
-  background-color: ${({ theme }) => theme.colors.heroBgColor};
-  background: url(${backgroundSubscribe2x});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  /* height: 470px; */
 
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background: url(${backgroundSubscribe3x});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: ${({ theme }) => theme.colors.heroBgColor};
+  @media (max-width: 375px) {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .containerSubscribe {
-    padding-top: 223px;
+    position: absolute;
+    top: 216px;
+    left: 51px;
+
+    @media (max-width: 375px) {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   .title {
     font-family: ${({ theme }) => theme.fonts.familyPacifico};
-
     font-weight: 400;
     font-size: 55px;
+    line-height: 1.2;
     background: ${({ theme }) => theme.colors.gradientTitle};
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     height: 78px;
+
+    @media (max-width: 375px) {
+      font-size: 20px;
+      height: 33px;
+    }
   }
 
   .description {
     margin-bottom: 10px;
-    width: 592px;
-    height: 72px;
     font-family: ${({ theme }) => theme.fonts.familyDidact};
     font-weight: 400;
     font-size: 20px;
     line-height: 1.2;
+
+    @media (max-width: 375px) {
+      margin-bottom: 8px;
+      font-size: 12px;
+      line-height: 1.25;
+      text-align: center;
+    }
   }
 
   .subscribeEmailForm {
-    position: relative;
     display: flex;
     gap: 18px;
+
+    @media (max-width: 375px) {
+      flex-direction: column;
+      gap: 24px;
+      border-bottom: 0.5px solid ${({ theme }) => theme.colors.primaryTxtColor};
+      box-shadow: 0px 2px 5px 0px
+        ${({ theme }) => theme.shadows.boxShadowSection};
+    }
   }
 
   .subscribeInput {
@@ -74,6 +94,13 @@ export const SubscribeWrapper = styled.section`
 
     font-weight: 400;
     font-size: 20px;
+    line-height: 1.25;
+
+    @media (max-width: 375px) {
+      width: 335px;
+      height: 36px;
+      font-size: 16px;
+    }
   }
 
   .subscribeInput:hover {
@@ -83,6 +110,11 @@ export const SubscribeWrapper = styled.section`
     border: 1px solid ${({ theme }) => theme.colors.borderFocusColor};
     width: 389px;
     height: 40px;
+
+    @media (max-width: 375px) {
+      width: 335px;
+      height: 36px;
+    }
   }
   .subscribeInput::placeholder {
     font-family: ${({ theme }) => theme.fonts.familyDidact};
@@ -91,11 +123,15 @@ export const SubscribeWrapper = styled.section`
     font-weight: 400;
     font-size: 20px;
     line-height: 1.2;
+
+    @media (max-width: 375px) {
+      font-size: 16px;
+      line-height: 1.25;
+    }
   }
 
   .subscribeInputError {
     padding: 8px 15px;
-    /* border: transparent; */
     outline: transparent;
     outline-offset: -1px;
     width: 389px;
@@ -109,6 +145,13 @@ export const SubscribeWrapper = styled.section`
     transition: border ${({ theme }) => theme.animations.transition};
     font-family: ${({ theme }) => theme.fonts.familyDidact};
     background: ${({ theme }) => theme.colors.primaryBgColor};
+
+    @media (max-width: 375px) {
+      font-size: 16px;
+      line-height: 1.25;
+      width: 335px;
+      height: 36px;
+    }
   }
 
   .subscribeInputSuccess {
@@ -126,17 +169,33 @@ export const SubscribeWrapper = styled.section`
     font-size: 20px;
     background: ${({ theme }) => theme.colors.primaryBgColor};
     transition: border ${({ theme }) => theme.animations.transition};
+
+    @media (max-width: 375px) {
+      font-size: 16px;
+      line-height: 1.25;
+      width: 335px;
+      height: 36px;
+    }
+  }
+
+  .styledLabel {
+    position: relative;
   }
 
   .errorMessage {
     position: absolute;
-    bottom: -18px;
+    top: 100%;
     left: 0;
     color: ${({ theme }) => theme.colors.colorError};
     font-family: ${({ theme }) => theme.fonts.familyDidact};
     font-weight: 400;
     font-size: 16px;
     line-height: 1.25;
+
+    @media (max-width: 375px) {
+      font-size: 13px;
+      line-height: 1.23077;
+    }
   }
 
   .successMessage {
@@ -148,6 +207,11 @@ export const SubscribeWrapper = styled.section`
     font-weight: 400;
     font-size: 16px;
     line-height: 1.25;
+
+    @media (max-width: 375px) {
+      font-size: 13px;
+      line-height: 1.23077;
+    }
   }
 
   .subscribeButton {
@@ -163,6 +227,14 @@ export const SubscribeWrapper = styled.section`
     text-align: center;
     color: ${({ theme }) => theme.colors.whiteTxtColor};
     background-color: ${({ theme }) => theme.colors.accentColor};
+
+    @media (max-width: 375px) {
+      margin-bottom: 16px;
+      width: 335px;
+      height: 40px;
+      font-size: 22px;
+      line-height: 1.22727;
+    }
   }
 
   .subscribeButtonDisabled {
@@ -180,6 +252,14 @@ export const SubscribeWrapper = styled.section`
     background-color: ${({ theme }) => theme.colors.buttonBgDisabled};
     transition: background-color ${({ theme }) => theme.animations.transition},
       box-shadow ${({ theme }) => theme.animations.transition};
+
+    @media (max-width: 375px) {
+      margin-bottom: 16px;
+      width: 335px;
+      height: 40px;
+      font-size: 22px;
+      line-height: 1.22727;
+    }
   }
   .subscribeButtonDisabled:hover {
     background-color: ${({ theme }) => theme.colors.hoverBgButton};
@@ -187,5 +267,43 @@ export const SubscribeWrapper = styled.section`
   }
   .subscribeButtonDisabled:focus {
     background-color: ${({ theme }) => theme.colors.activeBgColor};
+  }
+`;
+
+export const WrapperSubscribe = styled.div`
+  width: 100%;
+  height: 470px;
+  background-color: ${({ theme }) => theme.colors.heroBgColor};
+  background: url(${backgroundSubscribe2x});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background: url(${backgroundSubscribe3x});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: ${({ theme }) => theme.colors.heroBgColor};
+  }
+
+  @media (max-width: 375px) {
+    height: 200px;
+    background: url(${subscribeMobile1x});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background: url(${subscribeMobile2x});
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: ${({ theme }) => theme.colors.heroBgColor};
+    }
   }
 `;
