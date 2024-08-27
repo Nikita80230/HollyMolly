@@ -60,7 +60,7 @@ export const StyledSearchHeaderBtn = styled.button`
     font-weight: 400;
     font-size: 12px;
     letter-spacing: 0.04em;
-    color: #fc842d;
+    color: ${({ theme }) => theme.colors.colorError};
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
@@ -78,11 +78,32 @@ export const StyledSearchHeaderBtn = styled.button`
     }
   }
 
-  @media (max-width: 564px) {
+  @media (max-width: 375px) {
+    gap: 30px;
     max-width: max-content;
     width: 100%;
-    max-width: 532px;
+    max-width: 231px;
+    height: 41px;
+    margin-bottom: 10px;
+    padding: 12px 0px 0px 0px;
+    border-bottom: 0.5px solid ${({ theme }) => theme.colors.primaryTxtColor};
 
-    margin-bottom: 32px;
+    .placeholder {
+      font-size: 14px;
+      line-height: 1.21429;
+    }
+
+    .input {
+      font-size: 14px;
+      line-height: 1.21429;
+    }
+
+    .searchIcon {
+      width: 20px;
+      height: 20px;
+      path {
+        stroke: ${({ theme }) => theme.colors.placeholderTxtColor};
+      }
+    }
   }
 `;

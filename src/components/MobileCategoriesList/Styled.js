@@ -3,11 +3,7 @@ import styled from "styled-components";
 export const StyledMobileCategoriesList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 32px;
-
-  padding-bottom: 36px;
-
-  border-bottom: 1px solid ${({ theme }) => theme.colors.dividerBurgerMenu};
+  gap: 10px;
 
   .category {
     /* position: relative; */
@@ -17,27 +13,38 @@ export const StyledMobileCategoriesList = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    padding: 0;
     width: 100%;
-    height: 27px;
+    height: 24px;
 
     border: none;
     background: transparent;
   }
 
+  .categoryBtnIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .openCategoryBtnIcon{
+    transform: rotate(-180deg);
+  }
+
   .categoryBtnLabel {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
+    font-family: ${({ theme }) => theme.fonts.familyPacifico};
     font-weight: 400;
     font-size: 20px;
-    color: ${({ theme }) => theme.colors.headerSearchMenuList};
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+    margin-bottom: 10px;
+  }
+
+  .openCategoryBtnLabel{
+     color: ${({ theme }) => theme.colors.accentColor};
   }
 
   .subCategoriesWrapper {
     display: none;
-
-    /* position: absolute; */
-    /* top: 36px;
-    left: 6px; */
   }
 
   .subCategoriesWrapper.openedCategory {
@@ -50,5 +57,14 @@ export const StyledMobileCategoriesList = styled.div`
     width: 100%;
 
     background: ${({ theme }) => theme.colors.primaryBgColor};
+  }
+
+  .subCategory {
+    font-family: ${({ theme }) => theme.fonts.familyGaramond};
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+    margin-bottom: 5px;
   }
 `;

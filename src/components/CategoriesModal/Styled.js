@@ -26,6 +26,7 @@ export const StyledCategoriesModal = styled.div`
     border-radius: 10px;
     box-shadow: ${({ theme }) => theme.shadows.boxShadowCategoryModal};
     background: ${({ theme }) => theme.colors.primaryBgColor};
+
   }
 
   .categoriesList {
