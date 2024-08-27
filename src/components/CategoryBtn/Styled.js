@@ -12,6 +12,10 @@ export const StyledCategoryBtn = styled.div`
     justify-content:center;
     background-color: transparent;
     border: none;
+
+     @media (max-width: 375px) {
+      
+     }
   }
 
   .text {

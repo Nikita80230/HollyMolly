@@ -54,6 +54,6 @@ export const StyledContainer = styled.div`
   }
 
    @media (max-width: 375px) 
-   max-width: 564px;
+   max-width: 375px;
     padding: 0 20px;
 `;

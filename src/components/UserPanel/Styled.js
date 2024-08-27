@@ -136,12 +136,31 @@ export const StyledUserPanel = styled.div`
     }
   }
 
-  /* ==================================@media (max-width: 564px)========================================= */
+  /* ==================================@media (max-width: 375px)========================================= */
 
-  @media (max-width: 564px) {
-    gap: 0;
-    width: auto;
+  @media (max-width: 375px) {
+    gap: 24px;
+    /* width: auto; */
+
+     .icon {
+    width: 24px;
+    height: 24px;
   }
+
+  .iconBasket{
+     width: 24px;
+    height: 24px;
+  }
+
+   .buttonIcon{
+    padding:0;
+   }
+
+    .buttonIconBasket{
+      padding:0;
+    }
+
+}
 `;
 
 export const ContainerEmptyBasket = styled.div`

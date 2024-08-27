@@ -49,8 +49,8 @@ export const StyledHeader = styled.header`
 
     transform: translate(-50%, -50%);
 
-    display: flex;
-    margin: 0 auto;
+    /* display: flex;
+    margin: 0 auto; */
   }
 
   .headerDesktopLogoImg {
@@ -83,7 +83,7 @@ export const StyledHeader = styled.header`
   }
 
   /* =============================@media (max-width: 564px) =================================== */
-  @media (max-width: 767px) {
+  /* @media (max-width: 767px) {
     margin-bottom: 17px;
 
     box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15),
@@ -119,6 +119,58 @@ export const StyledHeader = styled.header`
     .mobileButton {
       display: block;
       padding: 13px;
+      border: none;
+      background: transparent;
+    }
+  } */
+
+  /* =============================@media (max-width: 375px)=================================== */
+
+  @media (max-width: 375px) {
+    .leftHeader {
+      display: none;
+    }
+
+    .header {
+      min-height: 70px;
+     
+    }
+
+    .openBurgerBtn {
+    }
+
+    .openBurgerIcon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .headerLogo {
+      
+      top: 50%;
+      left: 32%;
+
+      transform: translate(-50%, -50%);
+
+      /* display: flex;
+      margin-left: 0;
+      margin-right: auto; */
+    }
+
+    .headerDesktopLogoImg {
+      display: none;
+    }
+
+    .headerMobileLogoImg {
+      display: block;
+      path {
+        fill: ${({ theme }) => theme.colors.accentColor};
+      }
+      height:24px;
+    }
+
+    .mobileButton {
+      display: block;
+      padding: 0;
       border: none;
       background: transparent;
     }

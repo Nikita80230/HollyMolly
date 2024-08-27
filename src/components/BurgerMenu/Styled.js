@@ -2,19 +2,18 @@ import styled from "styled-components";
 
 export const StyledBurgerMenu = styled.div`
   position: fixed;
-  left: 0;
-  top: 64px;
+  left: 20px;
+  top: 55px;
 
-  width: 100vw;
-  height: calc(100vh - 64px);
+  width: 271px;
+  height: auto;
+  border-radius: 10px;
+  padding: 10px 20px 20px 20px;
 
-  padding-top: 25px;
-
-  /* border: 2px solid red; */
-
-  z-index: 10;
+  z-index: 1111;
 
   background: ${({ theme }) => theme.colors.primaryBgColor};
+  box-shadow: ${({ theme }) => theme.shadows.boxShadowCategoryModal};
 
   .accountLink {
     display: flex;

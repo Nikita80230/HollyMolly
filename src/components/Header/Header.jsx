@@ -100,7 +100,7 @@ const Header = () => {
 };
 
 export default Header;
-{
+// {
   /* <button
             type="button"
             className="openUserPanelBtn mobileButton"
@@ -111,7 +111,7 @@ export default Header;
               style={{ display: "block" }}
             />
           </button> */
-}
+// }
 
 // const handleOpenUserPanel = () => {
 //   setIsUserPanelOpen(!isUserPanelOpen);
