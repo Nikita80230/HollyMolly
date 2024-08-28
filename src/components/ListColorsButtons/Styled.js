@@ -42,4 +42,20 @@ export const StyledList = styled.ul`
     width: 19.5px;
     height: 19.5px;
   }
+
+  /* ===================375px================== */
+   @media (max-width: 375px) {
+    .buttonColor {
+      width: 16px;
+    height: 16px;
+    }
+    .buttonColor.active {
+      width: 16px;
+    height: 16px;
+    }
+    .containerColor {
+       width: 11.5px;
+    height: 11.5px;
+    }
+  }
 `;
