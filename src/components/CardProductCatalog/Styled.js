@@ -21,6 +21,10 @@ export const WrapperCard = styled.div`
       fill: ${({ theme }) => theme.colors.primaryTxtColor};
       transition: ${({ theme }) => theme.animations.transition};
     }
+    @media (max-width: 375px) {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   .iconHeart.added {
@@ -92,9 +96,9 @@ export const WrapperCard = styled.div`
     border-radius: 10px;
     margin-bottom: 20px;
 
-     @media (max-width: 375px) {
+    @media (max-width: 375px) {
       margin-bottom: 10px;
-     }
+    }
   }
 
   .productPhoto {
@@ -105,9 +109,13 @@ export const WrapperCard = styled.div`
     object-position: center center;
     object-fit: contain;
 
-     @media (max-width: 375px) {
+    @media (max-width: 375px) {
       height: 150px;
-     }
+    }
+  }
+
+  .containerTitle {
+    overflow: hidden;
   }
 
   .title {
@@ -117,20 +125,22 @@ export const WrapperCard = styled.div`
     text-align: center;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-     @media (max-width: 375px) {
-       margin-bottom: 10px;
-       font-size: 18px;
-line-height: 1.22222;
-     }
+    @media (max-width: 375px) {
+      margin-bottom: 10px;
+      font-size: 18px;
+      line-height: 1.22222;
+    }
   }
 
   .wrapperPrice {
     position: relative;
     margin-top: 15px;
-     @media (max-width: 375px) {
+    @media (max-width: 375px) {
       margin-top: 10px;
-     }
+    }
   }
 
   .price {
@@ -142,9 +152,11 @@ line-height: 1.22222;
     font-size: 18px;
     line-height: 1.21429;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
-     @media (max-width: 375px) {
- font-size: 16px;
-     }
+    @media (max-width: 375px) {
+      top: 3px;
+      left: 55px;
+      font-size: 16px;
+    }
   }
 
   .price::after {
@@ -164,10 +176,11 @@ line-height: 1.22222;
     font-size: 28px;
     line-height: 1.21429;
     color: ${({ theme }) => theme.colors.accentColor};
+
     @media (max-width: 375px) {
       font-size: 20px;
-line-height: 1.2;
-     }
+      line-height: 1.2;
+    }
   }
 
   .buttonsFeedback {

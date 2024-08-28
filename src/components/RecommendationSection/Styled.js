@@ -36,25 +36,13 @@ export const StyledRecommendationSection = styled.section`
     align-items: center;
     background-color: transparent;
     border: transparent;
-    /* transition: background-color ${({ theme }) =>
-      theme.animations.transition}; */
   }
   .nextProductBtn:focus {
-    /* background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper}; */
     border: transparent;
   }
 
   .prevProductBtn:focus {
-    /* background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper}; */
     border: transparent;
-  }
-
-  .nextProductBtn:hover {
-    /* border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper}; */
-  }
-
-  .prevProductBtn:hover {
-    /* border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper}; */
   }
 
   .nextProductBtn:after,
@@ -69,7 +57,48 @@ export const StyledRecommendationSection = styled.section`
     pointer-events: none;
   }
 
-  @media (max-width: 1024px) {
+  .swiper-pagination-container {
+    display: none;
+  }
+
+  @media (max-width: 375px) {
+    .titleRecommendation {
+      margin-bottom: 10px;
+      font-weight: 500;
+      font-size: 20px;
+    }
+    .buttonSwiper {
+      display: none;
+    }
+
+    .swiperCustom {
+      height: 252px;
+    }
+
+    .swiper-pagination-container {
+      display: block;
+      margin-left: auto;
+      width: 100%;
+      height: 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .swiper-pagination-bullet {
+      background: ${({ theme }) => theme.colors.secondaryTxtColor};
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      margin: 0 4px;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: ${({ theme }) => theme.colors.primaryTxtColor};
+    }
+  }
+
+  /* @media (max-width: 1024px) {
     .buttonSwiper {
       gap: 15px;
     }
@@ -103,7 +132,7 @@ export const StyledRecommendationSection = styled.section`
 
     .swiperCustom {
       width: 100%;
-      /* height: 100%; */
+      
       margin-left: auto;
       margin-right: auto;
       height: 447px;
@@ -115,14 +144,14 @@ export const StyledRecommendationSection = styled.section`
       background: #fff;
       height: calc((100% - 10px) / 2) !important;
 
-      /* Center slide text vertically */
+     
       display: flex;
       justify-content: center;
       align-items: center;
     }
-  }
+  } 
 
-  @media (min-width: 520px) and (max-width: 565px) {
+    @media (min-width: 520px) and (max-width: 565px) {
     .swiperCustom {
       height: 770px;
     }
@@ -150,10 +179,5 @@ export const StyledRecommendationSection = styled.section`
     .swiperCustom {
       height: 639px;
     }
-  }
-  @media (min-width: 320px) and (max-width: 349px) {
-    .swiperCustom {
-      height: 552px;
-    }
-  }
+  }  */
 `;

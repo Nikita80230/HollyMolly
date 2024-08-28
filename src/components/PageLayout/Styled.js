@@ -12,10 +12,10 @@ export const StyledPageLayout = styled.div`
     }
   }
 
-  @media only screen and (min-width: 768px) {
+  /* @media only screen and (max-width: 768px) {
     .main {
       margin-top: 82px;
       padding-top: 16px;
     }
-  }
+  } */
 `;

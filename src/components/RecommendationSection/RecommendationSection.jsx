@@ -1,9 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, A11y, Grid } from "swiper/modules";
+import { Navigation, A11y, Pagination } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/grid";
 import "swiper/css/navigation";
+import 'swiper/css/pagination';
 
 import CardProductCatalog from "../CardProductCatalog/CardProductCatalog";
 
@@ -33,41 +33,38 @@ const RecommendationSection = ({
             <ArrowRight />
           </button>
         </div>
+          <div className="swiper-pagination-container"></div>
       </div>
-
-      <Swiper
+    
+<Swiper
         className="swiperCustom"
-        modules={[Navigation, A11y, Grid]}
+        modules={[Navigation, A11y, Pagination]}
         navigation={{
           nextEl: ".nextProductBtn",
           prevEl: ".prevProductBtn",
         }}
+         pagination={{
+        el: '.swiper-pagination-container',
+        clickable: true,
+      }}
         spaceBetween={15}
         slidesPerView={2}
-        grid={{
-          rows: 1,
-        }}
+        
         breakpoints={{
-          565: {
+          375: {
             slidesPerView: 2,
             spaceBetween: 15,
-            grid: {
-              rows: 1,
-            },
+
           },
           768: {
             slidesPerView: 4,
             spaceBetween: 20,
-            grid: {
-              rows: 1,
-            },
+            
           },
           1024: {
             slidesPerView: 4,
             spaceBetween: 46,
-            grid: {
-              rows: 1,
-            },
+            
           },
         }}
       >
