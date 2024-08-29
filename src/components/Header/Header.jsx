@@ -12,7 +12,6 @@ import CloseBurgerMenuIcon from "src/assets/images/closeCrossIcon.svg?react";
 import OpenBurgerIcon from "src/assets/images/openBurgerIcon.svg?react";
 
 import { StyledHeader } from "./Styled";
-// import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import UserPanel from "../UserPanel/UserPanel";
 import { useEffect, useState } from "react";
 import HeaderSearchMenu from "../HeaderSearchMenu/HeaderSearchMenu";
@@ -25,7 +24,7 @@ const Header = () => {
 
   const handleOpenSearchMenu = () => {
     setIsMenuOpened(true);
-     document.body.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
   };
 
   const handleCloseSearchMenu = () => {
@@ -101,7 +100,7 @@ const Header = () => {
 
 export default Header;
 // {
-  /* <button
+/* <button
             type="button"
             className="openUserPanelBtn mobileButton"
             onClick={handleOpenUserPanel}

@@ -3,10 +3,10 @@ import { styled } from "styled-components";
 export const StyledPageLayout = styled.div`
   .main {
     margin-top: 115px;
-    /* padding-top: 49px; */
+    
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 564px) {
     .main {
       margin-top: 70px;
     }

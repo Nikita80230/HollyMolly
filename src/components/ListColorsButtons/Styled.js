@@ -10,9 +10,8 @@ export const StyledList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 3px;
-  max-width: 396px; 
+  max-width: 396px;
   max-height: 24px;
-
 
   .buttonColor {
     padding: 0;
@@ -43,19 +42,19 @@ export const StyledList = styled.ul`
     height: 19.5px;
   }
 
-  /* ===================375px================== */
-   @media (max-width: 375px) {
+  /* ===================Mobile - @media (max-width: 564px)================== */
+  @media (max-width: 564px) {
     .buttonColor {
       width: 16px;
-    height: 16px;
+      height: 16px;
     }
     .buttonColor.active {
       width: 16px;
-    height: 16px;
+      height: 16px;
     }
     .containerColor {
-       width: 11.5px;
-    height: 11.5px;
+      width: 11.5px;
+      height: 11.5px;
     }
   }
 `;

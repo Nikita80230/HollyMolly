@@ -63,7 +63,9 @@ export const StyledSearchHeaderBtn = styled.button`
     color: ${({ theme }) => theme.colors.colorError};
   }
 
-  @media (min-width: 768px) and (max-width: 1024px) {
+  /* ============================================================================ */
+
+  /* @media (min-width: 768px) and (max-width: 1024px) {
     max-width: 140px;
     width: 100%;
 
@@ -76,9 +78,11 @@ export const StyledSearchHeaderBtn = styled.button`
     .searchIcon {
       width: 16px;
     }
-  }
+  } */
 
-  @media (max-width: 375px) {
+  /* ==============Mobile - @media (max-width: 564px)======================== */
+
+  @media (max-width: 564px) {
     gap: 30px;
     max-width: max-content;
     width: 100%;

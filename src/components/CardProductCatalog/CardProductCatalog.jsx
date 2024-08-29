@@ -91,8 +91,9 @@ const CardProductCatalog = ({ product, sortType, borderColor }) => {
             />
           </div>
         </Link>
-<div className="containerTitle">
-        <h4 className="title">{product.name}</h4></div>
+        <div className="containerTitle">
+          <h4 className="title">{product.name}</h4>
+        </div>
         <div className="wrapperColorFavorite">
           <ListColorsButtons
             colors={product.productsInstances || []}

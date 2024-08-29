@@ -8,9 +8,10 @@ export const WrapperFooterNavigation = styled.div`
   width: 1127px;
   height: 125px;
 
-  @media (max-width: 375px) {
+  @media (max-width: 564px) {
     margin-bottom: 24px;
-    width: 335px;
+    /* width: 335px; */
+    width:100%;
     height: 214px;
   }
 `;
@@ -20,14 +21,15 @@ export const FooterNavigationList = styled.ul`
   flex-wrap: wrap;
   gap: 145px;
 
-  @media (max-width: 375px) {
+  @media (max-width: 564px) {
     gap: 24px 13px;
   }
 
   .footer-items {
     width: 173px;
-    @media (max-width: 375px) {
-      width: 161px;
+    @media (max-width: 564px) {
+      /* width: 161px; */
+      width:48%;
     }
   }
 
@@ -37,7 +39,7 @@ export const FooterNavigationList = styled.ul`
     font-weight: 700;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
-    @media (max-width: 375px) {
+    @media (max-width: 564px) {
     }
   }
 `;

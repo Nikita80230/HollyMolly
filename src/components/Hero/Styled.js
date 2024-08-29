@@ -31,7 +31,57 @@ export const StyledHero = styled.section`
     background-color: ${({ theme }) => theme.colors.heroBgColor};
   }
 
-  @media (max-width: 375px) {
+  .contentContainer {
+    width: 726px;
+    height: 389px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    background: #ffffff80;
+  }
+
+  .titleHero {
+    display: block;
+    font-family: ${({ theme }) => theme.fonts.familyPacifico};
+    font-weight: 400;
+    font-size: 55px;
+    background-image: ${({ theme }) => theme.colors.gradientTitle};
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    height: 85px;
+  }
+
+  .spanHero {
+    margin-bottom: 18px;
+    font-family: ${({ theme }) => theme.fonts.familyPacifico};
+    font-weight: 400;
+    font-size: 96px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.accentColor};
+  }
+
+  .secondTitle {
+    margin-top: 65px;
+    margin-left: 880px;
+    font-family: ${({ theme }) => theme.fonts.familyPacifico};
+    font-weight: 400;
+    font-size: 48px;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+  }
+
+  .title {
+    font-family: ${({ theme }) => theme.fonts.familyGaramond};
+    font-weight: 400;
+    font-size: 48px;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+  }
+
+  /* ========Mobile - @media (max-width: 564px)==============*/
+  @media (max-width: 564px) {
     padding: 89px 0 14px 0;
     margin-bottom: 16px;
     width: 100%;
@@ -51,81 +101,32 @@ export const StyledHero = styled.section`
       background-position: center;
       background-color: ${({ theme }) => theme.colors.heroBgColor};
     }
-  }
 
-  .contentContainer {
-    width: 726px;
-    height: 389px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 10px;
-    background: #ffffff80;
-
-    @media (max-width: 375px) {
+    .contentContainer {
       width: 257px;
       height: 112px;
     }
-  }
 
-  .titleHero {
-    display: block;
-    font-family: ${({ theme }) => theme.fonts.familyPacifico};
-    font-weight: 400;
-    font-size: 55px;
-    background-image: ${({ theme }) => theme.colors.gradientTitle};
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    height: 85px;
-
-    @media (max-width: 375px) {
+    .titleHero {
       font-size: 20px;
       height: 30px;
     }
-  }
 
-  .spanHero {
-    margin-bottom: 18px;
-    font-family: ${({ theme }) => theme.fonts.familyPacifico};
-    font-weight: 400;
-    font-size: 96px;
-    line-height: 1.2;
-    color: ${({ theme }) => theme.colors.accentColor};
-
-    @media (max-width: 375px) {
+    .spanHero {
       margin-bottom: 5px;
       font-size: 28px;
       line-height: 1.21429;
     }
-  }
 
-  .secondTitle {
-    margin-top: 65px;
-    margin-left: 880px;
-    font-family: ${({ theme }) => theme.fonts.familyPacifico};
-    font-weight: 400;
-    font-size: 48px;
-    color: ${({ theme }) => theme.colors.primaryTxtColor};
-
-    @media (max-width: 375px) {
+    .secondTitle {
       margin-top: 38px;
-      margin-left: 197px;
+      margin-left: 53%;
       font-size: 16px;
       line-height: 1.5;
       white-space: nowrap;
     }
-  }
 
-  .title {
-    font-family: ${({ theme }) => theme.fonts.familyGaramond};
-    font-weight: 400;
-    font-size: 48px;
-    color: ${({ theme }) => theme.colors.primaryTxtColor};
-
-    @media (max-width: 375px) {
+    .title {
       font-size: 16px;
       line-height: 1.2;
     }

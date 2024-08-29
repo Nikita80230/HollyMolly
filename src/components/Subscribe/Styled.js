@@ -11,7 +11,7 @@ export const SubscribeSection = styled.section`
   width: 100%;
   /* height: 470px; */
 
-  @media (max-width: 375px) {
+  @media (max-width: 564px) {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -22,7 +22,7 @@ export const SubscribeSection = styled.section`
     top: 216px;
     left: 51px;
 
-    @media (max-width: 375px) {
+    @media (max-width: 564px) {
       position: static;
       display: flex;
       flex-direction: column;
@@ -41,7 +41,7 @@ export const SubscribeSection = styled.section`
     -webkit-text-fill-color: transparent;
     height: 78px;
 
-    @media (max-width: 375px) {
+    @media (max-width: 564px) {
       font-size: 20px;
       height: 33px;
     }
@@ -54,7 +54,7 @@ export const SubscribeSection = styled.section`
     font-size: 20px;
     line-height: 1.2;
 
-    @media (max-width: 375px) {
+    @media (max-width: 564px) {
       margin-bottom: 8px;
       font-size: 12px;
       line-height: 1.25;
@@ -66,7 +66,7 @@ export const SubscribeSection = styled.section`
     display: flex;
     gap: 18px;
 
-    @media (max-width: 375px) {
+    @media (max-width: 564px) {
       flex-direction: column;
       gap: 24px;
       border-bottom: 0.5px solid ${({ theme }) => theme.colors.primaryTxtColor};
@@ -96,7 +96,7 @@ export const SubscribeSection = styled.section`
     font-size: 20px;
     line-height: 1.25;
 
-    @media (max-width: 375px) {
+    @media (max-width: 564px) {
       width: 335px;
       height: 36px;
       font-size: 16px;
@@ -111,7 +111,7 @@ export const SubscribeSection = styled.section`
     width: 389px;
     height: 40px;
 
-    @media (max-width: 375px) {
+    @media (max-width: 564px) {
       width: 335px;
       height: 36px;
     }
@@ -124,7 +124,7 @@ export const SubscribeSection = styled.section`
     font-size: 20px;
     line-height: 1.2;
 
-    @media (max-width: 375px) {
+    @media (max-width: 564px) {
       font-size: 16px;
       line-height: 1.25;
     }
@@ -146,7 +146,7 @@ export const SubscribeSection = styled.section`
     font-family: ${({ theme }) => theme.fonts.familyDidact};
     background: ${({ theme }) => theme.colors.primaryBgColor};
 
-    @media (max-width: 375px) {
+    @media (max-width: 564px) {
       font-size: 16px;
       line-height: 1.25;
       width: 335px;
@@ -170,7 +170,7 @@ export const SubscribeSection = styled.section`
     background: ${({ theme }) => theme.colors.primaryBgColor};
     transition: border ${({ theme }) => theme.animations.transition};
 
-    @media (max-width: 375px) {
+    @media (max-width: 564px) {
       font-size: 16px;
       line-height: 1.25;
       width: 335px;
@@ -192,7 +192,7 @@ export const SubscribeSection = styled.section`
     font-size: 16px;
     line-height: 1.25;
 
-    @media (max-width: 375px) {
+    @media (max-width: 564px) {
       font-size: 13px;
       line-height: 1.23077;
     }
@@ -208,7 +208,7 @@ export const SubscribeSection = styled.section`
     font-size: 16px;
     line-height: 1.25;
 
-    @media (max-width: 375px) {
+    @media (max-width: 564px) {
       font-size: 13px;
       line-height: 1.23077;
     }
@@ -228,7 +228,7 @@ export const SubscribeSection = styled.section`
     color: ${({ theme }) => theme.colors.whiteTxtColor};
     background-color: ${({ theme }) => theme.colors.accentColor};
 
-    @media (max-width: 375px) {
+    @media (max-width: 564px) {
       margin-bottom: 16px;
       width: 335px;
       height: 40px;
@@ -253,7 +253,7 @@ export const SubscribeSection = styled.section`
     transition: background-color ${({ theme }) => theme.animations.transition},
       box-shadow ${({ theme }) => theme.animations.transition};
 
-    @media (max-width: 375px) {
+    @media (max-width: 564px) {
       margin-bottom: 16px;
       width: 335px;
       height: 40px;
@@ -289,7 +289,7 @@ export const WrapperSubscribe = styled.div`
     background-color: ${({ theme }) => theme.colors.heroBgColor};
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 564px) {
     height: 200px;
     background: url(${subscribeMobile1x});
     background-size: cover;

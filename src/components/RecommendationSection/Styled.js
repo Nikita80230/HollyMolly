@@ -61,7 +61,9 @@ export const StyledRecommendationSection = styled.section`
     display: none;
   }
 
-  @media (max-width: 375px) {
+  /*========== Mobile - @media (max-width: 564px)================ */
+
+  @media (max-width: 564px) {
     .titleRecommendation {
       margin-bottom: 10px;
       font-weight: 500;
