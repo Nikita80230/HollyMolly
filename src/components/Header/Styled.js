@@ -36,11 +36,6 @@ export const StyledHeader = styled.header`
     width: 100%;
   }
 
-  /* .title {
-    font-size: 30px;
-    color: ${({ theme }) => theme.colors.accentTxtColor};
-  } */
-
   .headerLogo {
     position: absolute;
 
@@ -49,8 +44,6 @@ export const StyledHeader = styled.header`
 
     transform: translate(-50%, -50%);
 
-    /* display: flex;
-    margin: 0 auto; */
   }
 
   .headerDesktopLogoImg {
@@ -70,7 +63,7 @@ export const StyledHeader = styled.header`
 
   /* =============================@media (max-width: 768px)=================================== */
 
-  @media (min-width: 768px) and (max-width: 1024px) {
+  /* @media (min-width: 768px) and (max-width: 1024px) {
     .header {
       min-height: 82px;
     }
@@ -80,9 +73,9 @@ export const StyledHeader = styled.header`
     .leftHeader {
       max-width: 235px;
     }
-  }
+  } */
 
-  /* =============================@media (max-width: 564px) =================================== */
+  /* ============================= =================================== */
   /* @media (max-width: 767px) {
     margin-bottom: 17px;
 
@@ -124,9 +117,9 @@ export const StyledHeader = styled.header`
     }
   } */
 
-  /* =============================@media (max-width: 375px)=================================== */
+  /* ============================= Mobile - @media (max-width: 564px)=================================== */
 
-  @media (max-width: 375px) {
+  @media (max-width: 564px) {
     .leftHeader {
       display: none;
     }

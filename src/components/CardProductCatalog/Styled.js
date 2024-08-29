@@ -21,10 +21,6 @@ export const WrapperCard = styled.div`
       fill: ${({ theme }) => theme.colors.primaryTxtColor};
       transition: ${({ theme }) => theme.animations.transition};
     }
-    @media (max-width: 375px) {
-      width: 16px;
-      height: 16px;
-    }
   }
 
   .iconHeart.added {
@@ -95,10 +91,6 @@ export const WrapperCard = styled.div`
     height: 100%;
     border-radius: 10px;
     margin-bottom: 20px;
-
-    @media (max-width: 375px) {
-      margin-bottom: 10px;
-    }
   }
 
   .productPhoto {
@@ -108,10 +100,6 @@ export const WrapperCard = styled.div`
     transition: transform ${({ theme }) => theme.animations.transition};
     object-position: center center;
     object-fit: contain;
-
-    @media (max-width: 375px) {
-      height: 150px;
-    }
   }
 
   .containerTitle {
@@ -127,20 +115,11 @@ export const WrapperCard = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
-    @media (max-width: 375px) {
-      margin-bottom: 10px;
-      font-size: 18px;
-      line-height: 1.22222;
-    }
   }
 
   .wrapperPrice {
     position: relative;
     margin-top: 15px;
-    @media (max-width: 375px) {
-      margin-top: 10px;
-    }
   }
 
   .price {
@@ -152,11 +131,6 @@ export const WrapperCard = styled.div`
     font-size: 18px;
     line-height: 1.21429;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
-    @media (max-width: 375px) {
-      top: 3px;
-      left: 55px;
-      font-size: 16px;
-    }
   }
 
   .price::after {
@@ -176,14 +150,9 @@ export const WrapperCard = styled.div`
     font-size: 28px;
     line-height: 1.21429;
     color: ${({ theme }) => theme.colors.accentColor};
-
-    @media (max-width: 375px) {
-      font-size: 20px;
-      line-height: 1.2;
-    }
   }
 
-  .buttonsFeedback {
+  /* .buttonsFeedback {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -193,25 +162,63 @@ export const WrapperCard = styled.div`
     display: flex;
     align-items: center;
     gap: 5px;
-  }
+  } */
 
-  .spanFeedback {
+  /* .spanFeedback {
     font-family: ${({ theme }) => theme.fonts.familyNunito};
     font-weight: 500;
     font-size: 11px;
     color: ${({ theme }) => theme.colors.titleCardProduct};
-  }
+  } */
 
-  .wrapperColorsFeedbackHeart {
+  /* .wrapperColorsFeedbackHeart {
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+  } */
 
   .buttonIcon {
     display: flex;
     background-color: transparent;
     border: transparent;
+  }
+
+  /* ========Mobile - @media (max-width: 564px)========= */
+
+  @media (max-width: 564px) {
+    .iconHeart {
+      width: 16px;
+      height: 16px;
+    }
+
+    .wrapperPhoto {
+      margin-bottom: 10px;
+    }
+
+    .productPhoto {
+      height: 150px;
+    }
+
+    .title {
+      margin-bottom: 10px;
+      font-size: 18px;
+      line-height: 1.22222;
+    }
+
+    .wrapperPrice {
+      margin-top: 10px;
+    }
+
+    .price {
+      top: 3px;
+      left: 55px;
+      font-size: 16px;
+    }
+
+    .priceAfterDiscount {
+      font-size: 20px;
+      line-height: 1.2;
+    }
   }
 `;
