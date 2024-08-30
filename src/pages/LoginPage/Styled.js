@@ -66,6 +66,47 @@ padding-top:38px;
     width: 430px;
     height: 500px;
   }
+
+    /* ==== Mobile max-width:564px=== */
+  @media (max-width: 564px) {
+    position: relative;
+    padding-top: 24px;
+    gap: 24px;
+
+    .list {
+      gap: 0;
+    }
+
+    .buttonEnter {
+      padding: 7px 5px;
+      width: 165px;
+      height: 44px;
+      font-size: 24px;
+      line-height: 1.20833;
+    }
+
+    .buttonActive {
+      padding: 7px 5px;
+      width: 165px;
+      height: 44px;
+      font-size: 24px;
+      line-height: 1.20833;
+    }
+
+    .wrapperFormPhoto {
+      position: absolute;
+      top: 92px;
+      left: -20px;
+      width: 564px;
+      height: 650px;
+      border:transparent;
+    }
+
+    .authPhoto {
+      width: 100%;
+      height: 100%;
+    }
+  }
    
   
 `

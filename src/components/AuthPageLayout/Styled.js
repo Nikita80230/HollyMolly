@@ -10,10 +10,11 @@ export const StyledAuthPageLayout = styled.div`
   
   
   
-  @media only screen and (min-width: 375px) {
+  @media (max-width: 564px) {
    
   .styledMain{
-   
+   margin-top: 70px;
+   padding-top:0;
   }
 }
 

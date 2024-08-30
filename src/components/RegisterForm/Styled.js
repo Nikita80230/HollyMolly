@@ -94,6 +94,35 @@ export const StyledForm = styled(Form)`
     font-size: 14px;
     line-height: 1.25;
   }
+
+  /* Mobile max-width:564px */
+
+  @media (max-width: 564px) {
+    position: absolute;
+    top: 43px;
+    left: 20px;
+    gap: 24px;
+    padding-top: 61px;
+    border-radius: 0;
+    width: 335px;
+    height: 462px;
+    background: ${({ theme }) => theme.colors.backgroundContentBox};
+  }
+
+  .inputAuth {
+    padding: 14px 0px 14px 15px;
+    height: 52px;
+  }
+
+  .inputError {
+    padding: 14px 0px 14px 15px;
+    height: 52px;
+  }
+
+  .inputSuccess {
+    padding: 14px 0px 14px 15px;
+    height: 52px;
+  }
 `;
 
 export const LabelRegisterSubscribe = styled.label`
@@ -108,11 +137,17 @@ export const LabelRegisterSubscribe = styled.label`
   font-size: 16px;
   line-height: 1.25;
   color: ${({ theme }) => theme.colors.primaryTxtColor};
+
+  @media (max-width: 564px) {
+    gap: 8px;
+    height: 52px;
+  }
 `;
 
 export const InputCheckbox = styled(Field)`
   width: 30px;
   height: 30px;
+  background-color: ${({ theme }) => theme.colors.primaryBgColor};
   border-radius: 2px;
   border: 1px solid ${({ theme }) => theme.colors.borderColor};
   cursor: pointer;
@@ -135,5 +170,9 @@ export const InputCheckbox = styled(Field)`
     border-width: 0 3px 3px 0;
     transform: translate(-50%, -60%) rotate(45deg);
   }
-`;
 
+  @media (max-width: 564px) {
+    width: 24px;
+    height: 24px;
+  }
+`;

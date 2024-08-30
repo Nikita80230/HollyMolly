@@ -1,14 +1,12 @@
 import { styled } from "styled-components";
 
 export const WrapperRegister = styled.section`
-padding-top:38px;
+  padding-top: 38px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 25px;
-
-  
 
   .list {
     display: flex;
@@ -25,6 +23,7 @@ padding-top:38px;
     font-weight: 400;
     font-size: 30px;
     line-height: 1.2;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
     transition: box-shadow ${({ theme }) => theme.animations.transition},
       color ${({ theme }) => theme.animations.transition};
 
@@ -67,5 +66,46 @@ padding-top:38px;
     border-radius: 0 10px 10px 0;
     width: 430px;
     height: 500px;
+  }
+
+  /* ==== Mobile max-width:564px=== */
+  @media (max-width: 564px) {
+    position: relative;
+    padding-top: 24px;
+    gap: 24px;
+
+    .list {
+      gap: 0;
+    }
+
+    .buttonEnter {
+      padding: 7px 5px;
+      width: 165px;
+      height: 44px;
+      font-size: 24px;
+      line-height: 1.20833;
+    }
+
+    .buttonActive {
+      padding: 7px 5px;
+      width: 165px;
+      height: 44px;
+      font-size: 24px;
+      line-height: 1.20833;
+    }
+
+    .wrapperFormPhoto {
+      position: absolute;
+      top: 92px;
+      left: -20px;
+      width: 564px;
+      height: 650px;
+      border:transparent;
+    }
+
+    .authPhoto {
+      width: 100%;
+      height: 100%;
+    }
   }
 `;

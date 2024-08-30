@@ -95,6 +95,30 @@ export const StyledForm = styled(Form)`
     font-size: 14px;
     line-height: 1.25;
   }
+
+  @media (max-width: 564px) {
+    padding: 0;
+    gap: 24px;
+    border: transparent;
+
+    .inputAuth {
+      padding: 14px 0px 14px 15px;
+      width: 335px;
+      height: 52px;
+    }
+
+    .inputError {
+      padding: 14px 0px 14px 15px;
+      width: 335px;
+      height: 52px;
+    }
+
+    .inputSuccess {
+      padding: 14px 0px 14px 15px;
+      width: 335px;
+      height: 52px;
+    }
+  }
 `;
 
 export const WrapperModal = styled.div`

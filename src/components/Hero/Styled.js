@@ -40,7 +40,7 @@ export const StyledHero = styled.section`
     align-items: center;
     text-align: center;
     border-radius: 10px;
-    background: #ffffff80;
+    background: ${({theme})=>theme.colors.backgroundContentBox};
   }
 
   .titleHero {

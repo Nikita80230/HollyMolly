@@ -29,6 +29,7 @@ export const theme = {
     borderProductPhoto: "#fff6e7",
     placeholderReview: " #727273",
     hoverCalendar: "#fff6e7",
+    backgroundContentBox:" #ffffff80",
 
     colorLogo: "#6b5034",
     colorLink: "#4169e1",

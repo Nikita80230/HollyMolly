@@ -3,7 +3,7 @@ import ResetPasswordForm from "src/components/ForgotResetPasswordForms/ResetPass
 
 import { WrapperResetPassword } from "./Styled";
 import Container from "src/components/Container/Container";
-import TitleAuth from "src/components/TitleAuth/TitleAuth";
+import TitleLong from "src/components/TitleLong/TitleLong";
 
 const ResetPasswordPage = () => {
   const location = useLocation();
@@ -14,7 +14,7 @@ const ResetPasswordPage = () => {
   return (
     <Container>
       <WrapperResetPassword>
-        <TitleAuth title={"Оновлення паролю"} />
+        <TitleLong title={"Оновлення паролю"} />
         <p className="description">Введіть свій новий пароль</p>
         <ResetPasswordForm token={token} userId={userId} />
       </WrapperResetPassword>

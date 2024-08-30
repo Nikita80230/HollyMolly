@@ -1,9 +1,9 @@
 import ForgotPasswordForm from "src/components/ForgotResetPasswordForms/ForgotPasswordForm";
 import { WrapperForgotPassword, WrapperLinkBack } from "./Styled";
-import TitleAuth from "src/components/TitleAuth/TitleAuth";
 import ArrowLeft from "src/assets/images/arrowLeft.svg?react";
 import { Link } from "react-router-dom";
 import { routes } from "src/routes";
+import TitleLong from "src/components/TitleLong/TitleLong";
 
 const ForgotPasswordPage = () => {
   return (
@@ -16,9 +16,9 @@ const ForgotPasswordPage = () => {
         </WrapperLinkBack>
       <WrapperForgotPassword>
        
-        <TitleAuth title={"Відновлення паролю"} />
+        <TitleLong title={"Відновлення паролю"} />
         <p className="description">
-          Введіть свою електронну адресу, щоб отримати посилання <br /> для
+          Введіть свою електронну адресу, щоб отримати  <br /> посилання для
           скидання пароля
         </p>
         <ForgotPasswordForm />
