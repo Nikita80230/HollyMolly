@@ -83,7 +83,7 @@ const ForgotPasswordForm = () => {
                 name="email"
               />
             </label>
-            <ButtonAuth title={"Відправити"} width={"390px"} />
+            <ButtonAuth title={"Відправити"} width={"100%"} />
           </StyledForm>
         )}
       </Formik>
