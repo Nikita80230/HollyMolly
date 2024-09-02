@@ -33,6 +33,7 @@ import { getMyOrders } from "./redux/orders/operations";
 
 import ConfirmEmailPage from "./pages/ConfirmEmailPage/ConfirmEmailPage";
 import { fetchCategories } from "./redux/categories/operations";
+import { getAllProducts } from "./redux/products/operations";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -178,6 +179,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(refreshUser());
     dispatch(fetchCategories());
+    dispatch(getAllProducts());
   }, [dispatch]);
 
   // useEffect(() => {
