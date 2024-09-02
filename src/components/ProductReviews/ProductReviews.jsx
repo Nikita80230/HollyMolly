@@ -1,10 +1,11 @@
 import Modal from "react-modal";
 import { StyledSection, WrapperModal } from "./Styled";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, A11y } from "swiper/modules";
+import { Navigation, A11y, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import ArrowLeft from "src/assets/images/arrowLeft.svg?react";
 import ArrowRight from "src/assets/images/arrowRight.svg?react";
@@ -40,13 +41,31 @@ const ProductReviews = ({ reviews, productId }) => {
         <>
           <Swiper
             className="swiperCustom"
-            modules={[Navigation, A11y]}
+            modules={[Navigation, A11y, Pagination]}
             navigation={{
               nextEl: ".nextProductBtn",
               prevEl: ".prevProductBtn",
             }}
+            pagination={{
+              el: ".swiper-pagination-container",
+              clickable: true,
+            }}
             spaceBetween={50}
             slidesPerView={3}
+            breakpoints={{
+              375: {
+                slidesPerView: 1.5,
+                spaceBetween: 15,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 46,
+              },
+            }}
           >
             {reviews.map((review, index) => (
               <SwiperSlide key={index} className="swiper-slideCustom">
@@ -82,7 +101,7 @@ const ProductReviews = ({ reviews, productId }) => {
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
-          className="content-modal-review"
+          className="content-modal-review-small"
           overlayClassName="modal-overlay-light"
           contentLabel="Modal Subscription"
         >

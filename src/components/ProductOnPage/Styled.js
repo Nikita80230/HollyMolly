@@ -8,36 +8,6 @@ export const StyledSectionProduct = styled.section`
     gap: 50px;
   }
 
-  /* .containerMainPhoto {
-  margin-bottom: 8px;
-  border-radius: 10px;
-  
-  width: 600px;
-  height: 374px;
-  
-}
-
-.styledImg {
-  border-radius: 10px;
-  border: 5px solid ${({ theme }) => theme.colors.borderProductPhoto};
-  width: 600px;
- height: 374px;
-  
-}
-
-.nextPhoto{
-    border-radius: 10px;
-  border: 5px solid ${({ theme }) => theme.colors.borderProductPhoto};
-  width: 295px;
- height: 200px;
-}
-
-.wrapperPictures {
-  display: flex;
-  gap: 10px;
-}
-   */
-
   .containerContent {
     display: flex;
     flex-direction: column;
@@ -93,7 +63,6 @@ export const StyledSectionProduct = styled.section`
     font-size: 30px;
     width: 120px;
     white-space: nowrap;
-    
   }
 
   .containerCounterPrices {
@@ -164,7 +133,7 @@ export const StyledSectionProduct = styled.section`
     &:focus {
       background-color: ${({ theme }) => theme.colors.activeBgColor};
     }
-    
+
     &:disabled {
       background-color: ${({ theme }) => theme.colors.buttonBgDisabled};
     }
@@ -185,11 +154,9 @@ export const StyledSectionProduct = styled.section`
     &:hover {
       box-shadow: ${({ theme }) => theme.shadows.boxShadowButtonHover};
     }
-
-   
   }
 
-   .iconHeart {
+  .iconHeart {
     width: 24px;
     height: 24px;
     transition: ${({ theme }) => theme.animations.transition};
@@ -199,16 +166,111 @@ export const StyledSectionProduct = styled.section`
     }
   }
 
- .iconHeart.added {
+  .iconHeart.added {
     path {
       fill: ${({ theme }) => theme.colors.accentColor};
     }
   }
 
-  
-
-  .text {
+  /* .text {
     font-weight: 400;
     font-size: 30px;
+  } */
+
+  @media (max-width: 564px) {
+    .sectionProduct {
+      flex-direction: column;
+      padding-right: 0;
+      margin-bottom: 16px;
+      gap: 8px;
+    }
+
+    .containerContent {
+      width: 264px;
+    }
+
+    .titleProduct {
+      font-weight: 400;
+      font-size: 24px;
+    }
+
+    .styledSpan {
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .wrapperRating {
+      margin-bottom: 10px;
+      display: flex;
+      gap: 30px;
+    }
+
+    .spanFeedback {
+      font-size: 14px;
+      line-height: 1.28571;
+    }
+
+    .description {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .wrapperListSpan {
+      margin-bottom: 8px;
+      height: 29px;
+    }
+
+    .styledListSpan {
+      margin-right: 0;
+
+      font-size: 16px;
+      width: 132px;
+      white-space: nowrap;
+    }
+
+    .containerCounterPrices {
+      margin-bottom: 25px;
+      gap: 40px;
+    }
+
+    .containerPrices {
+      position: relative;
+    }
+
+    .price {
+      top: 6px;
+      left: 60px;
+      font-size: 18px;
+      line-height: 1.22222;
+    }
+
+    .priceAfterDiscount {
+      font-size: 24px;
+      line-height: 1.16667;
+    }
+
+    .containerButtons {
+      margin-bottom: 0;
+      gap: 8px;
+    }
+
+    .buttonAddBasket {
+      padding: 8px 8px;
+      width: 283px;
+      height: 44px;
+      font-size: 22px;
+      line-height: 1.22727;
+    }
+
+    .buttonFavorites {
+      padding: 10px;
+      width: 44px;
+      height: 44px;
+    }
+
+    /* .text {
+    font-weight: 400;
+    font-size: 30px;
+  } */
   }
 `;

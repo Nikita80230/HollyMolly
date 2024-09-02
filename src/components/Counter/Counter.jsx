@@ -25,7 +25,7 @@ const Counter = ({ quantity, setQuantity, stockQuantity }) => {
         onClick={handleDecrement}
         disabled={quantity <= 1}
       >
-        <MinusIcon />
+        <MinusIcon className="icon" />
       </button>
 
       <span className="spanCounter">{quantity}</span>
@@ -36,7 +36,7 @@ const Counter = ({ quantity, setQuantity, stockQuantity }) => {
         onClick={handleIncrement}
         disabled={quantity >= stockQuantity}
       >
-        <PlusIcon />
+        <PlusIcon className="icon" />
       </button>
     </WrapperCounter>
   );

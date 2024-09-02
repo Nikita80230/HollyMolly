@@ -3,7 +3,7 @@ import { Navigation, A11y, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import 'swiper/css/pagination';
+import "swiper/css/pagination";
 
 import CardProductCatalog from "../CardProductCatalog/CardProductCatalog";
 
@@ -33,38 +33,34 @@ const RecommendationSection = ({
             <ArrowRight />
           </button>
         </div>
-          <div className="swiper-pagination-container"></div>
+        <div className="swiper-pagination-container"></div>
       </div>
-    
-<Swiper
+
+      <Swiper
         className="swiperCustom"
         modules={[Navigation, A11y, Pagination]}
         navigation={{
           nextEl: ".nextProductBtn",
           prevEl: ".prevProductBtn",
         }}
-         pagination={{
-        el: '.swiper-pagination-container',
-        clickable: true,
-      }}
+        pagination={{
+          el: ".swiper-pagination-container",
+          clickable: true,
+        }}
         spaceBetween={15}
         slidesPerView={2}
-        
         breakpoints={{
           375: {
             slidesPerView: 2,
             spaceBetween: 15,
-
           },
           768: {
             slidesPerView: 4,
             spaceBetween: 20,
-            
           },
           1024: {
             slidesPerView: 4,
             spaceBetween: 46,
-            
           },
         }}
       >

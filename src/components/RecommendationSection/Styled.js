@@ -64,10 +64,13 @@ export const StyledRecommendationSection = styled.section`
   /*========== Mobile - @media (max-width: 564px)================ */
 
   @media (max-width: 564px) {
+    /* margin-bottom:24px; */
+
     .titleRecommendation {
       margin-bottom: 10px;
-      font-weight: 500;
       font-size: 20px;
+      line-height: 1.2;
+      white-space: nowrap;
     }
     .buttonSwiper {
       display: none;

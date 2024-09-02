@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 
 export const ContainerFeedbacks = styled.div`
- 
   .starsWrapper {
     display: flex;
     gap: 5px;
@@ -12,5 +11,10 @@ export const ContainerFeedbacks = styled.div`
     height: 24px;
   }
 
- 
+  @media (max-width: 564px) {
+    .iconStar {
+      width: 16px;
+      height: 16px;
+    }
+  }
 `;

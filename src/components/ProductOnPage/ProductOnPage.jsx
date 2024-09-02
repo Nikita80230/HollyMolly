@@ -17,6 +17,7 @@ import Counter from "../Counter/Counter";
 import ListProductPhotos from "../ListProductPhotos/ListProductPhotos";
 import { getFeedbackWord } from "src/utils/getFeedbackWord";
 import { useAuth } from "src/hooks";
+import PhotoSwiper from "../PhotoSwiper/PhotoSwiper";
 
 const ProductOnPage = ({ instanceId, borderColor }) => {
   const { isLoggedIn } = useAuth();
@@ -35,6 +36,7 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
   const [quantity, setQuantity] = useState(1);
   const [stockQuantity, setStockQuantity] = useState(null);
   const favoriteProducts = useSelector(selectFavoriteProducts);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
 
   const isProductInFavorite = favoriteProducts?.some(
     (favoriteProduct) => favoriteProduct && favoriteProduct.id === product?.id
@@ -143,6 +145,18 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
     }
   }, [product, instanceId]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 564);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       {isLoading || !product || !product.productsInstances ? (
@@ -150,10 +164,17 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
       ) : (
         <StyledSectionProduct>
           <div className="sectionProduct">
-            <ListProductPhotos
-              images={selectedProductInstance?.images || []}
-              border={borderColor}
-            />
+            {!isMobile ? (
+              <ListProductPhotos
+                images={selectedProductInstance?.images || []}
+                border={borderColor}
+              />
+            ) : (
+              <PhotoSwiper
+                images={selectedProductInstance?.images || []}
+                border={borderColor}
+              />
+            )}
             <div className="containerContent">
               <h3 className="titleProduct">{product?.name}</h3>
               <span className="styledSpan">ID {product.id}</span>
