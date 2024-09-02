@@ -187,4 +187,57 @@ export const WrapperFeedback = styled.div`
   .inputError {
     border: 1px solid ${({ theme }) => theme.colors.colorError};
   }
+
+  @media (max-width: 564px) {
+
+  border-radius: 0;
+  padding: 64px 20px 26px 20px;
+  width: 375px;
+height: 511px;
+  
+  .buttonClose {
+top:10px;
+    
+  }
+ 
+
+  .title {
+    font-size: 24px;
+line-height: 1.16667;
+  }
+
+  .labelName {
+    height: 44px;
+  }
+
+  .errorName {
+    font-size: 14px;
+    
+  }
+
+  .inputName {
+    height: 44px;
+    
+  }
+
+
+  .errorRating {
+    font-size: 14px;
+   
+  }
+
+  .errorReview {
+    font-size: 14px;
+    
+  }
+
+  .buttonReview {
+    
+    padding: 7px 5px;
+    width: 100%;
+    height: 44px;
+    
+  }
+
+  }
 `;

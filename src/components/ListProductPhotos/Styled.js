@@ -14,7 +14,7 @@ export const PhotoContainer = styled.div`
     overflow: hidden;
     width: 600px;
     height: 374px;
-    border: 5px solid ${({ $border }) => $border || ''};
+    border: 5px solid ${({ $border }) => $border || ""};
     border-radius: 10px;
   }
 
@@ -42,9 +42,11 @@ export const PhotoContainer = styled.div`
     width: 295px;
     height: 200px;
     object-position: center center;
-    border: 5px solid ${({ $border }) => $border || ''};
+    border: 5px solid ${({ $border }) => $border || ""};
     border-radius: 10px;
   }
+
+  @media (max-width: 564px) {
+    display: none;
+  }
 `;
-
-

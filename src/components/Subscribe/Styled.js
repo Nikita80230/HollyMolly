@@ -12,6 +12,7 @@ export const SubscribeSection = styled.section`
   /* height: 470px; */
 
   @media (max-width: 564px) {
+    margin-bottom: 16px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -69,7 +70,6 @@ export const SubscribeSection = styled.section`
     @media (max-width: 564px) {
       flex-direction: column;
       gap: 24px;
-      border-bottom: 0.5px solid ${({ theme }) => theme.colors.primaryTxtColor};
       box-shadow: 0px 2px 5px 0px
         ${({ theme }) => theme.shadows.boxShadowSection};
     }
@@ -229,7 +229,6 @@ export const SubscribeSection = styled.section`
     background-color: ${({ theme }) => theme.colors.accentColor};
 
     @media (max-width: 564px) {
-      margin-bottom: 16px;
       width: 335px;
       height: 40px;
       font-size: 22px;
@@ -254,7 +253,6 @@ export const SubscribeSection = styled.section`
       box-shadow ${({ theme }) => theme.animations.transition};
 
     @media (max-width: 564px) {
-      margin-bottom: 16px;
       width: 335px;
       height: 40px;
       font-size: 22px;

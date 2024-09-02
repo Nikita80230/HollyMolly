@@ -38,25 +38,16 @@ export const StyledSection = styled.section`
     align-items: center;
     background-color: transparent;
     border: transparent;
-    /* transition: background-color ${({ theme }) =>
-      theme.animations.transition}; */
+    
   }
   .nextProductBtn:focus {
-    /* background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper}; */
+    
     border: transparent;
   }
 
   .prevProductBtn:focus {
-    /* background-color: ${({ theme }) => theme.colors.focusButtonBgSwiper}; */
+    
     border: transparent;
-  }
-
-  .nextProductBtn:hover {
-    /* border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper}; */
-  }
-
-  .prevProductBtn:hover {
-    /* border: 1px solid ${({ theme }) => theme.colors.hoverBorderSwiper}; */
   }
 
   .nextProductBtn:after,
@@ -86,11 +77,14 @@ export const StyledSection = styled.section`
     height: 242px;
   }
 
+    .swiper-pagination-container {
+      display:none;
+    }
+
   .buttonReview {
     margin-left: 970px;
     border: 1px solid ${({ theme }) => theme.colors.accentColor};
     border-radius: 5px;
-    /* padding: 15px 8px; */
     width: 277px;
     height: 60px;
     background-color: ${({ theme }) => theme.colors.primaryBgColor};
@@ -110,6 +104,70 @@ export const StyledSection = styled.section`
       color: ${({ theme }) => theme.colors.accentColor};
     }
   }
+
+@media (max-width: 564px) {
+  margin-bottom: 16px;
+
+   .titleReviews {
+    margin-bottom: 16px;
+    font-size: 20px;
+line-height: 1.2;
+  }
+
+  .textReviews {
+    font-size: 16px;
+line-height: 1.25;
+    
+  }
+
+  .buttonSwiper {
+   display:none;
+  }
+
+  .swiperCustom {
+     height: 160px;
+     margin-bottom: 16px;
+  }
+
+  .swiper-slideCustom {
+    font-size: 16px;
+    width: 214px;
+    height: 156px;
+  }
+
+      /* .swiper-pagination-container {
+      display: block;
+      margin-left: auto;
+      width: 100%;
+      height: 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    } */
+
+    .swiper-pagination-bullet {
+      background: ${({ theme }) => theme.colors.secondaryTxtColor};
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      margin: 0 4px;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: ${({ theme }) => theme.colors.primaryTxtColor};
+    }
+  
+
+  .buttonReview {
+    margin-left: 0;
+    width: 100%;
+    height: 44px;
+    font-size: 22px;
+line-height: 1.31818;
+  
+  }
+}
+
 `;
 
 export const WrapperModal = styled.div`
@@ -159,5 +217,36 @@ export const WrapperModal = styled.div`
     &:focus {
       color: ${({ theme }) => theme.colors.accentColor};
     }
+  }
+
+  @media (max-width: 564px) {
+  border-radius: 0;
+  padding: 57px 19px 36px 19px;
+  width: 374px;
+  height: 198px;
+  
+
+  .buttonClose {
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    
+  }
+
+  .descriptionModal {
+    margin-bottom: 25px;
+    font-size: 24px;
+    line-height: 1.5;
+  }
+
+  .button {
+    padding: 7px 5px;
+    width: 100%;
+    height: 44px;
+    font-size: 24px;
+    line-height: 1.20833;
+  
+  }
+
   }
 `;

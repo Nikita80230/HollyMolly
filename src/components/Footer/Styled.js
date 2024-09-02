@@ -24,6 +24,8 @@ export const StyledFooter = styled.footer`
   }
 
   .wrapperFooter {
+     padding-top:8px;
+    border-top: 0.5px solid ${({ theme }) => theme.colors.primaryTxtColor};
     justify-content: flex-start;
     flex-direction: column;
     gap: 24px;
