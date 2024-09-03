@@ -9,8 +9,6 @@ export const WrapperFooterNavigation = styled.div`
   height: 125px;
 
   @media (max-width: 564px) {
-    margin-bottom: 24px;
-    /* width: 335px; */
     width:100%;
     height: 214px;
   }

@@ -28,6 +28,7 @@ export const StyledList = styled.ul`
     font-weight: 400;
     font-size: 30px;
     white-space: nowrap;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
   @media (max-width: 564px) {

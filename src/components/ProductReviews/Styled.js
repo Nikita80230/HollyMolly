@@ -207,6 +207,7 @@ export const WrapperModal = styled.div`
     font-size: 24px;
     line-height: 1.20833;
     background-color: transparent;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
     transition: box-shadow ${({ theme }) => theme.animations.transition},
       color ${({ theme }) => theme.animations.transition};
 

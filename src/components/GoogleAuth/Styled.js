@@ -13,6 +13,7 @@ export const ButtonGoogle = styled.button`
   font-weight: 400;
   font-size: 24px;
   line-height: 1.20833;
+  color: ${({ theme }) => theme.colors.primaryTxtColor};
   transition: color ${({ theme }) => theme.animations.transition},
     box-shadows ${({ theme }) => theme.animations.transition};
 

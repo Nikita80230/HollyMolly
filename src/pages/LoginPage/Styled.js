@@ -23,6 +23,7 @@ padding-top:38px;
     font-weight: 400;
     font-size: 30px;
     line-height: 1.2;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
     transition: box-shadow ${({ theme }) => theme.animations.transition},
       color ${({ theme }) => theme.animations.transition};
 
