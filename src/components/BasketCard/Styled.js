@@ -110,6 +110,7 @@ export const BasketItem = styled.li`
   }
 
   .buttonCount {
+    padding:6px;
     width: 30px;
     height: 30px;
     display: flex;
@@ -121,8 +122,8 @@ export const BasketItem = styled.li`
   }
 
   .icon {
-    width: 12px;
-    height: 12px;
+    width: 18px;
+    height: 18px;
     path {
       fill: ${({ theme }) => theme.colors.primaryTxtColor};
     }
@@ -205,13 +206,14 @@ export const BasketItem = styled.li`
     }
 
     .buttonCount {
+      padding:3px;
       width: 16px;
       height: 16px;
     }
 
     .icon {
       width: 9px;
-      height: 9px;
+      height: 19px;
     }
 
     .countQuantity {
