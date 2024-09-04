@@ -38,7 +38,7 @@ export const StyledSubcategoriesList = styled.div`
   } */
 
   .subCategoryImg {
-    margin-bottom:37px;
+    margin-bottom: 37px;
     width: 100%;
     max-height: 300px;
     border-radius: 10px 10px 0 0;
@@ -71,6 +71,44 @@ export const StyledSubcategoriesList = styled.div`
     font-weight: 500;
     font-size: 30px;
     text-align: center;
-    color:${({ theme }) => theme.colors.primaryTxtColor };
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+  }
+
+  @media (max-width: 564px) {
+    .title {
+      margin-bottom: 16px;
+
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .subcategoriesList {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 54px;
+    }
+    .subCategoryItem {
+      max-width: 410px;
+      width: 100%;
+      height: 413px;
+      /* overflow: hidden; */
+      border-radius: 10px;
+    }
+    .subCategoryImg {
+      margin-bottom: 37px;
+      width: 100%;
+      max-height: 300px;
+      border-radius: 10px 10px 0 0;
+
+      /* transform: scale(1);
+    transition: ${({ theme }) => theme.animations.transition}; */
+    }
+    .subCategoryTitle {
+      font-weight: 500;
+      font-size: 30px;
+      text-align: center;
+      color: ${({ theme }) => theme.colors.primaryTxtColor};
+    }
   }
 `;

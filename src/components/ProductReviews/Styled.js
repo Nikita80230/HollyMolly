@@ -38,15 +38,12 @@ export const StyledSection = styled.section`
     align-items: center;
     background-color: transparent;
     border: transparent;
-    
   }
   .nextProductBtn:focus {
-    
     border: transparent;
   }
 
   .prevProductBtn:focus {
-    
     border: transparent;
   }
 
@@ -77,9 +74,9 @@ export const StyledSection = styled.section`
     height: 242px;
   }
 
-    .swiper-pagination-container {
-      display:none;
-    }
+  .swiper-pagination-container {
+    display: none;
+  }
 
   .buttonReview {
     margin-left: 970px;
@@ -105,37 +102,43 @@ export const StyledSection = styled.section`
     }
   }
 
-@media (max-width: 564px) {
-  margin-bottom: 16px;
-
-   .titleReviews {
+  @media (max-width: 564px) {
     margin-bottom: 16px;
-    font-size: 20px;
-line-height: 1.2;
-  }
 
-  .textReviews {
-    font-size: 16px;
-line-height: 1.25;
-    
-  }
+    .titleAndPaginationWrapper {
+      display: flex;
+      justify-content: space-between;
+    }
 
-  .buttonSwiper {
-   display:none;
-  }
+    .titleReviews {
+      margin-bottom: 16px;
+      font-size: 20px;
+      line-height: 1.2;
 
-  .swiperCustom {
-     height: 160px;
-     margin-bottom: 16px;
-  }
+      white-space: nowrap;
+    }
 
-  .swiper-slideCustom {
-    font-size: 16px;
-    width: 214px;
-    height: 156px;
-  }
+    .textReviews {
+      font-size: 16px;
+      line-height: 1.25;
+    }
 
-      /* .swiper-pagination-container {
+    .buttonSwiper {
+      display: none;
+    }
+
+    .swiperCustom {
+      height: 160px;
+      margin-bottom: 16px;
+    }
+
+    .swiper-slideCustom {
+      font-size: 16px;
+      width: 214px;
+      height: 156px;
+    }
+
+    .swiper-pagination-container-review {
       display: block;
       margin-left: auto;
       width: 100%;
@@ -143,7 +146,7 @@ line-height: 1.25;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-    } */
+    }
 
     .swiper-pagination-bullet {
       background: ${({ theme }) => theme.colors.secondaryTxtColor};
@@ -156,18 +159,15 @@ line-height: 1.25;
     .swiper-pagination-bullet-active {
       background: ${({ theme }) => theme.colors.primaryTxtColor};
     }
-  
 
-  .buttonReview {
-    margin-left: 0;
-    width: 100%;
-    height: 44px;
-    font-size: 22px;
-line-height: 1.31818;
-  
+    .buttonReview {
+      margin-left: 0;
+      width: 100%;
+      height: 44px;
+      font-size: 22px;
+      line-height: 1.31818;
+    }
   }
-}
-
 `;
 
 export const WrapperModal = styled.div`
@@ -221,33 +221,29 @@ export const WrapperModal = styled.div`
   }
 
   @media (max-width: 564px) {
-  border-radius: 0;
-  padding: 57px 19px 36px 19px;
-  width: 374px;
-  height: 198px;
-  
+    border-radius: 0;
+    padding: 57px 19px 36px 19px;
+    width: 374px;
+    height: 198px;
 
-  .buttonClose {
-    position: absolute;
-    top: 25px;
-    right: 15px;
-    
-  }
+    .buttonClose {
+      position: absolute;
+      top: 25px;
+      right: 15px;
+    }
 
-  .descriptionModal {
-    margin-bottom: 25px;
-    font-size: 24px;
-    line-height: 1.5;
-  }
+    .descriptionModal {
+      margin-bottom: 25px;
+      font-size: 24px;
+      line-height: 1.5;
+    }
 
-  .button {
-    padding: 7px 5px;
-    width: 100%;
-    height: 44px;
-    font-size: 24px;
-    line-height: 1.20833;
-  
-  }
-
+    .button {
+      padding: 7px 5px;
+      width: 100%;
+      height: 44px;
+      font-size: 24px;
+      line-height: 1.20833;
+    }
   }
 `;

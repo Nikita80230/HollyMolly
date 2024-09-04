@@ -133,10 +133,18 @@ position: absolute;
   border: transparent;
   outline: none;
 
+  max-width: 426px;
+  width: 100%;
+  height: 517px;
+
   @media (max-width: 564px) {
-  /* top: 46%; */
-  top:36%;
-  left: 50%;
+    top: 0;
+    left: 0;
+
+    transform:unset;
+
+    width: 100vw;
+    height: 511px;
   }
 }
 

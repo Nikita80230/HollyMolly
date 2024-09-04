@@ -33,7 +33,10 @@ const ProductReviews = ({ reviews, productId }) => {
 
   return (
     <StyledSection>
-      <h2 className="titleReviews">Відгуки про продукт</h2>
+      <div className="titleAndPaginationWrapper">
+        <h2 className="titleReviews">Відгуки про продукт</h2>
+        <div className="swiper-pagination-container-review"></div>
+      </div>
 
       {!reviews.length ? (
         <p className="textReviews">Немає відгуків</p>
@@ -47,7 +50,7 @@ const ProductReviews = ({ reviews, productId }) => {
               prevEl: ".prevProductBtn",
             }}
             pagination={{
-              el: ".swiper-pagination-container",
+              el: ".swiper-pagination-container-review",
               clickable: true,
             }}
             spaceBetween={50}
