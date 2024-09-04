@@ -113,5 +113,78 @@ export const WrapperBasketPage = styled.section`
   }
   .link {
     color: ${({ theme }) => theme.colors.accentColor};
+    text-decoration: underline;
+  }
+
+  /* ==== Mobile max-width:564px=== */
+  @media (max-width: 564px) {
+    padding-top: 24px;
+    margin-bottom: 16px;
+
+    .wrapperBasket {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .wrapperList {
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      width: 100%;
+    }
+
+    .emptyBasketText {
+      font-size: 20px;
+    }
+
+    .containerPrices {
+      width: 100%;
+    }
+
+    .wrapperPrice {
+      margin-bottom: 16px;
+    }
+
+    .span {
+      font-size: 16px;
+      line-height: 1.8125;
+    }
+
+    .price {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .wrapper {
+      margin-bottom: 16px;
+    }
+
+    .containerTotalPrice {
+      margin-bottom: 24px;
+    }
+
+    .spanTotalPrice {
+      font-size: 20px;
+    }
+
+    .numberTotalPrice {
+      font-size: 24px;
+      line-height: 1.16667;
+    }
+
+    .buttonOrder {
+      width: 100%;
+      height: 44px;
+    }
+
+    .order {
+      font-size: 20px;
+      line-height: 1.45;
+    }
+    .link {
+      text-decoration: underline;
+    }
   }
 `;

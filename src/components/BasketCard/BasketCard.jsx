@@ -39,7 +39,7 @@ const BasketCard = ({ product, handleClickCount, handleClickAddCount }) => {
           <div className="boxNameDelete">
             <h3 className="nameProduct">{productName}</h3>
             <button className="buttonTrash" onClick={handleClick}>
-              <TrashIcon />
+              <TrashIcon className="iconTrash"/>
             </button>
           </div>
           <span className="spanId">ID {productInstanceId}</span>
