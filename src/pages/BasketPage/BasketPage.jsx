@@ -109,7 +109,7 @@ const BasketPage = () => {
               <p className="order">
                 Щоб оформити замовлення потрібно<br></br>
                 <Link to={routes.REGISTER} className="link">
-                  авторизуватись
+                  авторизуватися
                 </Link>
               </p>
             )}

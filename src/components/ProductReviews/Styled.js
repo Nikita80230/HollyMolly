@@ -88,10 +88,10 @@ export const StyledSection = styled.section`
     width: 277px;
     height: 60px;
     background-color: ${({ theme }) => theme.colors.primaryBgColor};
-
     font-weight: 400;
     font-size: 24px;
     line-height: 1.20833;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
     text-align: center;
     transition: box-shadow ${({ theme }) => theme.animations.transition},
       color ${({ theme }) => theme.animations.transition};

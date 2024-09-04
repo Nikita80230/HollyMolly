@@ -28,6 +28,14 @@ export const BasketItem = styled.li`
     width: 100%;
   }
 
+  .iconTrash {
+    width: 24px;
+    height: 24px;
+    path {
+      fill: ${({ theme }) => theme.colors.primaryTxtColor};
+    }
+  }
+
   .nameProduct {
     margin-bottom: 5px;
     font-weight: 400;
@@ -115,6 +123,9 @@ export const BasketItem = styled.li`
   .icon {
     width: 12px;
     height: 12px;
+    path {
+      fill: ${({ theme }) => theme.colors.primaryTxtColor};
+    }
   }
   .countQuantity {
     font-weight: 400;
@@ -128,5 +139,89 @@ export const BasketItem = styled.li`
     font-size: 28px;
     line-height: 1.21429;
     color: ${({ theme }) => theme.colors.accentColor};
+  }
+
+  /* ==== Mobile max-width:564px=== */
+  @media (max-width: 564px) {
+    margin-bottom: 24px;
+
+    .basketPhoto {
+      margin-right: 10px;
+      width: 120px;
+      height: 120px;
+    }
+
+    .boxNameDelete {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .iconTrash {
+      width: 16px;
+      height: 16px;
+    }
+
+    .nameProduct {
+      margin-bottom: 4px;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .spanId {
+      margin-bottom: 4px;
+      font-size: 12px;
+      line-height: 1.33333;
+    }
+
+    .spanSize {
+      margin-bottom: 4px;
+      font-size: 14px;
+      line-height: 1.28571;
+    }
+
+    .containerColor {
+      margin-bottom: 6px;
+      gap: 10px;
+    }
+
+    .spanColor {
+      font-size: 14px;
+      line-height: 1.28571;
+    }
+
+    .wrapperColor {
+      width: 16px;
+      height: 16px;
+    }
+
+    .color {
+      width: 12px;
+      height: 12px;
+    }
+
+    .wrapperCounter {
+      gap: 6px;
+    }
+
+    .buttonCount {
+      width: 16px;
+      height: 16px;
+    }
+
+    .icon {
+      width: 9px;
+      height: 9px;
+    }
+
+    .countQuantity {
+      font-size: 12px;
+      line-height: 1.66667;
+    }
+
+    .priceBasket {
+      font-size: 20px;
+      line-height: 1.2;
+    }
   }
 `;

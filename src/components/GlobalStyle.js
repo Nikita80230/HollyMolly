@@ -134,8 +134,8 @@ position: absolute;
   outline: none;
 
   @media (max-width: 564px) {
-  top: 46%;
-  /* top:18%; */
+  /* top: 46%; */
+  top:36%;
   left: 50%;
   }
 }
