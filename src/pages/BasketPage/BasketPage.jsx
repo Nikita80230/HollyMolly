@@ -18,7 +18,6 @@ import { WrapperBasketPage } from "./Styled";
 
 const BasketPage = () => {
   const productsBasket = useSelector(selectBasket);
-
   const dispatch = useDispatch();
   const totalPrice = useSelector(selectAmountOrder);
   const { isLoggedIn } = useAuth();

@@ -6,6 +6,7 @@ export const StyledFooter = styled.footer`
   .wrapperFooter {
     display: flex;
     justify-content: space-between;
+
   }
 
   .text {
@@ -21,7 +22,7 @@ export const StyledFooter = styled.footer`
 
   @media (max-width: 564px) {
     margin-bottom: 20px;
-  }
+  
 
   .wrapperFooter {
      padding-top:8px;
@@ -34,4 +35,5 @@ export const StyledFooter = styled.footer`
   .text {
     margin: 0;
   }
+}
 `;
