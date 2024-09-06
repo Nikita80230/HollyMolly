@@ -11,7 +11,8 @@ const PhotoSwiper = ({ images, border }) => {
       <Swiper
         className="swiperCustom"
         modules={[Pagination]}
-        pagination={{
+         pagination={{
+          el: ".swiper-pagination-container-photo",
           clickable: true,
         }}
         slidesPerView={1}
@@ -27,6 +28,7 @@ const PhotoSwiper = ({ images, border }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div className="swiper-pagination-container-photo"></div>
     </WrapperPhoto>
   );
 };

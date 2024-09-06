@@ -4,8 +4,11 @@ import { routes } from "src/routes";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
 import { colorSchemes } from "src/utils/colorsScheme";
 
-const SubcategoriesList = ({ allCategories, categoryGroupId }) => {
-  
+const SubcategoriesList = ({
+  allCategories,
+  categoryGroupId,
+  onImageClick,
+}) => {
   const colors = colorSchemes[categoryGroupId] || [
     "#fff6e7",
     "#e2edf4",
@@ -42,6 +45,7 @@ const SubcategoriesList = ({ allCategories, categoryGroupId }) => {
                   className="subCategoryImg"
                   src={subCategory.link || defaultPhoto}
                   alt="Category image"
+                  onClick={onImageClick}
                 />
                 {/* <div className="titleOverlay"> */}
                 <p className="subCategoryTitle">{subCategory.name}</p>

@@ -1,6 +1,6 @@
 import ReactSelect from "react-select";
 import { StyledSortingPanel } from "./Styled";
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 
 const options = [
   { value: "byRate", label: "За рейтингом" },
@@ -65,9 +65,9 @@ const customStyles = {
   }),
 };
 
-const SortingPanel = ({ className, handleSorting }) => {
+const SortingPanel = forwardRef(({ className, handleSorting }, ref) => {
   return (
-    <StyledSortingPanel className={className}>
+    <StyledSortingPanel className={className} ref={ref}>
       <h2 className="titleSorting">Сортування</h2>
       <ReactSelect
         placeholder="За рейтингом"
@@ -79,6 +79,6 @@ const SortingPanel = ({ className, handleSorting }) => {
       />
     </StyledSortingPanel>
   );
-};
+});
 
 export default SortingPanel;
