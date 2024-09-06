@@ -44,7 +44,7 @@ export const WrapperModal = styled.div`
   .prevProductBtn.swiper-button-disabled,
   .nextProductBtn.swiper-button-disabled {
     border: transparent;
-    opacity: 0.6;
+    opacity: 0;
     cursor: auto;
     pointer-events: none;
   }

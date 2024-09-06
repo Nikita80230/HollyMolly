@@ -143,6 +143,16 @@ const CatalogPage = () => {
   //       dispatch(getAllProducts());
   //  },[dispatch])
 
+  // ==================================скрол при кліку по категорії============================================================
+
+  const sortingPanelRef = useRef(null);
+
+  const scrollToSortingPanel = () => {
+    if (sortingPanelRef.current) {
+      sortingPanelRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <StyledCatalogPage>
       <Container>
@@ -151,6 +161,7 @@ const CatalogPage = () => {
           <SubcategoriesList
             allCategories={allCategories}
             categoryGroupId={categoryGroupId}
+            onImageClick={scrollToSortingPanel}
           />
         </div>
         <div className="layout">
@@ -159,6 +170,7 @@ const CatalogPage = () => {
             className="sorting"
             handleSorting={handleSorting}
             sortType={sortType}
+            ref={sortingPanelRef}
           />
           <FiltersPanel
             className="filters"

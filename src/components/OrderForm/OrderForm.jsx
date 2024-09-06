@@ -423,7 +423,7 @@ const OrderForm = () => {
               </div>{" "}
               <span className="text">Онлайн</span>
             </div>
-            <ButtonAuth title={"Перейти до оплати"} width={"390px"} />
+            <ButtonAuth title={"Перейти до оплати"} width={"390px"}/>
           </Form>
         )}
       </Formik>

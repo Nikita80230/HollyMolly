@@ -64,7 +64,7 @@ export const StyledRecommendationSection = styled.section`
   /*========== Mobile - @media (max-width: 564px)================ */
 
   @media (max-width: 564px) {
-    /* margin-bottom:24px; */
+    
 
     .titleRecommendation {
       margin-bottom: 10px;

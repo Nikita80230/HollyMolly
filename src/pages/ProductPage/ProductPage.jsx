@@ -7,6 +7,7 @@ import Loader from "src/components/Loader/Loader";
 import ProductOnPage from "src/components/ProductOnPage/ProductOnPage";
 import ProductReviews from "src/components/ProductReviews/ProductReviews";
 import RecommendationSection from "src/components/RecommendationSection/RecommendationSection";
+import RecommendationSectionMobile from "src/components/RecommendationSevtionMobile/RecommendationSectionMobile";
 import { selectCategories } from "src/redux/categories/selectors";
 import {
   getProductById,
@@ -122,7 +123,8 @@ const ProductPage = () => {
           colors={colors}
           title="Товари які можуть Вам сподобатись"
           isHomePage={false}
-        />
+          />
+         <RecommendationSectionMobile/> 
       </Container>
     </StyledProductPage>
   );
