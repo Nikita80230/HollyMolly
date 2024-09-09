@@ -70,8 +70,8 @@ export const SubscribeSection = styled.section`
     @media (max-width: 564px) {
       flex-direction: column;
       gap: 24px;
-      box-shadow: 0px 2px 5px 0px
-        ${({ theme }) => theme.shadows.boxShadowSection};
+      width:100%;
+     
     }
   }
 
@@ -97,8 +97,8 @@ export const SubscribeSection = styled.section`
     line-height: 1.25;
 
     @media (max-width: 564px) {
-      width: 335px;
-      height: 36px;
+      width:100%;
+      height: 44px;
       font-size: 16px;
     }
   }
@@ -112,8 +112,8 @@ export const SubscribeSection = styled.section`
     height: 40px;
 
     @media (max-width: 564px) {
-      width: 335px;
-      height: 36px;
+      width:100%;
+      height: 44px;
     }
   }
   .subscribeInput::placeholder {
@@ -149,8 +149,8 @@ export const SubscribeSection = styled.section`
     @media (max-width: 564px) {
       font-size: 16px;
       line-height: 1.25;
-      width: 335px;
-      height: 36px;
+       width:100%;
+      height: 44px;
     }
   }
 
@@ -173,8 +173,8 @@ export const SubscribeSection = styled.section`
     @media (max-width: 564px) {
       font-size: 16px;
       line-height: 1.25;
-      width: 335px;
-      height: 36px;
+       width:100%;
+      height: 44px;
     }
   }
 
@@ -229,8 +229,8 @@ export const SubscribeSection = styled.section`
     background-color: ${({ theme }) => theme.colors.accentColor};
 
     @media (max-width: 564px) {
-      width: 335px;
-      height: 40px;
+      width: 100%;
+      height: 52px;
       font-size: 22px;
       line-height: 1.22727;
     }
@@ -253,8 +253,8 @@ export const SubscribeSection = styled.section`
       box-shadow ${({ theme }) => theme.animations.transition};
 
     @media (max-width: 564px) {
-      width: 335px;
-      height: 40px;
+      width: 100%;
+      height: 52px;
       font-size: 22px;
       line-height: 1.22727;
     }

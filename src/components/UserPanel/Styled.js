@@ -136,31 +136,53 @@ export const StyledUserPanel = styled.div`
     }
   }
 
-  /* ==================================@media (max-width: 375px)========================================= */
+  /* ==================================@media (max-width: 564px)========================================= */
 
-  @media (max-width: 375px) {
+  @media (max-width: 564px) {
     gap: 24px;
     /* width: auto; */
 
-     .icon {
-    width: 24px;
-    height: 24px;
-  }
-
-  .iconBasket{
-     width: 24px;
-    height: 24px;
-  }
-
-   .buttonIcon{
-    padding:0;
-   }
-
-    .buttonIconBasket{
-      padding:0;
+    .icon {
+      width: 24px;
+      height: 24px;
     }
 
-}
+    .iconBasket {
+      width: 24px;
+      height: 24px;
+    }
+
+    .buttonIcon {
+      padding: 0;
+    }
+
+    .buttonIconBasket {
+      padding: 0;
+    }
+
+    .containerProducts {
+      top: 57%;
+      right: -10%;
+      width: 16px;
+      height: 15px;
+    }
+
+    .styledSpan {
+      font-size: 12px;
+    }
+
+    .iconBasket.active {
+      width: 32px;
+      height: 32px;
+    }
+
+    .userPanelLink.active {
+      .icon {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
 `;
 
 export const ContainerEmptyBasket = styled.div`

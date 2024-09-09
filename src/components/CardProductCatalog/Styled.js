@@ -192,6 +192,31 @@ export const WrapperCard = styled.div`
       height: 16px;
     }
 
+    .styledSpan {
+      top: 6px;
+      right: 66px;
+      padding: 3px 10px;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .styledSpanDiscount {
+      top: 6px;
+      right: 14px;
+      padding: 3px 10px;
+      font-size: 16px;
+      line-height: 1.25;
+      
+    }
+
+    .styledSpanRating {
+      top: 6px;
+      right: 14px;
+      padding: 3px 10px;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
     .wrapperPhoto {
       margin-bottom: 10px;
     }

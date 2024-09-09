@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledMobileCategoriesList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 25px;
 
   .category {
     /* position: relative; */
