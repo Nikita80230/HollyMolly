@@ -16,7 +16,7 @@ export const WrapperCounter = styled.div`
     border-radius: 5px;
     width: 40px;
     height: 40px;
-    background-color: transparent;
+    background-color: ${({ theme }) => theme.colors.primaryBgColor};
   }
 
   .icon {

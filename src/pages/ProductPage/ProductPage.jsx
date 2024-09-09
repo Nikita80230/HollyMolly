@@ -26,6 +26,7 @@ import { StyledProductPage } from "./Styled";
 const ProductPage = () => {
   const { productId, productInstanceId } = useParams();
   const [reviews, setReviews] = useState([]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
 
   const currentProduct = useSelector(selectCurrentProduct);
   const recommendedProducts = useSelector(selectProductsByCurrentCategory);
@@ -109,6 +110,18 @@ const ProductPage = () => {
     fetchData();
   }, [productId]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 564);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return loading ? (
     <Loader />
   ) : (
@@ -117,14 +130,20 @@ const ProductPage = () => {
         <Breadcrumb structure={structure} />
         <ProductOnPage instanceId={productInstanceId} borderColor={colors} />
         <ProductReviews reviews={reviews} productId={productId} />
-        <RecommendationSection
-          className="productPageRecommendation"
-          recommendedProducts={recommendedProducts}
-          colors={colors}
-          title="Товари які можуть Вам сподобатись"
-          isHomePage={false}
+        {!isMobile ? (
+          <RecommendationSection
+            className="productPageRecommendation"
+            recommendedProducts={recommendedProducts}
+            colors={colors}
+            title="Товари які можуть Вам сподобатись"
+            isHomePage={false}
           />
-         <RecommendationSectionMobile/> 
+        ) : (
+          <RecommendationSectionMobile
+            recommendedProducts={recommendedProducts}
+            colors={colors}
+          />
+        )}
       </Container>
     </StyledProductPage>
   );

@@ -19,7 +19,6 @@ const RecommendationSection = ({
   title,
   isHomePage,
 }) => {
-  // const recommendedProducts = useSelector(selectRecommendedProducts);
 
   return (
     <StyledRecommendationSection className={className}>

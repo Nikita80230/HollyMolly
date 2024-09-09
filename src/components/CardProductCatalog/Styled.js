@@ -202,7 +202,7 @@ export const WrapperCard = styled.div`
 
     .styledSpanDiscount {
       top: 6px;
-      right: 14px;
+      right: 86px;
       padding: 3px 10px;
       font-size: 16px;
       line-height: 1.25;
@@ -211,7 +211,7 @@ export const WrapperCard = styled.div`
 
     .styledSpanRating {
       top: 6px;
-      right: 14px;
+      right: 36px;
       padding: 3px 10px;
       font-size: 16px;
       line-height: 1.25;
