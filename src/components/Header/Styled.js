@@ -129,9 +129,6 @@ export const StyledHeader = styled.header`
      
     }
 
-    .openBurgerBtn {
-    }
-
     .openBurgerIcon {
       width: 24px;
       height: 24px;
@@ -140,7 +137,7 @@ export const StyledHeader = styled.header`
     .headerLogo {
       
       top: 50%;
-      left: 32%;
+      left: 37%;
 
       transform: translate(-50%, -50%);
 
@@ -158,7 +155,8 @@ export const StyledHeader = styled.header`
       path {
         fill: ${({ theme }) => theme.colors.accentColor};
       }
-      height:24px;
+      width:159px;
+      height:30px;
     }
 
     .mobileButton {
@@ -166,6 +164,7 @@ export const StyledHeader = styled.header`
       padding: 0;
       border: none;
       background: transparent;
+      
     }
   }
 `;

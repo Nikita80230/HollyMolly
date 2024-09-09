@@ -86,9 +86,9 @@ export const StyledSearchHeaderBtn = styled.button`
     gap: 30px;
     max-width: max-content;
     width: 100%;
-    max-width: 231px;
+    max-width: 295px;
     height: 41px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     padding: 12px 0px 0px 0px;
     border-bottom: 0.5px solid ${({ theme }) => theme.colors.primaryTxtColor};
 
