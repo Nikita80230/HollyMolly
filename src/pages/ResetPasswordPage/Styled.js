@@ -15,4 +15,15 @@ export const WrapperResetPassword = styled.section`
     line-height: 1.20833;
     text-align: center;
   }
+
+  @media (max-width: 564px) {
+   padding-top:22px;
+
+    .description {
+      margin-top: 8px;
+       margin-bottom: 24px;
+     font-size: 20px;
+    line-height: 1.2;
+  }
+   }
 `;

@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import TitleLong from "src/components/TitleLong/TitleLong";
 import { routes } from "src/routes";
 import { WrapperConfirm } from "./Styled";
 
 const ConfirmEmailPage = () => {
   return (
     <WrapperConfirm>
-      <TitleLong title={"Ваша пошта підтверджена"} />
+      <h1 className="title">Ваша пошта підтверджена</h1>
       <p className="description">
         Щоб продовжити{" "}
         <Link to={routes.LOGIN} className="link">

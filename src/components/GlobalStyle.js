@@ -105,6 +105,12 @@ button{
   padding: 0;
   border: transparent;
   outline: none;
+
+   @media (max-width: 564px) {
+    top:0;
+  left: 0;
+  transform:unset;
+   }
  
 }
 
@@ -118,9 +124,14 @@ button{
   padding: 0;
   border: transparent;
   outline: none;
+
+  @media (max-width: 564px) {
+    top:0;
+  left: 0;
+  transform:unset;
+   }
  
 }
-
 
 .content-modal-review{
 position: absolute;
@@ -195,6 +206,12 @@ position: absolute;
   padding: 0;
   border: transparent;
   outline: none;
+
+  @media (max-width: 564px) {
+    top:0;
+  left: 0;
+  transform:unset;
+   }
 }
 
 .custom-toast {
@@ -204,6 +221,12 @@ position: absolute;
     left: 87%;
     transform: translate(-50%, -50%);
     z-index: 9999;
+
+     @media (max-width: 564px) {
+      top:-20px;
+      left:-20px;
+      transform:unset;
+     }
   }
   
 `;

@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import FavoriteIcon from "src/assets/images/like.svg?react";
 import BasketIcon from "src/assets/images/shopping-bag.svg?react";
 import UserIcon from "src/assets/images/account.svg?react";
@@ -9,7 +9,7 @@ import { ContainerEmptyBasket, StyledUserPanel } from "./Styled";
 import { useAuth } from "src/hooks";
 import { useSelector } from "react-redux";
 import { selectBasket } from "src/redux/basket/selectors";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ModalBasket from "../ModalBasket/ModalBasket";
 import IconClose from "src/assets/images/close.svg?react";
 import { toast } from "react-hot-toast";
@@ -18,11 +18,14 @@ const UserPanel = () => {
   const { isLoggedIn } = useAuth();
   const basket = useSelector(selectBasket);
   const location = useLocation();
+  const navigate = useNavigate();
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
   const isAuthPage =
     location.pathname === routes.LOGIN ||
     location.pathname === routes.FORGOT_PASSWORD ||
-    location.pathname === routes.RESET_PASSWORD;
+    location.pathname === routes.RESET_PASSWORD ||
+    location.pathname === routes.CONFIRM_EMAIL;
 
   function openModal() {
     if (basket.length > 0) {
@@ -48,6 +51,36 @@ const UserPanel = () => {
     document.body.style.overflow = "";
   }
 
+  const handleClickMobile = () => {
+    if (basket.length > 0) {
+      navigate(routes.BASKET);
+    } else {
+      toast.custom(
+        <div className="custom-toast">
+          <ContainerEmptyBasket>
+            <IconClose className="iconClose" />
+            <p className="textBasket">Ваш кошик порожній</p>
+          </ContainerEmptyBasket>
+        </div>,
+        {
+          duration: 1000,
+        }
+      );
+    }
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 564);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <StyledUserPanel>
       {isLoggedIn && (
@@ -59,26 +92,54 @@ const UserPanel = () => {
       )}
 
       {isLoggedIn ? (
-        <NavLink className={`userPanelLink ${isAuthPage ? 'active' : ''}`} to={routes.PROFILE}>
+        <NavLink
+          className={`userPanelLink ${isAuthPage ? "active" : ""}`}
+          to={routes.PROFILE}
+        >
           <button className="buttonIcon">
             <UserIconLoggedIn className="icon" />
           </button>
         </NavLink>
       ) : (
-        <NavLink className={`userPanelLink ${isAuthPage ? 'active' : ''}`} to={routes.REGISTER}>
+        <NavLink
+          className={`userPanelLink ${isAuthPage ? "active" : ""}`}
+          to={routes.REGISTER}
+        >
           <button className="buttonIcon">
             <UserIcon className="icon" />
           </button>
         </NavLink>
       )}
-      <button className="buttonIconBasket" onClick={openModal}>
-        <BasketIcon className={`iconBasket ${location.pathname === routes.BASKET ? 'active' : ''}`}  />
-        {basket.length > 0 && (
-          <div className="containerProducts">
-            <span className="styledSpan">{basket.length}</span>
-          </div>
-        )}
-      </button>
+      {!isMobile ? (
+        <button className="buttonIconBasket" onClick={openModal}>
+          <BasketIcon
+            className={`iconBasket ${
+              location.pathname === routes.BASKET ? "active" : ""
+            }`}
+          />
+          {basket.length > 0 && (
+            <div className="containerProducts">
+              <span className="styledSpan">{basket.length}</span>
+            </div>
+          )}
+        </button>
+      ) : (
+        // <NavLink to={routes.BASKET}>
+        //   {" "}
+        <button className="buttonIconBasket" onClick={handleClickMobile}>
+          <BasketIcon
+            className={`iconBasket ${
+              location.pathname === routes.BASKET ? "active" : ""
+            }`}
+          />
+          {basket.length > 0 && (
+            <div className="containerProducts">
+              <span className="styledSpan">{basket.length}</span>
+            </div>
+          )}
+        </button>
+        // </NavLink>
+      )}
 
       <Modal
         isOpen={modalIsOpen}
