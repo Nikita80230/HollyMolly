@@ -154,4 +154,22 @@ export const WrapperModal = styled.div`
     line-height: 1.20833;
     text-align: center;
   }
+
+  @media (max-width: 564px) {
+    position: relative;
+    padding: 55px 43px;
+    border-radius: 0;
+    min-width: 374px;
+    width:100%;
+    height: 198px;
+
+    .buttonModal {
+      top: 24px;
+      right: 19px;
+    }
+
+    .description {
+      line-height: 1.16667;
+    }
+  }
 `;

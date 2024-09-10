@@ -27,4 +27,15 @@ export const ContainerNotification = styled.div`
     line-height: 1.2;
     white-space: nowrap;
   }
+
+  @media (max-width: 564px) {
+    width: 100%;
+    height: 198px;
+    border-radius: 0;
+
+    .notification {
+      font-size: 24px;
+      line-height: 1;
+    }
+  }
 `;

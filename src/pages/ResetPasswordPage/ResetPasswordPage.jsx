@@ -12,13 +12,11 @@ const ResetPasswordPage = () => {
   const token = searchParams.get("token");
 
   return (
-    <Container>
-      <WrapperResetPassword>
-        <TitleLong title={"Оновлення паролю"} />
-        <p className="description">Введіть свій новий пароль</p>
-        <ResetPasswordForm token={token} userId={userId} />
-      </WrapperResetPassword>
-    </Container>
+    <WrapperResetPassword>
+      <TitleLong title={"Оновлення паролю"} />
+      <p className="description">Введіть свій новий пароль</p>
+      <ResetPasswordForm token={token} userId={userId} />
+    </WrapperResetPassword>
   );
 };
 

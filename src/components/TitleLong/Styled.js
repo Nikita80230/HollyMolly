@@ -15,5 +15,6 @@ export const StyledTitle = styled.h1`
     font-size: 32px;
     line-height: 1.1875;
     height: 48px;
+    
   }
 `;
