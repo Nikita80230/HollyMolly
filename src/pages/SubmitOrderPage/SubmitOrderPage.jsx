@@ -86,7 +86,7 @@ const SubmitOrderPage = () => {
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           ariaHideApp={false}
-          className="modal-content"
+          className="modal-content-order"
           overlayClassName="modal-overlay"
           contentLabel="Modal Payment"
         >

@@ -33,4 +33,22 @@ export const WrapperModal = styled.div`
     line-height: 1.20833;
     text-align: center;
   }
+
+  @media (max-width: 564px) {
+
+  padding: 58px 20px;
+  width: 100%;
+  
+
+  .buttonModal {
+   
+    top: 24px;
+    right: 20px;
+    
+  }
+
+  .description {
+    font-size: 24px;
+  }
+  }
 `;

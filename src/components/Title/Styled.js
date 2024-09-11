@@ -18,7 +18,9 @@ export const StyledTitle = styled.h2`
     margin-right: 200px;
     font-size: 32px;
     line-height: 1.1875;
-    width: 160px;
-    height: 38px;
+    /* width: 160px; */
+    width: 188px;
+    /* height: 38px; */
+    height: 48px;
   }
 `;

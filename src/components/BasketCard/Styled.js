@@ -132,6 +132,7 @@ export const BasketItem = styled.li`
     font-weight: 400;
     font-size: 16px;
     line-height: 1.25;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
   .priceBasket {

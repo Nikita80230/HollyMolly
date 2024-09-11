@@ -40,4 +40,11 @@ height: 60px; */
     font-size: 20px;
     line-height: 1.2;
   }
+
+  /* ==== Mobile max-width:564px=== */
+  @media (max-width: 564px) {
+
+  padding: 14px 0px 14px 15px;
+
+  }
 `;
