@@ -30,17 +30,21 @@ export const StyledCatalogPage = styled.div`
   .productsGrid {
     grid-area: p;
     margin-bottom: 36px;
-  
   }
 
   .buttonsPagination {
     grid-area: pg;
-     width: 100%;
-     margin-bottom:42px;
-     display:flex;
-     justify-content:center;
-     align-items:center;
-   
+    width: 100%;
+    margin-bottom: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
- 
+
+  @media (max-width: 564px) {
+    .layout {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 `;

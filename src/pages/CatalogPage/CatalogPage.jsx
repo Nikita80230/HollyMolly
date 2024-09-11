@@ -29,6 +29,7 @@ import {
 import SelectedFiltersList from "src/components/SelectedFiltersList/SelectedFiltersList";
 import Container from "src/components/Container/Container";
 import { colorSchemes } from "src/utils/colorsScheme";
+import { useMediaQuery } from "react-responsive";
 
 const CatalogPage = () => {
   const location = useLocation();
@@ -40,6 +41,11 @@ const CatalogPage = () => {
   const [productsPerPage] = useState(12);
   const isLoading = useSelector(selectLoading);
   const categoryColors = useSelector(selectCategoryColors);
+  const isMobile = useMediaQuery({ query: "(max-width: 564px)" });
+  const isTablet = useMediaQuery({
+    query: "(min-width: 768px) and  (max-width: 1239px)",
+  });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1240px)" });
 
   const productsByCurrentCategory = useSelector(
     selectProductsByCurrentCategory
@@ -165,17 +171,21 @@ const CatalogPage = () => {
           />
         </div>
         <div className="layout">
-          <SelectedFiltersList selectedFilters={filters} />
-          <SortingPanel
-            className="sorting"
-            handleSorting={handleSorting}
-            sortType={sortType}
-            ref={sortingPanelRef}
-          />
-          <FiltersPanel
-            className="filters"
-            onPaginationReset={handlePaginationReset}
-          />
+          {isDesktop && <SelectedFiltersList selectedFilters={filters} />}
+          {isDesktop && (
+            <SortingPanel
+              className="sorting"
+              handleSorting={handleSorting}
+              sortType={sortType}
+              ref={sortingPanelRef}
+            />
+          )}
+          {isDesktop && (
+            <FiltersPanel
+              className="filters"
+              onPaginationReset={handlePaginationReset}
+            />
+          )}
           {isLoading ? (
             <Loader />
           ) : (
