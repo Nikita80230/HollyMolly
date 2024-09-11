@@ -14,7 +14,7 @@ const Input = ({ name, type, placeholder, readOnly = false }) => {
       type={type}
       placeholder={placeholder}
       readOnly={readOnly}
-     iserror={isError.toString()}
+      iserror={isError.toString()}
       isvalid={isValid.toString()}
     />
   );

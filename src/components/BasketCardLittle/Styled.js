@@ -1,13 +1,13 @@
 import { styled } from "styled-components";
 
 export const BasketItem = styled.li`
-width: 316px;
-    height: 109px;
-    display: flex;
-    gap: 14px;
+  width: 316px;
+  height: 109px;
+  display: flex;
+  gap: 14px;
 
-     .image {
-     border: 1px solid ${({ $borderColor }) => $borderColor || ""};
+  .image {
+    border: 1px solid ${({ $borderColor }) => $borderColor || ""};
     border-radius: 10px;
     width: 100px;
     height: 100px;
@@ -75,6 +75,7 @@ width: 316px;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.21429;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
   .spanTotalPrice {
@@ -84,5 +85,4 @@ width: 316px;
     line-height: 1.2;
     color: ${({ theme }) => theme.colors.accentColor};
   }
-
-`
+`;

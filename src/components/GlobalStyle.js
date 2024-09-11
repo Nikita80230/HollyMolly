@@ -95,6 +95,25 @@ button{
  
 }
 
+.modal-content-order {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  border: transparent;
+  outline: none;
+     
+  @media (max-width: 564px) {
+    top:0;
+  left: 0;
+  transform:unset;
+   }
+ 
+}
+
 .modal-content-forgot {
   position: absolute;
   top:75%;

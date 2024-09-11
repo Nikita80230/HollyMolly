@@ -2,6 +2,8 @@ import { styled } from "styled-components";
 
 export const StyledUserPanel = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 17px;
 
   .userPanelLink {
@@ -139,7 +141,7 @@ export const StyledUserPanel = styled.div`
   /* ==================================@media (max-width: 564px)========================================= */
 
   @media (max-width: 564px) {
-    gap: 24px;
+    gap: 20px;
 
     .icon {
       width: 24px;

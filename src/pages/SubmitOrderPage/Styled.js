@@ -10,7 +10,6 @@ export const WrapperPage = styled.section`
   }
 
   .basketContainer {
-    /* padding: 27px 32px 16px 32px; */
     border: 1px solid ${({ theme }) => theme.colors.borderColor};
     border-radius: 10px;
     width: 380px;
@@ -18,7 +17,6 @@ export const WrapperPage = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* gap: 48px; */
   }
 
   .containerList {
@@ -73,5 +71,19 @@ export const WrapperPage = styled.section`
     line-height: 1.21429;
 
     color: ${({ theme }) => theme.colors.accentColor};
+  }
+
+  /* ==== Mobile max-width:564px=== */
+  @media (max-width: 564px) {
+    padding-top: 22px;
+    margin-bottom: 16px;
+
+    .wrapperFormList {
+      justify-content: flex-start;
+    }
+
+    .basketContainer {
+      display: none;
+    }
   }
 `;

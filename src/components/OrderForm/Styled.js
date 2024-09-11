@@ -56,6 +56,7 @@ export const WrapperFormOrder = styled.div`
     font-weight: 400;
     font-size: 24px;
     line-height: 1.20833;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
     transition: box-shadow ${({ theme }) => theme.animations.transition},
       color ${({ theme }) => theme.animations.transition};
     &:hover {
@@ -97,5 +98,62 @@ export const WrapperFormOrder = styled.div`
     font-weight: 400;
     font-size: 30px;
     line-height: 1.2;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+  }
+
+  /* ==== Mobile max-width:564px=== */
+  @media (max-width: 564px) {
+    padding-top: 6px;
+    min-width: 334px;
+    width:100%;
+
+    .styledForm {
+      width: 100%;
+      gap: 16px 0;
+    }
+
+    .wrapperFields {
+      flex-direction: column;
+      width: 100%;
+      gap: 16px;
+    }
+
+    .containerLeft {
+      gap: 16px;
+    }
+
+    .containerRight {
+      gap: 16px;
+    }
+
+    .styledLabel {
+      width: 100%;
+      height: 52px;
+    }
+
+    .errorMessage {
+      font-size: 12px;
+    }
+
+    .buttonSave {
+      padding: 12px 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 44px;
+      width: 100%;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .containerIconSpan {
+      margin-right: 100px;
+      gap: 16px;
+    }
+
+    .text {
+      font-size: 16px;
+      line-height: 1.25;
+    }
   }
 `;
