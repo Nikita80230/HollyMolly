@@ -1,33 +1,54 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useAuth } from "src/hooks";
 import { getMyOrders } from "src/redux/orders/operations";
 import Container from "../Container/Container";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import MobileProfile from "../MobileProfile/MobileProfile";
 import ProfileAside from "../ProfileAside/ProfileAside";
+
 import {
   ContainerProfile,
   StyledProfilePageLayout,
+  TitleProfile,
   WrapperProfileForms,
 } from "./Styled";
 
 const ProfilePageLayout = ({ children }) => {
-  const { isLoggedIn } = useAuth();
+  // const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
+
+  // useEffect(() => {
+  //   if (isLoggedIn && !isMobile) dispatch(getMyOrders());
+  // }, [dispatch, isLoggedIn]);
 
   useEffect(() => {
-    if (isLoggedIn) dispatch(getMyOrders());
-  }, [dispatch, isLoggedIn]);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 564);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <StyledProfilePageLayout>
       <Header />
       <main className="main">
-        <ContainerProfile>
-          <ProfileAside />
-          <WrapperProfileForms>{children}</WrapperProfileForms>
-        </ContainerProfile>
+        {!isMobile ? (
+          <ContainerProfile>
+            <ProfileAside />
+            <WrapperProfileForms>{children}</WrapperProfileForms>
+          </ContainerProfile>
+        ) : (
+          <Container>
+              <TitleProfile>Мій акаунт</TitleProfile>
+              <MobileProfile/>
+          </Container>
+        )}
       </main>
       <Footer />
     </StyledProfilePageLayout>

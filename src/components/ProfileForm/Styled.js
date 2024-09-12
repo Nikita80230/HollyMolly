@@ -2,9 +2,6 @@ import { Form } from "formik";
 import { styled } from "styled-components";
 
 export const StyledForm = styled(Form)`
-  /* display: flex;
-  flex-wrap: wrap;
-  gap:33px 50px; */
 
   .wrapperFields {
     margin-bottom: 30px;
@@ -43,6 +40,42 @@ export const StyledForm = styled(Form)`
     font-size: 14px;
     line-height: 1.25;
   }
+
+   /*========== Mobile - @media (max-width: 564px)================ */
+
+  @media (max-width: 564px) {
+    margin-top:24px;
+
+     .wrapperFields {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction:column;
+    gap: 16px;
+  }
+
+  .containerLeft {
+    width: 100%;
+   gap: 16px;
+  }
+
+  .containerRight {
+    width: 100%;
+    gap: 16px;
+  }
+
+  .labelProfile {
+    width:100%;
+    height: 52px;
+    position: relative;
+  }
+
+  .errorMessageProfile {
+    font-size: 12px;
+  
+  }
+
+  }
+
 `;
 
 export const DatePickerWrapper = styled.div`
@@ -61,6 +94,7 @@ export const DatePickerWrapper = styled.div`
     font-size: 20px;
     line-height: 1.2;
     padding: 16px 0px 16px 15px;
+
   }
 
   .styledDatePicker::placeholder {
@@ -270,5 +304,25 @@ export const DatePickerWrapper = styled.div`
   .react-datepicker__year-text--in-range {
     background-color: ${({ theme }) => theme.colors.accentColor};
     color: ${({ theme }) => theme.colors.whiteTxtColor};
+  }
+
+  /*========== Mobile - @media (max-width: 564px)================ */
+
+  @media (max-width: 564px) {
+    
+ height: 52px;
+
+    .styledDatePicker {
+
+    width: 100%;
+    height: 52px;
+    border: transparent;
+
+    
+    font-size: 20px;
+    line-height: 1.2;
+    padding: 16px 0px 16px 15px;
+  }
+
   }
 `;
