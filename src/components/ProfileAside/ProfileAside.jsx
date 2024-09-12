@@ -28,15 +28,6 @@ const ProfileAside = () => {
               </div>
             </NavLink>
           </li>
-
-          {/* <li>
-            {" "}
-            <NavLink className="linkAside" to={routes.SHIPPING_ADDRESSES} end>
-              <div className="wrapperLink">
-                <span>Адреси доставки</span>
-              </div>
-            </NavLink>
-          </li> */}
           <li>
             {" "}
             <NavLink

@@ -37,6 +37,10 @@ const customStyles = {
     width: 390,
     height: 60,
     boxShadow: "none",
+     "@media (max-width: 564px)": {
+      width: "100%",
+      height:52,
+    },
   }),
   placeholder: (provided) => ({
     ...provided,
