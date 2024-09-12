@@ -15,6 +15,9 @@ export const StyledSection = styled.section`
   .listCards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 15px 16px;
+    /* display: flex;
+  flex-wrap: wrap;
+  gap: 15px;  */
   }
 `;

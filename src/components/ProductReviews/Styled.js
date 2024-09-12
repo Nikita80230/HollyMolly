@@ -3,6 +3,8 @@ import { styled } from "styled-components";
 export const StyledSection = styled.section`
   position: relative;
   margin-bottom: 39px;
+  display: flex;
+  flex-direction: column;
 
   .titleReviews {
     margin-bottom: 40px;
@@ -79,7 +81,7 @@ export const StyledSection = styled.section`
   }
 
   .buttonReview {
-    margin-left: 970px;
+    margin-left: auto;
     border: 1px solid ${({ theme }) => theme.colors.accentColor};
     border-radius: 5px;
     width: 277px;
@@ -119,6 +121,7 @@ export const StyledSection = styled.section`
     }
 
     .textReviews {
+      margin-bottom:16px;
       font-size: 16px;
       line-height: 1.25;
     }
