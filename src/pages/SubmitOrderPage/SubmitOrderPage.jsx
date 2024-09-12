@@ -90,15 +90,15 @@ const SubmitOrderPage = () => {
           overlayClassName="modal-overlay"
           contentLabel="Modal Payment"
         >
-          {status === "true" && (
-            <ModalNotification
+           {status === "true" && ( 
+             <ModalNotification
               message={[
                 "Ваше замовлення сплачено.",
                 `Номер замовлення № ${orderId}.`,
               ]}
               closeModal={closeModal}
-            />
-          )}
+            /> 
+            )} 
           {status === "false" && (
             <ModalNotification
               message={[
@@ -107,7 +107,7 @@ const SubmitOrderPage = () => {
               ]}
               closeModal={closeModal}
             />
-          )}
+          )} 
         </Modal>
       </WrapperPage>
     </Container>
