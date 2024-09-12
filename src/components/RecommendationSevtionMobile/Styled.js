@@ -14,10 +14,9 @@ export const StyledSection = styled.section`
 
   .listCards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 15px 16px;
-    /* display: flex;
-  flex-wrap: wrap;
-  gap: 15px;  */
+    width: 100%;
+    overflow: hidden;
   }
 `;

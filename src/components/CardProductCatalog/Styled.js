@@ -94,8 +94,8 @@ export const WrapperCard = styled.div`
   }
 
   .productPhoto {
-    /* width: 100%; */
-    width: 300px;
+    width: 100%;
+    /* width: 300px; */
     height: 300px;
     border-radius: 10px;
     transition: transform ${({ theme }) => theme.animations.transition};
@@ -162,8 +162,6 @@ export const WrapperCard = styled.div`
   /* ========Mobile - @media (max-width: 564px)========= */
 
   @media (max-width: 564px) {
-    min-width: 160px;
-    width: 100%;
 
     .iconHeart {
       width: 16px;
@@ -199,7 +197,7 @@ export const WrapperCard = styled.div`
     }
 
     .productPhoto {
-      /* width:160px; */
+     
       width: 100%;
       height: 150px;
     }
