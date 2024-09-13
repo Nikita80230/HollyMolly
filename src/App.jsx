@@ -15,14 +15,12 @@ import SupportPage from "./pages/SupportPage/SupportPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import ForgotPasswordPage from "./pages/FogotPasswortPage/FogotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage/ResetPasswordPage";
-import TrackingPage from "./pages/TrackingPage/TrackingPage";
 import SizeGuidePage from "./pages/SizeGuidePage/SizeGuidePage";
 import { useAuth } from "./hooks";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import BasketPage from "./pages/BasketPage/BasketPage";
 import AuthPageLayout from "./components/AuthPageLayout/AuthPageLayout";
 import ProfileOrdersPage from "./pages/ProfileOrdersPage/ProfileOrdersPage";
-import ProfileShippingAdressesPage from "./pages/ProfileShippingAdressesPage/ProfileShippingAdressesPage";
 import ProfilePageLayout from "./components/ProfilePageLayout/ProfilePageLayout";
 import SubmitOrderPage from "./pages/SubmitOrderPage/SubmitOrderPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
@@ -88,10 +86,6 @@ const appRoutes = [
     element: <ResetPasswordPage />,
   },
   {
-    path: routes.TRACKING,
-    element: <TrackingPage />,
-  },
-  {
     path: routes.SIZE_GUIDE,
     element: <SizeGuidePage />,
   },
@@ -124,15 +118,6 @@ const appRoutes = [
       </PrivateRoute>
     ),
   },
-
-  {
-    path: routes.SHIPPING_ADDRESSES,
-    element: (
-      <PrivateRoute>
-        <ProfileShippingAdressesPage />
-      </PrivateRoute>
-    ),
-  },
   {
     path: routes.SUBMIT_ORDER,
     element: (
@@ -162,7 +147,6 @@ const authPaths = [
 const profilePaths = [
   routes.PROFILE,
   routes.MY_ORDERS,
-  routes.SHIPPING_ADDRESSES,
   routes.ORDER_DETAILS,
 ];
 
