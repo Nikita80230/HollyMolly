@@ -8,10 +8,13 @@ import { useEffect, useState } from "react";
 import ProfileForm from "../ProfileForm/ProfileForm";
 import { getProfile } from "src/redux/user/operations";
 import { useAuth } from "src/hooks";
+import OrderDetailsPage from "src/pages/OrderDetailsPage/OrderDetailsPage";
+import SearchOrderInput from "../SearchOrderInput/SearchOrderInput";
+import MobileMyOrders from "../MobileMyOrders/MobileMyOrders";
 
 const MobileProfile = () => {
-    const [isOpenProfile, setIsOpenProfile] = useState(false);
-     const [isOpen, setIsOpen] = useState(false);
+  const [isOpenProfile, setIsOpenProfile] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const { user } = useAuth();
 
   const dispatch = useDispatch();
@@ -19,9 +22,9 @@ const MobileProfile = () => {
 
   const handleIsOpenProfile = () => {
     setIsOpenProfile(!isOpenProfile);
-    };
-    
-     const handleIsOpen = () => {
+  };
+
+  const handleIsOpen = () => {
     setIsOpen(!isOpen);
   };
 
@@ -63,6 +66,7 @@ const MobileProfile = () => {
                   />
                 </button>
               </div>
+              {isOpen && <MobileMyOrders />}
             </li>
           </ul>
         </nav>

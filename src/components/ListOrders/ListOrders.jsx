@@ -3,14 +3,13 @@ import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import { StyledListOrders } from "./Styled";
 import { routes } from "src/routes";
+import IconArrow from "src/assets/arrow-right-mobile.svg?react";
 
 const ListOrders = ({ orders }) => {
-  // const orders = useSelector(selectMyOrders);
-
   return (
     <>
       {!orders.length ? (
-        <h1>У вас ще нема замовлень</h1>
+        <p>У вас ще нема замовлень</p>
       ) : (
         <StyledListOrders>
           {orders.map((order) => (
@@ -44,10 +43,11 @@ const ListOrders = ({ orders }) => {
                 <Link
                   className="detailsButton link"
                   to={`${routes.ORDER_DETAILS}/${order.id}`}
-                  // onClick={() => handleOpenOrderDetails(order)}
                 >
-                  Деталі замовлення
+                  <span className="spanDetails">Деталі замовлення</span>
+                  <IconArrow className="iconDetails" />
                 </Link>
+              
               </div>
             </li>
           ))}
