@@ -3,29 +3,6 @@ import DatePicker from "react-datepicker";
 import { uk } from 'date-fns/locale';
 import "react-datepicker/dist/react-datepicker.css";
 
-// const Calendar = ({values, onBlur, setFieldValue}) => {
-//     return ( <DatePickerWrapper>
-//                     <DatePicker
-//                       className="styledDatePicker"
-//                       selected={values}
-//                       onChange={(date) => setFieldValue("dateOfBirth", date)}
-//                       dateFormat="dd/MM/yyyy"
-//                       id="dateOfBirth"
-//                       name="dateOfBirth"
-//                       onBlur={onBlur}
-//                       placeholderText="Дата народження"
-//                       showMonthDropdown
-//                       showYearDropdown
-//                        locale={uk}
-//                     />
-//                   </DatePickerWrapper>
-        
-
-//     )
-// }
-
-// export default Calendar;
-
 
 const Calendar = ({ values, onBlur, setFieldValue }) => {
   const years = Array.from({ length: new Date().getFullYear() - 1990 + 1 }, (_, i) => 1990 + i);
