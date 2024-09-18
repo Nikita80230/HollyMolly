@@ -14,13 +14,13 @@ import ModalBasket from "../ModalBasket/ModalBasket";
 import IconClose from "src/assets/images/close.svg?react";
 import { toast } from "react-hot-toast";
 
-const UserPanel = () => {
+const UserPanel = ({isMobile}) => {
   const { isLoggedIn } = useAuth();
   const basket = useSelector(selectBasket);
   const location = useLocation();
   const navigate = useNavigate();
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
+  // const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
   const isAuthPage =
     location.pathname === routes.LOGIN ||
     location.pathname === routes.FORGOT_PASSWORD ||
@@ -69,17 +69,17 @@ const UserPanel = () => {
     }
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 564);
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsMobile(window.innerWidth <= 564);
+  //   };
 
-    window.addEventListener("resize", handleResize);
+  //   window.addEventListener("resize", handleResize);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
   return (
     <StyledUserPanel>
@@ -92,14 +92,25 @@ const UserPanel = () => {
       )}
 
       {isLoggedIn ? (
-        <NavLink
-          className={`userPanelLink ${isAuthPage ? "active" : ""}`}
-          to={routes.PROFILE}
-        >
-          <button className="buttonIcon">
-            <UserIconLoggedIn className="icon" />
-          </button>
-        </NavLink>
+        isMobile ? (
+          <NavLink
+            className={`userPanelLink ${isAuthPage ? "active" : ""}`}
+            to={routes.MOBILE_PROFILE}
+          >
+            <button className="buttonIcon">
+              <UserIconLoggedIn className="icon" />
+            </button>
+          </NavLink>
+        ) : (
+          <NavLink
+            className={`userPanelLink ${isAuthPage ? "active" : ""}`}
+            to={routes.PROFILE}
+          >
+            <button className="buttonIcon">
+              <UserIconLoggedIn className="icon" />
+            </button>
+          </NavLink>
+        )
       ) : (
         <NavLink
           className={`userPanelLink ${isAuthPage ? "active" : ""}`}

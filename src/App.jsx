@@ -32,6 +32,7 @@ import { getMyOrders } from "./redux/orders/operations";
 import ConfirmEmailPage from "./pages/ConfirmEmailPage/ConfirmEmailPage";
 import { fetchCategories } from "./redux/categories/operations";
 import { getAllProducts } from "./redux/products/operations";
+import MobileProfilePage from "./pages/MobileProfilePage/MobileProfilePage";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -111,6 +112,14 @@ const appRoutes = [
     ),
   },
   {
+    path: routes.MOBILE_PROFILE,
+    element: (
+      <PrivateRoute>
+        <MobileProfilePage />
+      </PrivateRoute>
+    ),
+  },
+  {
     path: routes.MY_ORDERS,
     element: (
       <PrivateRoute>
@@ -134,6 +143,14 @@ const appRoutes = [
       </PrivateRoute>
     ),
   },
+  {
+    path: `${routes.MOBILE_ORDER_DETAILS}/:id`,
+    element: (
+      <PrivateRoute>
+        <OrderDetailsPage />
+      </PrivateRoute>
+    ),
+  },
 ];
 
 const authPaths = [
@@ -148,6 +165,8 @@ const profilePaths = [
   routes.PROFILE,
   routes.MY_ORDERS,
   routes.ORDER_DETAILS,
+  routes.MOBILE_ORDER_DETAILS,
+  routes.MOBILE_PROFILE,
 ];
 
 export const App = () => {
