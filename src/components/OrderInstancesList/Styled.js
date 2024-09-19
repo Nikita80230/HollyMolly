@@ -65,6 +65,41 @@ export const StyleOrderInstancesList = styled.div`
     color: ${({ theme }) => theme.colors.accentColor};
   }
 
-  /* font-family: ${({ theme }) => theme.fonts.familyDidact};
-  color: ${({ theme }) => theme.colors.primaryTxtColor}; */
+  @media (max-width: 564px) {
+    margin-top: 29px;
+    margin-bottom: 24px;
+
+    .ordersList {
+      gap: 24px;
+
+      max-width: 564px;
+      width: 100%;
+      height: auto;
+
+      overflow-y: visible;
+
+      margin-bottom: 24px;
+      padding: 0;
+
+      border-radius: 0;
+
+      border: 1px solid transparent;
+
+      overflow-y: visible;
+    }
+
+    .sumWrapper {
+      justify-content: space-between;
+      gap: 0;
+    }
+
+    .sumText {
+      line-height: 1.2;
+    }
+
+    .sumQuantity {
+      font-size: 24px;
+      line-height: 1.16667;
+    }
+  }
 `;

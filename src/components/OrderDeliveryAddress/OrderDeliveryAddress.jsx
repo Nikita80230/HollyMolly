@@ -1,7 +1,6 @@
 import { StyledOrderDeliveryAddress } from "./Styled";
 
 const OrderDeliveryAddress = ({ currentOrder }) => {
-  // console.log("currentOrder OrderDeliveryAddress -->", currentOrder?.customer);
   const customerData = currentOrder?.customer;
 
   return (

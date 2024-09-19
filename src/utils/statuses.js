@@ -1,8 +1,8 @@
 import { theme } from "src/styles/theme";
 
 export const translateStatusVocabulary = {
-  Created: "Очікує на оплату",
-  "Payment Received": "Оплачено",
+  Created: "Очікує оплату",
+  "Payment Received": "Cплачено",
   Processing: "У процесі",
   Shipped: "Відправлено",
   Delivered: "Доставлено",

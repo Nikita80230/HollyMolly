@@ -44,6 +44,38 @@ const ListOrders = ({ orders }) => {
                     <span className="spanStatus">Сплачено</span>
                   </div>
                 )}
+                 {order.status === "Processing" && (
+                  <div
+                    className="wrapperStatus"
+                    style={{ background: "#eff9f1" }}
+                  >
+                    <span className="spanStatus">У процесі</span>
+                  </div>
+                )}
+                 {order.status === "Shipped" && (
+                  <div
+                    className="wrapperStatus"
+                    style={{ background: "#e2edf4" }}
+                  >
+                    <span className="spanStatus">Відправлено</span>
+                  </div>
+                )}
+                 {order.status === "Delivered" && (
+                  <div
+                    className="wrapperStatus"
+                    style={{ background: " #eff9f1" }}
+                  >
+                    <span className="spanStatus">Доставлено</span>
+                  </div>
+                )}
+                 {order.status === "Cancelled" && (
+                  <div
+                    className="wrapperStatus"
+                    style={{ background: "#c4c4c4" }}
+                  >
+                    <span className="spanStatus">Скасовано</span>
+                  </div>
+                )}
               </div>
               <span className="date">
                 {format(parseISO(order.orderDate), "dd.MM.yyyy")}
