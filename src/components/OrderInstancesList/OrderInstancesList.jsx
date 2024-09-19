@@ -2,7 +2,7 @@ import OrderInstance from "../OrderInstance/OrderInstance";
 import { StyleOrderInstancesList } from "./Styled";
 
 const OrderInstancesList = ({ currentOrder }) => {
-  console.log(currentOrder);
+
   return (
     <StyleOrderInstancesList>
       <ul className="ordersList">

@@ -13,7 +13,7 @@ const OrderStatus = ({ currentOrder }) => {
           return (
             <li className="orderStatusItem" key={status.date}>
               <div className="iconWrapper">
-                <CheckIcon />
+                <CheckIcon className="icon" />
               </div>
               <p className="statusText">
                 {translateStatusVocabulary[status.status]}

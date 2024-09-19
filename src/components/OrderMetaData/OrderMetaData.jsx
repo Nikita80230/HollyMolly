@@ -6,10 +6,9 @@ import {
   statusesToColorsVocabulary,
   translateStatusVocabulary,
 } from "src/utils/statuses";
+import IconBack from "src/assets/images/back-mobile.svg?react";
 
 const OrderMetaData = ({ currentOrder }) => {
-  console.log("current order from order details-->", currentOrder);
-
   const date = currentOrder ? new Date(currentOrder.orderDate) : new Date();
 
   const formattedDate = format(date, "dd.MM.yyyy");
@@ -19,6 +18,10 @@ const OrderMetaData = ({ currentOrder }) => {
   return (
     <StyledOrderMetaData>
       <div className="breadcrumbs">
+        <Link to={routes.MOBILE_PROFILE} className="backButtonMobile">
+          <IconBack className="icon" />
+          Мої замовлення
+        </Link>
         <Link to={routes.MY_ORDERS} className="backButton">
           Мої замовлення
         </Link>

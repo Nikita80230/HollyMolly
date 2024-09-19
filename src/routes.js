@@ -16,4 +16,6 @@ export const routes = {
   MY_ORDERS: "/profile/my-orders",
   SUBMIT_ORDER: "/submit-order",
   ORDER_DETAILS: "/profile/my-orders",
+  MOBILE_ORDER_DETAILS: "/profile-mobile",
+  MOBILE_PROFILE: "/profile-mobile",
 };

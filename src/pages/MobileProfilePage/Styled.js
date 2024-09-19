@@ -74,3 +74,21 @@ export const ContainerProfileMobile = styled.div`
     }
   }
 `;
+
+export const TitleProfile = styled.h1`
+
+  @media (max-width: 564px) {
+    margin-bottom:14px;
+    font-family: ${({ theme }) => theme.fonts.familyPacifico};
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.1875;
+    text-align: center;
+    /* width: 188px; */
+    height: 48px;
+    background-image: ${({ theme }) => theme.colors.gradientTitle};
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+`;

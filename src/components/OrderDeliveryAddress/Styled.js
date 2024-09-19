@@ -3,12 +3,14 @@ import styled from "styled-components";
 export const StyledOrderDeliveryAddress = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
 
   width: max-content;
 
   .deliverAddressTitle {
     margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
   }
 
   .addressInfoWrapper {
@@ -25,5 +27,19 @@ export const StyledOrderDeliveryAddress = styled.div`
 
     font-family: ${({ theme }) => theme.fonts.familyDidact};
     color: ${({ theme }) => theme.colors.primaryTxtColor};
+  }
+
+  @media (max-width: 564px) {
+    width: 100%;
+
+    .deliverAddressTitle {
+      margin-bottom: 8px;
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+    }
+
+    .addressInfoWrapper {
+      gap: 5px;
+    }
   }
 `;

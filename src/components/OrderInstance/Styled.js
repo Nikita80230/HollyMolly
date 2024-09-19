@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-// familyGaramond;
-// familyDidact;
-
 export const StyledOrderInstance = styled.li`
   display: flex;
   flex-direction: row;
@@ -119,6 +116,13 @@ export const StyledOrderInstance = styled.li`
       height: 2px;
       background: ${({ theme }) => theme.colors.primaryTxtColor};
       transform: translateY(-50%);
+    }
+  }
+
+  /* ==== Mobile max-width:564px=== */
+  @media (max-width: 564px) {
+    .instanceData {
+      align-items: flex-start;
     }
   }
 `;
