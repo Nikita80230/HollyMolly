@@ -5,7 +5,21 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { WrapperPhoto } from "./Styled";
 
-const PhotoSwiper = ({ images, border }) => {
+const PhotoSwiper = ({ images, border, onSelectPhoto }) => {
+  console.log(images)
+  
+    const handleSlideChange = (swiper) => {
+      const activeIndex = swiper.activeIndex;
+      console.log("activeIndex", activeIndex); // Отримуємо індекс активного слайда
+    const selectedImage = images[activeIndex]; // Отримуємо відповідне зображення
+      console.log("selectedImage", selectedImage);
+    if (onSelectPhoto && selectedImage) {
+       onSelectPhoto(selectedImage.id);
+      console.log("if", selectedImage.id);
+      // Передаємо колір обраного зображення
+    }
+  };
+
   return (
     <WrapperPhoto>
       <Swiper
@@ -16,6 +30,7 @@ const PhotoSwiper = ({ images, border }) => {
           clickable: true,
         }}
         slidesPerView={1}
+         onSlideChange={handleSlideChange}
       >
         {images.map(({ link, id }) => (
           <SwiperSlide key={id} className="swiper-slideCustom">
@@ -24,6 +39,7 @@ const PhotoSwiper = ({ images, border }) => {
               alt={`Slide ${id}`}
               style={{ border: `2px solid ${border}` }}
               className="styledPhoto"
+              
             />
           </SwiperSlide>
         ))}

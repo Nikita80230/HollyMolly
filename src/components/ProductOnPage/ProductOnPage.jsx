@@ -23,19 +23,17 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
   const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   const product = useSelector(selectCurrentProduct);
-
   const isLoading = useSelector(selectCurrentLoading);
+  const favoriteProducts = useSelector(selectFavoriteProducts);
+
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
   const [activeSizeId, setActiveSizeId] = useState(null);
   const [activeColorId, setActiveColorId] = useState(null);
   const [price, setPrice] = useState(null);
   const [priceAfterDiscount, setPriceAfterDiscount] = useState(null);
-  // const [percentageDiscount, setPercentageDiscount] = useState(null);
-  // const [isNewCollection, setIsNewCollection] = useState(false);
   const [availableSizes, setAvailableSizes] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [stockQuantity, setStockQuantity] = useState(null);
-  const favoriteProducts = useSelector(selectFavoriteProducts);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
 
   const isProductInFavorite = favoriteProducts?.some(
@@ -76,12 +74,39 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
       setSelectedProductInstance(selectedProductInstance);
       setPrice(selectedProductInstance.price);
       setPriceAfterDiscount(selectedProductInstance.priceAfterDiscount);
-      // setPercentageDiscount(selectedProductInstance.percentageDiscount || null);
-      // setIsNewCollection(selectedProductInstance.isNewCollection);
       setActiveSizeId(selectedProductInstance.size);
       setStockQuantity(selectedProductInstance.stockQuantity);
     }
   };
+  // ==============функція при виборі фото щоб ставав активним колір============
+console.log(selectedProductInstance)
+//   const handleSelectPhoto = (color) => {
+//     if (!color) { console.log(color); }// Перевірка, чи колір не undefined або null
+
+//   const selectedProductInstance = product?.productsInstances?.find(
+//     (productInstance) =>
+//       productInstance?.color?.trim().toLowerCase() === color.trim().toLowerCase()
+//   );
+
+//   if (selectedProductInstance) {
+//     setActiveColorId(selectedProductInstance.id);
+//     setSizesForColor(selectedProductInstance.color);
+//   }
+// };
+  
+  const handleSelectPhoto = (photoId) => {
+  // Пошук продукту за фото
+  const selectedProductInstance = product.productsInstances.find(
+    (productInstance) =>
+      productInstance.images.some((image) => image.id === photoId)
+  );
+
+  if (selectedProductInstance) {
+    setActiveColorId(selectedProductInstance.id);
+    setSizesForColor(selectedProductInstance.color); // Тут все одно використовуємо колір продукту, якщо він є
+  }
+};
+
 
   const handleAddToBasket = () => {
     if (selectedProductInstance && activeColorId) {
@@ -119,8 +144,6 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
     setActiveColorId(null);
     setPrice(null);
     setPriceAfterDiscount(null);
-    // setPercentageDiscount(null);
-    // setIsNewCollection(false);
     setAvailableSizes([]);
     setStockQuantity(null);
 
@@ -133,10 +156,6 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
         setSelectedProductInstance(initialProductInstance);
         setPrice(initialProductInstance.price);
         setPriceAfterDiscount(initialProductInstance.priceAfterDiscount);
-        // setPercentageDiscount(
-        //   initialProductInstance.percentageDiscount || null
-        // );
-        // setIsNewCollection(initialProductInstance.isNewCollection);
         setActiveSizeId(initialProductInstance.size);
         setActiveColorId(initialProductInstance.id);
         setSizesForColor(initialProductInstance.color);
@@ -172,7 +191,8 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
             ) : (
               <PhotoSwiper
                 images={selectedProductInstance?.images || []}
-                border={borderColor}
+                    border={borderColor}
+                    onSelectPhoto={(color) => handleSelectPhoto(color)}
               />
             )}
             <div className="containerContent">

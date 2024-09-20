@@ -76,7 +76,7 @@ export const StyledSection = styled.section`
     height: 242px;
   }
 
-  .swiper-pagination-container {
+  .swiper-pagination-container-review {
     display: none;
   }
 

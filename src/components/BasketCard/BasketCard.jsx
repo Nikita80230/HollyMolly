@@ -41,7 +41,7 @@ const BasketCard = ({ product, handleClickCount, handleClickAddCount }) => {
       <div className="wrapperCardBasket">
         <Link
           to={`${routes.PRODUCT_PAGE}/${productId}/${productInstanceId}`}
-          state={{ location, params }}
+          state={{ location, params }} className="linkBasket"
         >
           <img src={productImage} alt={productName} className="basketPhoto" />{" "}
         </Link>

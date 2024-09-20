@@ -8,8 +8,11 @@ export const BasketItem = styled.li`
     /* width: 729px; */
   }
 
-  .basketPhoto {
+  .linkBasket {
     margin-right: 28px;
+  }
+
+  .basketPhoto {
     border: 2px solid ${({ $borderColor }) => $borderColor || ""};
     border-radius: 10px;
     width: 160px;
@@ -110,7 +113,7 @@ export const BasketItem = styled.li`
   }
 
   .buttonCount {
-    padding:6px;
+    padding: 6px;
     width: 30px;
     height: 30px;
     display: flex;
@@ -147,8 +150,11 @@ export const BasketItem = styled.li`
   @media (max-width: 564px) {
     margin-bottom: 24px;
 
-    .basketPhoto {
+    .linkBasket {
       margin-right: 10px;
+    }
+
+    .basketPhoto {
       width: 120px;
       height: 120px;
     }
@@ -207,7 +213,7 @@ export const BasketItem = styled.li`
     }
 
     .buttonCount {
-      padding:3px;
+      padding: 3px;
       width: 16px;
       height: 16px;
     }
