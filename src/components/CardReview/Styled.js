@@ -8,6 +8,22 @@ export const StyledContainer = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow-y:auto;
+  overflow-x: hidden;
+
+   &::-webkit-scrollbar {
+    width: 5px;
+    height: auto;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.colors.accentColor};
+    border-radius: 10px;
+  }
 
   .wrapperNameStars {
     margin-bottom: 10px;
@@ -30,6 +46,7 @@ export const StyledContainer = styled.li`
     font-size: 24px;
     line-height: 1.20833;
     margin-left: 250px;
+    white-space:nowrap;
   }
 
   @media (max-width: 564px) {
