@@ -34,6 +34,7 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
   const [availableSizes, setAvailableSizes] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [stockQuantity, setStockQuantity] = useState(null);
+  const [photoProduct, setPhotoProduct] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
 
   const isProductInFavorite = favoriteProducts?.some(
@@ -76,36 +77,11 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
       setPriceAfterDiscount(selectedProductInstance.priceAfterDiscount);
       setActiveSizeId(selectedProductInstance.size);
       setStockQuantity(selectedProductInstance.stockQuantity);
+      setPhotoProduct(selectedProductInstance.id);
     }
   };
-  // ==============функція при виборі фото щоб ставав активним колір============
-console.log(selectedProductInstance)
-//   const handleSelectPhoto = (color) => {
-//     if (!color) { console.log(color); }// Перевірка, чи колір не undefined або null
-
-//   const selectedProductInstance = product?.productsInstances?.find(
-//     (productInstance) =>
-//       productInstance?.color?.trim().toLowerCase() === color.trim().toLowerCase()
-//   );
-
-//   if (selectedProductInstance) {
-//     setActiveColorId(selectedProductInstance.id);
-//     setSizesForColor(selectedProductInstance.color);
-//   }
-// };
   
-  const handleSelectPhoto = (photoId) => {
-  // Пошук продукту за фото
-  const selectedProductInstance = product.productsInstances.find(
-    (productInstance) =>
-      productInstance.images.some((image) => image.id === photoId)
-  );
-
-  if (selectedProductInstance) {
-    setActiveColorId(selectedProductInstance.id);
-    setSizesForColor(selectedProductInstance.color); // Тут все одно використовуємо колір продукту, якщо він є
-  }
-};
+console.log(selectedProductInstance)
 
 
   const handleAddToBasket = () => {
@@ -160,6 +136,7 @@ console.log(selectedProductInstance)
         setActiveColorId(initialProductInstance.id);
         setSizesForColor(initialProductInstance.color);
         setStockQuantity(initialProductInstance.stockQuantity);
+      
       }
     }
   }, [product, instanceId]);
@@ -192,7 +169,9 @@ console.log(selectedProductInstance)
               <PhotoSwiper
                 images={selectedProductInstance?.images || []}
                     border={borderColor}
-                    onSelectPhoto={(color) => handleSelectPhoto(color)}
+                    // onSelectPhoto={(color) => handleSelectPhoto(color)}
+                    idInstance={photoProduct}
+                    instance={selectedProductInstance}
               />
             )}
             <div className="containerContent">
