@@ -4,33 +4,38 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { WrapperPhoto } from "./Styled";
+import { useEffect, useRef, useState } from "react";
 
-const PhotoSwiper = ({ images, border, onSelectPhoto }) => {
-  console.log(images)
-  
-    const handleSlideChange = (swiper) => {
-      const activeIndex = swiper.activeIndex;
-      console.log("activeIndex", activeIndex); // Отримуємо індекс активного слайда
-    const selectedImage = images[activeIndex]; // Отримуємо відповідне зображення
-      console.log("selectedImage", selectedImage);
-    if (onSelectPhoto && selectedImage) {
-       onSelectPhoto(selectedImage.id);
-      console.log("if", selectedImage.id);
-      // Передаємо колір обраного зображення
+const PhotoSwiper = ({ images, border, idInstance, instance }) => {
+  const swiperRef = useRef(null);
+
+  const [currentImages, setCurrentImages] = useState(images);
+
+  useEffect(() => {
+    if (instance && idInstance) {
+      setCurrentImages(instance.images);
     }
-  };
+  }, [instance, idInstance]);
+
+  useEffect(() => {
+    if (swiperRef.current && currentImages.length > 0) {
+      swiperRef.current.slideTo(0);
+    }
+  }, [currentImages]);
 
   return (
     <WrapperPhoto>
       <Swiper
         className="swiperCustom"
         modules={[Pagination]}
-         pagination={{
+        pagination={{
           el: ".swiper-pagination-container-photo",
           clickable: true,
         }}
         slidesPerView={1}
-         onSlideChange={handleSlideChange}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
       >
         {images.map(({ link, id }) => (
           <SwiperSlide key={id} className="swiper-slideCustom">
@@ -39,7 +44,6 @@ const PhotoSwiper = ({ images, border, onSelectPhoto }) => {
               alt={`Slide ${id}`}
               style={{ border: `2px solid ${border}` }}
               className="styledPhoto"
-              
             />
           </SwiperSlide>
         ))}
