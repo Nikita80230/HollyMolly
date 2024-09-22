@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { routes } from "./routes";
 import PageLayout from "./components/PageLayout/PageLayout";
@@ -33,6 +33,7 @@ import ConfirmEmailPage from "./pages/ConfirmEmailPage/ConfirmEmailPage";
 import { fetchCategories } from "./redux/categories/operations";
 import { getAllProducts } from "./redux/products/operations";
 import MobileProfilePage from "./pages/MobileProfilePage/MobileProfilePage";
+import LoadingAnimation from "./components/LoadingAnimation/LoadingAnimation";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -179,6 +180,8 @@ export const App = () => {
   const pathname = location.pathname;
   const userId = urlParams.get("userId");
 
+   const [loadingComplete, setLoadingComplete] = useState(false);
+
   useEffect(() => {
     dispatch(refreshUser());
     dispatch(fetchCategories());
@@ -200,9 +203,16 @@ export const App = () => {
     location.pathname.includes(profilePath)
   );
 
+  // Якщо зараз йде процес оновлення аутентифікації
   if (isRefreshing) {
     return <Loader />;
   }
+
+   //  анімація
+  if (pathname === '/' && !loadingComplete) {
+    return <LoadingAnimation onComplete={() => setLoadingComplete(true)} />;
+  }
+
   if (isAuthPage) {
     return (
       <AuthPageLayout>
