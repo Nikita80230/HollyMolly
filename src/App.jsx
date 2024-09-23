@@ -203,7 +203,7 @@ export const App = () => {
     location.pathname.includes(profilePath)
   );
 
-  // Якщо зараз йде процес оновлення аутентифікації
+  
   if (isRefreshing) {
     return <Loader />;
   }

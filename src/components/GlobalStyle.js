@@ -35,7 +35,8 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
   font-family: ${({ theme }) => theme.fonts.familyGaramond};
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
   min-width: 100%;
   background-color: ${({ theme }) => theme.colors.primaryBgColor};
    color: ${({ theme }) => theme.colors.primaryTxtColor};
