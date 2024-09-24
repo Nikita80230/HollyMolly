@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import ReactSelect from "react-select";
 import { StyledSortingPanel } from "./Styled";
 import { forwardRef, useState } from "react";
@@ -48,6 +49,9 @@ const customStyles = {
     backgroundColor: state.isFocused ? "#fff" : "#fff",
     "&:active": {
       backgroundColor: "#fff",
+    },
+    "@media only screen and (max-width: 564px)": {
+      fontSize: 14,
     },
   }),
   menu: (provided, state) => ({

@@ -4,10 +4,9 @@ export const StyledFiltersPanel = styled.div`
   position: relative;
 
   .title {
-font-weight: 400;
-font-size: 36px;
-line-height: 1.22222;
-
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 1.22222;
   }
 
   .priceFilter {
@@ -28,4 +27,7 @@ line-height: 1.22222;
   }
 
   /* ----------colors---------- */
+
+  @media (max-width: 564px) {
+  }
 `;

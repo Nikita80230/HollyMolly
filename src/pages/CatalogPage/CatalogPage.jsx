@@ -1,6 +1,7 @@
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useMediaQuery } from "react-responsive";
+import { useLocation, useParams } from "react-router-dom";
 // import Container from "src/components/Container/Container";
-import { StyledCatalogPage } from "./Styled";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Breadcrumb from "src/components/Breadcrumb/Breadcrumb";
 import { routes } from "src/routes";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,27 +10,25 @@ import SubcategoriesList from "src/components/SubcategoriesList/SubcategoriesLis
 import SortingPanel from "src/components/SortingPanel/SortingPanel";
 import FiltersPanel from "src/components/FiltersPanel/FiltersPanel";
 import ProductsGrid from "src/components/ProductsGrid/ProductsGrid";
-import { useEffect, useMemo, useRef, useState } from "react";
-import {
-  getAllProducts,
-  getProductsByCurrentCategory,
-} from "src/redux/products/operations";
-import { selectFilters, toggleFilter } from "src/redux/filters/filtersSlice";
+import Loader from "src/components/Loader/Loader";
+import Container from "src/components/Container/Container";
+import PaginationContainer from "src/components/PaginationContainer/PaginationContainer";
+import { getProductsByCurrentCategory } from "src/redux/products/operations";
+import { selectFilters } from "src/redux/filters/filtersSlice";
 import {
   selectCategoryColors,
   selectLoading,
   selectProductsByCurrentCategory,
 } from "src/redux/products/productsSlice";
-import Loader from "src/components/Loader/Loader";
-import PaginationContainer from "src/components/PaginationContainer/PaginationContainer";
 import {
   getFilteredProducts,
   getSortedFilteredProducts,
 } from "src/utils/sortAndFilterFunctions";
 import SelectedFiltersList from "src/components/SelectedFiltersList/SelectedFiltersList";
-import Container from "src/components/Container/Container";
-import { colorSchemes } from "src/utils/colorsScheme";
-import { useMediaQuery } from "react-responsive";
+// import { colorSchemes } from "src/utils/colorsScheme";
+
+import { StyledCatalogPage } from "./Styled";
+import FiltersAndSortingButtonsWrapper from "src/components/FiltersAndSortingButtonsWrapper/FiltersAndSortingButtonsWrapper";
 
 const CatalogPage = () => {
   const location = useLocation();
@@ -171,6 +170,15 @@ const CatalogPage = () => {
           />
         </div>
         <div className="layout">
+          <div className="filterAndSortingButtonsWrapper"></div>
+          {isMobile && (
+            <FiltersAndSortingButtonsWrapper
+              handleSorting={handleSorting}
+              sortType={sortType}
+              ref={sortingPanelRef}
+              onPaginationReset={handlePaginationReset}
+            />
+          )}
           {isDesktop && <SelectedFiltersList selectedFilters={filters} />}
           {isDesktop && (
             <SortingPanel

@@ -75,6 +75,8 @@ export const StyledSubcategoriesList = styled.div`
   }
 
   @media (max-width: 564px) {
+    margin-bottom: 16px;
+
     .title {
       margin-bottom: 16px;
 

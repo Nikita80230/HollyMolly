@@ -46,5 +46,9 @@ export const StyledCatalogPage = styled.div`
       display: flex;
       flex-direction: column;
     }
+
+    .sorting {
+      margin-bottom: 0;
+    }
   }
 `;
