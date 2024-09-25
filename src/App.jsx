@@ -34,6 +34,7 @@ import { fetchCategories } from "./redux/categories/operations";
 import { getAllProducts } from "./redux/products/operations";
 import MobileProfilePage from "./pages/MobileProfilePage/MobileProfilePage";
 import LoadingAnimation from "./components/LoadingAnimation/LoadingAnimation";
+import FAQPage from "./pages/FAQPage/FAQPage";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -151,6 +152,10 @@ const appRoutes = [
         <OrderDetailsPage />
       </PrivateRoute>
     ),
+  },
+  {
+    path: routes.FAQ,
+    element: <FAQPage />,
   },
 ];
 

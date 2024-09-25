@@ -1,12 +1,21 @@
+import { useEffect } from "react";
 import Container from "src/components/Container/Container";
 import TitlePage from "src/components/TitlePage/TitlePage";
 import { StyledSection } from "./Styled";
 
 const SizeGuidePage = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <StyledSection>
       <Container>
-        <TitlePage title={"Довідник розмірів"} />
+        <TitlePage
+          title={"Довідник розмірів"}
+          width={"390px"}
+          height={"70px"}
+        />
         <div className="wrapperTables">
           <div>
             <h3 className="title">Головні убори</h3>
