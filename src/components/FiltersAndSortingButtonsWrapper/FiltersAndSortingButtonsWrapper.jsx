@@ -29,8 +29,8 @@ const FiltersAndSortingButtonsWrapper = ({
       {isFiltersPanelOpened && (
         <MobileFiltersPanel
           toggleFiltersPanel={toggleFiltersPanel}
-          // onPaginationReset={onPaginationReset}
-          // isFiltersPanelOpened={isFiltersPanelOpened}
+          onPaginationReset={onPaginationReset}
+          isFiltersPanelOpened={isFiltersPanelOpened}
         />
       )}
       <SortingPanel

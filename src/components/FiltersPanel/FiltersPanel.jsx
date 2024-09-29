@@ -98,16 +98,19 @@ const FiltersPanel = ({ className, onPaginationReset }) => {
         title="Колір"
         options={colors}
         onPaginationReset={onPaginationReset}
+        deviceType="desktop"
       />
       <FilterBlock
         title="Матеріал"
         options={material}
         onPaginationReset={onPaginationReset}
+        deviceType="desktop"
       />
       <FilterBlock
         title="Розмір"
         options={sizes}
         onPaginationReset={onPaginationReset}
+        deviceType="desktop"
       />
     </StyledFiltersPanel>
   );

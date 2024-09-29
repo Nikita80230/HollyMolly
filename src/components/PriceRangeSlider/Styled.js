@@ -58,4 +58,18 @@ export const StyledPriceRangeSlider = styled.div`
 
     border: 1px solid ${({ theme }) => theme.colors.primaryTxtColor};
   }
+
+  /* =======================================@media (max-width: 564px)============================================== */
+
+  @media (max-width: 564px) {
+    .priceLabels {
+      margin-bottom: 12px;
+    }
+
+    .priceInput {
+      max-width: 45px;
+      min-height: 25px;
+      font-size: 14px;
+    }
+  }
 `;

@@ -57,9 +57,9 @@ const CategoriesModal = ({ closeModal, categories }) => {
                           to={`${routes.CATALOG_PAGE}/${category.id}/${subCategory.id}`}
                           key={subCategory.id}
                         >
-                         <div className="subCategoryLinkContent">
-              {subCategory.name}
-            </div>
+                          <div className="subCategoryLinkContent">
+                            {subCategory.name}
+                          </div>
                         </Link>
                       );
                     })}

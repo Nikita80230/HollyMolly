@@ -8,19 +8,34 @@ export const StyledMobileFiltersPanel = styled.div`
   left: 0;
 
   width: 100vw;
-  min-height: 478px;
+  height: 100vh;
 
-  box-shadow: 5px 5px 10px 0 ${({ theme }) => theme.colors.boxShadowLeaveReview};
+  /* padding: 20px; */
+
+  /* box-shadow: 5px 5px 10px 0 ${({ theme }) =>
+    theme.colors.boxShadowLeaveReview};
   background: ${({ theme }) => theme.colors.primaryBgColor};
 
-  /* font-family: ${({ theme }) => theme.fonts.familyPacifico}; */
-  /* color: ${({ theme }) => theme.colors.primaryTxtColor}; */
+  overflow-y: scroll; */
+
+  .mobileFiltersPanel {
+    width: 100%;
+    height: 478px;
+
+    padding: 20px;
+
+    box-shadow: 5px 5px 10px 0
+      ${({ theme }) => theme.colors.boxShadowLeaveReview};
+    background: ${({ theme }) => theme.colors.primaryBgColor};
+
+    overflow-y: scroll;
+  }
 
   .closeFiltersBtn {
     position: absolute;
 
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
 
     display: flex;
     align-items: center;
@@ -32,5 +47,24 @@ export const StyledMobileFiltersPanel = styled.div`
   .closeFiltersBtnIcon {
     display: block;
     /* width: 13px; */
+  }
+
+  .filtersPanelTitle {
+    margin-bottom: 16px;
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+
+    font-family: ${({ theme }) => theme.fonts.familyGaramond};
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+  }
+
+  .priceFilter {
+    margin-bottom: 23px;
+  }
+
+  .priceFilterTitle {
+    margin-bottom: 24px;
   }
 `;
