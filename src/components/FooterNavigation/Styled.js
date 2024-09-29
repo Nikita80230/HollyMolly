@@ -9,7 +9,7 @@ export const WrapperFooterNavigation = styled.div`
   height: 125px;
 
   @media (max-width: 564px) {
-    width:100%;
+    width: 100%;
     height: 214px;
   }
 `;
@@ -27,7 +27,7 @@ export const FooterNavigationList = styled.ul`
     width: 173px;
     @media (max-width: 564px) {
       /* width: 161px; */
-      width:48%;
+      width: 47%;
     }
   }
 

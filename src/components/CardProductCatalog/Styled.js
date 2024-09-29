@@ -203,9 +203,12 @@ export const WrapperCard = styled.div`
     }
 
     .title {
+      height: 48px;
+
       margin-bottom: 10px;
       font-size: 18px;
       line-height: 1.22222;
+      white-space: normal;
     }
 
     .wrapperPrice {

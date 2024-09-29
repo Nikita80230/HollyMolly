@@ -1,34 +1,40 @@
-// import Container from "src/components/Container/Container";
-import { StyledCatalogPage } from "./Styled";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import Breadcrumb from "src/components/Breadcrumb/Breadcrumb";
-import { routes } from "src/routes";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useMediaQuery } from "react-responsive";
+import { useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCategories } from "src/redux/categories/selectors";
+// import Container from "src/components/Container/Container";
+// -------------------------------------------------------------------------------------------
+import Breadcrumb from "src/components/Breadcrumb/Breadcrumb";
 import SubcategoriesList from "src/components/SubcategoriesList/SubcategoriesList";
 import SortingPanel from "src/components/SortingPanel/SortingPanel";
 import FiltersPanel from "src/components/FiltersPanel/FiltersPanel";
 import ProductsGrid from "src/components/ProductsGrid/ProductsGrid";
-import { useEffect, useMemo, useRef, useState } from "react";
-import {
-  getAllProducts,
-  getProductsByCurrentCategory,
-} from "src/redux/products/operations";
-import { selectFilters, toggleFilter } from "src/redux/filters/filtersSlice";
+import Loader from "src/components/Loader/Loader";
+import Container from "src/components/Container/Container";
+import SelectedFiltersList from "src/components/SelectedFiltersList/SelectedFiltersList";
+import PaginationContainer from "src/components/PaginationContainer/PaginationContainer";
+// -----------------------------------------------------------------------------------------
+import { selectCategories } from "src/redux/categories/selectors";
+import { resetFilters, selectFilters } from "src/redux/filters/filtersSlice";
+import { getProductsByCurrentCategory } from "src/redux/products/operations";
 import {
   selectCategoryColors,
   selectLoading,
   selectProductsByCurrentCategory,
 } from "src/redux/products/productsSlice";
-import Loader from "src/components/Loader/Loader";
-import PaginationContainer from "src/components/PaginationContainer/PaginationContainer";
+import { routes } from "src/routes";
 import {
   getFilteredProducts,
   getSortedFilteredProducts,
 } from "src/utils/sortAndFilterFunctions";
-import SelectedFiltersList from "src/components/SelectedFiltersList/SelectedFiltersList";
-import Container from "src/components/Container/Container";
-import { colorSchemes } from "src/utils/colorsScheme";
+// import { colorSchemes } from "src/utils/colorsScheme";
+
+import FilterButtonIcon from "src/assets/images/filtersButtonIcon.svg?react";
+
+// -------------------------------------------------------------------------------------------
+import { StyledCatalogPage } from "./Styled";
+import MobileFiltersPanel from "src/components/MobileFilterPanel/MobileFilterPanel";
+// import FiltersAndSortingButtonsWrapper from "src/components/FiltersAndSortingButtonsWrapper/FiltersAndSortingButtonsWrapper";
 
 const CatalogPage = () => {
   const location = useLocation();
@@ -38,8 +44,14 @@ const CatalogPage = () => {
   const [sortType, setSortType] = useState({ value: "", label: "" });
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(12);
+  const [isFiltersPanelOpened, setIFiltersPanelOpened] = useState(false);
   const isLoading = useSelector(selectLoading);
   const categoryColors = useSelector(selectCategoryColors);
+  const isMobile = useMediaQuery({ query: "(max-width: 564px)" });
+  const isTablet = useMediaQuery({
+    query: "(min-width: 768px) and  (max-width: 1239px)",
+  });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1240px)" });
 
   const productsByCurrentCategory = useSelector(
     selectProductsByCurrentCategory
@@ -143,6 +155,13 @@ const CatalogPage = () => {
   //       dispatch(getAllProducts());
   //  },[dispatch])
 
+  useEffect(() => {
+    // setColors(INITIAL_FILTER_STATE);
+    // setFabricType(INITIAL_FILTER_STATE);
+    // setSizes(INITIAL_FILTER_STATE);
+    dispatch(resetFilters());
+  }, [location.pathname, dispatch]);
+
   // ==================================скрол при кліку по категорії============================================================
 
   const sortingPanelRef = useRef(null);
@@ -152,6 +171,18 @@ const CatalogPage = () => {
       sortingPanelRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const toggleFiltersPanel = () => {
+    setIFiltersPanelOpened(!isFiltersPanelOpened);
+  };
+
+  useEffect(() => {
+    if (isFiltersPanelOpened) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isFiltersPanelOpened]);
 
   return (
     <StyledCatalogPage>
@@ -165,17 +196,48 @@ const CatalogPage = () => {
           />
         </div>
         <div className="layout">
-          <SelectedFiltersList selectedFilters={filters} />
-          <SortingPanel
-            className="sorting"
-            handleSorting={handleSorting}
-            sortType={sortType}
-            ref={sortingPanelRef}
-          />
-          <FiltersPanel
-            className="filters"
-            onPaginationReset={handlePaginationReset}
-          />
+          {isMobile && (
+            // <FiltersAndSortingButtonsWrapper
+            //   handleSorting={handleSorting}
+            //   sortType={sortType}
+            //   ref={sortingPanelRef}
+            //   onPaginationReset={handlePaginationReset}
+            // />
+            <div className="filterAndSortingButtonsWrapper">
+              <button className="filterButton" onClick={toggleFiltersPanel}>
+                <span className="filterButtonText">Фільтри</span>
+                <FilterButtonIcon className="filterButtonIcon" />
+              </button>
+              {isFiltersPanelOpened && (
+                <MobileFiltersPanel
+                  toggleFiltersPanel={toggleFiltersPanel}
+                  onPaginationReset={handlePaginationReset}
+                  isFiltersPanelOpened={isFiltersPanelOpened}
+                />
+              )}
+              <SortingPanel
+                className="sorting"
+                handleSorting={handleSorting}
+                sortType={sortType}
+                ref={sortingPanelRef}
+              />
+            </div>
+          )}
+          {isDesktop && <SelectedFiltersList selectedFilters={filters} />}
+          {isDesktop && (
+            <SortingPanel
+              className="sorting"
+              handleSorting={handleSorting}
+              sortType={sortType}
+              ref={sortingPanelRef}
+            />
+          )}
+          {isDesktop && (
+            <FiltersPanel
+              className="filters"
+              onPaginationReset={handlePaginationReset}
+            />
+          )}
           {isLoading ? (
             <Loader />
           ) : (
