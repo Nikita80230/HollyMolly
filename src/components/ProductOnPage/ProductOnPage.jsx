@@ -23,19 +23,18 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
   const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   const product = useSelector(selectCurrentProduct);
-
   const isLoading = useSelector(selectCurrentLoading);
+  const favoriteProducts = useSelector(selectFavoriteProducts);
+
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
   const [activeSizeId, setActiveSizeId] = useState(null);
   const [activeColorId, setActiveColorId] = useState(null);
   const [price, setPrice] = useState(null);
   const [priceAfterDiscount, setPriceAfterDiscount] = useState(null);
-  // const [percentageDiscount, setPercentageDiscount] = useState(null);
-  // const [isNewCollection, setIsNewCollection] = useState(false);
   const [availableSizes, setAvailableSizes] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [stockQuantity, setStockQuantity] = useState(null);
-  const favoriteProducts = useSelector(selectFavoriteProducts);
+  const [photoProduct, setPhotoProduct] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
 
   const isProductInFavorite = favoriteProducts?.some(
@@ -76,12 +75,14 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
       setSelectedProductInstance(selectedProductInstance);
       setPrice(selectedProductInstance.price);
       setPriceAfterDiscount(selectedProductInstance.priceAfterDiscount);
-      // setPercentageDiscount(selectedProductInstance.percentageDiscount || null);
-      // setIsNewCollection(selectedProductInstance.isNewCollection);
       setActiveSizeId(selectedProductInstance.size);
       setStockQuantity(selectedProductInstance.stockQuantity);
+      setPhotoProduct(selectedProductInstance.id);
     }
   };
+  
+console.log(selectedProductInstance)
+
 
   const handleAddToBasket = () => {
     if (selectedProductInstance && activeColorId) {
@@ -119,8 +120,6 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
     setActiveColorId(null);
     setPrice(null);
     setPriceAfterDiscount(null);
-    // setPercentageDiscount(null);
-    // setIsNewCollection(false);
     setAvailableSizes([]);
     setStockQuantity(null);
 
@@ -133,14 +132,11 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
         setSelectedProductInstance(initialProductInstance);
         setPrice(initialProductInstance.price);
         setPriceAfterDiscount(initialProductInstance.priceAfterDiscount);
-        // setPercentageDiscount(
-        //   initialProductInstance.percentageDiscount || null
-        // );
-        // setIsNewCollection(initialProductInstance.isNewCollection);
         setActiveSizeId(initialProductInstance.size);
         setActiveColorId(initialProductInstance.id);
         setSizesForColor(initialProductInstance.color);
         setStockQuantity(initialProductInstance.stockQuantity);
+      
       }
     }
   }, [product, instanceId]);
@@ -172,7 +168,10 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
             ) : (
               <PhotoSwiper
                 images={selectedProductInstance?.images || []}
-                border={borderColor}
+                    border={borderColor}
+                    // onSelectPhoto={(color) => handleSelectPhoto(color)}
+                    idInstance={photoProduct}
+                    instance={selectedProductInstance}
               />
             )}
             <div className="containerContent">

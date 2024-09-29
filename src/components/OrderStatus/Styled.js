@@ -8,7 +8,6 @@ export const StyledOrderStatus = styled.div`
     font-weight: 400;
     font-size: 24px;
     line-height: 1.20833;
-    /* text-align: center; */
     color: ${({ theme }) => theme.colors.titleCardProduct};
   }
   .orderStatusList {
@@ -33,6 +32,12 @@ export const StyledOrderStatus = styled.div`
     border-radius: 50%;
     background-color: ${({ theme }) => theme.colors.accentColor};
   }
+
+  .icon {
+    path {
+      fill: ${({ theme }) => theme.colors.whiteTxtColor};
+    }
+  }
   .statusText {
     font-weight: 400;
     font-size: 16px;
@@ -41,6 +46,20 @@ export const StyledOrderStatus = styled.div`
 
     font-family: ${({ theme }) => theme.fonts.familyDidact};
     color: ${({ theme }) => theme.colors.primaryTxtColor};
+    .statusData {
+      margin-left: 5px;
+    }
+  }
+
+  @media (max-width: 564px) {
+    .orderStatusTitle {
+      margin-bottom: 16px;
+      font-size: 20px;
+      line-height: 1.2;
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+    }
+
     .statusData {
       margin-left: 5px;
     }

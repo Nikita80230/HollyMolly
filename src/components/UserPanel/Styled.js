@@ -2,6 +2,8 @@ import { styled } from "styled-components";
 
 export const StyledUserPanel = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 17px;
 
   .userPanelLink {
@@ -139,8 +141,7 @@ export const StyledUserPanel = styled.div`
   /* ==================================@media (max-width: 564px)========================================= */
 
   @media (max-width: 564px) {
-    gap: 24px;
-    /* width: auto; */
+    gap: 20px;
 
     .icon {
       width: 24px;
@@ -211,5 +212,17 @@ export const ContainerEmptyBasket = styled.div`
     font-size: 20px;
     line-height: 1.2;
     white-space: nowrap;
+  }
+
+  @media (max-width: 564px) {
+    border-radius: 0;
+    min-width: 374px;
+    width: 100%;
+    height: 198px;
+
+    .textBasket {
+      font-size: 24px;
+      line-height: 1.16667;
+    }
   }
 `;

@@ -26,7 +26,7 @@ const FooterNavigation = () => {
         <li className="footer-items">
           <h3 className="footer-title">Допомога</h3>
           <StyledLink to={routes.SIZE_GUIDE}>Довідник розмірів</StyledLink>
-          <StyledLink>FAQ</StyledLink>
+          <StyledLink to={routes.FAQ}>FAQ</StyledLink>
         </li>
         <li className="footer-items">
           <h3 className="footer-title">Про нас</h3>

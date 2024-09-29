@@ -95,6 +95,7 @@ export const WrapperCard = styled.div`
 
   .productPhoto {
     width: 100%;
+    /* width: 300px; */
     height: 300px;
     border-radius: 10px;
     transition: transform ${({ theme }) => theme.animations.transition};
@@ -152,32 +153,6 @@ export const WrapperCard = styled.div`
     color: ${({ theme }) => theme.colors.accentColor};
   }
 
-  /* .buttonsFeedback {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .wrapperFeedback {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  } */
-
-  /* .spanFeedback {
-    font-family: ${({ theme }) => theme.fonts.familyNunito};
-    font-weight: 500;
-    font-size: 11px;
-    color: ${({ theme }) => theme.colors.titleCardProduct};
-  } */
-
-  /* .wrapperColorsFeedbackHeart {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  } */
-
   .buttonIcon {
     display: flex;
     background-color: transparent;
@@ -187,6 +162,7 @@ export const WrapperCard = styled.div`
   /* ========Mobile - @media (max-width: 564px)========= */
 
   @media (max-width: 564px) {
+
     .iconHeart {
       width: 16px;
       height: 16px;
@@ -221,6 +197,8 @@ export const WrapperCard = styled.div`
     }
 
     .productPhoto {
+     
+      width: 100%;
       height: 150px;
     }
 

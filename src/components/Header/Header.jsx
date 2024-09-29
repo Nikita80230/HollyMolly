@@ -21,6 +21,7 @@ const Header = () => {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
 
   const [isSearchMenuOpened, setIsMenuOpened] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
 
   const handleOpenSearchMenu = () => {
     setIsMenuOpened(true);
@@ -50,6 +51,18 @@ const Header = () => {
       document.body.style.overflow = "auto";
     }
   }, [isBurgerOpen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 564);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <StyledHeader>
@@ -90,7 +103,7 @@ const Header = () => {
 
             <MobileLogo className="headerMobileLogoImg" />
           </Link>
-          <UserPanel />
+          <UserPanel isMobile={isMobile} />
         </div>
       </Container>
       {isBurgerOpen && <BurgerMenu toggleBurgerMenu={toggleBurgerMenu} />}

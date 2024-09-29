@@ -50,30 +50,7 @@ export const DatePickerWrapper = styled.div`
     display: none;
   }
 
-  /* .react-datepicker__navigation {
-    top: 18px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px;
-    border-color: transparent transparent transparent transparent;
-    position: absolute;
-    z-index: 1;
-  } */
-
-  /* .react-datepicker__navigation--previous {
-    left: 20px; 
-    border-width: 10px 10px 10px 0;
-    border-color: transparent ${({ theme }) => theme.colors.accentColor}
-      transparent transparent;
-  }
-
-  .react-datepicker__navigation--next {
-    right: 10px;
-    border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent
-      ${({ theme }) => theme.colors.accentColor};
-  } */
+ 
 
   .custom-header{
     display:flex;
@@ -86,21 +63,13 @@ export const DatePickerWrapper = styled.div`
     outline:none;
     }
 
-  /* .customSelect {
-   
-border: 10px solid ${({ theme }) => theme.colors.accentColor};
- 
-  } */
+  
 
   .customOption{
     background-color: ${({ theme }) => theme.colors.hoverCalendar};
     
   }
 
-   /* .customOption:checked{
-    background-color: ${({ theme }) => theme.colors.accentColor};
-    color:${({ theme }) => theme.colors.whiteTxtColor};
-   } */
 
   .customSelect::-webkit-scrollbar {
     border-radius: 0 4px 4px 0;
@@ -133,22 +102,6 @@ height: 302px;
     align-items: center;
     gap: 5px;
   }
-
-  /* .react-datepicker__current-month {
-    display: block;
-    font-family: ${({ theme }) => theme.fonts.familyDidact};
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.25;
-    color: ${({ theme }) => theme.colors.primaryTxtColor};
-    margin: 0;
-    text-transform: capitalize;
-  }
-
-  .react-datepicker__year-dropdown-container {
-    display: flex;
-    justify-content: flex-end;
-  } */
 
   .react-datepicker__day-name,
   .react-datepicker__day,
@@ -269,5 +222,25 @@ height: 302px;
   .react-datepicker__year-text--in-range {
     background-color: ${({ theme }) => theme.colors.accentColor};
     color: ${({ theme }) => theme.colors.whiteTxtColor};
+  }
+
+   /*========== Mobile - @media (max-width: 564px)================ */
+
+  @media (max-width: 564px) {
+     height: 54px;
+ 
+
+  .styledDatePicker {
+    width: 100%;
+    height: 52px;
+    
+    padding: 14px 0px 14px 15px;
+  }
+
+  .react-datepicker {
+      margin-top: 0;
+    margin-left: 170px;
+   
+  }
   }
 `;

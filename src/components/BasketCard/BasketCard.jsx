@@ -38,59 +38,59 @@ const BasketCard = ({ product, handleClickCount, handleClickAddCount }) => {
 
   return (
     <BasketItem key={productInstanceId} $borderColor={colorBorder}>
-      <Link
-        to={`${routes.PRODUCT_PAGE}/${productId}/${productInstanceId}`}
-        state={{ location, params }}
-      >
-        <div className="wrapperCardBasket">
-          <img src={productImage} alt={productName} className="basketPhoto" />
+      <div className="wrapperCardBasket">
+        <Link
+          to={`${routes.PRODUCT_PAGE}/${productId}/${productInstanceId}`}
+          state={{ location, params }} className="linkBasket"
+        >
+          <img src={productImage} alt={productName} className="basketPhoto" />{" "}
+        </Link>
 
-          <div className="wrapperBox">
-            <div className="boxNameDelete">
-              <h3 className="nameProduct">{productName}</h3>
-              <button className="buttonTrash" onClick={handleClick}>
-                <TrashIcon className="iconTrash" />
+        <div className="wrapperBox">
+          <div className="boxNameDelete">
+            <h3 className="nameProduct">{productName}</h3>
+            <button className="buttonTrash" onClick={handleClick}>
+              <TrashIcon className="iconTrash" />
+            </button>
+          </div>
+          <span className="spanId">ID {productInstanceId}</span>
+          <span className="spanSize">Розмір: {size}</span>
+          <div className="containerColor">
+            <span className="spanColor">Колір:</span>
+            <div className="wrapperColor">
+              <div
+                className="color"
+                style={{ backgroundColor: translatedColor }}
+              ></div>
+            </div>
+          </div>
+
+          <div className="wrapperCountPrice">
+            <div className="wrapperCounter">
+              <button
+                type="button"
+                onClick={handleClickCount}
+                disabled={quantity <= 1}
+                className="buttonCount"
+              >
+                <IconMinus className="icon" />
+              </button>
+              <span className="countQuantity">{quantity}</span>
+              <button
+                type="button"
+                onClick={handleClickAddCount}
+                disabled={quantity >= stockQuantity}
+                className="buttonCount"
+              >
+                <IconPlus className="icon" />
               </button>
             </div>
-            <span className="spanId">ID {productInstanceId}</span>
-            <span className="spanSize">Розмір: {size}</span>
-            <div className="containerColor">
-              <span className="spanColor">Колір:</span>
-              <div className="wrapperColor">
-                <div
-                  className="color"
-                  style={{ backgroundColor: translatedColor }}
-                ></div>
-              </div>
-            </div>
-
-            <div className="wrapperCountPrice">
-              <div className="wrapperCounter">
-                <button
-                  type="button"
-                  onClick={handleClickCount}
-                  disabled={quantity <= 1}
-                  className="buttonCount"
-                >
-                  <IconMinus className="icon" />
-                </button>
-                <span className="countQuantity">{quantity}</span>
-                <button
-                  type="button"
-                  onClick={handleClickAddCount}
-                  disabled={quantity >= stockQuantity}
-                  className="buttonCount"
-                >
-                  <IconPlus className="icon" />
-                </button>
-              </div>
-              <div>
-                <p className="priceBasket">{totalPrice}₴</p>
-              </div>
+            <div>
+              <p className="priceBasket">{totalPrice}₴</p>
             </div>
           </div>
         </div>
-      </Link>
+      </div>
     </BasketItem>
   );
 };

@@ -1,5 +1,5 @@
 import { ErrorMessage, Form, Formik } from "formik";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AsyncSelect from "react-select/async";
 import { createOrder } from "src/redux/orders/operations";
@@ -33,6 +33,10 @@ const customStyles = {
     width: 390,
     height: 60,
     boxShadow: "none",
+    "@media (max-width: 564px)": {
+      width: "100%",
+      height:52,
+    },
   }),
   placeholder: (provided) => ({
     ...provided,
@@ -97,6 +101,39 @@ const OrderForm = () => {
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [userEmail, setUserEmail] = useState("");
+
+  const cityRef = useRef(null);
+  const warehouseRef = useRef(null);
+  const firstNameRef = useRef(null);
+  const lastNameRef = useRef(null);
+  const phoneNumberRef = useRef(null);
+
+  // Прокрутка до поля, яке не пройшло валідацію
+  const scrollToError = (errors) => {
+    let element = null;
+
+    if (errors.firstName && firstNameRef.current) {
+      element = firstNameRef.current;
+    } else if (errors.lastName && lastNameRef.current) {
+      element = lastNameRef.current;
+    } else if (errors.phoneNumber && phoneNumberRef.current) {
+      element = phoneNumberRef.current;
+    } else if (errors.city && cityRef.current) {
+      element = cityRef.current;
+    } else if (errors.deliveryAddress && warehouseRef.current) {
+      element = warehouseRef.current;
+    }
+
+    if (element) {
+      // Прокручуємо до елемента
+      element.scrollIntoView({ behavior: "smooth" });
+
+      // Додаємо зміщення на -100px
+      setTimeout(() => {
+        window.scrollBy({ top: -100, behavior: "smooth" });
+      }, 300); // Невелика затримка, щоб дочекатися завершення scrollIntoView
+    }
+  };
 
   useEffect(() => {
     if (user && user.length > 0) {
@@ -265,14 +302,44 @@ const OrderForm = () => {
         initialValues={initialValues}
         enableReinitialize={true}
         validationSchema={SubmitOrderSchema}
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
+        validate={(values) => {
+          const errors = {};
+
+          if (!values.firstName) {
+            errors.firstName = "Поле обов'язкове";
+          }
+          if (!values.lastName) {
+            errors.lastName = "Поле обов'язкове";
+          }
+          if (!values.phoneNumber) {
+            errors.phoneNumber = "Поле обов'язкове";
+          }
+          if (!values.city) {
+            errors.city = "Поле обов'язкове";
+          }
+          if (!values.deliveryAddress) {
+            errors.deliveryAddress = "Поле обов'язкове";
+          }
+
+          // Прокрутка до першого поля з помилкою
+          if (Object.keys(errors).length > 0) {
+            scrollToError(errors);
+          }
+
+          return errors;
+        }}
+        onSubmit={(values, { setSubmitting }) => {
+          handleSubmit(values);
+          setSubmitting(false);
+        }}
       >
         {({ setFieldValue, values }) => (
           <Form className="styledForm">
             <div className="wrapperFields">
               <div className="containerLeft">
                 {" "}
-                <label className="styledLabel">
+                <label className="styledLabel" ref={firstNameRef}>
                   <Input
                     name={"firstName"}
                     type={"text"}
@@ -284,7 +351,7 @@ const OrderForm = () => {
                     className="errorMessage"
                   />
                 </label>
-                <label className="styledLabel">
+                <label className="styledLabel" ref={lastNameRef}>
                   <Input
                     name={"lastName"}
                     type={"text"}
@@ -307,7 +374,7 @@ const OrderForm = () => {
                     component="p"
                   />
                 </label>
-                <label className="styledLabel">
+                <label className="styledLabel" ref={phoneNumberRef}>
                   <Input
                     name={"phoneNumber"}
                     type={"text"}
@@ -347,7 +414,7 @@ const OrderForm = () => {
               </div>{" "}
               <span className="text">Відділення Нової Пошти</span>
             </div>
-            <label className="styledLabel">
+            <label className="styledLabel" ref={cityRef}>
               <AsyncSelect
                 name="city"
                 id="city"
@@ -371,7 +438,7 @@ const OrderForm = () => {
                 className="errorMessage"
               />
             </label>
-            <label className="styledLabel">
+            <label className="styledLabel" ref={warehouseRef}>
               <AsyncSelect
                 name="warehouse"
                 id="warehouse"
@@ -423,7 +490,7 @@ const OrderForm = () => {
               </div>{" "}
               <span className="text">Онлайн</span>
             </div>
-            <ButtonAuth title={"Перейти до оплати"} width={"390px"}/>
+            <ButtonAuth title={"Перейти до оплати"} width={"390px"} />
           </Form>
         )}
       </Formik>

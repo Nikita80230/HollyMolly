@@ -23,6 +23,7 @@ import { useNavigate } from "react-router-dom";
 import { routes } from "src/routes";
 import { updateUserEmail } from "src/redux/auth/operations";
 import { logOut } from "src/redux/auth/authSlice";
+import ButtonAuth from "../ButtonAuth/ButtonAuth";
 
 const customStyles = {
   control: (provided, state) => ({
@@ -37,6 +38,10 @@ const customStyles = {
     width: 390,
     height: 60,
     boxShadow: "none",
+    "@media (max-width: 564px)": {
+      width: "100%",
+      height: 52,
+    },
   }),
   placeholder: (provided) => ({
     ...provided,
@@ -87,6 +92,7 @@ const ProfileForm = ({ userEmail }) => {
   const dispatch = useDispatch();
   const profiles = useSelector(selectProfiles);
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
 
   const initialCity = profiles?.[0]?.city
     ? { value: profiles[0].city, label: profiles[0].city }
@@ -248,6 +254,16 @@ const ProfileForm = ({ userEmail }) => {
     }
   }, [profiles, userEmail]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 564);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       <Formik
@@ -401,8 +417,11 @@ const ProfileForm = ({ userEmail }) => {
                 </label>
               </div>
             </div>
-
-            <ButtonLight title={"Зберегти зміни"} width={"390px"} />
+            {!isMobile ? (
+              <ButtonLight title={"Зберегти зміни"} width={"390px"} />
+            ) : (
+              <ButtonAuth title={"Зберегти зміни"} width={"100%"} />
+            )}
           </StyledForm>
         )}
       </Formik>

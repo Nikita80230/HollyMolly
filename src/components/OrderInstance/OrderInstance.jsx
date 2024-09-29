@@ -12,7 +12,6 @@ const OrderInstance = ({
     totalCost,
   },
 }) => {
-  //   console.log(instance);
   return (
     <StyledOrderInstance>
       <div className="instancePhotoWrapper">

@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
 import { PhotoContainer } from "./Styled";
 import ModalSwiperPhoto from "../ModalSwiperPhoto/ModalSwiperPhoto";
-import PhotoSwiper from "../PhotoSwiper/PhotoSwiper";
+
 
 const ListProductPhotos = ({ images, border }) => {
   const [selectedImage, setSelectedImage] = useState(defaultPhoto);

@@ -1,4 +1,3 @@
-import OrderDetails from "src/components/OrderDetails/OrderDetails";
 import { StyledOrderDetailsPage } from "./Styled";
 import { useDispatch, useSelector } from "react-redux";
 import { selectMyOrders } from "src/redux/orders/selectors";
@@ -31,13 +30,12 @@ const OrderDetailsPage = () => {
   return (
     <StyledOrderDetailsPage>
       <OrderMetaData currentOrder={currentOrder} />
+
       <OrderInstancesList currentOrder={currentOrder} />
       <div className="statusAndDeliveryContainer">
         <OrderStatus currentOrder={currentOrder} />
         <OrderDeliveryAddress currentOrder={currentOrder} />
       </div>
-
-      {/* <OrderDetails /> */}
     </StyledOrderDetailsPage>
   );
 };

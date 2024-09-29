@@ -10,6 +10,10 @@ export const StyledOrderMetaData = styled.div`
     margin-bottom: 20px;
   }
 
+  .backButtonMobile {
+    display: none;
+  }
+
   .backButton {
     position: relative;
 
@@ -87,5 +91,65 @@ export const StyledOrderMetaData = styled.div`
 
     font-family: ${({ theme }) => theme.fonts.familyGaramond};
     color: ${({ theme }) => theme.colors.primaryTxtColor};
+  }
+
+  @media (max-width: 564px) {
+    .breadcrumbs {
+      padding-top: 0;
+      margin-bottom: 26px;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      path {
+        fill: ${({ theme }) => theme.colors.primaryTxtColor};
+      }
+    }
+
+    .backButtonMobile {
+      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      font-family: ${({ theme }) => theme.fonts.familyDidact};
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.25;
+      color: ${({ theme }) => theme.colors.primaryTxtColor};
+    }
+
+    .backButton {
+      display: none;
+
+      &::after {
+        content: "|";
+        display: none;
+      }
+    }
+
+    .currentOrderNumber {
+      display: none;
+    }
+
+    .orderTitle {
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .orderDate {
+      font-size: 16px;
+      line-height: 1.25;
+    }
+    .orderStatus {
+      max-width: 130px;
+      width: 100%;
+      min-height: 30px;
+      padding: 6px;
+      font-size: 16px;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
   }
 `;

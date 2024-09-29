@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { routes } from "./routes";
 import PageLayout from "./components/PageLayout/PageLayout";
@@ -15,14 +15,12 @@ import SupportPage from "./pages/SupportPage/SupportPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import ForgotPasswordPage from "./pages/FogotPasswortPage/FogotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage/ResetPasswordPage";
-import TrackingPage from "./pages/TrackingPage/TrackingPage";
 import SizeGuidePage from "./pages/SizeGuidePage/SizeGuidePage";
 import { useAuth } from "./hooks";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import BasketPage from "./pages/BasketPage/BasketPage";
 import AuthPageLayout from "./components/AuthPageLayout/AuthPageLayout";
 import ProfileOrdersPage from "./pages/ProfileOrdersPage/ProfileOrdersPage";
-import ProfileShippingAdressesPage from "./pages/ProfileShippingAdressesPage/ProfileShippingAdressesPage";
 import ProfilePageLayout from "./components/ProfilePageLayout/ProfilePageLayout";
 import SubmitOrderPage from "./pages/SubmitOrderPage/SubmitOrderPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
@@ -34,6 +32,9 @@ import { getMyOrders } from "./redux/orders/operations";
 import ConfirmEmailPage from "./pages/ConfirmEmailPage/ConfirmEmailPage";
 import { fetchCategories } from "./redux/categories/operations";
 import { getAllProducts } from "./redux/products/operations";
+import MobileProfilePage from "./pages/MobileProfilePage/MobileProfilePage";
+import LoadingAnimation from "./components/LoadingAnimation/LoadingAnimation";
+import FAQPage from "./pages/FAQPage/FAQPage";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -88,10 +89,6 @@ const appRoutes = [
     element: <ResetPasswordPage />,
   },
   {
-    path: routes.TRACKING,
-    element: <TrackingPage />,
-  },
-  {
     path: routes.SIZE_GUIDE,
     element: <SizeGuidePage />,
   },
@@ -117,19 +114,18 @@ const appRoutes = [
     ),
   },
   {
+    path: routes.MOBILE_PROFILE,
+    element: (
+      <PrivateRoute>
+        <MobileProfilePage />
+      </PrivateRoute>
+    ),
+  },
+  {
     path: routes.MY_ORDERS,
     element: (
       <PrivateRoute>
         <ProfileOrdersPage />
-      </PrivateRoute>
-    ),
-  },
-
-  {
-    path: routes.SHIPPING_ADDRESSES,
-    element: (
-      <PrivateRoute>
-        <ProfileShippingAdressesPage />
       </PrivateRoute>
     ),
   },
@@ -149,6 +145,18 @@ const appRoutes = [
       </PrivateRoute>
     ),
   },
+  {
+    path: `${routes.MOBILE_ORDER_DETAILS}/:id`,
+    element: (
+      <PrivateRoute>
+        <OrderDetailsPage />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: routes.FAQ,
+    element: <FAQPage />,
+  },
 ];
 
 const authPaths = [
@@ -162,8 +170,9 @@ const authPaths = [
 const profilePaths = [
   routes.PROFILE,
   routes.MY_ORDERS,
-  routes.SHIPPING_ADDRESSES,
   routes.ORDER_DETAILS,
+  routes.MOBILE_ORDER_DETAILS,
+  routes.MOBILE_PROFILE,
 ];
 
 export const App = () => {
@@ -175,6 +184,8 @@ export const App = () => {
   const { isRefreshing } = useAuth();
   const pathname = location.pathname;
   const userId = urlParams.get("userId");
+
+   const [loadingComplete, setLoadingComplete] = useState(false);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -197,9 +208,16 @@ export const App = () => {
     location.pathname.includes(profilePath)
   );
 
+  
   if (isRefreshing) {
     return <Loader />;
   }
+
+   //  анімація
+  if (pathname === '/' && !loadingComplete) {
+    return <LoadingAnimation onComplete={() => setLoadingComplete(true)} />;
+  }
+
   if (isAuthPage) {
     return (
       <AuthPageLayout>
