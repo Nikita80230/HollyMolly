@@ -5,7 +5,6 @@ export const routes = {
   CATALOG_PAGE: "/catalog",
   PRODUCT_PAGE: "/product",
   CONFIRM_EMAIL: "/confirm-email",
-  SUPPORT: "/support",
   ABOUT_US: "/about",
   FORGOT_PASSWORD: "/forgot-password",
   RESET_PASSWORD: "/reset-password",
