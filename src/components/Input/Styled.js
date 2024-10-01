@@ -29,8 +29,7 @@ export const StyledField = styled(Field)`
   }
   &:focus {
     border: 1px solid ${({ theme }) => theme.colors.borderFocusColor};
-    /* width: 390px;
-height: 60px; */
+   
   }
   &::placeholder {
     font-family: ${({ theme }) => theme.fonts.familyDidact};

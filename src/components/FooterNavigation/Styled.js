@@ -40,6 +40,15 @@ export const FooterNavigationList = styled.ul`
     @media (max-width: 564px) {
     }
   }
+
+  .styledSpan{
+     margin-bottom: 5px;
+  font-family: ${({ theme }) => theme.fonts.familyDidact};
+  font-weight: 400;
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.primaryTxtColor};
+  cursor:pointer;
+  }
 `;
 
 export const StyledLink = styled(NavLink)`

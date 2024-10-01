@@ -198,6 +198,18 @@ position: absolute;
   }
 }
 
+.modal-content-support{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  border: transparent;
+  outline: none;
+}
+
 .modal-overlay {
   position: fixed;
   z-index:102;

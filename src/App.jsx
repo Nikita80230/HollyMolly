@@ -11,7 +11,6 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import { authGoogle, refreshUser } from "./redux/auth/operations";
-import SupportPage from "./pages/SupportPage/SupportPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import ForgotPasswordPage from "./pages/FogotPasswortPage/FogotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage/ResetPasswordPage";
@@ -71,10 +70,6 @@ const appRoutes = [
   {
     path: `${routes.PRODUCT_PAGE}/:productId/:productInstanceId`,
     element: <ProductPage />,
-  },
-  {
-    path: routes.SUPPORT,
-    element: <SupportPage />,
   },
   {
     path: routes.ABOUT_US,

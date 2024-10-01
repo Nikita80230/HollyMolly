@@ -11,14 +11,27 @@ import Telegram from "../../assets/images/telegram.svg?react";
 import { routes } from "src/routes";
 import { selectCategories } from "src/redux/categories/selectors";
 import { useSelector } from "react-redux";
-
+import Modal from "react-modal";
+import { useState } from "react";
+import SupportForm from "../SupportForm/SupportForm";
 
 const FooterNavigation = () => {
+  const [modalIsOpen, setIsOpen] = useState(false);
   const categories = useSelector(selectCategories);
 
   const handleLinkClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  function openModal() {
+    setIsOpen(true);
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+    document.body.style.overflow = "";
+  }
 
   return (
     <WrapperFooterNavigation>
@@ -33,9 +46,9 @@ const FooterNavigation = () => {
 
           <StyledLink to={routes.ABOUT_US}>Про нас</StyledLink>
 
-          <StyledLink to={routes.SUPPORT} onClick={handleLinkClick}>
+          <span className="styledSpan" onClick={openModal}>
             Зворотній зв'язок
-          </StyledLink>
+          </span>
         </li>
 
         <li className="footer-items">
@@ -91,6 +104,16 @@ const FooterNavigation = () => {
           </WrapperSocialLink>
         </li>
       </FooterNavigationList>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        ariaHideApp={false}
+        className="modal-content-support"
+        overlayClassName="modal-overlay-light"
+        contentLabel="Modal Support"
+      >
+        <SupportForm onClose={closeModal} />
+      </Modal>
     </WrapperFooterNavigation>
   );
 };
