@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import DesktopLogo from "src/assets/images/logo.svg?react";
 import CloseSearchMenuIcon from "src/assets/images/closeCrossIcon.svg?react";
@@ -20,6 +20,7 @@ const productsFilter = (productName, productsArray) => {
 };
 
 const HeaderSearchMenu = ({ handleCloseSearchMenu }) => {
+  const location = useLocation();
   const [searchValue, setSearchValue] = useState("");
   const allProducts = useSelector(selectAllProducts);
 
@@ -32,6 +33,10 @@ const HeaderSearchMenu = ({ handleCloseSearchMenu }) => {
     () => productsFilter(searchValue, allProducts),
     [searchValue, allProducts]
   );
+
+  // useEffect(() => {
+  //   handleCloseSearchMenu();
+  // }, [location]);
 
   return (
     <StyledHeaderSearchMenu>
@@ -57,7 +62,11 @@ const HeaderSearchMenu = ({ handleCloseSearchMenu }) => {
               {filteredProducts.map((product) => {
                 return (
                   <li className="searchMenuItem" key={product.id}>
-                    <Link className="searchMenuItemLink" to="/">
+                    <Link
+                      onClick={handleCloseSearchMenu}
+                      className="searchMenuItemLink"
+                      to={`${routes.PRODUCT_PAGE}/${product.id}/${product.productsInstances[0]}`}
+                    >
                       <SearchIcon className="searchIcon" />
                       <span className="searchMenuItemText">{product.name}</span>
                     </Link>
