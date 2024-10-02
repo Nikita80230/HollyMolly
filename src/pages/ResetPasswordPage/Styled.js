@@ -2,10 +2,6 @@ import { styled } from "styled-components";
 
 export const WrapperResetPassword = styled.section`
   padding-top: 108px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   .description {
     margin-top: 10px;

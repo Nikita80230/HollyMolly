@@ -7,6 +7,7 @@ export const StyledForm = styled(Form)`
   justify-content: center;
   align-items: center;
   gap: 30px;
+  padding: 56px 60px;
   border-radius: 10px 0 0 10px;
   width: 430px;
   height: 500px;
@@ -100,27 +101,35 @@ export const StyledForm = styled(Form)`
   @media (max-width: 564px) {
     position: absolute;
     top: 43px;
-    left: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     gap: 24px;
-    padding-top: 61px;
+    padding: 91px 13px 28px 13px;
     border-radius: 0;
     width: 335px;
-    height: 462px;
+    height: 485px;
     background: ${({ theme }) => theme.colors.backgroundContentBox};
+  }
+
+  .styledLabel {
+    width: 100%;
   }
 
   .inputAuth {
     padding: 14px 0px 14px 15px;
+    width: 100%;
     height: 52px;
   }
 
   .inputError {
     padding: 14px 0px 14px 15px;
+    width: 100%;
     height: 52px;
   }
 
   .inputSuccess {
     padding: 14px 0px 14px 15px;
+    width: 100%;
     height: 52px;
   }
 `;
@@ -140,6 +149,7 @@ export const LabelRegisterSubscribe = styled.label`
 
   @media (max-width: 564px) {
     gap: 8px;
+    width: 100%;
     height: 52px;
   }
 `;

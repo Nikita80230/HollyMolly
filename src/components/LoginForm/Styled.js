@@ -7,11 +7,13 @@ export const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+
   @media (max-width: 564px) {
+      
     position: absolute;
     top: 43px;
     left: 20px;
-    padding-top: 90px;
+    padding: 90px 13px 28px 13px;
     width: 335px;
     height: 485px;
     background: ${({ theme }) => theme.colors.backgroundContentBox};
@@ -118,30 +120,30 @@ export const StyledForm = styled(Form)`
 
   @media (max-width: 564px) {
     border-radius: 0;
-    width: 335px;
+    width: 100%;
 
     .inputAuth {
       padding: 14px 0px 14px 15px;
+      width: 100%;
       height: 52px;
     }
 
     .inputError {
       padding: 14px 0px 14px 15px;
+      width: 100%;
       height: 52px;
     }
 
     .inputSuccess {
       padding: 14px 0px 14px 15px;
+      width: 100%;
       height: 52px;
     }
 
-     .styledLabel {
-    margin-bottom: 24px;
-  }
-
-  /* .styledLabelPassword {
-    margin-bottom: 24px;
-  } */
+    .styledLabel {
+      margin-bottom: 24px;
+      width: 100%;
+    }
   }
 `;
 
@@ -215,6 +217,6 @@ export const StyledLink = styled(Link)`
   color: ${({ theme }) => theme.colors.primaryTxtColor};
 
   @media (max-width: 564px) {
-   margin-left: 13px; 
+    margin-left: 13px;
   }
 `;

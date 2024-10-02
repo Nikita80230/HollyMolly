@@ -26,11 +26,8 @@ export const ButtonGoogle = styled.button`
   }
 
   @media (max-width: 564px) {
-    margin-top: 24px;
-    margin-bottom: 8px;
-    margin-left: 13px;
+    margin: 24px auto 8px auto;
     padding: 11px 5px;
-    width: 309px;
     height: 52px;
   }
 `;

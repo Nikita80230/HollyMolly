@@ -1,14 +1,12 @@
 import { styled } from "styled-components";
+import mobile1x from "src/assets/images/auth/authMobile@1x.webp";
+import mobile2x from "src/assets/images/auth/authMobile@2x.webp";
 
 export const WrapperRegister = styled.section`
-  padding-top: 38px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
+  padding-top: 37px;
 
   .list {
+    margin-bottom: 25px;
     display: flex;
     gap: 25px;
   }
@@ -72,7 +70,6 @@ export const WrapperRegister = styled.section`
   @media (max-width: 564px) {
     position: relative;
     padding-top: 24px;
-    gap: 24px;
 
     .list {
       gap: 0;
@@ -97,15 +94,34 @@ export const WrapperRegister = styled.section`
     .wrapperFormPhoto {
       position: absolute;
       top: 92px;
-      left: -20px;
-      width: 564px;
+      left: 0;
+      display: block;
+      border-radius: 0;
+      border: 1px solid transparent;
+      width: 100%;
       height: 650px;
-      border:transparent;
+      background-color: ${({ theme }) => theme.colors.heroBgColor};
+
+      background: url(${mobile1x});
+
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background: url(${mobile2x});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: ${({ theme }) => theme.colors.heroBgColor};
+      }
     }
 
     .authPhoto {
-      width: 100%;
-      height: 100%;
+      display: none;
+     
     }
   }
 `;

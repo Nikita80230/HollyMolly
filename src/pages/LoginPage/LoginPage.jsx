@@ -5,11 +5,13 @@ import { WrapperLogin } from "./Styled";
 import authDesktop1x from "src/assets/images/auth/auth-1x.webp";
 import authDesktop2x from "src/assets/images/auth/auth-2x.webp";
 import TitleAuth from "src/components/TitleAuth/TitleAuth";
+import ContainerAuth from "src/components/ContainerAuth/ContainerAuth";
 
 
 const LoginPage = () => {
   return (
-      <WrapperLogin>
+    <WrapperLogin>
+      <ContainerAuth>
         <TitleAuth title={"Мій акаунт"} />
         <ul className="list">
           <li>
@@ -37,6 +39,7 @@ const LoginPage = () => {
             alt="Auth Photo"
           />
         </div>
+        </ContainerAuth>
       </WrapperLogin>
   );
 };

@@ -7,6 +7,8 @@ import authDesktop2x from "src/assets/images/auth/auth-2x.webp";
 import TitleAuth from "src/components/TitleAuth/TitleAuth";
 import { useEffect } from "react";
 import { useAuth } from "src/hooks";
+import ContainerAuth from "src/components/ContainerAuth/ContainerAuth";
+
 
 const RegisterPage = () => {
   const { isLoggedIn } = useAuth();
@@ -17,7 +19,8 @@ const RegisterPage = () => {
   }, []);
 
   return (
-      <WrapperRegister>
+    <WrapperRegister>
+      <ContainerAuth>
         <TitleAuth title={"Мій акаунт"} />
         <ul className="list">
           <li>
@@ -44,6 +47,7 @@ const RegisterPage = () => {
             alt="Auth Photo"
           />
         </div>
+        </ContainerAuth>
       </WrapperRegister>
   );
 };
