@@ -166,6 +166,8 @@ export const StyledHeaderSearchMenu = styled.div`
     }
 
     .searchMenuForm {
+      gap: 0px;
+      margin: 0px;
       /* display: flex;
       flex-direction: column;
 
