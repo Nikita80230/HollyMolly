@@ -65,7 +65,7 @@ const HeaderSearchMenu = ({ handleCloseSearchMenu }) => {
                     <Link
                       onClick={handleCloseSearchMenu}
                       className="searchMenuItemLink"
-                      to={`${routes.PRODUCT_PAGE}/${product.id}/${product.productsInstances[0]}`}
+                      to={`${routes.PRODUCT_PAGE}/${product.id}/${product.productsInstances[0].id}`}
                     >
                       <SearchIcon className="searchIcon" />
                       <span className="searchMenuItemText">{product.name}</span>
