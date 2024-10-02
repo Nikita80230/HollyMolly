@@ -6,7 +6,11 @@ import MobileCategoriesList from "../MobileCategoriesList/MobileCategoriesList";
 import { useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 
-const BurgerMenu = ({ toggleBurgerMenu }) => {
+const BurgerMenu = ({
+  toggleBurgerMenu,
+  handleCloseSearchMenu,
+  handleOpenSearchMenu,
+}) => {
   const isFirstRenderRef = useRef(true);
   const location = useLocation();
 
@@ -21,7 +25,10 @@ const BurgerMenu = ({ toggleBurgerMenu }) => {
   return createPortal(
     <StyledBurgerMenu>
       <Container>
-        <SearchHeaderForm />
+        <SearchHeaderForm
+          handleCloseSearchMenu={handleCloseSearchMenu}
+          handleOpenSearchMenu={handleOpenSearchMenu}
+        />
         <MobileCategoriesList />
       </Container>
     </StyledBurgerMenu>,

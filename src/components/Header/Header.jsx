@@ -106,7 +106,13 @@ const Header = () => {
           <UserPanel isMobile={isMobile} />
         </div>
       </Container>
-      {isBurgerOpen && <BurgerMenu toggleBurgerMenu={toggleBurgerMenu} />}
+      {isBurgerOpen && (
+        <BurgerMenu
+          toggleBurgerMenu={toggleBurgerMenu}
+          handleCloseSearchMenu={handleCloseSearchMenu}
+          handleOpenSearchMenu={handleOpenSearchMenu}
+        />
+      )}
     </StyledHeader>
   );
 };
