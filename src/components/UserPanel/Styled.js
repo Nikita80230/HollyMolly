@@ -103,7 +103,7 @@ export const StyledUserPanel = styled.div`
     position: absolute;
     top: 53%;
     right: 12%;
-    z-index: 111;
+    z-index: 11;
     display: flex;
     justify-content: center;
     align-items: center;

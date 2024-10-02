@@ -35,50 +35,48 @@ const HeaderSearchMenu = ({ handleCloseSearchMenu }) => {
 
   return (
     <StyledHeaderSearchMenu>
-      <Container>
-        <div className="searchMenuTop">
-          <Link className="searchMenuLogo" to={routes.HOME}>
-            <DesktopLogo className="searchMenuLogoIcon" />
-          </Link>
-          <div className="searchMenuForm">
-            <div className="inputGroup">
-              <SearchIcon className="searchIcon" />
-              <InputGroup
-                className="searchMenuInput"
-                searchValue={searchValue}
-                handleChange={handleChange}
-                placeholder="Що ви шукаєте?"
-                autoFocus={true}
-              />
-            </div>
-
-            {searchValue.length > 0 && (
-              <ul className="searchMenuList">
-                {filteredProducts.map((product) => {
-                  return (
-                    <li className="searchMenuItem" key={product.id}>
-                      <Link className="searchMenuItemLink" to="/">
-                        <SearchIcon className="searchIcon" />
-                        <span className="searchMenuItemText">
-                          {product.name}
-                        </span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
+      {/* <Container> */}
+      <div className="searchMenuTop">
+        <Link className="searchMenuLogo" to={routes.HOME}>
+          <DesktopLogo className="searchMenuLogoIcon" />
+        </Link>
+        <div className="searchMenuForm">
+          <div className="inputGroup">
+            <SearchIcon className="searchIcon" />
+            <InputGroup
+              className="searchMenuInput"
+              searchValue={searchValue}
+              handleChange={handleChange}
+              placeholder="Що ви шукаєте?"
+              autoFocus={true}
+            />
           </div>
 
-          <button
-            className="closeSearchMenuBtn"
-            type="button"
-            onClick={handleCloseSearchMenu}
-          >
-            <CloseSearchMenuIcon className="closeSearchMenuIcon" />
-          </button>
+          {searchValue.length > 0 && (
+            <ul className="searchMenuList">
+              {filteredProducts.map((product) => {
+                return (
+                  <li className="searchMenuItem" key={product.id}>
+                    <Link className="searchMenuItemLink" to="/">
+                      <SearchIcon className="searchIcon" />
+                      <span className="searchMenuItemText">{product.name}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
-      </Container>
+
+        <button
+          className="closeSearchMenuBtn"
+          type="button"
+          onClick={handleCloseSearchMenu}
+        >
+          <CloseSearchMenuIcon className="closeSearchMenuIcon" />
+        </button>
+      </div>
+      {/* </Container> */}
     </StyledHeaderSearchMenu>
   );
 };
