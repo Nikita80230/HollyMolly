@@ -24,7 +24,6 @@ export const StyledButton = styled.button`
 
   @media (max-width: 564px) {
     padding: 11px 5px;
-    width: 100%;
     height: 52px;
   }
 `;

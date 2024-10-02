@@ -2,10 +2,6 @@ import { styled } from "styled-components";
 
 export const WrapperConfirm = styled.section`
   padding-top: 130px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   .title {
     margin-bottom:10px;

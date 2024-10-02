@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import ContainerAuth from "src/components/ContainerAuth/ContainerAuth";
 import { routes } from "src/routes";
 import { WrapperConfirm } from "./Styled";
 
 const ConfirmEmailPage = () => {
   return (
     <WrapperConfirm>
+      <ContainerAuth>
       <h1 className="title">Ваша пошта підтверджена</h1>
       <p className="description">
         Щоб продовжити{" "}
@@ -12,7 +14,8 @@ const ConfirmEmailPage = () => {
           Авторизуйтесь
         </Link>
         , будь ласка
-      </p>
+        </p>
+        </ContainerAuth>
     </WrapperConfirm>
   );
 };

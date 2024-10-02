@@ -4,10 +4,12 @@ import ArrowLeft from "src/assets/images/arrowLeft.svg?react";
 import { Link } from "react-router-dom";
 import { routes } from "src/routes";
 import TitleLong from "src/components/TitleLong/TitleLong";
+import Container from "src/components/Container/Container";
 
 const ForgotPasswordPage = () => {
   return (
     <section>
+      <Container>
        <WrapperLinkBack>
           <Link className="link" to={routes.LOGIN}>
             <ArrowLeft className="iconArrow" />
@@ -22,7 +24,8 @@ const ForgotPasswordPage = () => {
           скидання пароля
         </p>
         <ForgotPasswordForm />
-      </WrapperForgotPassword>
+        </WrapperForgotPassword>
+        </Container>
     </section>
   );
 };
