@@ -22,7 +22,8 @@ export const StyledHeaderSearchMenu = styled.div`
   .searchMenuTop {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
+    /* justify-content: center; */
 
     min-height: 120px;
 
@@ -30,17 +31,19 @@ export const StyledHeaderSearchMenu = styled.div`
   }
   .searchMenuLogo {
     padding: 15px;
-
+    margin: 0 0 auto;
     margin-right: 60px;
   }
 
   .searchMenuForm {
     display: flex;
     flex-direction: column;
+    gap: 30px;
 
     max-width: 866px;
     width: 100%;
 
+    margin: 20px 0;
     margin-right: auto;
   }
 
@@ -48,7 +51,7 @@ export const StyledHeaderSearchMenu = styled.div`
     display: flex;
     align-items: center;
 
-    margin-bottom: 30px;
+    /* margin: auto 0; */
 
     border-bottom: 1px solid ${({ theme }) => theme.colors.primaryTxtColor};
   }
@@ -59,7 +62,7 @@ export const StyledHeaderSearchMenu = styled.div`
 
     overflow-y: scroll;
 
-    height: 340px;
+    height: 240px;
     overflow-y: scroll;
 
     &::-webkit-scrollbar {
@@ -101,7 +104,7 @@ export const StyledHeaderSearchMenu = styled.div`
   }
 
   .searchMenuInput {
-    /* background: red; */
+    width: 100%;
 
     font-family: ${({ theme }) => theme.fonts.familyDidact};
     font-weight: 400;
@@ -116,6 +119,7 @@ export const StyledHeaderSearchMenu = styled.div`
     border: none;
     background: transparent;
     padding: 15px;
+    margin-bottom: auto;
   }
   .closeSearchMenuIcon {
     display: block;

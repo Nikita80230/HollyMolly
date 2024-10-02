@@ -45,12 +45,12 @@ const Header = () => {
   };
 
   useEffect(() => {
-    if (isBurgerOpen) {
+    if (isBurgerOpen || isSearchMenuOpened) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-  }, [isBurgerOpen]);
+  }, [isBurgerOpen, isSearchMenuOpened]);
 
   useEffect(() => {
     const handleResize = () => {
