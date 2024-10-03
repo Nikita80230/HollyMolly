@@ -2,13 +2,14 @@ import { styled } from "styled-components";
 
 export const DatePickerWrapper = styled.div`
   height: 60px;
-  border: 1px solid ${({ theme }) => theme.colors.borderColor};
-  border-radius: 5px;
+  
+ 
 
   .styledDatePicker {
     width: 387px;
-    height: 58px;
-    border: transparent;
+    height: 57px;
+    border: 1px solid ${({ theme }) => theme.colors.borderColor};
+     border-radius: 5px;
 
     color: ${({ theme }) => theme.colors.primaryTxtColor};
     font-family: ${({ theme }) => theme.fonts.familyDidact};
@@ -31,6 +32,14 @@ export const DatePickerWrapper = styled.div`
     outline: none;
     background-color: ${({ theme }) => theme.colors.primaryBgColor};
   }
+
+  .errorBorder {
+  border: 1px solid ${({ theme }) => theme.colors.colorError};
+}
+
+.successBorder {
+  border: 1px solid ${({ theme }) => theme.colors.colorSuccess};
+}
 
   .react-datepicker {
     border: transparent;
@@ -227,10 +236,12 @@ height: 302px;
    /*========== Mobile - @media (max-width: 564px)================ */
 
   @media (max-width: 564px) {
+    
      height: 54px;
  
 
   .styledDatePicker {
+    min-width:335px;
     width: 100%;
     height: 52px;
     

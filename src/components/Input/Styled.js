@@ -29,7 +29,6 @@ export const StyledField = styled(Field)`
   }
   &:focus {
     border: 1px solid ${({ theme }) => theme.colors.borderFocusColor};
-   
   }
   &::placeholder {
     font-family: ${({ theme }) => theme.fonts.familyDidact};
@@ -42,8 +41,6 @@ export const StyledField = styled(Field)`
 
   /* ==== Mobile max-width:564px=== */
   @media (max-width: 564px) {
-
-  padding: 14px 0px 14px 15px;
-
+    padding: 14px 0px 14px 15px;
   }
 `;

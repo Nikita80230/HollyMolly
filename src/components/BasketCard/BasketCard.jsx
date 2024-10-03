@@ -41,14 +41,21 @@ const BasketCard = ({ product, handleClickCount, handleClickAddCount }) => {
       <div className="wrapperCardBasket">
         <Link
           to={`${routes.PRODUCT_PAGE}/${productId}/${productInstanceId}`}
-          state={{ location, params }} className="linkBasket"
+          state={{ location, params }}
+          className="linkBasket"
         >
           <img src={productImage} alt={productName} className="basketPhoto" />{" "}
         </Link>
 
         <div className="wrapperBox">
           <div className="boxNameDelete">
-            <h3 className="nameProduct">{productName}</h3>
+            <Link
+              to={`${routes.PRODUCT_PAGE}/${productId}/${productInstanceId}`}
+              state={{ location, params }}
+              className="linkBasket"
+            >
+              <h3 className="nameProduct">{productName}</h3>
+            </Link>
             <button className="buttonTrash" onClick={handleClick}>
               <TrashIcon className="iconTrash" />
             </button>

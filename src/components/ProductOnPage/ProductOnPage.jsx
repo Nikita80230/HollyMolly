@@ -80,9 +80,6 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
       setPhotoProduct(selectedProductInstance.id);
     }
   };
-  
-console.log(selectedProductInstance)
-
 
   const handleAddToBasket = () => {
     if (selectedProductInstance && activeColorId) {
@@ -136,7 +133,6 @@ console.log(selectedProductInstance)
         setActiveColorId(initialProductInstance.id);
         setSizesForColor(initialProductInstance.color);
         setStockQuantity(initialProductInstance.stockQuantity);
-      
       }
     }
   }, [product, instanceId]);
@@ -168,10 +164,9 @@ console.log(selectedProductInstance)
             ) : (
               <PhotoSwiper
                 images={selectedProductInstance?.images || []}
-                    border={borderColor}
-                    // onSelectPhoto={(color) => handleSelectPhoto(color)}
-                    idInstance={photoProduct}
-                    instance={selectedProductInstance}
+                border={borderColor}
+                idInstance={photoProduct}
+                instance={selectedProductInstance}
               />
             )}
             <div className="containerContent">

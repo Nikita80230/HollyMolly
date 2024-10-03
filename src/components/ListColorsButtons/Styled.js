@@ -1,12 +1,6 @@
 import styled from "styled-components";
 
 export const StyledList = styled.ul`
-  /* display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  max-width: 132px;
-  max-height: 24px; */
-  /* overflow: hidden; */
   display: flex;
   flex-wrap: wrap;
   gap: 3px;
@@ -31,15 +25,16 @@ export const StyledList = styled.ul`
 
   .buttonColor.active {
     border: 0.5px solid ${({ theme }) => theme.colors.borderColorActive};
-    width: 24px;
+    width: 24.5px;
     height: 24px;
     background-color: transparent;
   }
 
   .containerColor {
+    margin: auto;
     border-radius: 2px;
-    width: 19.5px;
-    height: 19.5px;
+    width: 19px;
+    height: 19px;
   }
 
   /* ===================Mobile - @media (max-width: 564px)================== */

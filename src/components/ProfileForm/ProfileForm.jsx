@@ -31,7 +31,14 @@ const customStyles = {
     paddingRight: 15,
     paddingLeft: 15,
     backgroundColor: "#fff",
-    borderColor: state.isFocused ? "#000" : "#c4c4c4",
+    borderColor: state.isFocused
+      ? "#000" // чорний бордер при фокусі
+      : state.selectProps.error && state.selectProps.touched
+      ? "#e85a50" // червоний бордер при помилці
+      : state.selectProps.touched && !state.selectProps.error
+      ? "#349920" // зелений бордер при успішному заповненні
+      : "#c4c4c4", // стандартний колір
+
     "&:hover": {
       borderColor: state.isFocused ? "#000" : "#a1a1a2",
     },
@@ -272,7 +279,7 @@ const ProfileForm = ({ userEmail }) => {
         validationSchema={ProfileSchema}
         onSubmit={handleSubmit}
       >
-        {({ setFieldValue, values, handleBlur }) => (
+        {({ setFieldValue, values, handleBlur, errors, touched }) => (
           <StyledForm autoComplete="off">
             <div className="wrapperFields">
               <div className="containerLeft">
@@ -341,20 +348,9 @@ const ProfileForm = ({ userEmail }) => {
                     values={values.dateOfBirth}
                     onBlur={handleBlur}
                     setFieldValue={setFieldValue}
+                    error={errors.dateOfBirth}
+                    touched={touched.dateOfBirth}
                   />
-                  {/* <DatePickerWrapper>
-                    <DatePicker
-                      className="styledDatePicker"
-                      selected={values.dateOfBirth}
-                      onChange={(date) => setFieldValue("dateOfBirth", date)}
-                      dateFormat="dd/MM/yyyy"
-                      id="dateOfBirth"
-                      name="dateOfBirth"
-                      onBlur={handleBlur}
-                      placeholderText="Дата народження"
-                      locale={uk}
-                    />
-                  </DatePickerWrapper> */}
                   <ErrorMessage
                     className="errorMessageDate"
                     name="dateOfBirth"
@@ -378,6 +374,8 @@ const ProfileForm = ({ userEmail }) => {
                       IndicatorSeparator: null,
                       DropdownIndicator: () => <IconSearch />,
                     }}
+                    error={errors.city}
+                    touched={touched.city}
                   />
                   <ErrorMessage
                     name="city"
@@ -408,6 +406,8 @@ const ProfileForm = ({ userEmail }) => {
                       IndicatorSeparator: null,
                       DropdownIndicator: () => <IconSearch />,
                     }}
+                    error={errors.warehouse}
+                    touched={touched.warehouse}
                   />
                   <ErrorMessage
                     name="deliveryAddress"

@@ -20,12 +20,12 @@ export const StyledContainer = styled.div`
     max-width: 768px;
   }
 
-  @media (max-width: 564px) {
+ @media (min-width: 320px) and (max-width: 564px) {
     max-width: 564px;
     padding: 0 20px;
   }
 
-  @media (max-width: 425px) {
+  /* @media (max-width: 425px) {
     max-width: 425px;
     padding: 0 20px;
   }
@@ -33,7 +33,7 @@ export const StyledContainer = styled.div`
   @media (max-width: 375px) {
     max-width: 375px;
     padding: 0 20px;
-  }
+  } */
 
    
 `;

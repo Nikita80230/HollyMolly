@@ -93,13 +93,13 @@ const BasketPage = () => {
               <span className="price">{totalPrice}₴</span>
             </div>
             <div className="wrapper">
-              <span className="span">Доставка </span>
-              <span className="price">від 100₴</span>
+              <span className="span">Вартість доставки згідно тарифів поштового оператора </span>
+              {/* <span className="price">від 100₴</span> */}
             </div>
-            <div className="containerTotalPrice">
+            {/* <div className="containerTotalPrice">
               <span className="spanTotalPrice">Загальна ціна </span>
               <span className="numberTotalPrice">{totalPrice + 100}₴</span>
-            </div>
+            </div> */}
             {isLoggedIn ? (
               <Link to={routes.SUBMIT_ORDER}>
                 <button className="buttonOrder">Перейти до оформлення</button>

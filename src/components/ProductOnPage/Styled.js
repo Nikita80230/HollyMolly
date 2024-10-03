@@ -167,15 +167,12 @@ export const StyledSectionProduct = styled.section`
   }
 
   .iconHeart.added {
+     width: 24px;
+    height: 24px;
     path {
       fill: ${({ theme }) => theme.colors.accentColor};
     }
   }
-
-  /* .text {
-    font-weight: 400;
-    font-size: 30px;
-  } */
 
   @media (max-width: 564px) {
     .sectionProduct {
@@ -186,7 +183,7 @@ export const StyledSectionProduct = styled.section`
     }
 
     .containerContent {
-      width: 264px;
+      width:100%;
     }
 
     .titleProduct {
@@ -256,21 +253,18 @@ export const StyledSectionProduct = styled.section`
 
     .buttonAddBasket {
       padding: 8px 8px;
-      width: 283px;
-      height: 44px;
+      width: 270px;
+      height: 52px;
       font-size: 22px;
       line-height: 1.22727;
     }
 
     .buttonFavorites {
       padding: 10px;
-      width: 44px;
-      height: 44px;
+      width: 50px;
+      height: 52px;
     }
 
-    /* .text {
-    font-weight: 400;
-    font-size: 30px;
-  } */
+
   }
 `;

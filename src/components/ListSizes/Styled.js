@@ -15,7 +15,8 @@ export const StyledList = styled.ul`
   }
 
   .itemSizes.active {
-    border: 1px solid #c4c4c4;
+    border: 1px solid ${({ theme }) => theme.colors.borderColor};
+    padding: 0px 13px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
