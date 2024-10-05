@@ -98,6 +98,7 @@ export const updateUserEmail = createAsyncThunk(
       const res = await axios.put("/api/Account/profile/email?sendEmail=true", {
         email: credentials.email,
       });
+      
       return res.status;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data || error.message);

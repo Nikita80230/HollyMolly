@@ -26,7 +26,13 @@ const customStyles = {
     paddingRight: 15,
     paddingLeft: 15,
     backgroundColor: "#fff",
-    borderColor: state.isFocused ? "#000" : "#c4c4c4",
+    borderColor: state.isFocused
+      ? "#000"
+      : state.selectProps.error && state.selectProps.touched
+      ? "#e85a50"
+      : state.selectProps.touched && !state.selectProps.error
+      ? "#349920"
+      : "#c4c4c4",
     "&:hover": {
       borderColor: state.isFocused ? "#000" : "#a1a1a2",
     },
@@ -35,7 +41,7 @@ const customStyles = {
     boxShadow: "none",
     "@media (max-width: 564px)": {
       width: "100%",
-      height:52,
+      height: 52,
     },
   }),
   placeholder: (provided) => ({
@@ -287,6 +293,7 @@ const OrderForm = () => {
     try {
       const response = await dispatch(createOrder(order)).unwrap();
       const orderId = response.id;
+      console.log("before checkout",orderId)
       checkout(orderId);
     } catch (error) {
       console.error("Помилка при створенні замовлення:", error);
@@ -302,7 +309,6 @@ const OrderForm = () => {
         initialValues={initialValues}
         enableReinitialize={true}
         validationSchema={SubmitOrderSchema}
-        // onSubmit={handleSubmit}
         validate={(values) => {
           const errors = {};
 
@@ -334,7 +340,7 @@ const OrderForm = () => {
           setSubmitting(false);
         }}
       >
-        {({ setFieldValue, values }) => (
+        {({ setFieldValue, values, errors, touched }) => (
           <Form className="styledForm">
             <div className="wrapperFields">
               <div className="containerLeft">
@@ -431,6 +437,8 @@ const OrderForm = () => {
                   IndicatorSeparator: null,
                   DropdownIndicator: () => <IconSearch />,
                 }}
+                error={errors.city}
+                touched={touched.city}
               />
               <ErrorMessage
                 name="city"
@@ -458,6 +466,8 @@ const OrderForm = () => {
                   IndicatorSeparator: null,
                   DropdownIndicator: () => <IconSearch />,
                 }}
+                error={errors.warehouse}
+                touched={touched.warehouse}
               />
               <ErrorMessage
                 name="deliveryAddress"

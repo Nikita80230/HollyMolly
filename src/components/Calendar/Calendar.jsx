@@ -1,20 +1,35 @@
 import { DatePickerWrapper } from "./Styled";
 import DatePicker from "react-datepicker";
-import { uk } from 'date-fns/locale';
+import { uk } from "date-fns/locale";
 import "react-datepicker/dist/react-datepicker.css";
 
-
-const Calendar = ({ values, onBlur, setFieldValue }) => {
-  const years = Array.from({ length: new Date().getFullYear() - 1990 + 1 }, (_, i) => 1990 + i);
+const Calendar = ({ values, onBlur, setFieldValue, error, touched }) => {
+  const years = Array.from(
+    { length: new Date().getFullYear() - 1924 + 1 },
+    (_, i) => 1924 + i
+  );
   const months = [
-    "Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень",
-    "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"
+    "Січень",
+    "Лютий",
+    "Березень",
+    "Квітень",
+    "Травень",
+    "Червень",
+    "Липень",
+    "Серпень",
+    "Вересень",
+    "Жовтень",
+    "Листопад",
+    "Грудень",
   ];
+
+  const borderClass =
+    touched && error ? "errorBorder" : touched && !error ? "successBorder" : "";
 
   return (
     <DatePickerWrapper>
       <DatePicker
-        className="styledDatePicker"
+        className={`styledDatePicker ${borderClass}`}
         selected={values}
         onChange={(date) => setFieldValue("dateOfBirth", date)}
         dateFormat="dd/MM/yyyy"
@@ -25,26 +40,23 @@ const Calendar = ({ values, onBlur, setFieldValue }) => {
         showMonthDropdown
         showYearDropdown
         locale={uk}
-        renderCustomHeader={({
-          date,
-          changeYear,
-          changeMonth,
-         
-        }) => (
+        renderCustomHeader={({ date, changeYear, changeMonth }) => (
           <div className="custom-header">
-          
-            
-            <select className="customSelect"
+            <select
+              className="customSelect"
               value={months[new Date(date).getMonth()]}
-              onChange={({ target: { value } }) => changeMonth(months.indexOf(value))}
+              onChange={({ target: { value } }) =>
+                changeMonth(months.indexOf(value))
+              }
             >
               {months.map((option, index) => (
                 <option className="customOption" key={index} value={option}>
                   {option}
                 </option>
               ))}
-                </select>
-                <select className="customSelect"
+            </select>
+            <select
+              className="customSelect"
               value={new Date(date).getFullYear()}
               onChange={({ target: { value } }) => changeYear(value)}
             >
@@ -54,7 +66,6 @@ const Calendar = ({ values, onBlur, setFieldValue }) => {
                 </option>
               ))}
             </select>
-          
           </div>
         )}
       />

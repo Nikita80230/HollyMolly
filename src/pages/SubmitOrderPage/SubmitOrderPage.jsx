@@ -16,6 +16,7 @@ import Modal from "react-modal";
 import ModalNotification from "src/components/ModalNotification/ModalNotification";
 import { routes } from "src/routes";
 import { selectOrderId } from "src/redux/orders/selectors";
+import { getMyOrders } from "src/redux/orders/operations";
 
 const SubmitOrderPage = () => {
   const productBasket = useSelector(selectBasket);
@@ -27,7 +28,7 @@ const SubmitOrderPage = () => {
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const status = queryParams.get("paymentSucceeded");
-
+console.log("submitOrderPage", orderId )
   function openModal() {
     setIsOpen(true);
     document.body.style.overflow = "hidden";
@@ -54,6 +55,7 @@ const SubmitOrderPage = () => {
 
   useEffect(() => {
     dispatch(getProfile());
+    
   }, [dispatch]);
 
   return (
@@ -72,13 +74,13 @@ const SubmitOrderPage = () => {
                 <span className="spanPrice">{totalPrice}₴</span>
               </div>
               <div className="wrapperSpan">
-                <span className="spanText">Доставка</span>
-                <span className="spanPrice">100₴</span>
+                <span className="spanText">Ціна доставки за тарифами поштового оператора</span>
+                {/* <span className="spanPrice">100₴</span> */}
               </div>
-              <div className="wrapperSpan">
+              {/* <div className="wrapperSpan">
                 <span className="spanText">Загальна сума</span>
-                <span className="totalPrice">{totalPrice + 100}₴</span>
-              </div>
+                <span className="totalPrice">{totalPrice}₴</span>
+              </div> */}
             </div>
           </div>
         </div>

@@ -56,7 +56,7 @@ const ProductReviews = ({ reviews, productId }) => {
             spaceBetween={50}
             slidesPerView={3}
             breakpoints={{
-              375: {
+              320: {
                 slidesPerView: 1.5,
                 spaceBetween: 15,
               },
