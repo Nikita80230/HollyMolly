@@ -18,6 +18,7 @@ import { routes } from "src/routes";
 import { selectOrderId } from "src/redux/orders/selectors";
 import { getMyOrders } from "src/redux/orders/operations";
 
+
 const SubmitOrderPage = () => {
   const productBasket = useSelector(selectBasket);
   const totalPrice = useSelector(selectAmountOrder);
@@ -42,6 +43,7 @@ console.log("submitOrderPage", orderId )
   }
 
   useEffect(() => {
+    console.log("OrderId in useEffect:", orderId);
     if (status && status === "true") {
       openModal();
     } else if (status && status === "false") {
@@ -55,6 +57,7 @@ console.log("submitOrderPage", orderId )
 
   useEffect(() => {
     dispatch(getProfile());
+    dispatch(getMyOrders());
     
   }, [dispatch]);
 
@@ -92,7 +95,7 @@ console.log("submitOrderPage", orderId )
           overlayClassName="modal-overlay"
           contentLabel="Modal Payment"
         >
-           {status === "true" && ( 
+           {status === "true" && orderId && ( 
              <ModalNotification
               message={[
                 "Ваше замовлення сплачено.",
