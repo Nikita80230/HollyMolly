@@ -15,21 +15,34 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import ModalNotification from "src/components/ModalNotification/ModalNotification";
 import { routes } from "src/routes";
-import { selectOrderId } from "src/redux/orders/selectors";
+import { selectMyOrders, selectOrderId } from "src/redux/orders/selectors";
 import { getMyOrders } from "src/redux/orders/operations";
 
 
 const SubmitOrderPage = () => {
   const productBasket = useSelector(selectBasket);
   const totalPrice = useSelector(selectAmountOrder);
-  const orderId = useSelector(selectOrderId);
+  // const orderId = useSelector(selectOrderId);
+ 
   const dispatch = useDispatch();
   const location = useLocation();
   const [modalIsOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const status = queryParams.get("paymentSucceeded");
-console.log("submitOrderPage", orderId )
+  
+   const myOrders = useSelector(selectMyOrders);
+console.log(myOrders);
+
+
+  let orderId = null;
+
+if (myOrders.length > 0) {
+  orderId = myOrders[myOrders.length - 1]?.id; 
+}
+
+  console.log(orderId); 
+  
   function openModal() {
     setIsOpen(true);
     document.body.style.overflow = "hidden";
@@ -43,7 +56,7 @@ console.log("submitOrderPage", orderId )
   }
 
   useEffect(() => {
-    console.log("OrderId in useEffect:", orderId);
+    
     if (status && status === "true") {
       openModal();
     } else if (status && status === "false") {
@@ -95,7 +108,7 @@ console.log("submitOrderPage", orderId )
           overlayClassName="modal-overlay"
           contentLabel="Modal Payment"
         >
-           {status === "true" && orderId && ( 
+           {status === "true" && ( 
              <ModalNotification
               message={[
                 "Ваше замовлення сплачено.",
