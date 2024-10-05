@@ -180,13 +180,15 @@ export const App = () => {
   const pathname = location.pathname;
   const userId = urlParams.get("userId");
 
-   const [loadingComplete, setLoadingComplete] = useState(false);
+  const [loadingComplete, setLoadingComplete] = useState(false);
 
   useEffect(() => {
-    dispatch(refreshUser());
+    if (isLoggedIn) {
+      dispatch(refreshUser());
+    }
     dispatch(fetchCategories());
     dispatch(getAllProducts());
-  }, [dispatch]);
+  }, [dispatch, isLoggedIn]);
 
   // useEffect(() => {
   //   if (isLoggedIn) dispatch(getMyOrders());
@@ -203,13 +205,12 @@ export const App = () => {
     location.pathname.includes(profilePath)
   );
 
-  
   if (isRefreshing) {
     return <Loader />;
   }
 
-   //  анімація
-  if (pathname === '/' && !loadingComplete) {
+  //  анімація
+  if (pathname === "/" && !loadingComplete) {
     return <LoadingAnimation onComplete={() => setLoadingComplete(true)} />;
   }
 

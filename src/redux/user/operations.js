@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-hot-toast";
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -44,7 +43,7 @@ export const createProfile = createAsyncThunk(
     try {
       const res = await axios.post("/api/Account/profiles", credentials);
 
-      return res.data;
+      return res.status;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

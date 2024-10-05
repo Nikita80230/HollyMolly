@@ -26,11 +26,27 @@ export const StyledOrderStatus = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background-color: ${({ theme }) => theme.colors.accentColor};
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 25px;
+      background: ${({ theme }) => theme.colors.primaryBgColor};
+      border-left: 1px dotted ${({ theme }) => theme.colors.accentColor};
+    }
+  }
+
+  .orderStatusItem:last-child .iconWrapper::after {
+    display: none;
   }
 
   .icon {

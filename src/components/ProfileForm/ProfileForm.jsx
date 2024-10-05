@@ -32,12 +32,12 @@ const customStyles = {
     paddingLeft: 15,
     backgroundColor: "#fff",
     borderColor: state.isFocused
-      ? "#000" // чорний бордер при фокусі
+      ? "#000" 
       : state.selectProps.error && state.selectProps.touched
-      ? "#e85a50" // червоний бордер при помилці
+      ? "#e85a50" 
       : state.selectProps.touched && !state.selectProps.error
-      ? "#349920" // зелений бордер при успішному заповненні
-      : "#c4c4c4", // стандартний колір
+      ? "#349920" 
+      : "#c4c4c4", 
 
     "&:hover": {
       borderColor: state.isFocused ? "#000" : "#a1a1a2",
@@ -194,19 +194,65 @@ const ProfileForm = ({ userEmail }) => {
           : null,
       };
 
+      const profileFieldsToCompare = {
+        firstName: updatedValues.firstName,
+        lastName: updatedValues.lastName,
+        phoneNumber: updatedValues.phoneNumber,
+        dateOfBirth: updatedValues.dateOfBirth,
+      };
+
+      const initialProfileFields = {
+        firstName: initialValues.firstName,
+        lastName: initialValues.lastName,
+        phoneNumber: initialValues.phoneNumber,
+        dateOfBirth: initialValues.dateOfBirth
+          ? new Date(initialValues.dateOfBirth).toISOString().split("T")[0]
+          : null,
+      };
+
       if (!profiles || !profiles.length) {
-        await dispatch(createProfile(updatedValues));
+        const resultCreateProfile = await dispatch(
+          createProfile(updatedValues)
+        );
+        if (resultCreateProfile.payload === 200) {
+          toast.custom(
+            <div className="custom-toast">
+              <NotificationCustom title={"Дані успішно збережено"} />
+            </div>,
+            {
+              duration: 3000,
+            }
+          );
+        } else {
+          throw new Error("Помилка при створенні профілю");
+        }
       }
 
-      if (profiles && profiles.length > 0) {
-        await dispatch(
+      const isProfileChanged = !Object.keys(profileFieldsToCompare).every(
+        (key) => profileFieldsToCompare[key] === initialProfileFields[key]
+      );
+
+      if (isProfileChanged && profiles && profiles.length > 0) {
+        const resultUpdateProfile = await dispatch(
           updateProfile({ user: updatedValues, profileId: profiles[0].id })
         );
+
+        if (resultUpdateProfile.payload === 200) {
+          toast.custom(
+            <div className="custom-toast">
+              <NotificationCustom title={"Дані успішно оновлено"} />
+            </div>,
+            {
+              duration: 3000,
+            }
+          );
+        } else {
+          throw new Error("Помилка при створенні профілю");
+        }
       }
 
-      let emailUpdateResult;
       if (values.email !== initialValues.email) {
-        emailUpdateResult = await dispatch(
+        const emailUpdateResult = await dispatch(
           updateUserEmail({ email: values.email })
         );
 
@@ -220,7 +266,7 @@ const ProfileForm = ({ userEmail }) => {
               />
             </div>,
             {
-              duration: 5000,
+              duration: 3000,
             }
           );
           throw new Error(
@@ -234,7 +280,7 @@ const ProfileForm = ({ userEmail }) => {
           <NotificationCustom title={"Сталася помилка"} />
         </div>,
         {
-          duration: 5000,
+          duration: 3000,
         }
       );
       throw new Error(
@@ -434,9 +480,7 @@ const ProfileForm = ({ userEmail }) => {
         contentLabel="Modal"
       >
         <ModalNotification
-          message={
-            "Щоб підтвердити зміну email, перейдіть за посиланням з поштової скриньки."
-          }
+          message={"Щоб підтвердити зміну email, потрібно авторизуватись."}
           closeModal={closeModal}
         />
       </Modal>
