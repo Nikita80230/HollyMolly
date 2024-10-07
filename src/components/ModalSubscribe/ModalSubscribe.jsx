@@ -1,5 +1,5 @@
 import { Wrapper } from "./Styled";
-import Close from "../../assets/images/closeCrossIcon.svg?react";
+import Close from "src/assets/images/closeCrossIcon.svg?react";
 
 const ModalSubscribe = ({onClose}) => {
   return (

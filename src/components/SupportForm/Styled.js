@@ -6,7 +6,7 @@ export const SupportContainer = styled.div`
   padding: 69px 66px;
   border-radius: 10px;
   width: 625px;
-  height: 817px;
+  /* height: 817px; */
   box-shadow: ${({ theme }) => theme.shadows.boxShadowLeaveReview};
   background-color: ${({ theme }) => theme.colors.primaryBgColor};
 
@@ -40,7 +40,7 @@ export const SupportContainer = styled.div`
     padding: 60px 20px;
     border-radius: 0;
     width: 375px;
-    height: 598px;
+    /* height: 598px; */
 
     .buttonClose {
       top: 29px;

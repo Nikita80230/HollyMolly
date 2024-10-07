@@ -210,6 +210,23 @@ position: absolute;
   outline: none;
 }
 
+.modal-content-support-notification{
+   position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  border: transparent;
+  outline: none;
+  @media (max-width: 564px) {
+  top:25%;
+  left: 50%;
+  }
+ 
+}
+
 .modal-overlay {
   position: fixed;
   z-index:102;
