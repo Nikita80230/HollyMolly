@@ -30,18 +30,20 @@ const customStyles = {
     ...provided,
     paddingRight: 15,
     paddingLeft: 15,
+    position:"relative",
     backgroundColor: "#fff",
     borderColor: state.isFocused
-      ? "#000" 
+      ? "#000"
       : state.selectProps.error && state.selectProps.touched
-      ? "#e85a50" 
+      ? "#e85a50"
       : state.selectProps.touched && !state.selectProps.error
-      ? "#349920" 
-      : "#c4c4c4", 
+      ? "#349920"
+      : "#c4c4c4",
 
     "&:hover": {
       borderColor: state.isFocused ? "#000" : "#a1a1a2",
     },
+    transition:"300ms cubic-bezier(0.4, 0, 0.2, 1)",
     width: 390,
     height: 60,
     boxShadow: "none",
@@ -65,6 +67,8 @@ const customStyles = {
     fontWeight: 400,
     fontSize: 20,
     lineHeight: 1.2,
+   
+   
   }),
   input: (provided) => ({
     ...provided,
@@ -73,6 +77,7 @@ const customStyles = {
     fontSize: 20,
     lineHeight: 1.2,
     color: "#100503",
+    
   }),
   menu: (provided) => ({
     ...provided,
@@ -199,6 +204,8 @@ const ProfileForm = ({ userEmail }) => {
         lastName: updatedValues.lastName,
         phoneNumber: updatedValues.phoneNumber,
         dateOfBirth: updatedValues.dateOfBirth,
+        city: updatedValues.city,
+        warehouse: updatedValues.warehouse,
       };
 
       const initialProfileFields = {
@@ -208,6 +215,8 @@ const ProfileForm = ({ userEmail }) => {
         dateOfBirth: initialValues.dateOfBirth
           ? new Date(initialValues.dateOfBirth).toISOString().split("T")[0]
           : null,
+        city: initialValues.city,
+        warehouse: initialValues.warehouse,
       };
 
       if (!profiles || !profiles.length) {

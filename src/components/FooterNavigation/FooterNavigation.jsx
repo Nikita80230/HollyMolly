@@ -1,5 +1,6 @@
 import {
   FooterNavigationList,
+  NotificationSupport,
   SocialLink,
   StyledLink,
   WrapperFooterNavigation,
@@ -14,9 +15,11 @@ import { useSelector } from "react-redux";
 import Modal from "react-modal";
 import { useState } from "react";
 import SupportForm from "../SupportForm/SupportForm";
+import Close from "src/assets/images/closeCrossIcon.svg?react";
 
 const FooterNavigation = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpenNotification, setIsOpenNotification] = useState(false);
   const categories = useSelector(selectCategories);
 
   const handleLinkClick = () => {
@@ -30,6 +33,16 @@ const FooterNavigation = () => {
 
   function closeModal() {
     setIsOpen(false);
+    document.body.style.overflow = "";
+  }
+
+  function openModalNotification() {
+    setIsOpenNotification(true);
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModalNotification() {
+    setIsOpenNotification(false);
     document.body.style.overflow = "";
   }
 
@@ -112,7 +125,26 @@ const FooterNavigation = () => {
         overlayClassName="modal-overlay-light"
         contentLabel="Modal Support"
       >
-        <SupportForm onClose={closeModal} />
+        <SupportForm
+          onClose={closeModal}
+          openModalNotification={openModalNotification}
+        />
+      </Modal>
+      <Modal
+        isOpen={modalIsOpenNotification}
+        onRequestClose={closeModalNotification}
+        ariaHideApp={false}
+        className="modal-content-support-notification"
+        overlayClassName="modal-overlay"
+        contentLabel="Modal Support Notification"
+      >
+        <NotificationSupport>
+          <button type="button" className="buttonModal" onClick={closeModalNotification}>
+            <Close className="iconClose" />
+          </button>
+          <p className="description">Ваше повідомлення успішно відправлено.</p>
+          <p className="description">Очікуйте відповіді на електронну пошту.</p>
+        </NotificationSupport>
       </Modal>
     </WrapperFooterNavigation>
   );

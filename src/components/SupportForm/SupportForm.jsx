@@ -6,6 +6,7 @@ import ButtonAuth from "../ButtonAuth/ButtonAuth";
 import Input from "../Input/Input";
 import { StyledForm, SupportContainer } from "./Styled";
 import { supportSentEmail } from "src/services/supportSentEmail";
+import { toast } from "react-hot-toast";
 
 const customStyles = {
   placeholder: (defaultStyles) => {
@@ -89,7 +90,7 @@ const themeMapping = {
   other: 0,
 };
 
-const SupportForm = ({ onClose }) => {
+const SupportForm = ({ onClose, openModalNotification }) => {
   const handleSubmit = (values, { resetForm, setFieldValue }) => {
     const mappedTheme = themeMapping[values.theme] || 0;
     const supportValues = {
@@ -100,7 +101,10 @@ const SupportForm = ({ onClose }) => {
     supportSentEmail(supportValues);
 
     resetForm();
-    setFieldValue("theme", ""); // Скидання значення select до початкового
+    setFieldValue("theme", "");
+    openModalNotification();
+    onClose();
+    
   };
 
   return (

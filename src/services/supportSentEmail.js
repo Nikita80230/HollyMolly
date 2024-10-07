@@ -2,11 +2,8 @@ import axios from "axios";
 
 export const supportSentEmail = async (values) => {
   try {
-      const res = await axios.post("/api/Support", values);
-      console.log(res.data);
-      return res.data;
-      
+    await axios.post("/api/Support", values);
   } catch (error) {
-      throw new Error("Щось пішло не так.");
+    throw new Error("Щось пішло не так.");
   }
 };
