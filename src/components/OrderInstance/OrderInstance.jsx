@@ -1,4 +1,5 @@
 import { StyledOrderInstance } from "./Styled";
+import defaultPhoto from "src/assets/images/defaultImg.webp";
 
 const OrderInstance = ({
   instance: {
@@ -15,7 +16,7 @@ const OrderInstance = ({
   return (
     <StyledOrderInstance>
       <div className="instancePhotoWrapper">
-        <img className="instanceImg" src={image} alt="photo of product" />
+        <img className="instanceImg" src={image || defaultPhoto} alt="photo of product" />
       </div>
 
       <div className="instanceData">

@@ -1,0 +1,11 @@
+{
+    "name":"HollyMolly",
+    "description":"Web application shop",
+    "background_color":"#fff",
+    "theme_color":"#fff",
+    "icons":[
+        {"src":"", "type":"image/png", "sizes":"192x192"},
+         {"src":"", "type":"image/png", "sizes":"512x512"}
+    ]
+
+}

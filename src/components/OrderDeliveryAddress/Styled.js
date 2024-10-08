@@ -1,16 +1,37 @@
 import styled from "styled-components";
 
 export const StyledOrderDeliveryAddress = styled.div`
+ padding-bottom:10px;
   display: flex;
   flex-direction: column;
+  
+  
+  /* width:380px; */
 
-  width: max-content;
+   /* overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+    width: 129px;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.colors.accentColor};
+   
+    
+  } */
+
+   
 
   .deliverAddressTitle {
     margin-bottom: 20px;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 1.2;
+    font-size: 24px;
+    line-height: 1.20833;
   }
 
   .addressInfoWrapper {
@@ -23,7 +44,6 @@ export const StyledOrderDeliveryAddress = styled.div`
     font-weight: 400;
     font-size: 16px;
     line-height: 1.25;
-    /* text-align: center; */
 
     font-family: ${({ theme }) => theme.fonts.familyDidact};
     color: ${({ theme }) => theme.colors.primaryTxtColor};
@@ -34,6 +54,7 @@ export const StyledOrderDeliveryAddress = styled.div`
 
     .deliverAddressTitle {
       margin-bottom: 8px;
+      font-size: 20px;
       text-decoration: underline;
       text-decoration-skip-ink: none;
     }

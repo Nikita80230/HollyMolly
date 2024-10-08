@@ -18,31 +18,26 @@ import { routes } from "src/routes";
 import { selectMyOrders, selectOrderId } from "src/redux/orders/selectors";
 import { getMyOrders } from "src/redux/orders/operations";
 
-
 const SubmitOrderPage = () => {
   const productBasket = useSelector(selectBasket);
   const totalPrice = useSelector(selectAmountOrder);
   // const orderId = useSelector(selectOrderId);
- 
+
   const dispatch = useDispatch();
   const location = useLocation();
   const [modalIsOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const status = queryParams.get("paymentSucceeded");
-  
-   const myOrders = useSelector(selectMyOrders);
-console.log(myOrders);
 
+  const myOrders = useSelector(selectMyOrders);
 
   let orderId = null;
 
-if (myOrders.length > 0) {
-  orderId = myOrders[myOrders.length - 1]?.id; 
-}
+  if (myOrders.length > 0) {
+    orderId = myOrders[myOrders.length - 1]?.id;
+  }
 
-  console.log(orderId); 
-  
   function openModal() {
     setIsOpen(true);
     document.body.style.overflow = "hidden";
@@ -56,7 +51,6 @@ if (myOrders.length > 0) {
   }
 
   useEffect(() => {
-    
     if (status && status === "true") {
       openModal();
     } else if (status && status === "false") {
@@ -71,7 +65,6 @@ if (myOrders.length > 0) {
   useEffect(() => {
     dispatch(getProfile());
     dispatch(getMyOrders());
-    
   }, [dispatch]);
 
   return (
@@ -90,7 +83,9 @@ if (myOrders.length > 0) {
                 <span className="spanPrice">{totalPrice}₴</span>
               </div>
               <div className="wrapperSpan">
-                <span className="spanText">Ціна доставки за тарифами поштового оператора</span>
+                <span className="spanText">
+                  Ціна доставки за тарифами поштового оператора
+                </span>
                 {/* <span className="spanPrice">100₴</span> */}
               </div>
               {/* <div className="wrapperSpan">
@@ -108,15 +103,15 @@ if (myOrders.length > 0) {
           overlayClassName="modal-overlay"
           contentLabel="Modal Payment"
         >
-           {status === "true" && ( 
-             <ModalNotification
+          {status === "true" && (
+            <ModalNotification
               message={[
                 "Ваше замовлення сплачено.",
                 `Номер замовлення № ${orderId}.`,
               ]}
               closeModal={closeModal}
-            /> 
-            )} 
+            />
+          )}
           {status === "false" && (
             <ModalNotification
               message={[
@@ -125,7 +120,7 @@ if (myOrders.length > 0) {
               ]}
               closeModal={closeModal}
             />
-          )} 
+          )}
         </Modal>
       </WrapperPage>
     </Container>
