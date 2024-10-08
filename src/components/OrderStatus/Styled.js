@@ -62,6 +62,7 @@ export const StyledOrderStatus = styled.div`
 
     font-family: ${({ theme }) => theme.fonts.familyDidact};
     color: ${({ theme }) => theme.colors.primaryTxtColor};
+    white-space:nowrap;
     .statusData {
       margin-left: 5px;
     }

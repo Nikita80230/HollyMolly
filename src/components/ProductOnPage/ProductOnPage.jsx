@@ -18,6 +18,7 @@ import ListProductPhotos from "../ListProductPhotos/ListProductPhotos";
 import { getFeedbackWord } from "src/utils/getFeedbackWord";
 import { useAuth } from "src/hooks";
 import PhotoSwiper from "../PhotoSwiper/PhotoSwiper";
+import defaultPhoto from "src/assets/images/defaultImg.webp";
 
 const ProductOnPage = ({ instanceId, borderColor }) => {
   const { isLoggedIn } = useAuth();
@@ -87,7 +88,7 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
         addProductsToBasket({
           productId: product.id,
           productName: product.name,
-          productImage: selectedProductInstance.images[0].link,
+          productImage: selectedProductInstance.images[0]?.link || defaultPhoto,
           productInstanceId: selectedProductInstance.id,
           priceAfterDiscount: selectedProductInstance.priceAfterDiscount,
           size: activeSizeId,

@@ -22,7 +22,7 @@ export const WrapperPage = styled.section`
   .containerList {
     padding: 27px 32px 0 32px;
     width: 380px;
-    height: 250px;
+    height: 285px;
     overflow-y: auto;
   }
 
