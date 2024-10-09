@@ -1,11 +1,18 @@
 {
-    "name":"HollyMolly",
-    "description":"Web application shop",
-    "background_color":"#fff",
-    "theme_color":"#fff",
-    "icons":[
-        {"src":"", "type":"image/png", "sizes":"192x192"},
-         {"src":"", "type":"image/png", "sizes":"512x512"}
-    ]
-
+  "name": "HollyMolly",
+  "description": "Web application shop",
+  "background_color": "#fff",
+  "theme_color": "#fff",
+  "icons": [
+    {
+      "src": "/src/assets/images/favicon/favicon192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/src/assets/images/favicon/favicon512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
 }
