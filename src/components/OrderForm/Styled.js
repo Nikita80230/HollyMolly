@@ -101,11 +101,13 @@ export const WrapperFormOrder = styled.div`
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
   .styledTooltip {
-    background-color: ${({ theme }) => theme.colors.buttonBgDisabled};
+    background-color: ${({ theme }) => theme.colors.primaryBgColor};
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
     font-weight: 400;
     font-size: 20px;
     line-height: 1.2;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
+    width: 390px;
   }
 
   /* ==== Mobile max-width:564px=== */
@@ -161,6 +163,9 @@ export const WrapperFormOrder = styled.div`
     .text {
       font-size: 16px;
       line-height: 1.25;
+    }
+    .styledTooltip {
+      width: 100%;
     }
   }
 `;

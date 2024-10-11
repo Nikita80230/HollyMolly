@@ -115,7 +115,7 @@ const OrderForm = () => {
   const lastNameRef = useRef(null);
   const phoneNumberRef = useRef(null);
 
-  // Прокрутка до поля, яке не пройшло валідацію
+    // Прокрутка до поля, яке не пройшло валідацію
   const scrollToError = (errors) => {
     let element = null;
 
@@ -135,7 +135,7 @@ const OrderForm = () => {
       element.scrollIntoView({ behavior: "smooth" });
 
       setTimeout(() => {
-        window.scrollBy({ top: -100, behavior: "smooth" });
+        window.scrollBy({ top:-300, behavior: "smooth" });
       }, 300);
     }
   };
@@ -273,7 +273,7 @@ const OrderForm = () => {
     }
   };
 
-  const handleSubmit = async (values) => {
+   const handleSubmit = async (values) => {
     setIsLoading(true);
     const order = {
       customer: {
@@ -448,12 +448,8 @@ const OrderForm = () => {
                   id="tooltip-city"
                   place="top"
                   content={city.value}
-                  // style={{ backgroundColor: "#fff", color:"#100503" }}
                   className="styledTooltip"
-                  // clickable={true}
-                  onTouchStart={() => ReactTooltip.show(cityRef.current)}
-                  onFocus={() => ReactTooltip.show(cityRef.current)} // показ тултіпу при фокусі
-                  onBlur={() => ReactTooltip.hide(cityRef.current)} // ховаємо тултіп при втраті фокусу
+                  clickable={true}
                 />
               )}
               <ErrorMessage
@@ -468,8 +464,8 @@ const OrderForm = () => {
               data-tooltip-id="tooltip-warehouse"
             >
               <AsyncSelect
-                name="warehouse"
-                id="warehouse"
+                name="deliveryAddress"
+                id="deliveryAddress"
                 placeholder="Відділення"
                 loadOptions={(inputValue) =>
                   loadOptionsWarehouses(inputValue, city ? city.value : "")
@@ -486,15 +482,14 @@ const OrderForm = () => {
                   IndicatorSeparator: null,
                   DropdownIndicator: () => <IconSearch />,
                 }}
-                error={errors.warehouse}
-                touched={touched.warehouse}
+                error={errors.deliveryAddress}
+                touched={touched.deliveryAddress}
               />
               {warehouse && (
                 <ReactTooltip
                   id="tooltip-warehouse"
                   place="top"
                   content={warehouse.value}
-                  // style={{ backgroundColor: "#fff", color:"#100503" }}
                   className="styledTooltip"
                   clickable={true} // Дозволяє клікабельність на мобільних
                 />
