@@ -24,6 +24,7 @@ import { routes } from "src/routes";
 import { updateUserEmail } from "src/redux/auth/operations";
 import { logOut } from "src/redux/auth/authSlice";
 import ButtonAuth from "../ButtonAuth/ButtonAuth";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 const customStyles = {
   control: (provided, state) => ({
@@ -415,7 +416,7 @@ const ProfileForm = ({ userEmail }) => {
                     component="p"
                   />
                 </label>
-                <label className="labelProfile">
+                <label className="labelProfile"  data-tooltip-id="tooltip-city">
                   <AsyncSelect
                     name="city"
                     id="city"
@@ -435,13 +436,23 @@ const ProfileForm = ({ userEmail }) => {
                     error={errors.city}
                     touched={touched.city}
                   />
+                   {city && (
+                <ReactTooltip
+                  id="tooltip-city"
+                  place="top"
+                  content={city.value}
+                  className="styledTooltip"
+                   clickable={true}
+                 
+                />
+              )}
                   <ErrorMessage
                     name="city"
                     component="p"
                     className="errorMessage"
                   />
                 </label>
-                <label className="labelProfile">
+                <label className="labelProfile" data-tooltip-id="tooltip-warehouse">
                   <AsyncSelect
                     name="deliveryAddress"
                     id="deliveryAddress"
@@ -465,6 +476,15 @@ const ProfileForm = ({ userEmail }) => {
                     error={errors.deliveryAddress}
                     touched={touched.deliveryAddress}
                   />
+                   {deliveryAddress && (
+                <ReactTooltip
+                  id="tooltip-warehouse"
+                  place="top"
+                  content={deliveryAddress.value}
+                  className="styledTooltip"
+                  clickable={true} // Дозволяє клікабельність на мобільних
+                />
+              )}
                   <ErrorMessage
                     name="deliveryAddress"
                     component="p"

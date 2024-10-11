@@ -41,6 +41,6 @@ export const StyledField = styled(Field)`
 
   /* ==== Mobile max-width:564px=== */
   @media (max-width: 564px) {
-    padding: 14px 0px 14px 15px;
+    padding: 12px 0px 12px 15px;
   }
 `;
