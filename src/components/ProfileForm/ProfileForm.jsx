@@ -30,7 +30,6 @@ const customStyles = {
     ...provided,
     paddingRight: 15,
     paddingLeft: 15,
-    position:"relative",
     backgroundColor: "#fff",
     borderColor: state.isFocused
       ? "#000"
@@ -43,7 +42,7 @@ const customStyles = {
     "&:hover": {
       borderColor: state.isFocused ? "#000" : "#a1a1a2",
     },
-    transition:"300ms cubic-bezier(0.4, 0, 0.2, 1)",
+    transition: "300ms cubic-bezier(0.4, 0, 0.2, 1)",
     width: 390,
     height: 60,
     boxShadow: "none",
@@ -67,8 +66,6 @@ const customStyles = {
     fontWeight: 400,
     fontSize: 20,
     lineHeight: 1.2,
-   
-   
   }),
   input: (provided) => ({
     ...provided,
@@ -77,7 +74,6 @@ const customStyles = {
     fontSize: 20,
     lineHeight: 1.2,
     color: "#100503",
-    
   }),
   menu: (provided) => ({
     ...provided,
@@ -109,11 +105,11 @@ const ProfileForm = ({ userEmail }) => {
   const initialCity = profiles?.[0]?.city
     ? { value: profiles[0].city, label: profiles[0].city }
     : null;
-  const initialWarehouse = profiles?.[0]?.deliveryAddress
+  const initialDeliveryAddress = profiles?.[0]?.deliveryAddress
     ? { value: profiles[0].deliveryAddress, label: profiles[0].deliveryAddress }
     : null;
   const [city, setCity] = useState(initialCity);
-  const [warehouse, setWarehouse] = useState(initialWarehouse);
+  const [deliveryAddress, setDeliveryAddress] = useState(initialDeliveryAddress);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -127,7 +123,7 @@ const ProfileForm = ({ userEmail }) => {
           email: userEmail || "",
           phoneNumber: profiles[0]?.phoneNumber || "",
           city: profiles[0]?.city || "",
-          warehouse: profiles[0]?.deliveryAddress || "",
+          deliveryAddress: profiles[0]?.deliveryAddress || "",
           dateOfBirth: profiles[0]?.dateOfBirth
             ? new Date(profiles[0].dateOfBirth)
             : "",
@@ -138,9 +134,9 @@ const ProfileForm = ({ userEmail }) => {
           email: userEmail || "",
           phoneNumber: "",
           city: "",
-          warehouse: "",
+          deliveryAddress: "",
           dateOfBirth: "",
-        };
+      };
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -197,6 +193,7 @@ const ProfileForm = ({ userEmail }) => {
         dateOfBirth: values.dateOfBirth
           ? values.dateOfBirth.toISOString().split("T")[0]
           : null,
+       
       };
 
       const profileFieldsToCompare = {
@@ -205,7 +202,7 @@ const ProfileForm = ({ userEmail }) => {
         phoneNumber: updatedValues.phoneNumber,
         dateOfBirth: updatedValues.dateOfBirth,
         city: updatedValues.city,
-        warehouse: updatedValues.warehouse,
+        deliveryAddress: updatedValues.deliveryAddress,
       };
 
       const initialProfileFields = {
@@ -216,13 +213,14 @@ const ProfileForm = ({ userEmail }) => {
           ? new Date(initialValues.dateOfBirth).toISOString().split("T")[0]
           : null,
         city: initialValues.city,
-        warehouse: initialValues.warehouse,
+        deliveryAddress: initialValues.deliveryAddress,
       };
 
       if (!profiles || !profiles.length) {
         const resultCreateProfile = await dispatch(
           createProfile(updatedValues)
         );
+        
         if (resultCreateProfile.payload === 200) {
           toast.custom(
             <div className="custom-toast">
@@ -238,15 +236,18 @@ const ProfileForm = ({ userEmail }) => {
       }
 
       const isProfileChanged = !Object.keys(profileFieldsToCompare).every(
-        (key) => profileFieldsToCompare[key] === initialProfileFields[key]
+        (key) =>
+          profileFieldsToCompare[key]?.toString() ===
+          initialProfileFields[key]?.toString()
       );
-
+      
       if (isProfileChanged && profiles && profiles.length > 0) {
+
         const resultUpdateProfile = await dispatch(
           updateProfile({ user: updatedValues, profileId: profiles[0].id })
         );
 
-        if (resultUpdateProfile.payload === 200) {
+        if (resultUpdateProfile.meta.requestStatus === "fulfilled") {
           toast.custom(
             <div className="custom-toast">
               <NotificationCustom title={"Дані успішно оновлено"} />
@@ -299,6 +300,7 @@ const ProfileForm = ({ userEmail }) => {
   };
 
   useEffect(() => {
+    
     if (profiles && profiles.length > 0) {
       const userInfo = profiles[0];
       setFirstName(userInfo.firstName || "");
@@ -308,12 +310,13 @@ const ProfileForm = ({ userEmail }) => {
       setCity(
         userInfo.city ? { value: userInfo.city, label: userInfo.city } : null
       );
-      setWarehouse(
+      setDeliveryAddress(
         userInfo.deliveryAddress
           ? { value: userInfo.deliveryAddress, label: userInfo.deliveryAddress }
           : null
       );
     }
+
   }, [profiles, userEmail]);
 
   useEffect(() => {
@@ -440,20 +443,18 @@ const ProfileForm = ({ userEmail }) => {
                 </label>
                 <label className="labelProfile">
                   <AsyncSelect
-                    name="warehouse"
-                    id="warehouse"
+                    name="deliveryAddress"
+                    id="deliveryAddress"
                     placeholder="Відділення"
                     loadOptions={(inputValue) =>
                       loadOptionsWarehouses(inputValue, city ? city.value : "")
                     }
                     onChange={(option) => {
-                      setWarehouse(option);
-                      setFieldValue(
-                        "deliveryAddress",
-                        option ? option.value : ""
-                      );
+                      
+                     setDeliveryAddress(option); 
+                     setFieldValue("deliveryAddress",  option ? option.value : ""); 
                     }}
-                    value={warehouse}
+                    value={deliveryAddress}
                     isClearable
                     isDisabled={!city}
                     styles={customStyles}
@@ -461,8 +462,8 @@ const ProfileForm = ({ userEmail }) => {
                       IndicatorSeparator: null,
                       DropdownIndicator: () => <IconSearch />,
                     }}
-                    error={errors.warehouse}
-                    touched={touched.warehouse}
+                    error={errors.deliveryAddress}
+                    touched={touched.deliveryAddress}
                   />
                   <ErrorMessage
                     name="deliveryAddress"

@@ -100,12 +100,19 @@ export const WrapperFormOrder = styled.div`
     line-height: 1.2;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
+  .styledTooltip {
+    background-color: ${({ theme }) => theme.colors.buttonBgDisabled};
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+  }
 
   /* ==== Mobile max-width:564px=== */
   @media (max-width: 564px) {
     padding-top: 6px;
     min-width: 334px;
-    width:100%;
+    width: 100%;
 
     .styledForm {
       width: 100%;

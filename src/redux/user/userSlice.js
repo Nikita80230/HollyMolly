@@ -9,6 +9,7 @@ const handleGetProfileFulfilled = (state, action) => {
 
 const handleUpdateProfile = (state, action) => {
   const updatedProfile = action.payload;
+  
   state.profiles = state.profiles.map((profile) =>
     profile.id === updatedProfile.id ? updatedProfile : profile
   );
