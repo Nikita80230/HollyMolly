@@ -19,6 +19,7 @@ import { checkout } from "src/services/checkout";
 import { selectUser } from "src/redux/auth/selectors";
 import NotificationCustom from "../NotificationCustom/NotificationCustom";
 import { toast } from "react-hot-toast";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 const customStyles = {
   control: (provided, state) => ({
@@ -131,13 +132,11 @@ const OrderForm = () => {
     }
 
     if (element) {
-      // Прокручуємо до елемента
       element.scrollIntoView({ behavior: "smooth" });
 
-      // Додаємо зміщення на -100px
       setTimeout(() => {
         window.scrollBy({ top: -100, behavior: "smooth" });
-      }, 300); // Невелика затримка, щоб дочекатися завершення scrollIntoView
+      }, 300);
     }
   };
 
@@ -218,7 +217,7 @@ const OrderForm = () => {
         updateProfile({ user: profileData, profileId })
       );
 
-      if (result.payload === 200) {
+      if (result.meta.requestStatus === "fulfilled") {
         toast.custom(
           <div className="custom-toast">
             <NotificationCustom title={"Дані оновлено."} />
@@ -293,7 +292,7 @@ const OrderForm = () => {
     try {
       const response = await dispatch(createOrder(order)).unwrap();
       const orderId = response.id;
-      console.log("before checkout",orderId)
+      console.log("before checkout", orderId);
       checkout(orderId);
     } catch (error) {
       console.error("Помилка при створенні замовлення:", error);
@@ -420,7 +419,11 @@ const OrderForm = () => {
               </div>{" "}
               <span className="text">Відділення Нової Пошти</span>
             </div>
-            <label className="styledLabel" ref={cityRef}>
+            <label
+              className="styledLabel"
+              ref={cityRef}
+              data-tooltip-id="tooltip-city"
+            >
               <AsyncSelect
                 name="city"
                 id="city"
@@ -440,13 +443,30 @@ const OrderForm = () => {
                 error={errors.city}
                 touched={touched.city}
               />
+              {city && (
+                <ReactTooltip
+                  id="tooltip-city"
+                  place="top"
+                  content={city.value}
+                  // style={{ backgroundColor: "#fff", color:"#100503" }}
+                  className="styledTooltip"
+                  // clickable={true}
+                  onTouchStart={() => ReactTooltip.show(cityRef.current)}
+                  onFocus={() => ReactTooltip.show(cityRef.current)} // показ тултіпу при фокусі
+                  onBlur={() => ReactTooltip.hide(cityRef.current)} // ховаємо тултіп при втраті фокусу
+                />
+              )}
               <ErrorMessage
                 name="city"
                 component="p"
                 className="errorMessage"
               />
             </label>
-            <label className="styledLabel" ref={warehouseRef}>
+            <label
+              className="styledLabel"
+              ref={warehouseRef}
+              data-tooltip-id="tooltip-warehouse"
+            >
               <AsyncSelect
                 name="warehouse"
                 id="warehouse"
@@ -469,6 +489,16 @@ const OrderForm = () => {
                 error={errors.warehouse}
                 touched={touched.warehouse}
               />
+              {warehouse && (
+                <ReactTooltip
+                  id="tooltip-warehouse"
+                  place="top"
+                  content={warehouse.value}
+                  // style={{ backgroundColor: "#fff", color:"#100503" }}
+                  className="styledTooltip"
+                  clickable={true} // Дозволяє клікабельність на мобільних
+                />
+              )}
               <ErrorMessage
                 name="deliveryAddress"
                 component="p"

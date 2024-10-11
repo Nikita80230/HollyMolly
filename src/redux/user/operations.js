@@ -30,7 +30,7 @@ export const updateProfile = createAsyncThunk(
   async ({ user, profileId }, thunkAPI) => {
     try {
       const res = await axios.put(`/api/Account/profiles/${profileId}`, user);
-      return res.status;
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -42,8 +42,7 @@ export const createProfile = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post("/api/Account/profiles", credentials);
-
-      return res.status;
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
