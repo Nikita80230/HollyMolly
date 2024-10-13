@@ -16,6 +16,8 @@ const BasketCardLittle = ({
     totalPrice,
     quantity,
     colorBorder,
+    stockQuantity,
+
   } = product;
 
   return (
@@ -31,6 +33,7 @@ const BasketCardLittle = ({
               type="button"
               className="buttonCount"
               onClick={handleClickCount}
+              disabled={quantity <= 1}
             >
               <IconMinus className="icon" />
             </button>
@@ -39,6 +42,7 @@ const BasketCardLittle = ({
               type="button"
               className="buttonCount"
               onClick={handleClickAddCount}
+               disabled={quantity >= stockQuantity}
             >
               <IconPlus className="icon" />
             </button>
