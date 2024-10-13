@@ -26,7 +26,7 @@ const BasketCardLittle = ({
         <span className="spanId">ID {productInstanceId}</span>
         <span className="spanSize">Розмір: {size}</span>
         <div className="containerCounterPrice">
-          <div className="wrapperCounter">
+          <div className="wrapperCounter" key={productInstanceId}>
             <button
               type="button"
               className="buttonCount"
