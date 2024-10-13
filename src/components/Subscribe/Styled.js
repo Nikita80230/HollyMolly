@@ -251,6 +251,7 @@ export const SubscribeSection = styled.section`
     background-color: ${({ theme }) => theme.colors.buttonBgDisabled};
     transition: background-color ${({ theme }) => theme.animations.transition},
       box-shadow ${({ theme }) => theme.animations.transition};
+    cursor: not-allowed;
 
     @media (max-width: 564px) {
       width: 100%;

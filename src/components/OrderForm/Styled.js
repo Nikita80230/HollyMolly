@@ -100,6 +100,21 @@ export const WrapperFormOrder = styled.div`
     line-height: 1.2;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
+  .message{
+   font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.colorError};
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+  }
+
+  .containerMessageButton{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    
+  }
+
   .styledTooltip {
     background-color: ${({ theme }) => theme.colors.primaryBgColor};
     font-family: ${({ theme }) => theme.fonts.familyDidact};
@@ -164,6 +179,17 @@ export const WrapperFormOrder = styled.div`
       font-size: 16px;
       line-height: 1.25;
     }
+
+    .message{
+   font-size: 16px;
+    
+  }
+
+  .containerMessageButton{
+    gap:10px;
+    
+  }
+
     .styledTooltip {
       width: 100%;
     }
