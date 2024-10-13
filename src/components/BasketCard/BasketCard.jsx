@@ -73,7 +73,7 @@ const BasketCard = ({ product, handleClickCount, handleClickAddCount }) => {
           </div>
 
           <div className="wrapperCountPrice">
-            <div className="wrapperCounter">
+            <div className="wrapperCounter" key={productInstanceId}>
               <button
                 type="button"
                 onClick={handleClickCount}
