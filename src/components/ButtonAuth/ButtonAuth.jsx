@@ -1,9 +1,11 @@
 import { StyledButton } from "./Styled";
 
-const ButtonAuth = ({title, width}) => {
-    return (<StyledButton type="submit"  width={width}>{title}
-        
-    </StyledButton>)
-}
+const ButtonAuth = ({ title, width, disabled }) => {
+  return (
+    <StyledButton type="submit" width={width} disabled={disabled}>
+      {title}
+    </StyledButton>
+  );
+};
 
 export default ButtonAuth;

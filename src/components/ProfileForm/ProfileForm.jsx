@@ -228,7 +228,7 @@ const ProfileForm = ({ userEmail }) => {
               <NotificationCustom title={"Дані успішно збережено"} />
             </div>,
             {
-              duration: 3000,
+              duration: 1000,
             }
           );
         } else {
@@ -254,7 +254,7 @@ const ProfileForm = ({ userEmail }) => {
               <NotificationCustom title={"Дані успішно оновлено"} />
             </div>,
             {
-              duration: 3000,
+              duration: 1000,
             }
           );
         } else {
@@ -277,7 +277,7 @@ const ProfileForm = ({ userEmail }) => {
               />
             </div>,
             {
-              duration: 3000,
+              duration: 1000,
             }
           );
           throw new Error(
@@ -291,7 +291,7 @@ const ProfileForm = ({ userEmail }) => {
           <NotificationCustom title={"Сталася помилка"} />
         </div>,
         {
-          duration: 3000,
+          duration: 1000,
         }
       );
       throw new Error(

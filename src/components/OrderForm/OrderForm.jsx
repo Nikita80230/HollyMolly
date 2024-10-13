@@ -115,30 +115,30 @@ const OrderForm = () => {
   const lastNameRef = useRef(null);
   const phoneNumberRef = useRef(null);
 
-    // Прокрутка до поля, яке не пройшло валідацію
-  const scrollToError = (errors) => {
-    let element = null;
+  // Прокрутка до поля, яке не пройшло валідацію
+  // const scrollToError = (errors) => {
+  //   let element = null;
 
-    if (errors.firstName && firstNameRef.current) {
-      element = firstNameRef.current;
-    } else if (errors.lastName && lastNameRef.current) {
-      element = lastNameRef.current;
-    } else if (errors.phoneNumber && phoneNumberRef.current) {
-      element = phoneNumberRef.current;
-    } else if (errors.city && cityRef.current) {
-      element = cityRef.current;
-    } else if (errors.deliveryAddress && warehouseRef.current) {
-      element = warehouseRef.current;
-    }
+  //   if (errors.firstName && firstNameRef.current) {
+  //     element = firstNameRef.current;
+  //   } else if (errors.lastName && lastNameRef.current) {
+  //     element = lastNameRef.current;
+  //   } else if (errors.phoneNumber && phoneNumberRef.current) {
+  //     element = phoneNumberRef.current;
+  //   } else if (errors.city && cityRef.current) {
+  //     element = cityRef.current;
+  //   } else if (errors.deliveryAddress && warehouseRef.current) {
+  //     element = warehouseRef.current;
+  //   }
 
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  //   if (element) {
+  //     element.scrollIntoView({ behavior: "smooth" });
 
-      setTimeout(() => {
-        window.scrollBy({ top:-300, behavior: "smooth" });
-      }, 300);
-    }
-  };
+  //     setTimeout(() => {
+  //       window.scrollBy({ top:-300, behavior: "smooth" });
+  //     }, 300);
+  //   }
+  // };
 
   useEffect(() => {
     if (user && user.length > 0) {
@@ -223,7 +223,7 @@ const OrderForm = () => {
             <NotificationCustom title={"Дані оновлено."} />
           </div>,
           {
-            duration: 2000,
+            duration: 1000,
           }
         );
       }
@@ -233,7 +233,7 @@ const OrderForm = () => {
           <NotificationCustom title={"Сталася помилка."} />
         </div>,
         {
-          duration: 2000,
+          duration: 1000,
         }
       );
       throw new Error(result.error.message || "Failed to update profile");
@@ -273,8 +273,9 @@ const OrderForm = () => {
     }
   };
 
-   const handleSubmit = async (values) => {
+  const handleSubmit = async (values) => {
     setIsLoading(true);
+
     const order = {
       customer: {
         firstName: values.firstName,
@@ -292,7 +293,6 @@ const OrderForm = () => {
     try {
       const response = await dispatch(createOrder(order)).unwrap();
       const orderId = response.id;
-      console.log("before checkout", orderId);
       checkout(orderId);
     } catch (error) {
       console.error("Помилка при створенні замовлення:", error);
@@ -308,36 +308,37 @@ const OrderForm = () => {
         initialValues={initialValues}
         enableReinitialize={true}
         validationSchema={SubmitOrderSchema}
-        validate={(values) => {
-          const errors = {};
+        // validate={(values) => {
+        //   const errors = {};
 
-          if (!values.firstName) {
-            errors.firstName = "Поле обов'язкове";
-          }
-          if (!values.lastName) {
-            errors.lastName = "Поле обов'язкове";
-          }
-          if (!values.phoneNumber) {
-            errors.phoneNumber = "Поле обов'язкове";
-          }
-          if (!values.city) {
-            errors.city = "Поле обов'язкове";
-          }
-          if (!values.deliveryAddress) {
-            errors.deliveryAddress = "Поле обов'язкове";
-          }
+        //   if (!values.firstName) {
+        //     errors.firstName = "Поле обов'язкове";
+        //   }
+        //   if (!values.lastName) {
+        //     errors.lastName = "Поле обов'язкове";
+        //   }
+        //   if (!values.phoneNumber) {
+        //     errors.phoneNumber = "Поле обов'язкове";
+        //   }
+        //   if (!values.city) {
+        //     errors.city = "Поле обов'язкове";
+        //   }
+        //   if (!values.deliveryAddress) {
+        //     errors.deliveryAddress = "Поле обов'язкове";
+        //   }
 
-          // Прокрутка до першого поля з помилкою
-          if (Object.keys(errors).length > 0) {
-            scrollToError(errors);
-          }
+        // Прокрутка до першого поля з помилкою
+        //   if (Object.keys(errors).length > 0) {
+        //     scrollToError(errors);
+        //   }
 
-          return errors;
-        }}
-        onSubmit={(values, { setSubmitting }) => {
-          handleSubmit(values);
-          setSubmitting(false);
-        }}
+        //   return errors;
+        // }}
+        // onSubmit={(values, { setSubmitting }) => {
+        //   handleSubmit(values);
+        //   setSubmitting(false);
+        // }}
+        omSubmit={handleSubmit}
       >
         {({ setFieldValue, values, errors, touched }) => (
           <Form className="styledForm">
@@ -491,7 +492,7 @@ const OrderForm = () => {
                   place="top"
                   content={warehouse.value}
                   className="styledTooltip"
-                  clickable={true} // Дозволяє клікабельність на мобільних
+                  clickable={true}
                 />
               )}
               <ErrorMessage
@@ -525,7 +526,24 @@ const OrderForm = () => {
               </div>{" "}
               <span className="text">Онлайн</span>
             </div>
-            <ButtonAuth title={"Перейти до оплати"} width={"390px"} />
+            <div className="containerMessageButton">
+              { Object.keys(errors).length > 0  && (
+                <p className="message">Будь ласка, заповніть всі поля</p>
+              )}
+
+              <ButtonAuth
+                title={"Перейти до оплати"}
+                width={"390px"}
+                disabled={
+                  Object.keys(errors).length > 0 ||
+                  !values.firstName ||
+                  !values.lastName ||
+                  !values.phoneNumber ||
+                  !values.city ||
+                  !values.deliveryAddress
+                }
+              />
+            </div>
           </Form>
         )}
       </Formik>
