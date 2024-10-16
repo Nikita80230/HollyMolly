@@ -3,10 +3,9 @@ import { StyledList } from "./Styled";
 
 const sizeOrder = ["S", "M", "L"];
 
-const formatSizeForComparison = (size) => size ? size.toUpperCase() : '';
+const formatSizeForComparison = (size) => (size ? size.toUpperCase() : "");
 
-
-const ListSizes = ({ sizes, activeSizeId, setActiveSizeId }) => {
+const ListSizes = ({ sizes, activeColor, activeSize, handleClickSize }) => {
   const fallbackSize = ["Універсальний"];
   const uniqueSizes =
     sizes && sizes.length > 0
@@ -22,10 +21,13 @@ const ListSizes = ({ sizes, activeSizeId, setActiveSizeId }) => {
           <button
             type="button"
             className={`itemSizes ${
-              formatSizeForComparison(size) === formatSizeForComparison(activeSizeId) ? "active" : ""
+              formatSizeForComparison(size) ===
+              formatSizeForComparison(activeSize)
+                ? "active"
+                : ""
             }`}
             onClick={() => {
-              setActiveSizeId(formatSizeForComparison(size));
+              handleClickSize(activeColor, size);
             }}
           >
             <span className="sizeSpan">{size}</span>
