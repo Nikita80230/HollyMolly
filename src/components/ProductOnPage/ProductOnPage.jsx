@@ -28,7 +28,9 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
   const favoriteProducts = useSelector(selectFavoriteProducts);
 
   const [selectedProductInstance, setSelectedProductInstance] = useState(null);
+  const [activeSize, setActiveSize] = useState(null);
   const [activeSizeId, setActiveSizeId] = useState(null);
+  const [activeColor, setActiveColor] = useState(null);
   const [activeColorId, setActiveColorId] = useState(null);
   const [price, setPrice] = useState(null);
   const [priceAfterDiscount, setPriceAfterDiscount] = useState(null);
@@ -64,8 +66,49 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
     setAvailableSizes(sizes);
   };
 
-  const handleClickColors = (id, color) => {
-    setSizesForColor(color);
+  const findInstanceId = (color, size) => {
+    const cleanedColor = color.trim().toLowerCase();
+    const cleanedSize = size.trim().toLowerCase();
+
+    const foundInstance = product.productsInstances.find((instance) => {
+      return (
+        instance.color.trim().toLowerCase() === cleanedColor &&
+        instance.size.trim().toLowerCase() === cleanedSize
+      );
+    });
+
+    return foundInstance ? foundInstance.id : null;
+  };
+
+  const handleClickSize = (color, size) => {
+    const instanceId = findInstanceId(color, size);
+
+    if (instanceId) {
+      const foundInstance = product.productsInstances.find(
+        (instance) => instance.id === instanceId
+      );
+
+      if (foundInstance) {
+        setSelectedProductInstance(foundInstance);
+
+        setActiveSize(size);
+        setActiveColor(color);
+        setActiveSizeId(instanceId);
+        setPrice(foundInstance.price);
+        setPriceAfterDiscount(foundInstance.priceAfterDiscount);
+        setStockQuantity(foundInstance.stockQuantity);
+        setPhotoProduct(instanceId);
+      } else {
+        console.error("Не знайдено інстанс за ID:", instanceId);
+      }
+    } else {
+      console.error("Не знайдено інстанс для вибраного кольору та розміру");
+    }
+  };
+
+  const handleClickColors = (id, color, size) => {
+    setActiveColor(color);
+    setActiveSize(size);
 
     const selectedProductInstance = product.productsInstances.find(
       (productInstance) => productInstance.id === id
@@ -76,9 +119,11 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
       setSelectedProductInstance(selectedProductInstance);
       setPrice(selectedProductInstance.price);
       setPriceAfterDiscount(selectedProductInstance.priceAfterDiscount);
-      setActiveSizeId(selectedProductInstance.size);
+      setActiveSize(selectedProductInstance.size);
       setStockQuantity(selectedProductInstance.stockQuantity);
       setPhotoProduct(selectedProductInstance.id);
+    } else {
+      console.log("Selected product instance not found by color id.");
     }
   };
 
@@ -91,7 +136,7 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
           productImage: selectedProductInstance.images[0]?.link || defaultPhoto,
           productInstanceId: selectedProductInstance.id,
           priceAfterDiscount: selectedProductInstance.priceAfterDiscount,
-          size: activeSizeId,
+          size: activeSize,
           color: selectedProductInstance.color,
           quantity,
           stockQuantity: selectedProductInstance.stockQuantity,
@@ -114,12 +159,14 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
 
   useEffect(() => {
     setSelectedProductInstance(null);
-    setActiveSizeId(null);
-    setActiveColorId(null);
+    setActiveSize(null);
+    setActiveColor(null);
     setPrice(null);
     setPriceAfterDiscount(null);
     setAvailableSizes([]);
     setStockQuantity(null);
+    setActiveColorId(null);
+    setActiveSizeId(null);
 
     if (product?.productsInstances && product.productsInstances.length > 0) {
       const initialProductInstance = product.productsInstances.find(
@@ -130,10 +177,12 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
         setSelectedProductInstance(initialProductInstance);
         setPrice(initialProductInstance.price);
         setPriceAfterDiscount(initialProductInstance.priceAfterDiscount);
-        setActiveSizeId(initialProductInstance.size);
+        setActiveSize(initialProductInstance.size);
+        setActiveColor(initialProductInstance.color);
         setActiveColorId(initialProductInstance.id);
         setSizesForColor(initialProductInstance.color);
         setStockQuantity(initialProductInstance.stockQuantity);
+        setActiveSizeId(initialProductInstance.id);
       }
     }
   }, [product, instanceId]);
@@ -192,8 +241,9 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
                   <span className="styledListSpan">Розмір:</span>
                   <ListSizes
                     sizes={availableSizes}
-                    activeSizeId={activeSizeId}
-                    setActiveSizeId={setActiveSizeId}
+                    activeColor={activeColor}
+                    handleClickSize={handleClickSize}
+                    activeSize={activeSize}
                   />
                 </div>
                 <div className="wrapperListSpan">
@@ -208,6 +258,7 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
                     colors={product.productsInstances}
                     handleClick={handleClickColors}
                     activeColorId={activeColorId}
+                    size={activeSize}
                   />
                 </div>
               </div>

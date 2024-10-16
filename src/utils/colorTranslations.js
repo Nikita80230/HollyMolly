@@ -1,4 +1,4 @@
-const colorTranslations = {
+  const colorTranslations = {
     червоний: "red",
     зелений: "green",
     синій: "blue",

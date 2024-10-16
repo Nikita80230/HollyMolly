@@ -3,11 +3,10 @@ import { StyledList } from "./Styled";
 
 const translateColor = (color) => {
   if (!color) return color;
-   return colorTranslations[color.trim().toLowerCase()] || color;
+  return colorTranslations[color.trim().toLowerCase()] || color;
 };
 
-const ListColorsButtons = ({ colors, handleClick, activeColorId }) => {
-
+const ListColorsButtons = ({ colors, handleClick, activeColorId, size }) => {
   if (!colors || !colors.length) return null;
 
   const translatedColors = colors.map((colorObj) => ({
@@ -28,7 +27,7 @@ const ListColorsButtons = ({ colors, handleClick, activeColorId }) => {
             style={{
               backgroundColor: activeColorId === id ? "transparent" : color,
             }}
-            onClick={() => handleClick(id, color)}
+            onClick={() => handleClick(id, color, size)}
           >
             <div
               className="containerColor"
@@ -37,7 +36,6 @@ const ListColorsButtons = ({ colors, handleClick, activeColorId }) => {
               }}
             ></div>
           </button>
-          
         </li>
       ))}
     </StyledList>

@@ -29,6 +29,7 @@ const BasketCard = ({ product, handleClickCount, handleClickAddCount }) => {
     colorBorder,
   } = product;
 
+
   const translatedColor =
     colorTranslations[color.trim().toLowerCase()] || color;
 
@@ -61,7 +62,7 @@ const BasketCard = ({ product, handleClickCount, handleClickAddCount }) => {
             </button>
           </div>
           <span className="spanId">ID {productInstanceId}</span>
-          <span className="spanSize">Розмір: {size}</span>
+          <span className="spanSize">Розмір: {size || "універсальний"}</span>
           <div className="containerColor">
             <span className="spanColor">Колір:</span>
             <div className="wrapperColor">
