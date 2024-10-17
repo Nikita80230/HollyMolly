@@ -1,8 +1,8 @@
 {
   "name": "HollyMolly",
   "description": "Web application shop",
-  "background_color": "#fff",
-  "theme_color": "#fff",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "/src/assets/images/favicon/favicon192x192.png",

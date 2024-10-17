@@ -19,6 +19,7 @@ import { getFeedbackWord } from "src/utils/getFeedbackWord";
 import { useAuth } from "src/hooks";
 import PhotoSwiper from "../PhotoSwiper/PhotoSwiper";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
+import colorTranslations from "src/utils/colorTranslations";
 
 const ProductOnPage = ({ instanceId, borderColor }) => {
   const { isLoggedIn } = useAuth();
@@ -67,12 +68,14 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
   };
 
   const findInstanceId = (color, size) => {
-    const cleanedColor = color.trim().toLowerCase();
+    let cleanedColor = color.trim().toLowerCase();
+    cleanedColor = colorTranslations[cleanedColor] ?? cleanedColor; // якщо колір є в словнику, то використовуємо переклад
     const cleanedSize = size.trim().toLowerCase();
-
     const foundInstance = product.productsInstances.find((instance) => {
+      let instanceColor = instance.color.trim().toLowerCase();
+      instanceColor = colorTranslations[instanceColor] ?? instanceColor; // якщо колір є в словнику, то використовуємо переклад
       return (
-        instance.color.trim().toLowerCase() === cleanedColor &&
+        instanceColor === cleanedColor && // порівнюємо переклади кольорів
         instance.size.trim().toLowerCase() === cleanedSize
       );
     });
