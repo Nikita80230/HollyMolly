@@ -169,6 +169,7 @@ export const theme = {
     boxShadowButtonHover: "5px 5px 5px 0 #a5a4a4",
     boxShadowLeaveReview: "5px 5px 10px 0 #c0bfbf",
     boxShadowCalendar: "0 1px 4px 0 rgba(0, 0, 0, 0.25)",
-    boxShadowSection:" 2px 2px 5px 0 rgba(196, 196, 196, 0.6)",
+    boxShadowSection: " 2px 2px 5px 0 rgba(196, 196, 196, 0.6)",
+    boxShadowCardTeam:"4px 4px 8px 0 #c0bfbf",
   },
 };
