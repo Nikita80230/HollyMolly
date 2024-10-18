@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Container from "src/components/Container/Container";
 import ListTeam from "src/components/ListTeam/ListTeam";
-import team from "src/data/team.json";
+import team from "src/data/team";
 import { WrapperAboutUsPage } from "./Styled";
 
 const AboutUsPage = () => {
