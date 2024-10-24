@@ -47,7 +47,7 @@ const SubcategoriesList = ({
         <Swiper
           className="swiperSubcategoriesList"
           spaceBetween={10}
-          slidesPerView={2}
+          slidesPerView={2.5}
         >
           {subCategoriesToRender.map((subCategory, index) => {
             return (

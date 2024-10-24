@@ -84,7 +84,9 @@ export const StyledSubcategoriesList = styled.div`
       font-size: 20px;
       line-height: 1.2;
     }
-
+    .swiperSubcategoriesList {
+      margin-right: -20px;
+    }
     .subcategoriesList {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
