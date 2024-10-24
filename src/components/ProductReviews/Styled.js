@@ -20,7 +20,7 @@ export const StyledSection = styled.section`
     color: ${({ theme }) => theme.colors.greyTxtColor};
   }
 
-  .buttonSwiper {
+  .buttonSwiperReview {
     position: absolute;
     top: 0;
     right: 0;
@@ -30,8 +30,8 @@ export const StyledSection = styled.section`
     gap: 10px;
   }
 
-  .nextProductBtn,
-  .prevProductBtn {
+  .nextProductBtnReview,
+  .prevProductBtnReview {
     padding: 10px;
     width: 52px;
     height: 52px;
@@ -41,39 +41,36 @@ export const StyledSection = styled.section`
     background-color: transparent;
     border: transparent;
   }
-  .nextProductBtn:focus {
+  .nextProductBtnReview:focus {
     border: transparent;
   }
 
-  .prevProductBtn:focus {
+  .prevProductBtnReview:focus {
     border: transparent;
   }
 
-  .nextProductBtn:after,
-  .prevProductBtn:after {
+  .nextProductBtnReview:after,
+  .prevProductBtnReview:after {
     display: none;
   }
-  .prevProductBtn.swiper-button-disabled,
-  .nextProductBtn.swiper-button-disabled {
+  .prevProductBtnReview.swiper-button-disabled,
+  .nextProductBtnReview.swiper-button-disabled {
     border: transparent;
     opacity: 0.35;
     cursor: auto;
     pointer-events: none;
   }
 
-  .swiperCustom {
+  .swiperReviews {
     width: 100%;
     height: 242px;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 25px;
   }
 
-  .swiper-slideCustom {
-    font-size: 18px;
-    background: #fff;
-    width: 410px;
-    height: 242px;
+  .swiper-slideReviews {
+    /* font-size: 18px; */
+    /* width: 100%;
+    height: 242px; */
   }
 
   .swiper-pagination-container-review {
@@ -121,24 +118,27 @@ export const StyledSection = styled.section`
     }
 
     .textReviews {
-      margin-bottom:16px;
+      margin-bottom: 16px;
       font-size: 16px;
       line-height: 1.25;
     }
 
-    .buttonSwiper {
-      display: none;
-    }
-
-    .swiperCustom {
+    .swiperReviews {
       height: 160px;
       margin-bottom: 16px;
     }
 
-    .swiper-slideCustom {
-      font-size: 16px;
-      width: 214px;
-      height: 156px;
+    .buttonSwiperReview {
+      display: none;
+    }
+
+    .swiper-slideReviews {
+      /* font-size: 16px; */
+      /* width: 214px; */
+      /* max-width: 234px; */
+      /* width: 100%;
+      height: 156px; */
+      /* margin-right: -20px; */
     }
 
     .swiper-pagination-container-review {
@@ -149,6 +149,7 @@ export const StyledSection = styled.section`
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      overflow: hidden;
     }
 
     .swiper-pagination-bullet {

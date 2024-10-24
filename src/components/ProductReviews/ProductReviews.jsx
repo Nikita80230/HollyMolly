@@ -43,11 +43,11 @@ const ProductReviews = ({ reviews, productId }) => {
       ) : (
         <>
           <Swiper
-            className="swiperCustom"
+            className="swiperReviews"
             modules={[Navigation, A11y, Pagination]}
             navigation={{
-              nextEl: ".nextProductBtn",
-              prevEl: ".prevProductBtn",
+              nextEl: ".nextProductBtnReview",
+              prevEl: ".prevProductBtnReview",
             }}
             pagination={{
               el: ".swiper-pagination-container-review",
@@ -71,16 +71,16 @@ const ProductReviews = ({ reviews, productId }) => {
             }}
           >
             {reviews.map((review, index) => (
-              <SwiperSlide key={index} className="swiper-slideCustom">
+              <SwiperSlide key={index} className="swiper-slideReviews">
                 <CardReview review={review} index={index} />
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="buttonSwiper">
-            <button className="prevProductBtn" type="button">
+          <div className="buttonSwiperReview">
+            <button className="prevProductBtnReview" type="button">
               <ArrowLeft />
             </button>
-            <button className="nextProductBtn" type="button">
+            <button className="nextProductBtnReview" type="button">
               <ArrowRight />
             </button>
           </div>

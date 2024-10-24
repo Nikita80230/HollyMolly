@@ -3,15 +3,17 @@ import { styled } from "styled-components";
 export const StyledContainer = styled.li`
   border-radius: 10px;
   padding: 25px 20px;
-  width: 410px;
+  /* width: 410px; */
+  max-width: 410px;
+  width: 100%;
   height: 242px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow-y:auto;
+  overflow-y: auto;
   overflow-x: hidden;
 
-   &::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: 5px;
     height: auto;
   }
@@ -46,11 +48,12 @@ export const StyledContainer = styled.li`
     font-size: 24px;
     line-height: 1.20833;
     margin-left: 250px;
-    white-space:nowrap;
+    white-space: nowrap;
   }
 
   @media (max-width: 564px) {
     padding: 16px;
+    max-width: 364px;
     width: 100%;
     height: 156px;
 
