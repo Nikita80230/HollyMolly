@@ -36,4 +36,8 @@ export const StyledCategoryBtn = styled.div`
   .openCategoryIcon.openedCategoryIcon {
     transform: rotate(-180deg);
   }
+
+   @media (max-width: 768px) {
+    display:none;
+   }
 `;

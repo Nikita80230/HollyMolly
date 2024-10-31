@@ -122,54 +122,16 @@ export const StyledUserPanel = styled.div`
 
   /* ==================================@media (max-width: 768px)========================================= */
 
-  @media (min-width: 768px) and (max-width: 1024px) {
-    /* max-width: 88px; */
-
-    gap: 8px;
-
-    .buttonIcon {
-      padding: 4px;
-    }
-
-    .icon {
-      width: 15px;
-      height: 15px;
-      /* padding: 4px; */
-    }
-  }
-
-  /* ==================================@media (max-width: 564px)========================================= */
-
-  @media (max-width: 564px) {
-    gap: 20px;
+  @media (max-width: 768px) {
+    gap: 30px;
 
     .icon {
       width: 24px;
       height: 24px;
     }
-
     .iconBasket {
       width: 24px;
       height: 24px;
-    }
-
-    .buttonIcon {
-      padding: 0;
-    }
-
-    .buttonIconBasket {
-      padding: 0;
-    }
-
-    .containerProducts {
-      top: 57%;
-      right: -10%;
-      width: 16px;
-      height: 15px;
-    }
-
-    .styledSpan {
-      font-size: 12px;
     }
 
     .iconBasket.active {
@@ -183,6 +145,38 @@ export const StyledUserPanel = styled.div`
         height: 32px;
       }
     }
+
+    .buttonIcon {
+      padding: 0px;
+    }
+
+    .buttonIconBasket {
+      padding: 0px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+  }
+
+  /* ==================================@media (max-width: 564px)========================================= */
+
+  @media (max-width: 564px) {
+    gap: 20px;
+
+  
+
+    .containerProducts {
+      top: 57%;
+      right: -10%;
+      width: 16px;
+      height: 15px;
+    }
+
+    .styledSpan {
+      font-size: 12px;
+    }
+
+  
   }
 `;
 

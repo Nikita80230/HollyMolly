@@ -65,6 +65,41 @@ export const StyledSearchHeaderBtn = styled.button`
 
   /* ============================================================================ */
 
+   @media (max-width: 768px) {
+  gap: 2px;
+
+  max-width: 145px;
+  width: 100%;
+
+  padding-bottom: 5px;
+  
+  border-bottom: 0.5px solid ${({ theme }) => theme.colors.primaryTxtColor};
+
+
+  .placeholder {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .input {
+    min-height: 34px;
+
+    padding-bottom: 7px;
+
+    font-size: 16px;
+    line-height: 1.25;
+   
+
+    &:not(:placeholder-shown) + .placeholder {
+     
+      font-size: 16px;
+      line-height: 1.25;
+    }
+  }
+ 
+
+   }
+
   /* @media (min-width: 768px) and (max-width: 1024px) {
     max-width: 140px;
     width: 100%;

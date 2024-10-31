@@ -43,11 +43,17 @@ export const StyledHeader = styled.header`
     left: 50%;
 
     transform: translate(-50%, -50%);
-
   }
 
   .headerDesktopLogoImg {
     display: block;
+    path {
+      fill: ${({ theme }) => theme.colors.accentColor};
+    }
+  }
+
+  .headerTabletLogoImg {
+    display: none;
   }
 
   .headerMobileLogoImg {
@@ -62,6 +68,46 @@ export const StyledHeader = styled.header`
   }
 
   /* =============================@media (max-width: 768px)=================================== */
+  @media (max-width: 768px) {
+    .header {
+      min-height: 84px;
+    }
+    .leftHeader {
+      max-width: 239px;
+    }
+
+    .headerDesktopLogoImg {
+      display: none;
+    }
+
+    .headerTabletLogoImg {
+      display: block;
+      path {
+        fill: ${({ theme }) => theme.colors.accentColor};
+      }
+
+      height: 34px;
+    }
+
+    .tabletButton {
+      margin-right: 50px;
+      padding: 6px 3px;
+      border: transparent;
+      background: transparent;
+      width: 24px;
+      height: 24px;
+    }
+
+    .openBurgerIcon {
+      width: 18px;
+      height: 12px;
+    }
+
+    .closeBurgerIcon {
+      width: 18px;
+      height: 12px;
+    }
+  }
 
   /* @media (min-width: 768px) and (max-width: 1024px) {
     .header {
@@ -126,7 +172,6 @@ export const StyledHeader = styled.header`
 
     .header {
       min-height: 70px;
-     
     }
 
     .openBurgerIcon {
@@ -135,18 +180,17 @@ export const StyledHeader = styled.header`
     }
 
     .headerLogo {
-      
       top: 50%;
       left: 37%;
 
       transform: translate(-50%, -50%);
-
-      /* display: flex;
-      margin-left: 0;
-      margin-right: auto; */
     }
 
     .headerDesktopLogoImg {
+      display: none;
+    }
+
+    .headerTabletLogoImg {
       display: none;
     }
 
@@ -155,8 +199,8 @@ export const StyledHeader = styled.header`
       path {
         fill: ${({ theme }) => theme.colors.accentColor};
       }
-      width:159px;
-      height:30px;
+      width: 159px;
+      height: 30px;
     }
 
     .mobileButton {
@@ -164,7 +208,6 @@ export const StyledHeader = styled.header`
       padding: 0;
       border: none;
       background: transparent;
-      
     }
   }
 `;

@@ -20,7 +20,7 @@ const UserPanel = ({isMobile}) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [modalIsOpen, setIsOpen] = useState(false);
-  // const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
+  
   const isAuthPage =
     location.pathname === routes.LOGIN ||
     location.pathname === routes.FORGOT_PASSWORD ||
@@ -69,17 +69,7 @@ const UserPanel = ({isMobile}) => {
     }
   };
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsMobile(window.innerWidth <= 564);
-  //   };
-
-  //   window.addEventListener("resize", handleResize);
-
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
+ 
 
   return (
     <StyledUserPanel>
