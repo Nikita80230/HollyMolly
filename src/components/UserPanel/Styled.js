@@ -120,9 +120,9 @@ export const StyledUserPanel = styled.div`
     color: ${({ theme }) => theme.colors.whiteTxtColor};
   }
 
-  /* ==================================@media (max-width: 768px)========================================= */
+  /* ==================================@media (max-width: 1239px)========================================= */
 
-  @media (max-width: 768px) {
+  @media (max-width: 1239px) {
     gap: 30px;
 
     .icon {
@@ -155,15 +155,10 @@ export const StyledUserPanel = styled.div`
     }
   }
 
-  @media (min-width: 768px) and (max-width: 1024px) {
-  }
-
   /* ==================================@media (max-width: 564px)========================================= */
 
   @media (max-width: 564px) {
     gap: 20px;
-
-  
 
     .containerProducts {
       top: 57%;
@@ -175,8 +170,6 @@ export const StyledUserPanel = styled.div`
     .styledSpan {
       font-size: 12px;
     }
-
-  
   }
 `;
 

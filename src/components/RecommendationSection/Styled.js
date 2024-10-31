@@ -61,23 +61,23 @@ export const StyledRecommendationSection = styled.section`
     display: none;
   }
 
-  /*========== Mobile - @media (max-width: 564px)================ */
-
-  @media (max-width: 564px) {
-    
+  @media (max-width: 1239px) {
+    margin-bottom: 40px;
 
     .titleRecommendation {
-      margin-bottom: 10px;
-      font-size: 20px;
+      margin-bottom: 24px;
+      font-size: 30px;
       line-height: 1.2;
       white-space: nowrap;
     }
+
     .buttonSwiper {
       display: none;
     }
 
     .swiperCustom {
-      height: 252px;
+      margin-right: -20px;
+      height: auto;
     }
 
     .swiper-pagination-container {
@@ -103,86 +103,16 @@ export const StyledRecommendationSection = styled.section`
     }
   }
 
-  /* @media (max-width: 1024px) {
-    .buttonSwiper {
-      gap: 15px;
-    }
-
-    .nextProductBtn,
-    .prevProductBtn {
-      width: 46px;
-      height: 40px;
-
-      padding: 7px;
-    }
-  }
-
-  @media (max-width: 565px) {
+  @media (max-width: 564px) {
+     margin-bottom: 24px;
     .titleRecommendation {
-      margin-bottom: 32px;
-      font-weight: 500;
+      margin-bottom: 10px;
       font-size: 20px;
     }
 
-    .buttonSwiper {
-      gap: 15px;
-    }
-
-    .nextProductBtn,
-    .prevProductBtn {
-      width: 36px;
-      height: 36px;
-      padding: 7px;
-    }
-
-    .swiperCustom {
-      width: 100%;
-      
-      margin-left: auto;
-      margin-right: auto;
-      height: 447px;
-    }
-
-    .swiper-slideCustom {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      height: calc((100% - 10px) / 2) !important;
-
-     
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  } 
-
-    @media (min-width: 520px) and (max-width: 565px) {
-    .swiperCustom {
-      height: 770px;
+   .swiperCustom {
+      margin-right: 0px;
+      height: 276px;
     }
   }
-
-  @media (min-width: 480px) and (max-width: 519px) {
-    .swiperCustom {
-      height: 716px;
-    }
-  }
-
-  @media (min-width: 420px) and (max-width: 479px) {
-    .swiperCustom {
-      height: 684px;
-    }
-  }
-
-  @media (min-width: 395px) and (max-width: 419px) {
-    .swiperCustom {
-      height: 644px;
-    }
-  }
-
-  @media (min-width: 350px) and (max-width: 395px) {
-    .swiperCustom {
-      height: 639px;
-    }
-  }  */
 `;

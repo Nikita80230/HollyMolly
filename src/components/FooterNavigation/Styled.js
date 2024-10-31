@@ -8,6 +8,11 @@ export const WrapperFooterNavigation = styled.div`
   width: 1127px;
   height: 125px;
 
+  @media (max-width: 1239px) {
+    width: 720px;
+    height: 120px;
+  }
+
   @media (max-width: 564px) {
     width: 100%;
     height: 214px;
@@ -19,12 +24,20 @@ export const FooterNavigationList = styled.ul`
   flex-wrap: wrap;
   gap: 145px;
 
+  @media (max-width: 1239px) {
+    gap: 0;
+  }
+
   @media (max-width: 564px) {
     gap: 24px 13px;
   }
 
   .footer-items {
     width: 173px;
+
+    @media (max-width: 1239px) {
+      width: 180px;
+    }
     @media (max-width: 564px) {
       /* width: 161px; */
       width: 47%;
@@ -37,17 +50,15 @@ export const FooterNavigationList = styled.ul`
     font-weight: 700;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
-    @media (max-width: 564px) {
-    }
   }
 
-  .styledSpan{
-     margin-bottom: 5px;
-  font-family: ${({ theme }) => theme.fonts.familyDidact};
-  font-weight: 400;
-  font-size: 16px;
-  color: ${({ theme }) => theme.colors.primaryTxtColor};
-  cursor:pointer;
+  .styledSpan {
+    margin-bottom: 5px;
+    font-family: ${({ theme }) => theme.fonts.familyDidact};
+    font-weight: 400;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.primaryTxtColor};
+    cursor: pointer;
   }
 `;
 
@@ -80,31 +91,27 @@ export const WrapperSocialLink = styled.div`
 `;
 
 export const NotificationSupport = styled.div`
-border-radius: 10px;
-border:1px solid ${({ theme }) => theme.colors.borderColor};
+  border-radius: 10px;
+  border: 1px solid ${({ theme }) => theme.colors.borderColor};
   padding: 62px 20px 25px 20px;
   width: 591px;
   height: 210px;
   background-color: ${({ theme }) => theme.colors.primaryBgColor};
   position: relative;
- 
 
   .iconClose {
     width: 32px;
     height: 32px;
-    fill:${({ theme }) => theme.colors.primaryTxtColor} ;
-    
+    fill: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
-.description {
+  .description {
     margin-bottom: 20px;
     font-weight: 400;
     font-size: 24px;
     line-height: 1.20833;
     text-align: center;
   }
-
- 
 
   .buttonModal {
     position: absolute;
@@ -124,15 +131,11 @@ border:1px solid ${({ theme }) => theme.colors.borderColor};
       height: 16px;
     }
 
-   
-
     .description {
       margin-bottom: 5px;
       font-size: 15px;
       line-height: 1.46667;
     }
-
-   
 
     .buttonModal {
       top: 10px;
@@ -140,5 +143,3 @@ border:1px solid ${({ theme }) => theme.colors.borderColor};
     }
   }
 `;
-
-

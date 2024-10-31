@@ -4,12 +4,17 @@ import backgroundSubscribe2x from "src/assets/images/subscribe/backgroundSubscri
 import backgroundSubscribe3x from "src/assets/images/subscribe/background-subscribe3x.jpg";
 import subscribeMobile1x from "src/assets/images/subscribe/subscribeMobile1x.jpg";
 import subscribeMobile2x from "src/assets/images/subscribe/subscribeMobile2x.jpg";
+import subscribeTablet1x from "src/assets/images/subscribe/subscribeTablet1x .jpg";
+import subscribeTablet2x from "src/assets/images/subscribe/subscribeTablet2x .jpg";
 
 export const SubscribeSection = styled.section`
   position: relative;
   margin-bottom: 40px;
   width: 100%;
   /* height: 470px; */
+  @media (max-width: 1239px) {
+    margin-bottom: 0px;
+  }
 
   @media (max-width: 564px) {
     margin-bottom: 16px;
@@ -22,6 +27,11 @@ export const SubscribeSection = styled.section`
     position: absolute;
     top: 216px;
     left: 51px;
+
+    @media (max-width: 1239px) {
+      top: 127px;
+      left: 24px;
+    }
 
     @media (max-width: 564px) {
       position: static;
@@ -42,6 +52,12 @@ export const SubscribeSection = styled.section`
     -webkit-text-fill-color: transparent;
     height: 78px;
 
+    @media (max-width: 1239px) {
+      font-size: 32px;
+      line-height: 1.1875;
+      height: 50px;
+    }
+
     @media (max-width: 564px) {
       font-size: 20px;
       height: 33px;
@@ -55,10 +71,15 @@ export const SubscribeSection = styled.section`
     font-size: 20px;
     line-height: 1.2;
 
+    @media (max-width: 1239px) {
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
     @media (max-width: 564px) {
       margin-bottom: 8px;
       font-size: 12px;
-      line-height: 1.25;
+
       text-align: center;
     }
   }
@@ -67,11 +88,13 @@ export const SubscribeSection = styled.section`
     display: flex;
     gap: 18px;
 
+    @media (max-width: 1239px) {
+    }
+
     @media (max-width: 564px) {
       flex-direction: column;
       gap: 24px;
-      width:100%;
-     
+      width: 100%;
     }
   }
 
@@ -96,10 +119,17 @@ export const SubscribeSection = styled.section`
     font-size: 20px;
     line-height: 1.25;
 
-    @media (max-width: 564px) {
-      width:100%;
-      height: 44px;
+    @media (max-width: 1239px) {
+      width: 335px;
+      height: 50px;
+      padding: 15px 0px 15px 15px;
       font-size: 16px;
+    }
+
+    @media (max-width: 564px) {
+      width: 100%;
+      height: 44px;
+      /* font-size: 16px; */
     }
   }
 
@@ -111,8 +141,13 @@ export const SubscribeSection = styled.section`
     width: 389px;
     height: 40px;
 
+    @media (max-width: 1239px) {
+      width: 335px;
+      height: 50px;
+    }
+
     @media (max-width: 564px) {
-      width:100%;
+      width: 100%;
       height: 44px;
     }
   }
@@ -124,9 +159,14 @@ export const SubscribeSection = styled.section`
     font-size: 20px;
     line-height: 1.2;
 
-    @media (max-width: 564px) {
+    @media (max-width: 1239px) {
       font-size: 16px;
       line-height: 1.25;
+    }
+
+    @media (max-width: 564px) {
+      /* font-size: 16px;
+      line-height: 1.25; */
     }
   }
 
@@ -146,10 +186,17 @@ export const SubscribeSection = styled.section`
     font-family: ${({ theme }) => theme.fonts.familyDidact};
     background: ${({ theme }) => theme.colors.primaryBgColor};
 
-    @media (max-width: 564px) {
+    @media (max-width: 1239px) {
       font-size: 16px;
       line-height: 1.25;
-       width:100%;
+      width: 335px;
+      height: 50px;
+    }
+
+    @media (max-width: 564px) {
+      /* font-size: 16px;
+      line-height: 1.25; */
+      width: 100%;
       height: 44px;
     }
   }
@@ -170,10 +217,17 @@ export const SubscribeSection = styled.section`
     background: ${({ theme }) => theme.colors.primaryBgColor};
     transition: border ${({ theme }) => theme.animations.transition};
 
-    @media (max-width: 564px) {
+    @media (max-width: 1239px) {
+      width: 335px;
+      height: 50px;
       font-size: 16px;
       line-height: 1.25;
-       width:100%;
+    }
+
+    @media (max-width: 564px) {
+      /* font-size: 16px;
+      line-height: 1.25; */
+      width: 100%;
       height: 44px;
     }
   }
@@ -192,9 +246,14 @@ export const SubscribeSection = styled.section`
     font-size: 16px;
     line-height: 1.25;
 
-    @media (max-width: 564px) {
+    @media (max-width: 1239px) {
       font-size: 13px;
       line-height: 1.23077;
+    }
+
+    @media (max-width: 564px) {
+      /* font-size: 13px;
+      line-height: 1.23077; */
     }
   }
 
@@ -208,10 +267,15 @@ export const SubscribeSection = styled.section`
     font-size: 16px;
     line-height: 1.25;
 
-    @media (max-width: 564px) {
+    @media (max-width: 1239px) {
       font-size: 13px;
       line-height: 1.23077;
     }
+
+    /* @media (max-width: 564px) {
+      font-size: 13px;
+      line-height: 1.23077;
+    } */
   }
 
   .subscribeButton {
@@ -286,6 +350,23 @@ export const WrapperSubscribe = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     background-color: ${({ theme }) => theme.colors.heroBgColor};
+  }
+
+  @media (max-width: 1239px) {
+    height: 335px;
+    background: url(${subscribeTablet1x});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background: url(${subscribeTablet2x});
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: ${({ theme }) => theme.colors.heroBgColor};
+    }
   }
 
   @media (max-width: 564px) {

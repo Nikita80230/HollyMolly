@@ -82,8 +82,8 @@ export const StyledHero = styled.section`
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
-  /* ========Mobile - @media (max-width: 768px)==============*/
-  @media (max-width: 768px) {
+  /* ========Mobile - @media (max-width: 1239px)==============*/
+  @media (max-width: 1239px) {
  
   padding: 148px 0 102px 0;
   margin-bottom: 40px;

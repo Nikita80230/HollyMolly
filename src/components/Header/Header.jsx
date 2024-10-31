@@ -25,9 +25,11 @@ const Header = () => {
   const [isSearchMenuOpened, setIsMenuOpened] = useState(false);
   const isMobile = useMediaQuery({ query: "(max-width: 564px)" });
   const isTablet = useMediaQuery({
-    query: "(max-width: 768px)",
+    query: "(max-width: 1239px)",
   });
-  const isDesktop = useMediaQuery({ query: "(max-width: 1440px)" });
+  const isDesktop = useMediaQuery({
+    query: "(min-width: 1240px)",
+  });
 
   const handleOpenSearchMenu = () => {
     setIsMenuOpened(true);
@@ -41,6 +43,7 @@ const Header = () => {
 
   const toggleBurgerMenu = () => {
     setIsBurgerOpen(!isBurgerOpen);
+    console.log("click");
   };
 
   const handleScrollToTop = () => {
@@ -66,26 +69,8 @@ const Header = () => {
             <HeaderSearchMenu handleCloseSearchMenu={handleCloseSearchMenu} />
           )}
           <div className="leftHeader">
-            {isDesktop && <CategoryBtn />}
-            {isTablet && (
-              <button
-                type="button"
-               className="tabletButton"
-            onClick={toggleBurgerMenu} 
-              >
-                {isBurgerOpen ? (
-                  <CloseBurgerMenuIcon
-                    className="closeBurgerIcon"
-                    style={{ display: "block" }}
-                  />
-                ) : (
-                  <OpenBurgerIcon
-                    className="openBurgerIcon"
-                    style={{ display: "block" }}
-                  />
-                )}
-              </button>
-            )}
+            <CategoryBtn isDesktop={isDesktop} isTablet={isTablet} />
+
             <SearchHeaderForm handleOpenSearchMenu={handleOpenSearchMenu} />
           </div>
           <button

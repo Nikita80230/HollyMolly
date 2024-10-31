@@ -37,7 +37,26 @@ export const StyledCategoryBtn = styled.div`
     transform: rotate(-180deg);
   }
 
-   @media (max-width: 768px) {
-    display:none;
-   }
+  @media (max-width: 1239px) {
+    margin-right: 50px;
+
+    .openCategoryBtn {
+      padding: 6px 3px;
+    }
+    .icon {
+      path {
+        fill: ${({ theme }) => theme.colors.primaryTxtColor};
+      }
+      width: 18px;
+      height: 12px;
+    }
+
+    .iconClose {
+      path {
+        fill: ${({ theme }) => theme.colors.primaryTxtColor};
+      }
+      width: 24px;
+      height: 24px;
+    }
+  }
 `;
