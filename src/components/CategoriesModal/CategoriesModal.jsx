@@ -52,15 +52,16 @@ const CategoriesModal = ({ closeModal, categories }) => {
                   <ul className="categoryGroupList">
                     {category.categories.map((subCategory) => {
                       return (
-                        <Link
-                          className="subCategoryLink"
-                          to={`${routes.CATALOG_PAGE}/${category.id}/${subCategory.id}`}
-                          key={subCategory.id}
-                        >
-                          <div className="subCategoryLinkContent">
-                            {subCategory.name}
-                          </div>
-                        </Link>
+                        <li key={subCategory.id} className="categoryItem">
+                          <Link
+                            className="subCategoryLink"
+                            to={`${routes.CATALOG_PAGE}/${category.id}/${subCategory.id}`}
+                          >
+                            <div className="subCategoryLinkContent">
+                              {subCategory.name}
+                            </div>
+                          </Link>
+                        </li>
                       );
                     })}
                   </ul>

@@ -41,7 +41,36 @@ export const StyledCategoriesSection = styled.section`
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
-  /* =======Mobile - @media (max-width: 564px)======== */
+  .swiperCategories {
+    margin-right: -20px;
+    height: auto;
+  }
+
+  @media (max-width: 1239px) {
+    margin-bottom: 40px;
+    .titleCategories {
+      margin-bottom: 24px;
+      font-size: 30px;
+    }
+
+    .swiper-slideCategories {
+      width: 240px;
+      height: 300px;
+      border-radius: 15px;
+    }
+
+    .categoriesPhoto {
+      margin-bottom: 22px;
+      border-radius: 15px 15px 0 0;
+      width: 100%;
+      height: 225px;
+    }
+
+    .textCard {
+      font-size: 24px;
+      line-height: 1.25;
+    }
+  }
 
   @media (max-width: 564px) {
     margin-bottom: 16px;
@@ -57,8 +86,7 @@ export const StyledCategoriesSection = styled.section`
     }
 
     .wrapperItem {
-      /* width: 160px; */
-      width:47%;
+      width: 47%;
       height: 200px;
     }
 

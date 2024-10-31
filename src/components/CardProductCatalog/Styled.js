@@ -159,10 +159,40 @@ export const WrapperCard = styled.div`
     border: transparent;
   }
 
-  /* ========Mobile - @media (max-width: 564px)========= */
+  @media (max-width: 1240px) {
+    .iconHeart {
+      width: 18px;
+      height: 18px;
+    }
+
+    .wrapperPhoto {
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .productPhoto {
+      height: 225px;
+      border-radius: 15px;
+    }
+
+    .title {
+      margin-bottom: 15px;
+      font-size: 27px;
+      line-height: 1.22222;
+    }
+
+    .price {
+      top: 12px;
+      left: 75px;
+    }
+
+    .priceAfterDiscount {
+      font-size: 30px;
+      line-height: 1.2;
+    }
+  }
 
   @media (max-width: 564px) {
-
     .iconHeart {
       width: 16px;
       height: 16px;
@@ -194,11 +224,11 @@ export const WrapperCard = styled.div`
 
     .wrapperPhoto {
       margin-bottom: 10px;
+      border-radius: 10px;
     }
 
     .productPhoto {
-     
-      width: 100%;
+      border-radius: 10px;
       height: 150px;
     }
 
@@ -207,7 +237,7 @@ export const WrapperCard = styled.div`
 
       margin-bottom: 10px;
       font-size: 18px;
-      line-height: 1.22222;
+
       white-space: normal;
     }
 
@@ -223,7 +253,6 @@ export const WrapperCard = styled.div`
 
     .priceAfterDiscount {
       font-size: 20px;
-      line-height: 1.2;
     }
   }
 `;

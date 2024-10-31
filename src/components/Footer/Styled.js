@@ -6,7 +6,6 @@ export const StyledFooter = styled.footer`
   .wrapperFooter {
     display: flex;
     justify-content: space-between;
-
   }
 
   .text {
@@ -18,22 +17,32 @@ export const StyledFooter = styled.footer`
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
-  /* ===Mobile - @media (max-width: 564px)===== */
+  @media (max-width: 1239px) {
+    .wrapperFooter {
+      padding-top: 40px;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .text {
+      margin-top: 0;
+      margin-left: auto;
+    }
+  }
 
   @media (max-width: 564px) {
     margin-bottom: 20px;
-  
 
-  .wrapperFooter {
-     padding-top:8px;
-    border-top: 0.5px solid ${({ theme }) => theme.colors.primaryTxtColor};
-    justify-content: flex-start;
-    flex-direction: column;
-    gap: 24px;
-  }
+    .wrapperFooter {
+      padding-top: 8px;
+      border-top: 0.5px solid ${({ theme }) => theme.colors.primaryTxtColor};
+      justify-content: flex-start;
+      flex-direction: column;
+      gap: 24px;
+    }
 
-  .text {
-    margin: 0;
+    .text {
+      margin: 0;
+    }
   }
-}
 `;

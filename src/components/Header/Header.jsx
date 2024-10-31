@@ -1,3 +1,4 @@
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
 import SearchHeaderForm from "../SearchHeaderForm/SearchHeaderForm";
@@ -6,7 +7,8 @@ import Container from "../Container/Container";
 
 import { routes } from "../../routes";
 
-import DesktopLogo from "../../assets/images/logo.svg?react";
+import DesktopLogo from "src/assets/images/logo.svg?react";
+import TabletLogo from "src/assets/images/logoTablet.svg?react";
 import MobileLogo from "src/assets/images/mobileLogo.svg?react";
 import CloseBurgerMenuIcon from "src/assets/images/closeCrossIcon.svg?react";
 import OpenBurgerIcon from "src/assets/images/openBurgerIcon.svg?react";
@@ -21,7 +23,13 @@ const Header = () => {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
 
   const [isSearchMenuOpened, setIsMenuOpened] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
+  const isMobile = useMediaQuery({ query: "(max-width: 564px)" });
+  const isTablet = useMediaQuery({
+    query: "(max-width: 1239px)",
+  });
+  const isDesktop = useMediaQuery({
+    query: "(min-width: 1240px)",
+  });
 
   const handleOpenSearchMenu = () => {
     setIsMenuOpened(true);
@@ -35,6 +43,7 @@ const Header = () => {
 
   const toggleBurgerMenu = () => {
     setIsBurgerOpen(!isBurgerOpen);
+    console.log("click");
   };
 
   const handleScrollToTop = () => {
@@ -52,18 +61,6 @@ const Header = () => {
     }
   }, [isBurgerOpen, isSearchMenuOpened]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 564);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
     <StyledHeader>
       <Container>
@@ -72,7 +69,8 @@ const Header = () => {
             <HeaderSearchMenu handleCloseSearchMenu={handleCloseSearchMenu} />
           )}
           <div className="leftHeader">
-            <CategoryBtn />
+            <CategoryBtn isDesktop={isDesktop} isTablet={isTablet} />
+
             <SearchHeaderForm handleOpenSearchMenu={handleOpenSearchMenu} />
           </div>
           <button
@@ -100,7 +98,7 @@ const Header = () => {
             onClick={handleScrollToTop}
           >
             <DesktopLogo className="headerDesktopLogoImg" />
-
+            <TabletLogo className="headerTabletLogoImg" />
             <MobileLogo className="headerMobileLogoImg" />
           </Link>
           <UserPanel isMobile={isMobile} />

@@ -3,6 +3,8 @@ import backgroundDesktop1x from "src/assets/images/hero/background-hero-desktop-
 import backgroundDesktop2x from "src/assets/images/hero/background-hero-desktop-2x.webp";
 import backgroundDesktop3x from "src/assets/images/hero/backgroundDesktop3x.jpg";
 import heroBackgroundForDesktopMaxSize from "src/assets/images/hero/heroBackgroundForDesktopMaxSize.jpg";
+import backgroundTablet1x from "src/assets/images/hero/backgroundTablet1x .jpg";
+import backgroundTablet2x from "src/assets/images/hero/background1Mobile2x.jpg";
 import backgroundMobile1x from "src/assets/images/hero/background1Mobile1x.jpg";
 import backgroundMobile2x from "src/assets/images/hero/background1Mobile2x.jpg";
 
@@ -79,6 +81,59 @@ export const StyledHero = styled.section`
     font-size: 48px;
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
+
+  /* ========Mobile - @media (max-width: 1239px)==============*/
+  @media (max-width: 1239px) {
+ 
+  padding: 148px 0 102px 0;
+  margin-bottom: 40px;
+  height: 450px;
+  background-color: ${({ theme }) => theme.colors.heroBgColor};
+
+  background: url(${backgroundTablet1x});
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background: url(${backgroundTablet2x});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: ${({ theme }) => theme.colors.heroBgColor};
+  }
+
+  .contentContainer {
+    width: 400px;
+    height: 200px;
+   
+  }
+
+  .titleHero {
+    font-size: 32px;
+    line-height: 1.1875;
+    height: 48px;
+  }
+
+  .spanHero {
+    margin-bottom: 0px;
+    font-size: 55px;
+
+  }
+
+  .secondTitle {
+    display:none;
+  }
+
+  .title {
+    font-size: 28px;
+line-height: 1.21429;
+
+  }
+}
 
   /* ========Mobile - @media (max-width: 564px)==============*/
   @media (max-width: 564px) {

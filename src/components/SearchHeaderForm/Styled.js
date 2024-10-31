@@ -65,20 +65,35 @@ export const StyledSearchHeaderBtn = styled.button`
 
   /* ============================================================================ */
 
-  /* @media (min-width: 768px) and (max-width: 1024px) {
-    max-width: 140px;
+  @media (max-width: 1239px) {
+    gap: 2px;
+
+    max-width: 145px;
     width: 100%;
 
-    gap: 12px;
+    padding-bottom: 5px;
+
+    border-bottom: 0.5px solid ${({ theme }) => theme.colors.primaryTxtColor};
 
     .placeholder {
-      font-size: 10px;
+      font-size: 16px;
+      line-height: 1.25;
     }
 
-    .searchIcon {
-      width: 16px;
+    .input {
+      min-height: 34px;
+
+      padding-bottom: 7px;
+
+      font-size: 16px;
+      line-height: 1.25;
+
+      &:not(:placeholder-shown) + .placeholder {
+        font-size: 16px;
+        line-height: 1.25;
+      }
     }
-  } */
+  }
 
   /* ==============Mobile - @media (max-width: 564px)======================== */
 

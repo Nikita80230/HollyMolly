@@ -54,10 +54,10 @@ const RecommendationSection = ({
             spaceBetween: 15,
           },
           768: {
-            slidesPerView: 4,
-            spaceBetween: 20,
+            slidesPerView: 2.5,
+            spaceBetween: 25,
           },
-          1024: {
+          1239: {
             slidesPerView: 4,
             spaceBetween: 46,
           },
