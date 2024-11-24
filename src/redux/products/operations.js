@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 
 export const instance = axios.create({
-  baseURL: "https://teamchallenge-001-site1.ktempurl.com/api/",
+  baseURL: "https://holly-molly-back.tyavd.net/api/",
 });
 
 export const getAllProducts = createAsyncThunk(
