@@ -159,7 +159,7 @@ export const WrapperCard = styled.div`
     border: transparent;
   }
 
-  @media (max-width: 1240px) {
+   @media (max-width: 1239px) {
     .iconHeart {
       width: 18px;
       height: 18px;

@@ -32,6 +32,25 @@ export const StyledList = styled.ul`
     color: ${({ theme }) => theme.colors.primaryTxtColor};
   }
 
+  @media (max-width: 1239px) {
+    gap: 5px;
+
+    .itemSizes {
+      height: 29px;
+    }
+
+    .itemSizes.active {
+      border: 1px solid ${({ theme }) => theme.colors.borderColor};
+      padding: 5px 15px;
+      height: 29px;
+    }
+
+    .sizeSpan {
+      font-size: 16px;
+      line-height: 1.1875;
+    }
+  }
+
   @media (max-width: 564px) {
     .itemSizes {
       width: 40px;

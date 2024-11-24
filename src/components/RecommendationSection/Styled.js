@@ -104,13 +104,13 @@ export const StyledRecommendationSection = styled.section`
   }
 
   @media (max-width: 564px) {
-     margin-bottom: 24px;
+    margin-bottom: 24px;
     .titleRecommendation {
       margin-bottom: 10px;
       font-size: 20px;
     }
 
-   .swiperCustom {
+    .swiperCustom {
       margin-right: 0px;
       height: 276px;
     }

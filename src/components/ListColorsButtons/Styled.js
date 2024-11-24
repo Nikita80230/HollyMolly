@@ -37,6 +37,27 @@ export const StyledList = styled.ul`
     height: 19px;
   }
 
+  @media (max-width: 1239px) {
+    gap: 10px;
+    max-width: 132px;
+    max-height: 16px;
+
+    .buttonColor {
+      width: 16px;
+      height: 16px;
+    }
+
+    .buttonColor.active {
+      width: 16.5px;
+      height: 16px;
+    }
+
+    .containerColor {
+      width: 13px;
+      height: 13px;
+    }
+  }
+
   /* ===================Mobile - @media (max-width: 564px)================== */
   @media (max-width: 564px) {
     .buttonColor {

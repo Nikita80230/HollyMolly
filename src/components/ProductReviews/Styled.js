@@ -101,44 +101,35 @@ export const StyledSection = styled.section`
     }
   }
 
-  @media (max-width: 564px) {
-    margin-bottom: 16px;
-
-    .titleAndPaginationWrapper {
-      display: flex;
-      justify-content: space-between;
-    }
+  @media (max-width: 1239px) {
+    margin-bottom: 32px;
 
     .titleReviews {
-      margin-bottom: 16px;
-      font-size: 20px;
-      line-height: 1.2;
-
+      margin-bottom: 24px;
+      font-size: 24px;
+      line-height: 1.16667;
       white-space: nowrap;
     }
 
     .textReviews {
-      margin-bottom: 16px;
-      font-size: 16px;
-      line-height: 1.25;
-    }
-
-    .swiperReviews {
-      height: 160px;
-      margin-bottom: 16px;
+     margin-bottom: 16px;
+      font-size: 20px;
     }
 
     .buttonSwiperReview {
       display: none;
     }
 
+    .swiperReviews {
+      height: 172px;
+    }
+
     .swiper-slideReviews {
-      /* font-size: 16px; */
-      /* width: 214px; */
-      /* max-width: 234px; */
-      /* width: 100%;
-      height: 156px; */
-      /* margin-right: -20px; */
+    }
+
+    .titleAndPaginationWrapper {
+      display: flex;
+      justify-content: space-between;
     }
 
     .swiper-pagination-container-review {
@@ -165,11 +156,45 @@ export const StyledSection = styled.section`
     }
 
     .buttonReview {
+      width: 270px;
+      height: 50px;
+      font-size: 22px;
+      line-height: 1.31818;
+    }
+  }
+
+  @media (max-width: 564px) {
+    margin-bottom: 16px;
+
+    .titleReviews {
+      margin-bottom: 16px;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .textReviews {
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .swiperReviews {
+      height: 160px;
+      margin-bottom: 16px;
+    }
+
+    .buttonSwiperReview {
+      display: none;
+    }
+
+    .swiper-slideReviews {
+     
+    }
+
+    .buttonReview {
       margin-left: 0;
       width: 100%;
       height: 44px;
-      font-size: 22px;
-      line-height: 1.31818;
+     
     }
   }
 `;
@@ -223,6 +248,8 @@ export const WrapperModal = styled.div`
       color: ${({ theme }) => theme.colors.accentColor};
     }
   }
+
+  
 
   @media (max-width: 564px) {
     border-radius: 0;
