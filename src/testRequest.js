@@ -6,7 +6,7 @@ import axios from "axios";
      const authString = `${username}:${password}`;
     const encodedAuthString = btoa(authString);
     try {
-        const response = await axios.get('http://teamchallenge-001-site1.ktempurl.com/api/test', {
+        const response = await axios.get('https://holly-molly-back.tyavd.net/api/test', {
             headers: {
                 'Authorization': `Basic ${encodedAuthString}`
             }
