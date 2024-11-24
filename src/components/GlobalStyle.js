@@ -169,6 +169,12 @@ position: absolute;
   width: 100%;
   height: 517px;
 
+  @media (max-width: 1239px) {
+  top: 50%;
+  left: 70%;
+    
+  }
+
   @media (max-width: 564px) {
     top: 0;
     left: 0;
@@ -190,6 +196,11 @@ position: absolute;
   padding: 0;
   border: transparent;
   outline: none;
+
+   @media (max-width: 1239px) {
+  top:35%;
+  left: 70%;
+  }
 
   @media (max-width: 564px) {
   top:18%;

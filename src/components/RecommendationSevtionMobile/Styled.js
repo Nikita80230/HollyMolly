@@ -19,4 +19,16 @@ export const StyledSection = styled.section`
     width: 100%;
     overflow: hidden;
   }
+  @media (max-width: 1239px) {
+    margin-bottom: 32px;
+
+    .titleRecommendation {
+      margin-bottom: 24px;
+      font-size: 30px;
+    }
+
+    .listCards {
+      grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
+    }
+  }
 `;

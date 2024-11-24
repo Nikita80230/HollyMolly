@@ -51,6 +51,35 @@ export const StyledContainer = styled.li`
     white-space: nowrap;
   }
 
+  @media (max-width: 1239px) {
+    border-radius: 7px;
+    padding: 18px 15px;
+    max-width: 280px;
+    width: 100%;
+    height: 172px;
+
+    .wrapperNameStars {
+      margin-bottom: 7px;
+    }
+    .name {
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .review {
+      margin-bottom: 25px;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .dateCreated {
+      font-size: 18px;
+      line-height: 1.20833;
+      margin-left: 150px;
+    }
+  }
+
   @media (max-width: 564px) {
     padding: 16px;
     max-width: 364px;
@@ -61,15 +90,12 @@ export const StyledContainer = styled.li`
       margin-bottom: 16px;
     }
     .name {
-      font-weight: 500;
       font-size: 20px;
-      line-height: 1.2;
     }
 
     .review {
       margin-bottom: 16px;
       font-size: 20px;
-      line-height: 1.2;
     }
 
     .dateCreated {

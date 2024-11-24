@@ -8,7 +8,7 @@ export const WrapperCounter = styled.div`
   align-items: center;
 
   .buttonCounter {
-    padding:8px;
+    padding: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,13 +34,13 @@ export const WrapperCounter = styled.div`
     text-align: center;
   }
 
-  @media (max-width: 564px) {
+  @media (max-width: 1239px) {
     gap: 14px;
     width: 87px;
     height: 30px;
 
     .buttonCounter {
-      padding:6px;
+      padding: 6px;
       width: 30px;
       height: 30px;
     }
@@ -54,5 +54,11 @@ export const WrapperCounter = styled.div`
       font-size: 14px;
       line-height: 1.28571;
     }
+  }
+
+  @media (max-width: 564px) {
+    gap: 14px;
+    width: 87px;
+    height: 30px;
   }
 `;

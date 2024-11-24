@@ -188,6 +188,26 @@ export const WrapperFeedback = styled.div`
     border: 1px solid ${({ theme }) => theme.colors.colorError};
   }
 
+  @media (max-width: 1239px) {
+    padding: 68px 20px 30px 20px;
+    /* width: 426px;
+  height: 517px; */
+
+    .buttonClose {
+      width: 48px;
+      height: 48px;
+    }
+    .iconClose {
+      width: 24px;
+      height: 24px;
+    }
+
+
+    .buttonReview {
+      padding: 5px 5px;
+    }
+  }
+
   @media (max-width: 564px) {
     border-radius: 0;
     padding: 64px 20px 26px 20px;

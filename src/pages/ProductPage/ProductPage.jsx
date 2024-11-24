@@ -28,9 +28,9 @@ const ProductPage = () => {
   const { productId, productInstanceId } = useParams();
   const [reviews, setReviews] = useState([]);
   const isMobile = useMediaQuery({ query: "(max-width: 564px)" });
-  // const isTablet = useMediaQuery({
-  //   query: "(min-width: 565px) and (max-width: 1239px)",
-  // });
+  const isTablet = useMediaQuery({
+    query: "(min-width: 565px) and (max-width: 1239px)",
+  });
 
   const currentProduct = useSelector(selectCurrentProduct);
   const recommendedProducts = useSelector(selectProductsByCurrentCategory);
@@ -51,7 +51,6 @@ const ProductPage = () => {
     (subCategory) => subCategory?.id === categoryId
   );
 
-  
   const structure = [
     { url: routes.HOME, text: "Головна" },
     {
@@ -107,28 +106,30 @@ const ProductPage = () => {
     fetchData();
   }, [productId]);
 
- 
-
   return loading ? (
     <Loader />
   ) : (
     <StyledProductPage>
       <Container>
         <Breadcrumb structure={structure} />
-          <ProductOnPage instanceId={productInstanceId} borderColor={colors} isMobile={isMobile} />
+        <ProductOnPage
+          instanceId={productInstanceId}
+          borderColor={colors}
+          isMobile={isMobile}
+        />
         <ProductReviews reviews={reviews} productId={productId} />
-        {!isMobile ? (
+        {isMobile || isTablet ? (
+          <RecommendationSectionMobile
+            recommendedProducts={recommendedProducts}
+            colors={colors}
+          />
+        ) : (
           <RecommendationSection
             className="productPageRecommendation"
             recommendedProducts={recommendedProducts}
             colors={colors}
             title="Товари які можуть Вам сподобатись"
             isHomePage={false}
-          />
-        ) : (
-          <RecommendationSectionMobile
-            recommendedProducts={recommendedProducts}
-            colors={colors}
           />
         )}
       </Container>

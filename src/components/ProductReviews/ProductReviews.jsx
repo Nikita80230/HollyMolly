@@ -61,10 +61,10 @@ const ProductReviews = ({ reviews, productId }) => {
                 spaceBetween: 15,
               },
               768: {
-                slidesPerView: 2,
+                slidesPerView: 2.5,
                 spaceBetween: 20,
               },
-              1024: {
+              1240: {
                 slidesPerView: 3,
                 spaceBetween: 46,
               },
