@@ -95,7 +95,6 @@ button{
   padding: 0;
   border: transparent;
   outline: none;
- 
 }
 
 .modal-content-order {

@@ -18,15 +18,5 @@ export const StyledContainer = styled.div`
     padding: 0 20px;
   }
 
-  /* @media (max-width: 425px) {
-    max-width: 425px;
-    padding: 0 20px;
-  }
-
-  @media (max-width: 375px) {
-    max-width: 375px;
-    padding: 0 20px;
-  } */
-
    
 `;
