@@ -21,7 +21,7 @@ import PhotoSwiper from "../PhotoSwiper/PhotoSwiper";
 import defaultPhoto from "src/assets/images/defaultImg.webp";
 import colorTranslations from "src/utils/colorTranslations";
 
-const ProductOnPage = ({ instanceId, borderColor }) => {
+const ProductOnPage = ({ instanceId, borderColor, isMobile }) => {
   const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   const product = useSelector(selectCurrentProduct);
@@ -39,7 +39,7 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
   const [quantity, setQuantity] = useState(1);
   const [stockQuantity, setStockQuantity] = useState(null);
   const [photoProduct, setPhotoProduct] = useState(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
+  
 
   const isProductInFavorite = favoriteProducts?.some(
     (favoriteProduct) => favoriteProduct && favoriteProduct.id === product?.id
@@ -190,17 +190,6 @@ const ProductOnPage = ({ instanceId, borderColor }) => {
     }
   }, [product, instanceId]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 564);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <>

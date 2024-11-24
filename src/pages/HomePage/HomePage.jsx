@@ -10,13 +10,11 @@ import { getRecommendedProducts } from "src/redux/products/operations";
 import { selectRecommendedProducts } from "src/redux/products/productsSlice";
 
 const HomePage = () => {
-  // const isMobile = useMediaQuery({ query: "(max-width: 564px)" });
+ 
   const isTablet = useMediaQuery({
     query: "(min-width: 565px) and (max-width: 1239px)",
   });
-  // const isDesktop = useMediaQuery({
-  //   query: "(min-width: 1240px)",
-  // });
+
 
   const dispatch = useDispatch();
   const recommendedProducts = useSelector(selectRecommendedProducts);

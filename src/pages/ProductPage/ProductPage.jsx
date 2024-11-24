@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Breadcrumb from "src/components/Breadcrumb/Breadcrumb";
@@ -26,7 +27,10 @@ import { StyledProductPage } from "./Styled";
 const ProductPage = () => {
   const { productId, productInstanceId } = useParams();
   const [reviews, setReviews] = useState([]);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 564);
+  const isMobile = useMediaQuery({ query: "(max-width: 564px)" });
+  // const isTablet = useMediaQuery({
+  //   query: "(min-width: 565px) and (max-width: 1239px)",
+  // });
 
   const currentProduct = useSelector(selectCurrentProduct);
   const recommendedProducts = useSelector(selectProductsByCurrentCategory);
@@ -47,14 +51,7 @@ const ProductPage = () => {
     (subCategory) => subCategory?.id === categoryId
   );
 
-  // console.log("allCategories-->", allCategories);
-  // console.log("productSubCategoryId-->", categoryId);
-  // console.log("currentProduct-->", currentProduct);
-  // console.log("mainCategory-->", mainCategory);
-  // console.log("mainCategoryId-->", categoryGroupId);
-  // console.log("subCategory-->", subCategory);
-  // console.log("recommendedProducts-->", recommendedProducts);
-
+  
   const structure = [
     { url: routes.HOME, text: "Головна" },
     {
@@ -110,17 +107,7 @@ const ProductPage = () => {
     fetchData();
   }, [productId]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 564);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+ 
 
   return loading ? (
     <Loader />
@@ -128,7 +115,7 @@ const ProductPage = () => {
     <StyledProductPage>
       <Container>
         <Breadcrumb structure={structure} />
-        <ProductOnPage instanceId={productInstanceId} borderColor={colors} />
+          <ProductOnPage instanceId={productInstanceId} borderColor={colors} isMobile={isMobile} />
         <ProductReviews reviews={reviews} productId={productId} />
         {!isMobile ? (
           <RecommendationSection

@@ -35,6 +35,13 @@ export const StyledBreadcrumb = styled.div`
     pointer-events: none;
   }
 
+  @media (max-width: 1239px) {
+    .breadcrumbs {
+      padding-top: 24px;
+      margin-bottom: 17px;
+    }
+  }
+
   @media (max-width: 564px) {
     .breadcrumbs {
       gap: 8px;

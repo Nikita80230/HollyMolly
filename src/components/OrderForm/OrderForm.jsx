@@ -338,7 +338,7 @@ const OrderForm = () => {
         //   handleSubmit(values);
         //   setSubmitting(false);
         // }}
-        omSubmit={handleSubmit}
+        onSubmit={handleSubmit}
       >
         {({ setFieldValue, values, errors, touched }) => (
           <Form className="styledForm">

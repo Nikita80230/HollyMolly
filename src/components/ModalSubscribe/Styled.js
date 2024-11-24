@@ -16,8 +16,9 @@ export const Wrapper = styled.div`
   .iconClose {
     width: 32px;
     height: 32px;
-    fill:${({ theme }) => theme.colors.primaryTxtColor} ;
-    
+    path {
+      fill: ${({ theme }) => theme.colors.primaryTxtColor};
+    }
   }
 
   .title {
@@ -54,6 +55,39 @@ export const Wrapper = styled.div`
     border: transparent;
   }
 
+  @media (max-width: 1239px) {
+    padding: 40px 16px 24px 16px;
+    width: 565px;
+    height: 172px;
+
+    .iconClose {
+      width: 24px;
+      height: 24px;
+    }
+
+    .title {
+      margin-bottom: 10px;
+      font-size: 32px;
+      line-height: 1.25;
+    }
+
+    .description {
+      margin-bottom: 20px;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .text {
+      font-size: 14px;
+      line-height: 1.28571;
+    }
+
+    .buttonModal {
+      top: 8px;
+      right: 16px;
+    }
+  }
+
   @media (max-width: 564px) {
     padding: 36px 10px 20px 10px;
     width: 335px;
@@ -66,7 +100,6 @@ export const Wrapper = styled.div`
 
     .title {
       margin-bottom: 5px;
-
       font-size: 28px;
       line-height: 1.21429;
     }
@@ -78,7 +111,6 @@ export const Wrapper = styled.div`
     }
 
     .text {
-      font-size: 14px;
       line-height: 1.21429;
     }
 
